@@ -10,11 +10,7 @@
         <attribute name="mood" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toCraving" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Craving" inverseName="toMood" inverseEntity="Craving" syncable="YES"/>
     </entity>
-    <entity name="QuitDate" representedClassName="QuitDate" syncable="YES" codeGenerationType="class">
-        <attribute name="quitDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-    </entity>
     <elements>
-        <element name="QuitDate" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="Craving" positionX="99" positionY="9" width="128" height="103"/>
         <element name="Mood" positionX="45" positionY="45" width="128" height="75"/>
     </elements>

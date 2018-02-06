@@ -101,20 +101,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Savings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlB-Bc-fLa">
-                                                    <rect key="frame" x="10" y="10" width="355" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="gYO-Xq-wby"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="40"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frn-cm-yvK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
+                                                </scrollView>
+                                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y7T-Dr-deW">
+                                                    <rect key="frame" x="160" y="267" width="55" height="37"/>
+                                                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </pageControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="BlB-Bc-fLa" secondAttribute="trailing" constant="10" id="9g0-dN-Ga4"/>
-                                                <constraint firstItem="BlB-Bc-fLa" firstAttribute="leading" secondItem="zWo-sr-6r1" secondAttribute="leading" constant="10" id="Ad3-YB-DeG"/>
-                                                <constraint firstItem="BlB-Bc-fLa" firstAttribute="top" secondItem="zWo-sr-6r1" secondAttribute="top" constant="10" id="j5o-0G-Vja"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Y7T-Dr-deW" secondAttribute="bottom" constant="10" id="V7f-On-ljU"/>
+                                                <constraint firstAttribute="bottom" secondItem="frn-cm-yvK" secondAttribute="bottom" id="ee3-EW-sae"/>
+                                                <constraint firstItem="frn-cm-yvK" firstAttribute="top" secondItem="zWo-sr-6r1" secondAttribute="top" id="tKY-1U-dWn"/>
+                                                <constraint firstItem="Y7T-Dr-deW" firstAttribute="centerX" secondItem="zWo-sr-6r1" secondAttribute="centerX" id="uEd-gb-fLD"/>
+                                                <constraint firstItem="frn-cm-yvK" firstAttribute="leading" secondItem="zWo-sr-6r1" secondAttribute="leading" id="xnT-Lf-Xfi"/>
+                                                <constraint firstAttribute="trailing" secondItem="frn-cm-yvK" secondAttribute="trailing" id="y3b-HN-7pW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -155,8 +156,9 @@
                     </tableView>
                     <connections>
                         <outlet property="countdownLabel" destination="hG6-eD-bHy" id="0KN-EC-8z3"/>
-                        <outlet property="overallSavingsLabel" destination="BlB-Bc-fLa" id="12a-B7-xMx"/>
                         <outlet property="quitDateLabel" destination="A0I-ZJ-VX7" id="7Ms-wL-6xb"/>
+                        <outlet property="savingsPageControl" destination="Y7T-Dr-deW" id="uXd-rQ-y4a"/>
+                        <outlet property="savingsScrollView" destination="frn-cm-yvK" id="YDC-Bp-cFt"/>
                         <outlet property="setQuitInformationButton" destination="kxW-8l-hbe" id="Q9H-WN-mE0"/>
                     </connections>
                 </tableViewController>

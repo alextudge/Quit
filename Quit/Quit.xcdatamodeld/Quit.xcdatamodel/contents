@@ -10,8 +10,13 @@
         <attribute name="mood" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toCraving" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Craving" inverseName="toMood" inverseEntity="Craving" syncable="YES"/>
     </entity>
+    <entity name="SavingGoal" representedClassName="SavingGoal" syncable="YES" codeGenerationType="class">
+        <attribute name="goalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="goalName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Craving" positionX="99" positionY="9" width="128" height="103"/>
         <element name="Mood" positionX="45" positionY="45" width="128" height="75"/>
+        <element name="SavingGoal" positionX="72" positionY="54" width="128" height="75"/>
     </elements>
 </model>

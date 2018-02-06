@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03E72025220000CC7CA8 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E62025220000CC7CA8 /* MainVC.swift */; };
 		177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F03E62025220000CC7CA8 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -109,8 +111,9 @@
 		177F04212028A6F000CC7CA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				177F03E62025220000CC7CA8 /* MainVC.swift */,
+				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
+				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */,
+				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
 				177F03E72025220000CC7CA8 /* MainVC.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,
 				177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */,

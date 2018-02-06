@@ -27,8 +27,11 @@ struct QuitData {
     var costPerYear: Double {
         return self.costPerWeek * 52
     }
-    var savedSoFar: Double {
+    var minuteSmokeFree: Double {
         let secondsSmokeFree = Date().timeIntervalSince(self.quitDate)
-        return (secondsSmokeFree / 60) * costPerMinute
+        return (secondsSmokeFree / 60)
+    }
+    var savedSoFar: Double {
+        return self.minuteSmokeFree * costPerMinute
     }
 }

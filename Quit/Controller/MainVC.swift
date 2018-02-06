@@ -15,7 +15,7 @@ import Charts
 //Create a feed of user posts about their quit experience
 //Save local notifications periodically for continued interaction
 
-class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCDelegate {
+class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCDelegate, savingGoalVCDelegate {
     
     var cravingController: NSFetchedResultsController<Craving>!
     var savingsController: NSFetchedResultsController<SavingGoal>!
@@ -27,6 +27,7 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     @IBOutlet weak var overallSavingsLabel: UILabel!
     @IBOutlet weak var savingsScrollView: UIScrollView!
     @IBOutlet weak var savingsPageControl: UIPageControl!
+    @IBOutlet weak var healthTextView: UITextView!
     
     //Set up the UI assuming no quit date has been set
     override func viewDidLoad() {
@@ -42,13 +43,20 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
             quitData = QuitData(smokedDaily: returnedData["smokedDaily"] as! Int, costOf20: returnedData["costOf20"] as! Int, quitDate: returnedData["quitDate"] as! Date)
             setupSection1()
             setupSection2()
+            setupSection3()
         }
-        setupSection3()
+        setupSection4()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toQuitInfoVC" {
             if let destination = segue.destination as? QuitInfoVC {
+                destination.delegate = self
+                print("delegation working")
+            }
+        }
+        if segue.identifier == "toSavingGoalVC" {
+            if let destination = segue.destination as? SavingGoalVC {
                 destination.delegate = self
                 print("delegation working")
             }
@@ -87,12 +95,13 @@ extension MainVC {
         addCraving(catagory: "Just testing", smoked: true)
         fetchCravingData()
     }
+    
+    
 }
 
 //Section 2 - Financial Info
 extension MainVC {
     func setupSection2() {
-        generateSavingTestData()
         fetchSavingsGoalsData()
         populateScrollView()
     }
@@ -100,21 +109,30 @@ extension MainVC {
     func populateScrollView()  {
         let scrollViewWidth:CGFloat = self.savingsScrollView.frame.width
         let scrollViewHeight:CGFloat = self.savingsScrollView.frame.height
-        let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
-        imgOne.image = UIImage(named: "Block")
-        self.savingsScrollView.addSubview(imgOne)
+        let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.black, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        let screenOneText = NSAttributedString(string: "£\(quitData!.costPerDay) saved daily, £\(quitData!.costPerYear) saved yearly. Goals.", attributes: myAttribute)
+        let screenOne = UITextView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
+        screenOne.attributedText = screenOneText
+        screenOne.backgroundColor = .clear
+        screenOne.isEditable = false
+        self.savingsScrollView.addSubview(screenOne)
         for x in 0..<savingsController.fetchedObjects!.count {
             let progress = KDCircularProgress(frame: CGRect(x: scrollViewWidth * CGFloat(x + 1), y: 0 ,width: scrollViewWidth, height: scrollViewHeight))
             progress.startAngle = -90
-            progress.progressThickness = 0.2
+            progress.progressThickness = 0.6
             progress.trackThickness = 0.6
             progress.clockwise = true
             progress.gradientRotateSpeed = 2
-            progress.roundedCorners = false
+            progress.roundedCorners = true
             progress.glowMode = .forward
-            progress.glowAmount = 0.9
-            progress.set(colors: UIColor.cyan ,UIColor.white, UIColor.magenta, UIColor.white, UIColor.orange)
+            progress.glowAmount = 0.1
+            progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
+            progress.animate(toAngle: (quitData!.savedSoFar / savingsController.fetchedObjects![x].goalAmount) * 360, duration: 1.5, completion: nil)
             self.savingsScrollView.addSubview(progress)
+            let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 2)), y: scrollViewHeight / 2 ,width: scrollViewWidth, height: 40))
+            let string = NSAttributedString(string: savingsController.fetchedObjects![x].goalName!, attributes: myAttribute)
+            label.attributedText = string
+            self.savingsScrollView.addSubview(label)
         }
         self.savingsScrollView.contentSize = CGSize(width:self.savingsScrollView.frame.width * CGFloat(1 + (savingsController.fetchedObjects?.count ?? 0)), height:self.savingsScrollView.frame.height)
         self.savingsScrollView.delegate = self
@@ -148,11 +166,39 @@ extension MainVC {
             print("\(error)")
         }
     }
+    
+    func addSavingGoal(title: String, cost: Double) {
+        let saving = SavingGoal(context: context)
+        saving.goalName = title
+        saving.goalAmount = cost
+        ad.saveContext()
+    }
 }
 
-//Section 3 - Craving information
+//Section 3 - Health
 extension MainVC {
     func setupSection3() {
+        prepareHealthScrollView()
+    }
+    
+    func prepareHealthScrollView() {
+        let healthStats: [String: Double] = ["Blood pressure normal": 20, "Pulse rate normal": 20, "Nicotine down to 90%": 480, "Blood oxygen levels normal": 720, "Carbon monoxide levels normal": 720, "Nerve endings started to repair": 2880, "Smell and taste normal": 2880, "Fully nictone free": 4320, "Lung performace improving": 4320, "Worst withdrawal symptoms over": 4320, "Mouth and blood circulation normal": 14400, "Emotional trauma ended": 21600]
+        let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        var healthTextViewText = ""
+        for (i,x) in healthStats {
+            healthTextViewText += "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n"
+        }
+        let string = NSAttributedString(string: healthTextViewText, attributes: myAttribute)
+        healthTextView.backgroundColor = .clear
+        healthTextView.isEditable = false
+        healthTextView.isScrollEnabled = true
+        healthTextView.attributedText = string
+    }
+}
+
+//Section 4 - Craving information
+extension MainVC {
+    func setupSection4() {
         fetchCravingData()
     }
     
@@ -160,6 +206,7 @@ extension MainVC {
         //Fetching data on cravings.
         let fetchRequest: NSFetchRequest<Craving> = Craving.fetchRequest()
         let dateSort = NSSortDescriptor(key: "cravingDate", ascending: false)
+        var cravingTriggerDictionary = [String:Int]()
         fetchRequest.sortDescriptors = [dateSort]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -167,7 +214,10 @@ extension MainVC {
         do {
             try self.cravingController.performFetch()
             for x in self.cravingController.fetchedObjects! {
-                print(x)
+                if let catagory = x.cravingCatagory {
+                    cravingTriggerDictionary[catagory] = (cravingTriggerDictionary[catagory] == nil) ? 1 : cravingTriggerDictionary[catagory]! + 1
+                }
+                displayTopCravingMood(dictionary: cravingTriggerDictionary)
             }
         } catch {
             let error = error as NSError
@@ -175,18 +225,19 @@ extension MainVC {
         }
     }
     
+    func displayTopCravingMood(dictionary: [String:Int]) {
+        //TODO
+    }
+    
+    func displayTopCravingTime() {
+        //TODO
+    }
+    
     func addCraving(catagory: String, smoked: Bool) {
         let craving = Craving(context: context)
         craving.cravingCatagory = catagory
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
-        ad.saveContext()
-    }
-    
-    func generateSavingTestData() {
-        let savingGoal = SavingGoal(context: context)
-        savingGoal.goalAmount = 50.0
-        savingGoal.goalName = "Test1"
         ad.saveContext()
     }
 }

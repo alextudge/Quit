@@ -151,7 +151,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -164,22 +164,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dZ7-7x-Y9h">
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-xc-Jd2">
                                                     <rect key="frame" x="8" y="8" width="359" height="308.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                </scrollView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="dZ7-7x-Y9h" secondAttribute="trailing" id="kDA-2l-bgl"/>
-                                                <constraint firstItem="dZ7-7x-Y9h" firstAttribute="leading" secondItem="HvJ-m0-wFt" secondAttribute="leadingMargin" id="oXV-sf-xET"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="dZ7-7x-Y9h" secondAttribute="bottom" id="pKH-KS-KAz"/>
-                                                <constraint firstItem="dZ7-7x-Y9h" firstAttribute="top" secondItem="HvJ-m0-wFt" secondAttribute="topMargin" id="yX7-nq-gyW"/>
+                                                <constraint firstItem="TXB-xc-Jd2" firstAttribute="leading" secondItem="HvJ-m0-wFt" secondAttribute="leadingMargin" id="Qsy-rJ-g1q"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TXB-xc-Jd2" secondAttribute="bottom" id="VZm-o4-RWJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TXB-xc-Jd2" secondAttribute="trailing" id="ds6-fF-Aps"/>
+                                                <constraint firstItem="TXB-xc-Jd2" firstAttribute="top" secondItem="HvJ-m0-wFt" secondAttribute="topMargin" id="wvK-SZ-pRd"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -191,7 +187,7 @@
                     </tableView>
                     <connections>
                         <outlet property="countdownLabel" destination="hG6-eD-bHy" id="0KN-EC-8z3"/>
-                        <outlet property="healthTextView" destination="dZ7-7x-Y9h" id="qNn-kT-Sy4"/>
+                        <outlet property="healthScrollView" destination="TXB-xc-Jd2" id="3ah-Qr-3CA"/>
                         <outlet property="quitDateLabel" destination="A0I-ZJ-VX7" id="7Ms-wL-6xb"/>
                         <outlet property="savingsPageControl" destination="Y7T-Dr-deW" id="uXd-rQ-y4a"/>
                         <outlet property="savingsScrollView" destination="frn-cm-yvK" id="YDC-Bp-cFt"/>

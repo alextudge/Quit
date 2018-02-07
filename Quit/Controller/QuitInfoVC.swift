@@ -37,7 +37,7 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        let quitData: [String: Any] = ["smokedDaily": Int(cigarettesSmokedDaily.text!), "costOf20": Int(costOf20.text!), "quitDate": quitDatePicker.date]
+        let quitData: [String: Any] = ["smokedDaily": Int(cigarettesSmokedDaily.text!), "costOf20": Double(costOf20.text!), "quitDate": quitDatePicker.date]
         defaults.set(quitData, forKey: "quitData")
         delegate?.isQuitDateSet()
         dismiss(animated: true, completion: nil)

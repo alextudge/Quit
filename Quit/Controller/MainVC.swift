@@ -8,9 +8,7 @@
 
 import UIKit
 import CoreData
-import Charts
 
-//Set quit data if one doesnt already exist (pull it from NSUserDefaults or coreData?)
 //Display 1. length of time since quit data, 2. craving chart over time, 3. money and target section, 4. health stats
 //Create a feed of user posts about their quit experience
 //Save local notifications periodically for continued interaction
@@ -24,10 +22,9 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     @IBOutlet weak var quitDateLabel: UILabel!
     @IBOutlet weak var setQuitInformationButton: UIButton!
     @IBOutlet weak var countdownLabel: UILabel!
-    @IBOutlet weak var overallSavingsLabel: UILabel!
     @IBOutlet weak var savingsScrollView: UIScrollView!
     @IBOutlet weak var savingsPageControl: UIPageControl!
-    @IBOutlet weak var healthTextView: UITextView!
+    @IBOutlet weak var healthScrollView: UIScrollView!
     
     //Set up the UI assuming no quit date has been set
     override func viewDidLoad() {
@@ -40,12 +37,12 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     //If a quit date has been set, populate the UI
     func isQuitDateSet() {
         if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
-            quitData = QuitData(smokedDaily: returnedData["smokedDaily"] as! Int, costOf20: returnedData["costOf20"] as! Int, quitDate: returnedData["quitDate"] as! Date)
+            quitData = QuitData(smokedDaily: returnedData["smokedDaily"] as! Int, costOf20: returnedData["costOf20"] as! Double, quitDate: returnedData["quitDate"] as! Date)
             setupSection1()
             setupSection2()
             setupSection3()
+            setupSection4()
         }
-        setupSection4()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,7 +107,7 @@ extension MainVC {
         let scrollViewWidth:CGFloat = self.savingsScrollView.frame.width
         let scrollViewHeight:CGFloat = self.savingsScrollView.frame.height
         let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.black, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
-        let screenOneText = NSAttributedString(string: "£\(quitData!.costPerDay) saved daily, £\(quitData!.costPerYear) saved yearly. Goals.", attributes: myAttribute)
+        let screenOneText = NSAttributedString(string: "£\(Int(quitData!.costPerDay)) saved daily, £\(Int(quitData!.costPerYear)) saved yearly. £\(Int(quitData!.savedSoFar)) saved so far.", attributes: myAttribute)
         let screenOne = UITextView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
         screenOne.attributedText = screenOneText
         screenOne.backgroundColor = .clear
@@ -123,9 +120,10 @@ extension MainVC {
             progress.trackThickness = 0.6
             progress.clockwise = true
             progress.gradientRotateSpeed = 2
-            progress.roundedCorners = true
+            progress.roundedCorners = false
             progress.glowMode = .forward
-            progress.glowAmount = 0.1
+            progress.trackColor = .lightGray
+            progress.glowAmount = 0.5
             progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
             progress.animate(toAngle: (quitData!.savedSoFar / savingsController.fetchedObjects![x].goalAmount) * 360, duration: 1.5, completion: nil)
             self.savingsScrollView.addSubview(progress)
@@ -175,30 +173,9 @@ extension MainVC {
     }
 }
 
-//Section 3 - Health
+//Section 3 - Craving information
 extension MainVC {
     func setupSection3() {
-        prepareHealthScrollView()
-    }
-    
-    func prepareHealthScrollView() {
-        let healthStats: [String: Double] = ["Blood pressure normal": 20, "Pulse rate normal": 20, "Nicotine down to 90%": 480, "Blood oxygen levels normal": 720, "Carbon monoxide levels normal": 720, "Nerve endings started to repair": 2880, "Smell and taste normal": 2880, "Fully nictone free": 4320, "Lung performace improving": 4320, "Worst withdrawal symptoms over": 4320, "Mouth and blood circulation normal": 14400, "Emotional trauma ended": 21600]
-        let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
-        var healthTextViewText = ""
-        for (i,x) in healthStats {
-            healthTextViewText += "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n"
-        }
-        let string = NSAttributedString(string: healthTextViewText, attributes: myAttribute)
-        healthTextView.backgroundColor = .clear
-        healthTextView.isEditable = false
-        healthTextView.isScrollEnabled = true
-        healthTextView.attributedText = string
-    }
-}
-
-//Section 4 - Craving information
-extension MainVC {
-    func setupSection4() {
         fetchCravingData()
     }
     
@@ -239,5 +216,36 @@ extension MainVC {
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         ad.saveContext()
+    }
+}
+
+//Section 4 - Health
+extension MainVC {
+    func setupSection4() {
+        prepareHealthScrollView()
+    }
+    
+    func prepareHealthScrollView() {
+        let healthStats: [String: Double] = ["Blood pressure normal": 20, "Pulse rate normal": 20, "Nicotine down to 90%": 480, "Blood oxygen levels normal": 720, "Carbon monoxide levels normal": 720, "Nerve endings started to repair": 2880, "Smell and taste normal": 2880, "Fully nictone free": 4320, "Lung performace improving": 4320, "Worst withdrawal symptoms over": 4320, "Mouth and blood circulation normal": 14400, "Emotional trauma ended": 21600]
+        let myAttribute = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.backgroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        //var healthTextViewText = ""
+        var int = 0
+        let scrollViewWidth:CGFloat = self.savingsScrollView.frame.width
+        let scrollViewHeight:CGFloat = self.savingsScrollView.frame.height
+        for (i,x) in healthStats {
+            //healthTextViewText += "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n"
+            let label = UILabel(frame: CGRect(x: 0, y: int ,width: Int(scrollViewWidth), height: 50))
+            let attString = NSAttributedString(string: "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n", attributes: myAttribute)
+            label.attributedText = attString
+            self.healthScrollView.addSubview(label)
+            int += 50
+        }
+        self.healthScrollView.contentSize = CGSize(width: scrollViewWidth, height: CGFloat(healthStats.count * 50))
+        self.healthScrollView.delegate = self
+//        let string = NSAttributedString(string: healthTextViewText, attributes: myAttribute)
+//        healthTextView.backgroundColor = .clear
+//        healthTextView.isEditable = false
+//        healthTextView.isScrollEnabled = true
+//        healthTextView.attributedText = string
     }
 }

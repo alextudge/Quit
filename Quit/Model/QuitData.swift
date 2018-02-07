@@ -10,7 +10,7 @@ import Foundation
 
 struct QuitData {
     var smokedDaily: Int
-    var costOf20: Int
+    var costOf20: Double
     var quitDate: Date
     var costPerCigarette: Double {
         return Double(self.costOf20) / 20.0

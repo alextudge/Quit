@@ -227,15 +227,18 @@ extension MainVC {
     
     func prepareHealthScrollView() {
         let healthStats: [String: Double] = ["Blood pressure normal": 20, "Pulse rate normal": 20, "Nicotine down to 90%": 480, "Blood oxygen levels normal": 720, "Carbon monoxide levels normal": 720, "Nerve endings started to repair": 2880, "Smell and taste normal": 2880, "Fully nictone free": 4320, "Lung performace improving": 4320, "Worst withdrawal symptoms over": 4320, "Mouth and blood circulation normal": 14400, "Emotional trauma ended": 21600]
-        let myAttribute = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.backgroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
-        //var healthTextViewText = ""
+        let achieved = [NSAttributedStringKey.foregroundColor: UIColor.green, NSAttributedStringKey.backgroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        let notAchieved = [NSAttributedStringKey.foregroundColor: UIColor.red, NSAttributedStringKey.backgroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
         var int = 0
         let scrollViewWidth:CGFloat = self.savingsScrollView.frame.width
-        let scrollViewHeight:CGFloat = self.savingsScrollView.frame.height
         for (i,x) in healthStats {
-            //healthTextViewText += "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n"
             let label = UILabel(frame: CGRect(x: 0, y: int ,width: Int(scrollViewWidth), height: 50))
-            let attString = NSAttributedString(string: "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n", attributes: myAttribute)
+            let attString: NSAttributedString?
+            if quitData!.minuteSmokeFree / x < 100 {
+                attString = NSAttributedString(string: "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n", attributes: notAchieved)
+            } else {
+                attString = NSAttributedString(string: "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n", attributes: achieved)
+            }
             label.attributedText = attString
             self.healthScrollView.addSubview(label)
             int += 50

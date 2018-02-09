@@ -125,7 +125,8 @@ extension MainVC {
             progress.trackColor = .lightGray
             progress.glowAmount = 0.5
             progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
-            progress.animate(toAngle: (quitData!.savedSoFar / savingsController.fetchedObjects![x].goalAmount) * 360, duration: 1.5, completion: nil)
+            let progressAngle = (quitData!.savedSoFar / savingsController.fetchedObjects![x].goalAmount) * 360
+            progress.animate(toAngle: progressAngle < 360 ? progressAngle : 360, duration: 1.5, completion: nil)
             self.savingsScrollView.addSubview(progress)
             let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 2)), y: scrollViewHeight / 2 ,width: scrollViewWidth, height: 40))
             let string = NSAttributedString(string: savingsController.fetchedObjects![x].goalName!, attributes: myAttribute)
@@ -245,10 +246,5 @@ extension MainVC {
         }
         self.healthScrollView.contentSize = CGSize(width: scrollViewWidth, height: CGFloat(healthStats.count * 50))
         self.healthScrollView.delegate = self
-//        let string = NSAttributedString(string: healthTextViewText, attributes: myAttribute)
-//        healthTextView.backgroundColor = .clear
-//        healthTextView.isEditable = false
-//        healthTextView.isScrollEnabled = true
-//        healthTextView.attributedText = string
     }
 }

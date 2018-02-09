@@ -150,6 +150,17 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yTK-a1-ONR" id="87P-i5-0bj">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcT-Mc-3nU" customClass="LineChartView" customModule="Charts">
+                                                    <rect key="frame" x="8" y="8" width="359" height="308.5"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TcT-Mc-3nU" firstAttribute="top" secondItem="87P-i5-0bj" secondAttribute="topMargin" id="1je-Om-R5T"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TcT-Mc-3nU" secondAttribute="bottom" id="I76-8W-qDF"/>
+                                                <constraint firstItem="TcT-Mc-3nU" firstAttribute="leading" secondItem="87P-i5-0bj" secondAttribute="leadingMargin" id="ZkD-vV-qey"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TcT-Mc-3nU" secondAttribute="trailing" id="iUb-7E-yK8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
@@ -161,7 +172,7 @@
                                         <rect key="frame" x="0.0" y="975" width="375" height="325"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="snO-pp-Gri" id="HvJ-m0-wFt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="324.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-xc-Jd2">
@@ -189,6 +200,7 @@
                         <outlet property="countdownLabel" destination="hG6-eD-bHy" id="0KN-EC-8z3"/>
                         <outlet property="healthScrollView" destination="TXB-xc-Jd2" id="3ah-Qr-3CA"/>
                         <outlet property="quitDateLabel" destination="A0I-ZJ-VX7" id="7Ms-wL-6xb"/>
+                        <outlet property="recentCravingsLineChart" destination="TcT-Mc-3nU" id="RZM-Wq-Uoz"/>
                         <outlet property="savingsPageControl" destination="Y7T-Dr-deW" id="uXd-rQ-y4a"/>
                         <outlet property="savingsScrollView" destination="frn-cm-yvK" id="YDC-Bp-cFt"/>
                         <outlet property="setQuitInformationButton" destination="kxW-8l-hbe" id="Q9H-WN-mE0"/>

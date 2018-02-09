@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Charts
 
 //Display 1. length of time since quit data, 2. craving chart over time, 3. money and target section, 4. health stats
 //Create a feed of user posts about their quit experience
@@ -25,6 +26,7 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     @IBOutlet weak var savingsScrollView: UIScrollView!
     @IBOutlet weak var savingsPageControl: UIPageControl!
     @IBOutlet weak var healthScrollView: UIScrollView!
+    @IBOutlet weak var recentCravingsLineChart: LineChartView!
     
     //Set up the UI assuming no quit date has been set
     override func viewDidLoad() {
@@ -92,8 +94,6 @@ extension MainVC {
         addCraving(catagory: "Just testing", smoked: true)
         fetchCravingData()
     }
-    
-    
 }
 
 //Section 2 - Financial Info
@@ -185,18 +185,28 @@ extension MainVC {
         let fetchRequest: NSFetchRequest<Craving> = Craving.fetchRequest()
         let dateSort = NSSortDescriptor(key: "cravingDate", ascending: false)
         var cravingTriggerDictionary = [String:Int]()
+        var cravingDateDictionary = [Date: Int]()
         fetchRequest.sortDescriptors = [dateSort]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
         self.cravingController = controller
         do {
             try self.cravingController.performFetch()
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .short
             for x in self.cravingController.fetchedObjects! {
                 if let catagory = x.cravingCatagory {
                     cravingTriggerDictionary[catagory] = (cravingTriggerDictionary[catagory] == nil) ? 1 : cravingTriggerDictionary[catagory]! + 1
                 }
-                displayTopCravingMood(dictionary: cravingTriggerDictionary)
+                if let y = x.cravingDate {
+                    let stringDate = dateFormatter.string(from: y)
+                    let standardisedDate = dateFormatter.date(from: stringDate)
+                    cravingDateDictionary[standardisedDate!] = (cravingDateDictionary[standardisedDate!] == nil) ? 1 : cravingDateDictionary[standardisedDate!]! + 1
+                }
             }
+            displayTopCravingMood(dictionary: cravingTriggerDictionary)
+            displayCravingsOverTime(dict: cravingDateDictionary)
         } catch {
             let error = error as NSError
             print("\(error)")
@@ -207,8 +217,56 @@ extension MainVC {
         //TODO
     }
     
-    func displayTopCravingTime() {
-        //TODO
+    func displayCravingsOverTime(dict: [Date: Int]) {
+        var referenceTimeInterval: TimeInterval = 0
+        if let minTimeInterval = (dict.map { $0.key.timeIntervalSince1970 }).min() {
+            referenceTimeInterval = minTimeInterval
+        }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        
+        let xValuesNumberFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: formatter)
+        let xAxis = recentCravingsLineChart.xAxis
+        xAxis.labelPosition = .bottom
+        xAxis.labelCount = dict.count
+        xAxis.drawLabelsEnabled = true
+        xAxis.drawLimitLinesBehindDataEnabled = true
+        xAxis.avoidFirstLastClippingEnabled = true
+        // Set the x values date formatter
+        xAxis.valueFormatter = xValuesNumberFormatter
+        
+        var entries = [ChartDataEntry]()
+        for x in dict {
+            let timeInerval = x.key.timeIntervalSince1970
+            let xValue = (timeInerval - referenceTimeInterval) / (3600 * 24)
+            let yValue = x.value
+            let entry = ChartDataEntry(x: xValue, y: Double(yValue))
+            entries.append(entry)
+        }
+        entries.sort(by: {$0.x < $1.x})
+        let line1 = LineChartDataSet(values: entries, label: "Cravings")
+        line1.colors = [UIColor.white]
+        line1.mode = .cubicBezier
+        line1.cubicIntensity = 0.1
+        line1.drawCirclesEnabled = false
+        line1.drawValuesEnabled = false
+        line1.lineWidth = 5
+        recentCravingsLineChart.backgroundColor = .clear
+        recentCravingsLineChart.xAxis.drawGridLinesEnabled = false
+        recentCravingsLineChart.xAxis.labelTextColor = .white
+        recentCravingsLineChart.leftAxis.drawGridLinesEnabled = false
+        recentCravingsLineChart.rightAxis.drawAxisLineEnabled = false
+        recentCravingsLineChart.rightAxis.drawLabelsEnabled = false
+        recentCravingsLineChart.leftAxis.labelTextColor = .white
+        recentCravingsLineChart.rightAxis.drawGridLinesEnabled = false
+        recentCravingsLineChart.xAxis.avoidFirstLastClippingEnabled = false
+        recentCravingsLineChart.xAxis.setLabelCount(5, force: true)
+        recentCravingsLineChart.xAxis.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
+        recentCravingsLineChart.leftAxis.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
+        let data = LineChartData()
+        data.addDataSet(line1)
+        recentCravingsLineChart.data = data
     }
     
     func addCraving(catagory: String, smoked: Bool) {
@@ -217,6 +275,7 @@ extension MainVC {
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         ad.saveContext()
+        fetchCravingData()
     }
 }
 

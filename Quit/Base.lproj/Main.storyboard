@@ -110,8 +110,7 @@
                                                 </scrollView>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y7T-Dr-deW">
                                                     <rect key="frame" x="160" y="267" width="55" height="37"/>
-                                                    <color key="pageIndicatorTintColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="currentPageIndicatorTintColor" red="0.40000000000000002" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </pageControl>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADb-HH-0vd">
                                                     <rect key="frame" x="309" y="264" width="50" height="50"/>
@@ -151,15 +150,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcT-Mc-3nU" customClass="LineChartView" customModule="Charts">
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-tk-7A1">
                                                     <rect key="frame" x="8" y="8" width="359" height="308.5"/>
-                                                </view>
+                                                </scrollView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="TcT-Mc-3nU" firstAttribute="top" secondItem="87P-i5-0bj" secondAttribute="topMargin" id="1je-Om-R5T"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="TcT-Mc-3nU" secondAttribute="bottom" id="I76-8W-qDF"/>
-                                                <constraint firstItem="TcT-Mc-3nU" firstAttribute="leading" secondItem="87P-i5-0bj" secondAttribute="leadingMargin" id="ZkD-vV-qey"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="TcT-Mc-3nU" secondAttribute="trailing" id="iUb-7E-yK8"/>
+                                                <constraint firstItem="9CZ-tk-7A1" firstAttribute="leading" secondItem="87P-i5-0bj" secondAttribute="leadingMargin" id="507-Uy-ShJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9CZ-tk-7A1" secondAttribute="bottom" id="O2n-hA-AbI"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9CZ-tk-7A1" secondAttribute="trailing" id="aPn-ay-equ"/>
+                                                <constraint firstItem="9CZ-tk-7A1" firstAttribute="top" secondItem="87P-i5-0bj" secondAttribute="topMargin" id="llu-ha-3Zf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,8 +174,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-xc-Jd2">
-                                                    <rect key="frame" x="8" y="8" width="359" height="308.5"/>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-xc-Jd2">
+                                                    <rect key="frame" x="8" y="8" width="359" height="308"/>
                                                 </scrollView>
                                             </subviews>
                                             <constraints>
@@ -186,7 +185,7 @@
                                                 <constraint firstItem="TXB-xc-Jd2" firstAttribute="top" secondItem="HvJ-m0-wFt" secondAttribute="topMargin" id="wvK-SZ-pRd"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.67000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -198,9 +197,9 @@
                     </tableView>
                     <connections>
                         <outlet property="countdownLabel" destination="hG6-eD-bHy" id="0KN-EC-8z3"/>
+                        <outlet property="cravingScrollView" destination="9CZ-tk-7A1" id="3Zg-Kc-bEo"/>
                         <outlet property="healthScrollView" destination="TXB-xc-Jd2" id="3ah-Qr-3CA"/>
                         <outlet property="quitDateLabel" destination="A0I-ZJ-VX7" id="7Ms-wL-6xb"/>
-                        <outlet property="recentCravingsLineChart" destination="TcT-Mc-3nU" id="RZM-Wq-Uoz"/>
                         <outlet property="savingsPageControl" destination="Y7T-Dr-deW" id="uXd-rQ-y4a"/>
                         <outlet property="savingsScrollView" destination="frn-cm-yvK" id="YDC-Bp-cFt"/>
                         <outlet property="setQuitInformationButton" destination="kxW-8l-hbe" id="Q9H-WN-mE0"/>
@@ -230,7 +229,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many do you smoke a day?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8CX-zK-nWd">
                                 <rect key="frame" x="0.0" y="130" width="375" height="50"/>
@@ -239,7 +238,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="qy9-jc-4vh">
                                 <rect key="frame" x="0.0" y="250" width="375" height="417"/>

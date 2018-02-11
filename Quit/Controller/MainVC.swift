@@ -6,11 +6,14 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import UIKit
-import CoreData
 import Charts
+import CoreData
+import UIKit
+import UserNotifications
 
-//Display 1. length of time since quit data, 2. craving chart over time, 3. money and target section, 4. health stats
+let healthStats: [String: Double] = ["Testing local notificatins": 1, "Correcting blood pressure": 20, "Normalising heart rate": 20, "Nicotine down to 90%": 480, "Raising blood oxygen levels to normal": 720, "Returning carbon monoxide levels to normal": 720, "Starting to repair nerve endings": 2880, "Correcting smell and taste": 2880, "Removing all nicotine": 4320, "Improving lung performance": 4320, "Worst withdrawal symptoms over": 4320, "Fixing mouth and gum circulation": 14400, "Emotional trauma ended": 21600]
+
+
 //Create a feed of user posts about their quit experience
 //Save local notifications periodically for continued interaction
 
@@ -26,13 +29,16 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     @IBOutlet weak var savingsScrollView: UIScrollView!
     @IBOutlet weak var savingsPageControl: UIPageControl!
     @IBOutlet weak var healthScrollView: UIScrollView!
-    @IBOutlet weak var recentCravingsLineChart: LineChartView!
+    @IBOutlet weak var cravingScrollView: UIScrollView!
+    
     
     //Set up the UI assuming no quit date has been set
     override func viewDidLoad() {
         tableView.rowHeight = UIScreen.main.bounds.height / 2
         setQuitInformationButton.isHidden = false
         quitDateLabel.isHidden = true
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in }
         isQuitDateSet()
     }
     
@@ -43,7 +49,14 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
             setupSection1()
             setupSection2()
             setupSection3()
-            setupSection4()
+            if (quitData?.quitDate)! < Date() {
+                setupSection4()
+            } else {
+                let subViews = self.healthScrollView.subviews
+                for subview in subViews {
+                    subview.removeFromSuperview()
+                }
+            }
         }
     }
     
@@ -51,13 +64,12 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
         if segue.identifier == "toQuitInfoVC" {
             if let destination = segue.destination as? QuitInfoVC {
                 destination.delegate = self
-                print("delegation working")
+                destination.quitData = self.quitData
             }
         }
         if segue.identifier == "toSavingGoalVC" {
             if let destination = segue.destination as? SavingGoalVC {
                 destination.delegate = self
-                print("delegation working")
             }
         }
     }
@@ -91,8 +103,26 @@ extension MainVC {
     }
     
     @IBAction func cravingButton(_ sender: Any) {
-        addCraving(catagory: "Just testing", smoked: true)
-        fetchCravingData()
+        let alertController = UIAlertController(title: "Did you smoke?", message: "Be honest with yourself. If you smoked, we'll reset your quit date. Bin the packet and carry on with the good work.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Yes", style: .destructive) { action in
+            let quitData: [String: Any] = ["smokedDaily": self.quitData!.smokedDaily, "costOf20": self.quitData!.costOf20, "quitDate": Date()]
+            self.userDefaults.set(quitData, forKey: "quitData")
+            self.isQuitDateSet()
+            let textField = alertController.textFields![0] as UITextField
+            self.addCraving(catagory: (textField.text != nil) ? textField.text! : "", smoked: true)
+            self.fetchCravingData()
+        }
+        alertController.addAction(cancelAction)
+        let OKAction = UIAlertAction(title: "No", style: .default) { action in
+            let textField = alertController.textFields![0] as UITextField
+            self.addCraving(catagory: (textField.text != nil) ? textField.text! : "", smoked: false)
+            self.fetchCravingData()
+        }
+        alertController.addAction(OKAction)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter a mood or a situation"
+        }
+        self.present(alertController, animated: true) { }
     }
 }
 
@@ -107,8 +137,13 @@ extension MainVC {
         let scrollViewWidth:CGFloat = self.savingsScrollView.frame.width
         let scrollViewHeight:CGFloat = self.savingsScrollView.frame.height
         let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.black, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
-        let screenOneText = NSAttributedString(string: "£\(Int(quitData!.costPerDay)) saved daily, £\(Int(quitData!.costPerYear)) saved yearly. £\(Int(quitData!.savedSoFar)) saved so far.", attributes: myAttribute)
-        let screenOne = UITextView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
+        var screenOneText = NSAttributedString()
+        if (quitData?.quitDate)! < Date() {
+            screenOneText = NSAttributedString(string: "£\(Int(quitData!.costPerDay)) saved daily, £\(Int(quitData!.costPerYear)) saved yearly. £\(Int(quitData!.savedSoFar)) saved so far.", attributes: myAttribute)
+        } else {
+            screenOneText = NSAttributedString(string: "You're going to save £\(Int(quitData!.costPerDay))  daily and £\(Int(quitData!.costPerYear)) yearly.", attributes: myAttribute)
+        }
+        let screenOne = UITextView(frame: CGRect(x:0, y: scrollViewHeight / 3, width: scrollViewWidth, height: scrollViewHeight))
         screenOne.attributedText = screenOneText
         screenOne.backgroundColor = .clear
         screenOne.isEditable = false
@@ -128,9 +163,13 @@ extension MainVC {
             let progressAngle = (quitData!.savedSoFar / savingsController.fetchedObjects![x].goalAmount) * 360
             progress.animate(toAngle: progressAngle < 360 ? progressAngle : 360, duration: 1.5, completion: nil)
             self.savingsScrollView.addSubview(progress)
-            let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 2)), y: scrollViewHeight / 2 ,width: scrollViewWidth, height: 40))
+            let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 3)), y: scrollViewHeight / 2 ,width: scrollViewWidth - (scrollViewWidth / 3), height: 100))
             let string = NSAttributedString(string: savingsController.fetchedObjects![x].goalName!, attributes: myAttribute)
             label.attributedText = string
+            label.lineBreakMode = .byWordWrapping
+            label.numberOfLines = 0
+            label.sizeToFit()
+            progress.isUserInteractionEnabled = true
             self.savingsScrollView.addSubview(label)
         }
         self.savingsScrollView.contentSize = CGSize(width:self.savingsScrollView.frame.width * CGFloat(1 + (savingsController.fetchedObjects?.count ?? 0)), height:self.savingsScrollView.frame.height)
@@ -156,9 +195,6 @@ extension MainVC {
         self.savingsController = controller
         do {
             try self.savingsController.performFetch()
-            for x in self.savingsController.fetchedObjects! {
-                print(x)
-            }
             self.savingsPageControl.numberOfPages = self.savingsController.fetchedObjects?.count ?? 1
         } catch {
             let error = error as NSError
@@ -181,11 +217,16 @@ extension MainVC {
     }
     
     func fetchCravingData() {
+        let subViews = self.cravingScrollView.subviews
+        for subview in subViews {
+            subview.removeFromSuperview()
+        }
         //Fetching data on cravings.
         let fetchRequest: NSFetchRequest<Craving> = Craving.fetchRequest()
         let dateSort = NSSortDescriptor(key: "cravingDate", ascending: false)
         var cravingTriggerDictionary = [String:Int]()
         var cravingDateDictionary = [Date: Int]()
+        var smoked = [Date: Int]()
         fetchRequest.sortDescriptors = [dateSort]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -203,29 +244,28 @@ extension MainVC {
                     let stringDate = dateFormatter.string(from: y)
                     let standardisedDate = dateFormatter.date(from: stringDate)
                     cravingDateDictionary[standardisedDate!] = (cravingDateDictionary[standardisedDate!] == nil) ? 1 : cravingDateDictionary[standardisedDate!]! + 1
+                    smoked[standardisedDate!] = (smoked[standardisedDate!] == nil) ? 1 : smoked[standardisedDate!]! + 1
                 }
             }
-            displayTopCravingMood(dictionary: cravingTriggerDictionary)
-            displayCravingsOverTime(dict: cravingDateDictionary)
+            displayCravingsData(dict: cravingDateDictionary, smoked: smoked, catagoryDict: cravingTriggerDictionary)
         } catch {
             let error = error as NSError
             print("\(error)")
         }
     }
     
-    func displayTopCravingMood(dictionary: [String:Int]) {
-        //TODO
-    }
-    
-    func displayCravingsOverTime(dict: [Date: Int]) {
+    func displayCravingsData(dict: [Date: Int], smoked: [Date: Int], catagoryDict: [String: Int]) {
+        let scrollViewHeight = cravingScrollView.bounds.height
+        let scrollViewWidth = cravingScrollView.bounds.width
+        let recentCravingsLineChart = CombinedChartView(frame: CGRect(x: 0, y: 0, width: scrollViewWidth - 10, height: scrollViewHeight))
+        cravingScrollView.addSubview(recentCravingsLineChart)
         var referenceTimeInterval: TimeInterval = 0
         if let minTimeInterval = (dict.map { $0.key.timeIntervalSince1970 }).min() {
             referenceTimeInterval = minTimeInterval
         }
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
+        formatter.dateStyle = .medium
         formatter.timeStyle = .none
-        
         let xValuesNumberFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: formatter)
         let xAxis = recentCravingsLineChart.xAxis
         xAxis.labelPosition = .bottom
@@ -233,40 +273,68 @@ extension MainVC {
         xAxis.drawLabelsEnabled = true
         xAxis.drawLimitLinesBehindDataEnabled = true
         xAxis.avoidFirstLastClippingEnabled = true
-        // Set the x values date formatter
         xAxis.valueFormatter = xValuesNumberFormatter
-        
         var entries = [ChartDataEntry]()
+        var smokedEntries = [BarChartDataEntry]()
         for x in dict {
             let timeInerval = x.key.timeIntervalSince1970
             let xValue = (timeInerval - referenceTimeInterval) / (3600 * 24)
             let yValue = x.value
+            let smokedYValue = smoked[x.key]
             let entry = ChartDataEntry(x: xValue, y: Double(yValue))
+            let smokedEntry = BarChartDataEntry(x: xValue, y: Double(smokedYValue!))
             entries.append(entry)
+            smokedEntries.append(smokedEntry)
         }
         entries.sort(by: {$0.x < $1.x})
+        smokedEntries.sort(by: {$0.x < $1.x})
         let line1 = LineChartDataSet(values: entries, label: "Cravings")
+        let barChartSet = BarChartDataSet(values: smokedEntries, label: "Smoked")
         line1.colors = [UIColor.white]
-        line1.mode = .cubicBezier
-        line1.cubicIntensity = 0.1
+        line1.mode = .linear
         line1.drawCirclesEnabled = false
         line1.drawValuesEnabled = false
         line1.lineWidth = 5
-        recentCravingsLineChart.backgroundColor = .clear
-        recentCravingsLineChart.xAxis.drawGridLinesEnabled = false
-        recentCravingsLineChart.xAxis.labelTextColor = .white
+        barChartSet.colors = [UIColor.white]
+        barChartSet.drawValuesEnabled = false
+        xAxis.drawGridLinesEnabled = false
+        xAxis.labelTextColor = .white
+        xAxis.setLabelCount(2, force: true)
+        xAxis.avoidFirstLastClippingEnabled = true
+        xAxis.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
+        xAxis.axisLineColor = .white
+        xAxis.axisLineWidth = 2.5
         recentCravingsLineChart.leftAxis.drawGridLinesEnabled = false
         recentCravingsLineChart.rightAxis.drawAxisLineEnabled = false
+        recentCravingsLineChart.leftAxis.drawAxisLineEnabled = false
         recentCravingsLineChart.rightAxis.drawLabelsEnabled = false
         recentCravingsLineChart.leftAxis.labelTextColor = .white
         recentCravingsLineChart.rightAxis.drawGridLinesEnabled = false
-        recentCravingsLineChart.xAxis.avoidFirstLastClippingEnabled = false
-        recentCravingsLineChart.xAxis.setLabelCount(5, force: true)
-        recentCravingsLineChart.xAxis.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
+        recentCravingsLineChart.backgroundColor = .clear
+        recentCravingsLineChart.legend.enabled = false
+        recentCravingsLineChart.chartDescription?.text = ""
+        recentCravingsLineChart.highlightPerTapEnabled = false
         recentCravingsLineChart.leftAxis.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
-        let data = LineChartData()
-        data.addDataSet(line1)
+        recentCravingsLineChart.isUserInteractionEnabled = false
+        let data = CombinedChartData()
+        data.lineData = LineChartData(dataSets: [line1])
+        data.barData = BarChartData(dataSets: [barChartSet])
         recentCravingsLineChart.data = data
+        let sortedDict = catagoryDict.sorted(by: { $0.value < $1.value })
+        let textField = UITextView(frame: CGRect(x: scrollViewWidth * 1, y: 0, width: scrollViewWidth - 10, height: scrollViewHeight))
+        textField.backgroundColor = .clear
+        textField.isEditable = false
+        var string = ""
+        for x in sortedDict {
+            guard x.key != "" else { continue }
+            string += "\(x.key): \(x.value)\n"
+        }
+        let attString = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        textField.attributedText = NSAttributedString(string: string, attributes: attString)
+        cravingScrollView.addSubview(textField)
+        self.cravingScrollView.contentSize = CGSize(width: scrollViewWidth * 2, height: scrollViewHeight)
+        self.cravingScrollView.bounces = false
+        self.cravingScrollView.delegate = self
     }
     
     func addCraving(catagory: String, smoked: Bool) {
@@ -286,24 +354,27 @@ extension MainVC {
     }
     
     func prepareHealthScrollView() {
-        let healthStats: [String: Double] = ["Blood pressure normal": 20, "Pulse rate normal": 20, "Nicotine down to 90%": 480, "Blood oxygen levels normal": 720, "Carbon monoxide levels normal": 720, "Nerve endings started to repair": 2880, "Smell and taste normal": 2880, "Fully nictone free": 4320, "Lung performace improving": 4320, "Worst withdrawal symptoms over": 4320, "Mouth and blood circulation normal": 14400, "Emotional trauma ended": 21600]
-        let achieved = [NSAttributedStringKey.foregroundColor: UIColor.green, NSAttributedStringKey.backgroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
-        let notAchieved = [NSAttributedStringKey.foregroundColor: UIColor.red, NSAttributedStringKey.backgroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        let achieved = [NSAttributedStringKey.foregroundColor: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1), NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        let notAchieved = [NSAttributedStringKey.foregroundColor: UIColor.gray, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
         var int = 0
-        let scrollViewWidth:CGFloat = self.savingsScrollView.frame.width
+        let scrollViewWidth: CGFloat = self.savingsScrollView.frame.width
         for (i,x) in healthStats {
-            let label = UILabel(frame: CGRect(x: 0, y: int ,width: Int(scrollViewWidth), height: 50))
+            let label = UILabel(frame: CGRect(x: 0, y: int, width: Int(scrollViewWidth), height: 100))
+            label.lineBreakMode = .byWordWrapping
+            label.numberOfLines = 0
             let attString: NSAttributedString?
-            if quitData!.minuteSmokeFree / x < 100 {
-                attString = NSAttributedString(string: "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n", attributes: notAchieved)
+            if (quitData!.minuteSmokeFree / x) * 100 < 100 {
+                attString = NSAttributedString(string: "\(i): \(Int((quitData!.minuteSmokeFree / x) * 100 < 100 ? (quitData!.minuteSmokeFree / x) * 100 : 100))%", attributes: notAchieved)
             } else {
-                attString = NSAttributedString(string: "\(i) \(Int((quitData!.minuteSmokeFree/x) < 100 ? (quitData!.minuteSmokeFree/x) : 100))% \n\n", attributes: achieved)
+                attString = NSAttributedString(string: "\(i): 100%", attributes: achieved)
             }
             label.attributedText = attString
             self.healthScrollView.addSubview(label)
-            int += 50
+            int += Int(label.bounds.height)
         }
-        self.healthScrollView.contentSize = CGSize(width: scrollViewWidth, height: CGFloat(healthStats.count * 50))
+        self.healthScrollView.bounces = false
+        self.healthScrollView.alwaysBounceHorizontal = false
+        self.healthScrollView.contentSize = CGSize(width: scrollViewWidth, height: CGFloat(healthStats.count * 100))
         self.healthScrollView.delegate = self
     }
 }

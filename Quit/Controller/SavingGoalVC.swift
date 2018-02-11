@@ -29,14 +29,30 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
         goalTitleTextField.resignFirstResponder()
         self.view.endEditing(true)
     }
+    
+    func showDataMissingAlert() {
+        let alert = UIAlertController(title: "Add all data!", message: "", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-     @IBAction func saveButtonPressed(_ sender: Any) {
-        delegate?.addSavingGoal(title: goalTitleTextField.text!, cost: Double(goalCostTextField.text!)!)
-        delegate?.isQuitDateSet()
-        dismiss(animated: true, completion: nil)
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        if goalTitleTextField.text != "" && goalCostTextField.text != "" {
+            guard let cost = Double(goalCostTextField.text!) else {
+                showDataMissingAlert()
+                return
+            }
+            delegate?.addSavingGoal(title: goalTitleTextField.text!, cost: cost)
+            delegate?.isQuitDateSet()
+            dismiss(animated: true, completion: nil)
+        } else {
+            showDataMissingAlert()
+        }
     }
 }
 

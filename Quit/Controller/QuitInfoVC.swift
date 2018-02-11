@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import UserNotifications
 
 class QuitInfoVC: UIViewController, UITextFieldDelegate {
     
     weak var delegate: QuitVCDelegate?
     let defaults = UserDefaults.standard
+    var quitData: QuitData? = nil
 
     @IBOutlet weak var cigarettesSmokedDaily: UITextField!
     @IBOutlet weak var costOf20: UITextField!
@@ -20,6 +22,14 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         cigarettesSmokedDaily.delegate = self
         costOf20.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if quitData != nil {
+            self.costOf20.text = String(quitData!.costOf20)
+            self.cigarettesSmokedDaily.text = String(quitData!.smokedDaily)
+            self.quitDatePicker.date = (quitData?.quitDate)!
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -32,15 +42,58 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
         costOf20.resignFirstResponder()
         self.view.endEditing(true)
     }
+    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    func showDataMissingAlert() {
+        let alert = UIAlertController(title: "Add all data!", message: "", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func saveButtonPressed(_ sender: Any) {
-        let quitData: [String: Any] = ["smokedDaily": Int(cigarettesSmokedDaily.text!), "costOf20": Double(costOf20.text!), "quitDate": quitDatePicker.date]
-        defaults.set(quitData, forKey: "quitData")
-        delegate?.isQuitDateSet()
-        dismiss(animated: true, completion: nil)
+        if costOf20.text != "" && cigarettesSmokedDaily.text != "" {
+            guard let cost = Double(costOf20.text!), let amount = Double(cigarettesSmokedDaily.text!) else {
+                showDataMissingAlert()
+                return
+            }
+            let quitData: [String: Any] = ["smokedDaily": amount, "costOf20": cost, "quitDate": quitDatePicker.date]
+            self.cancelAppleLocalNotifs()
+            self.setLocalNotif()
+            defaults.set(quitData, forKey: "quitData")
+            delegate?.isQuitDateSet()
+            dismiss(animated: true, completion: nil)
+        } else {
+            showDataMissingAlert()
+            return
+        }
+    }
+    
+    func setLocalNotif() {
+        for x in healthStats {
+            generateLocalNotif(title: x.key, body: "Process complete!", minutes: Int(x.value))
+        }
+    }
+    
+    func generateLocalNotif(title: String, body: String, minutes: Int) {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            content.sound = UNNotificationSound.default()
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(minutes * 60), repeats: false)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+        }
+    }
+    
+    func cancelAppleLocalNotifs() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
     }
 }
 

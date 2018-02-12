@@ -11,12 +11,10 @@ import CoreData
 import UIKit
 import UserNotifications
 
-let healthStats: [String: Double] = ["Testing local notificatins": 1, "Correcting blood pressure": 20, "Normalising heart rate": 20, "Nicotine down to 90%": 480, "Raising blood oxygen levels to normal": 720, "Returning carbon monoxide levels to normal": 720, "Starting to repair nerve endings": 2880, "Correcting smell and taste": 2880, "Removing all nicotine": 4320, "Improving lung performance": 4320, "Worst withdrawal symptoms over": 4320, "Fixing mouth and gum circulation": 14400, "Emotional trauma ended": 21600]
-
+let healthStats: [String: Double] = ["Correcting blood pressure": 20, "Normalising heart rate": 20, "Nicotine down to 90%": 480, "Raising blood oxygen levels to normal": 720, "Returning carbon monoxide levels to normal": 720, "Starting to repair nerve endings": 2880, "Correcting smell and taste": 2880, "Removing all nicotine": 4320, "Improving lung performance": 4320, "Worst withdrawal symptoms over": 4320, "Fixing mouth and gum circulation": 14400, "Emotional trauma ended": 21600]
 
 //Create a feed of user posts about their quit experience
-//Save local notifications periodically for continued interaction
-
+//Make sure only if smoked == true does a bar appear
 class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCDelegate, savingGoalVCDelegate {
     
     var cravingController: NSFetchedResultsController<Craving>!
@@ -30,7 +28,6 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     @IBOutlet weak var savingsPageControl: UIPageControl!
     @IBOutlet weak var healthScrollView: UIScrollView!
     @IBOutlet weak var cravingScrollView: UIScrollView!
-    
     
     //Set up the UI assuming no quit date has been set
     override func viewDidLoad() {
@@ -70,6 +67,9 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
         if segue.identifier == "toSavingGoalVC" {
             if let destination = segue.destination as? SavingGoalVC {
                 destination.delegate = self
+                if let sender = sender as? SavingGoal {
+                    destination.savingGoal = sender
+                }
             }
         }
     }
@@ -134,14 +134,25 @@ extension MainVC {
     }
     
     func populateScrollView()  {
+        let subViews = self.savingsScrollView.subviews
+        for subview in subViews {
+            subview.removeFromSuperview()
+        }
         let scrollViewWidth:CGFloat = self.savingsScrollView.frame.width
         let scrollViewHeight:CGFloat = self.savingsScrollView.frame.height
         let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.black, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
         var screenOneText = NSAttributedString()
-        if (quitData?.quitDate)! < Date() {
-            screenOneText = NSAttributedString(string: "£\(Int(quitData!.costPerDay)) saved daily, £\(Int(quitData!.costPerYear)) saved yearly. £\(Int(quitData!.savedSoFar)) saved so far.", attributes: myAttribute)
-        } else {
-            screenOneText = NSAttributedString(string: "You're going to save £\(Int(quitData!.costPerDay))  daily and £\(Int(quitData!.costPerYear)) yearly.", attributes: myAttribute)
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let formattedDailyCost = formatter.string(from: quitData!.costPerDay as NSNumber), let formattedAnnualCost = formatter.string(from: quitData!.costPerYear as NSNumber), let formattedSoFarSaving = formatter.string(from: quitData!.savedSoFar as NSNumber) {
+            
+            if (quitData?.quitDate)! < Date() {
+                screenOneText = NSAttributedString(string: "\(formattedDailyCost) saved daily, \(formattedAnnualCost) saved yearly. \(formattedSoFarSaving) saved so far.", attributes: myAttribute)
+            } else {
+                screenOneText = NSAttributedString(string: "You're going to save \(formattedDailyCost) daily and \(formattedAnnualCost) yearly.", attributes: myAttribute)
+            }
+            
         }
         let screenOne = UITextView(frame: CGRect(x:0, y: scrollViewHeight / 3, width: scrollViewWidth, height: scrollViewHeight))
         screenOne.attributedText = screenOneText
@@ -150,6 +161,11 @@ extension MainVC {
         self.savingsScrollView.addSubview(screenOne)
         for x in 0..<savingsController.fetchedObjects!.count {
             let progress = KDCircularProgress(frame: CGRect(x: scrollViewWidth * CGFloat(x + 1), y: 0 ,width: scrollViewWidth, height: scrollViewHeight))
+            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+            tap.numberOfTapsRequired = 1
+            progress.tag = x
+            progress.isUserInteractionEnabled = true
+            progress.addGestureRecognizer(tap)
             progress.startAngle = -90
             progress.progressThickness = 0.6
             progress.trackThickness = 0.6
@@ -175,6 +191,13 @@ extension MainVC {
         self.savingsScrollView.contentSize = CGSize(width:self.savingsScrollView.frame.width * CGFloat(1 + (savingsController.fetchedObjects?.count ?? 0)), height:self.savingsScrollView.frame.height)
         self.savingsScrollView.delegate = self
         self.savingsPageControl.currentPage = 0
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        let view = sender.view
+        let tag = view?.tag
+        let savingGoal = savingsController.fetchedObjects![tag!]
+        performSegue(withIdentifier: "toSavingGoalVC", sender: savingGoal)
     }
     
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){
@@ -295,7 +318,7 @@ extension MainVC {
         line1.drawCirclesEnabled = false
         line1.drawValuesEnabled = false
         line1.lineWidth = 5
-        barChartSet.colors = [UIColor.white]
+        barChartSet.colors = [UIColor.orange]
         barChartSet.drawValuesEnabled = false
         xAxis.drawGridLinesEnabled = false
         xAxis.labelTextColor = .white
@@ -320,7 +343,7 @@ extension MainVC {
         data.lineData = LineChartData(dataSets: [line1])
         data.barData = BarChartData(dataSets: [barChartSet])
         recentCravingsLineChart.data = data
-        let sortedDict = catagoryDict.sorted(by: { $0.value < $1.value })
+        let sortedDict = catagoryDict.sorted(by: { $0.value > $1.value })
         let textField = UITextView(frame: CGRect(x: scrollViewWidth * 1, y: 0, width: scrollViewWidth - 10, height: scrollViewHeight))
         textField.backgroundColor = .clear
         textField.isEditable = false
@@ -354,6 +377,10 @@ extension MainVC {
     }
     
     func prepareHealthScrollView() {
+        let subViews = self.healthScrollView.subviews
+        for subview in subViews {
+            subview.removeFromSuperview()
+        }
         let achieved = [NSAttributedStringKey.foregroundColor: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1), NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
         let notAchieved = [NSAttributedStringKey.foregroundColor: UIColor.gray, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
         var int = 0

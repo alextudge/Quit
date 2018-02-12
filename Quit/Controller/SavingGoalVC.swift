@@ -12,11 +12,24 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var goalTitleTextField: UITextField!
     @IBOutlet weak var goalCostTextField: UITextField!
+    @IBOutlet weak var deleteButton: UIButton!
     weak var delegate: savingGoalVCDelegate?
+    var savingGoal: SavingGoal? = nil
     
     override func viewDidLoad() {
         goalTitleTextField.delegate = self
         goalCostTextField.delegate = self
+        if self.savingGoal != nil {
+            self.deleteButton.isEnabled = true
+            self.goalTitleTextField.text = savingGoal?.goalName
+            self.goalCostTextField.text = "\(savingGoal!.goalAmount)"
+        } else {
+            self.deleteButton.isEnabled = false
+            self.deleteButton.backgroundColor = .lightGray
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -47,11 +60,28 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
                 showDataMissingAlert()
                 return
             }
-            delegate?.addSavingGoal(title: goalTitleTextField.text!, cost: cost)
-            delegate?.isQuitDateSet()
-            dismiss(animated: true, completion: nil)
+            if self.savingGoal == nil {
+                delegate?.addSavingGoal(title: goalTitleTextField.text!, cost: cost)
+                delegate?.isQuitDateSet()
+                dismiss(animated: true, completion: nil)
+            } else {
+                savingGoal!.goalAmount = cost
+                savingGoal!.goalName = goalTitleTextField.text!
+                ad.saveContext()
+                delegate?.isQuitDateSet()
+                dismiss(animated: true, completion: nil)
+            }
         } else {
             showDataMissingAlert()
+        }
+    }
+    
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        if savingGoal != nil {
+            context.delete(savingGoal!)
+            ad.saveContext()
+            delegate?.isQuitDateSet()
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -85,7 +85,9 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
             content.title = title
             content.body = body
             content.sound = UNNotificationSound.default()
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(minutes * 60), repeats: false)
+            let date = Date(timeInterval: TimeInterval(minutes * 60), since: quitDatePicker.date)
+            let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
             center.add(request)
         }

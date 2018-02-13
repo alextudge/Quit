@@ -62,13 +62,13 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
             }
             if self.savingGoal == nil {
                 delegate?.addSavingGoal(title: goalTitleTextField.text!, cost: cost)
-                delegate?.isQuitDateSet()
+                delegate?.setupSection2()
                 dismiss(animated: true, completion: nil)
             } else {
                 savingGoal!.goalAmount = cost
                 savingGoal!.goalName = goalTitleTextField.text!
                 ad.saveContext()
-                delegate?.isQuitDateSet()
+                delegate?.setupSection2()
                 dismiss(animated: true, completion: nil)
             }
         } else {
@@ -80,7 +80,7 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
         if savingGoal != nil {
             context.delete(savingGoal!)
             ad.saveContext()
-            delegate?.isQuitDateSet()
+            delegate?.setupSection2()
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -88,5 +88,5 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
 
 protocol savingGoalVCDelegate: class {
     func addSavingGoal(title: String, cost: Double)
-    func isQuitDateSet()
+    func setupSection2()
 }

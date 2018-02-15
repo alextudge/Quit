@@ -181,6 +181,16 @@
                                                     <rect key="frame" x="160" y="5" width="55" height="37"/>
                                                     <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </pageControl>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for quit date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gfv-4Y-hKF">
+                                                    <rect key="frame" x="10" y="125.5" width="355" height="75"/>
+                                                    <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="75" id="Olz-8X-bQT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADb-HH-0vd">
                                                     <rect key="frame" x="309" y="264" width="50" height="50"/>
                                                     <constraints>
@@ -196,7 +206,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Gfv-4Y-hKF" secondAttribute="trailing" constant="10" id="K5I-c3-XUs"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ADb-HH-0vd" secondAttribute="trailing" id="MeS-1o-Yer"/>
+                                                <constraint firstItem="Gfv-4Y-hKF" firstAttribute="leading" secondItem="zWo-sr-6r1" secondAttribute="leading" constant="10" id="Zgo-HT-ftx"/>
+                                                <constraint firstItem="Gfv-4Y-hKF" firstAttribute="centerY" secondItem="zWo-sr-6r1" secondAttribute="centerY" id="dLg-Qm-hPH"/>
                                                 <constraint firstItem="Y7T-Dr-deW" firstAttribute="top" secondItem="zWo-sr-6r1" secondAttribute="top" constant="5" id="e4W-Hw-hl4"/>
                                                 <constraint firstAttribute="bottom" secondItem="frn-cm-yvK" secondAttribute="bottom" id="ee3-EW-sae"/>
                                                 <constraint firstItem="ADb-HH-0vd" firstAttribute="bottom" secondItem="zWo-sr-6r1" secondAttribute="bottomMargin" id="syf-JE-cIH"/>
@@ -220,14 +233,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-tk-7A1">
-                                                    <rect key="frame" x="8" y="8" width="359" height="308.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="308"/>
                                                 </scrollView>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for quit date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-Ax-Opp">
+                                                    <rect key="frame" x="10" y="128" width="355" height="68.5"/>
+                                                    <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="68.5" id="Ivh-Op-qG8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9CZ-tk-7A1" firstAttribute="leading" secondItem="87P-i5-0bj" secondAttribute="leadingMargin" id="507-Uy-ShJ"/>
+                                                <constraint firstItem="iiY-Ax-Opp" firstAttribute="leading" secondItem="87P-i5-0bj" secondAttribute="leading" constant="10" id="J2r-bq-fNt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="9CZ-tk-7A1" secondAttribute="bottom" id="O2n-hA-AbI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9CZ-tk-7A1" secondAttribute="trailing" id="aPn-ay-equ"/>
+                                                <constraint firstItem="iiY-Ax-Opp" firstAttribute="centerY" secondItem="87P-i5-0bj" secondAttribute="centerY" id="kcs-4N-rJb"/>
                                                 <constraint firstItem="9CZ-tk-7A1" firstAttribute="top" secondItem="87P-i5-0bj" secondAttribute="topMargin" id="llu-ha-3Zf"/>
+                                                <constraint firstAttribute="trailing" secondItem="iiY-Ax-Opp" secondAttribute="trailing" constant="10" id="s27-3d-laL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -240,17 +266,30 @@
                                         <rect key="frame" x="0.0" y="975" width="375" height="325"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="snO-pp-Gri" id="HvJ-m0-wFt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="324.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-xc-Jd2">
-                                                    <rect key="frame" x="8" y="8" width="359" height="308.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="308"/>
                                                 </scrollView>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for quit date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YwL-tw-utG">
+                                                    <rect key="frame" x="10" y="124.5" width="355" height="75"/>
+                                                    <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="75" id="4aM-hN-8A1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="YwL-tw-utG" firstAttribute="centerY" secondItem="HvJ-m0-wFt" secondAttribute="centerY" id="DA3-qb-V3m"/>
                                                 <constraint firstItem="TXB-xc-Jd2" firstAttribute="leading" secondItem="HvJ-m0-wFt" secondAttribute="leadingMargin" id="Qsy-rJ-g1q"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="TXB-xc-Jd2" secondAttribute="bottom" id="VZm-o4-RWJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TXB-xc-Jd2" secondAttribute="trailing" id="ds6-fF-Aps"/>
+                                                <constraint firstItem="YwL-tw-utG" firstAttribute="leading" secondItem="HvJ-m0-wFt" secondAttribute="leading" constant="10" id="eXN-St-hzz"/>
+                                                <constraint firstAttribute="trailing" secondItem="YwL-tw-utG" secondAttribute="trailing" constant="10" id="ek6-83-f3H"/>
                                                 <constraint firstItem="TXB-xc-Jd2" firstAttribute="top" secondItem="HvJ-m0-wFt" secondAttribute="topMargin" id="wvK-SZ-pRd"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -272,6 +311,9 @@
                         <outlet property="quitDateLabel" destination="A0I-ZJ-VX7" id="7Ms-wL-6xb"/>
                         <outlet property="savingsPageControl" destination="Y7T-Dr-deW" id="uXd-rQ-y4a"/>
                         <outlet property="savingsScrollView" destination="frn-cm-yvK" id="YDC-Bp-cFt"/>
+                        <outlet property="section2Placeholder" destination="Gfv-4Y-hKF" id="1C4-IX-has"/>
+                        <outlet property="section3Placeholder" destination="iiY-Ax-Opp" id="rJQ-5w-RhW"/>
+                        <outlet property="section4Placeholder" destination="YwL-tw-utG" id="H6A-EL-xNF"/>
                         <outlet property="setQuitDataButton" destination="kxW-8l-hbe" id="Q9H-WN-mE0"/>
                     </connections>
                 </tableViewController>

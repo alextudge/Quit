@@ -12,11 +12,7 @@ import StoreKit
 import UIKit
 import UserNotifications
 
-
 let healthStats: [String: Double] = ["Correcting blood pressure": 20, "Normalising heart rate": 20, "Nicotine down to 90%": 480, "Raising blood oxygen levels to normal": 480, "Normalising carbon monoxide levels": 720, "Started removing lung debris": 1440, "Starting to repair nerve endings": 2880, "Correcting smell and taste": 2880, "Removing all nicotine": 4320, "Improving lung performance": 4320, "Worst withdrawal symptoms over": 4320, "Fixing mouth and gum circulation": 14400, "Emotional trauma ended": 21600, "Halving heart attack risk": 525600]
-
-//Create a feed of user posts about their quit experience
-//SavingsGoals dont reset after quit date is set to future.
 
 class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCDelegate, savingGoalVCDelegate, settingsVCDelegate {
     
@@ -25,6 +21,7 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     let userDefaults = UserDefaults.standard
     var quitData: QuitData? = nil
     var hasSetupOnce = false
+    let refreshController = UIRefreshControl()
     @IBOutlet weak var cravingButton: UIButton!
     @IBOutlet weak var quitDateLabel: UILabel!
     @IBOutlet weak var setQuitDataButton: UIButton!
@@ -33,6 +30,16 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     @IBOutlet weak var savingsPageControl: UIPageControl!
     @IBOutlet weak var healthScrollView: UIScrollView!
     @IBOutlet weak var cravingScrollView: UIScrollView!
+    @IBOutlet weak var section2Placeholder: UILabel!
+    @IBOutlet weak var section3Placeholder: UILabel!
+    @IBOutlet weak var section4Placeholder: UILabel!
+    
+    override func viewDidLoad() {
+        self.tableView.refreshControl = refreshController
+        refreshController.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshController.tintColor = UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1)
+        generateTestDate()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         if !hasSetupOnce {
@@ -41,8 +48,34 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
         }
     }
     
+    @objc private func refreshData(_ sender: Any) {
+        isQuitDateSet()
+    }
+    
     func generateTestDate() {
-        //Generate data for the appStore video
+        var today = Date()
+        for _ in 1...30 {
+            let randomNumber = Int(arc4random_uniform(10))
+            let randomBool = Int(arc4random_uniform(3))
+            let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: today)
+            let date = DateFormatter()
+            date.dateFormat = "dd-MM-yyyy"
+            let stringDate : String = date.string(from: today)
+            today = tomorrow!
+            for _ in 0...randomNumber {
+                let craving = Craving(context: context)
+                if randomBool == 0 {
+                    craving.cravingCatagory = "Tired"
+                } else if randomBool == 1 {
+                    craving.cravingCatagory = "Alcohol"
+                } else {
+                    craving.cravingCatagory = "Stressed"
+                }
+                craving.cravingDate = date.date(from: stringDate)
+                craving.cravingSmoked = false
+            }
+        }
+        ad.saveContext()
     }
     
     func setupUI() {
@@ -61,7 +94,9 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
         if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
             quitData = QuitData(smokedDaily: returnedData["smokedDaily"] as! Int, costOf20: returnedData["costOf20"] as! Double, quitDate: returnedData["quitDate"] as! Date)
             //If a quit date has been set, populate the UI
-            appStoreReview()
+            section2Placeholder.isHidden = true
+            section3Placeholder.isHidden = true
+            section4Placeholder.isHidden = true
             setupSection1()
             setupSection2()
             setupSection3()
@@ -74,7 +109,9 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
                     subview.removeFromSuperview()
                 }
             }
+            appStoreReview()
         }
+        refreshController.endRefreshing()
     }
     
     func appStoreReview() {
@@ -138,7 +175,7 @@ extension MainVC {
     }
     
     @IBAction func cravingButton(_ sender: Any) {
-        let alertController = UIAlertController(title: "Did you smoke?", message: "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing.\n\n It's your health, not a game - bin anything you've got left and pick yourself back up.\n\n Add a catagory or trigger below if you want to track them!", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Did you smoke?", message: "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing.\n\n Bin anything you've got left and pick yourself back up.\n\n Add a catagory or trigger below if you want to track them!", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
             //Reset the quit date if they've smoked
             if (self.quitData?.quitDate)! < Date() {
@@ -241,7 +278,10 @@ extension MainVC {
             progress.trackColor = .lightGray
             progress.glowAmount = 0.5
             progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
-            let progressAngle = (quitData!.savedSoFar / savingsController.fetchedObjects![x].goalAmount) * 360
+            var progressAngle = 0.0
+            if (quitData?.quitDate)! < Date() {
+                progressAngle = (quitData!.savedSoFar / savingsController.fetchedObjects![x].goalAmount) * 360
+            }
             progress.animate(toAngle: progressAngle < 360 ? progressAngle : 360, duration: 2, completion: nil)
             self.savingsScrollView.addSubview(progress)
             let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 3)), y: scrollViewHeight / 2 ,width: scrollViewWidth - (scrollViewWidth / 3), height: 100))
@@ -370,7 +410,7 @@ extension MainVC {
         line1.drawCirclesEnabled = false
         line1.drawValuesEnabled = false
         line1.lineWidth = 5
-        barChartSet.colors = [UIColor.white]
+        barChartSet.colors = [UIColor.red]
         barChartSet.drawValuesEnabled = false
         xAxis.drawGridLinesEnabled = false
         xAxis.labelTextColor = .white
@@ -386,7 +426,9 @@ extension MainVC {
         recentCravingsLineChart.leftAxis.labelTextColor = .white
         recentCravingsLineChart.rightAxis.drawGridLinesEnabled = false
         recentCravingsLineChart.backgroundColor = .clear
-        recentCravingsLineChart.legend.enabled = false
+        //recentCravingsLineChart.legend.enabled = false
+        recentCravingsLineChart.legend.textColor = .white
+        recentCravingsLineChart.legend.font = UIFont(name: "AvenirNext-Bold", size: 15)!
         recentCravingsLineChart.chartDescription?.text = ""
         recentCravingsLineChart.highlightPerTapEnabled = false
         recentCravingsLineChart.leftAxis.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!

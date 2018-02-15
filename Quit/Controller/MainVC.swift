@@ -38,7 +38,6 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
         self.tableView.refreshControl = refreshController
         refreshController.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         refreshController.tintColor = UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1)
-        generateTestDate()
     }
     
     override func viewDidAppear(_ animated: Bool) {

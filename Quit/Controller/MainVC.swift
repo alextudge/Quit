@@ -14,10 +14,9 @@ import UserNotifications
 
 let healthStats: [String: Double] = ["Correcting blood pressure": 20, "Normalising heart rate": 20, "Nicotine down to 90%": 480, "Raising blood oxygen levels to normal": 480, "Normalising carbon monoxide levels": 720, "Started removing lung debris": 1440, "Starting to repair nerve endings": 2880, "Correcting smell and taste": 2880, "Removing all nicotine": 4320, "Improving lung performance": 4320, "Worst withdrawal symptoms over": 4320, "Fixing mouth and gum circulation": 14400, "Emotional trauma ended": 21600, "Halving heart attack risk": 525600]
 
-class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCDelegate, savingGoalVCDelegate, settingsVCDelegate {
+class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, settingsVCDelegate {
     
-    var cravingController: NSFetchedResultsController<Craving>!
-    var savingsController: NSFetchedResultsController<SavingGoal>!
+    var persistenceManager: PersistenceManager? = nil
     let userDefaults = UserDefaults.standard
     var quitData: QuitData? = nil
     var hasSetupOnce = false
@@ -52,31 +51,31 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
         isQuitDateSet()
     }
     
-    func generateTestDate() {
-        var today = Date()
-        for _ in 1...30 {
-            let randomNumber = Int(arc4random_uniform(10))
-            let randomBool = Int(arc4random_uniform(3))
-            let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: today)
-            let date = DateFormatter()
-            date.dateFormat = "dd-MM-yyyy"
-            let stringDate : String = date.string(from: today)
-            today = tomorrow!
-            for _ in 0...randomNumber {
-                let craving = Craving(context: context)
-                if randomBool == 0 {
-                    craving.cravingCatagory = "Tired"
-                } else if randomBool == 1 {
-                    craving.cravingCatagory = "Alcohol"
-                } else {
-                    craving.cravingCatagory = "Stressed"
-                }
-                craving.cravingDate = date.date(from: stringDate)
-                craving.cravingSmoked = false
-            }
-        }
-        ad.saveContext()
-    }
+//    func generateTestDate() {
+//        var today = Date()
+//        for _ in 1...30 {
+//            let randomNumber = Int(arc4random_uniform(10))
+//            let randomBool = Int(arc4random_uniform(3))
+//            let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: today)
+//            let date = DateFormatter()
+//            date.dateFormat = "dd-MM-yyyy"
+//            let stringDate : String = date.string(from: today)
+//            today = tomorrow!
+//            for _ in 0...randomNumber {
+//                let craving = Craving(context: context)
+//                if randomBool == 0 {
+//                    craving.cravingCatagory = "Tired"
+//                } else if randomBool == 1 {
+//                    craving.cravingCatagory = "Alcohol"
+//                } else {
+//                    craving.cravingCatagory = "Stressed"
+//                }
+//                craving.cravingDate = date.date(from: stringDate)
+//                craving.cravingSmoked = false
+//            }
+//        }
+//        ad.saveContext()
+//    }
     
     func setupUI() {
         tableView.rowHeight = UIScreen.main.bounds.height / 2
@@ -135,11 +134,13 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
         if segue.identifier == "toSettingsVC" {
             if let destination = segue.destination as? SettingsVC {
                 destination.delegate = self
+                destination.persistenceManager = self.persistenceManager
             }
         }
         if segue.identifier == "toSavingGoalVC" {
             if let destination = segue.destination as? SavingGoalVC {
                 destination.delegate = self
+                destination.persistenceManager = self.persistenceManager
                 if let sender = sender as? SavingGoal {
                     destination.savingGoal = sender
                 }
@@ -202,12 +203,7 @@ extension MainVC {
     }
     
     func addCraving(catagory: String, smoked: Bool) {
-        let craving = Craving(context: context)
-        craving.cravingCatagory = catagory.capitalized
-        craving.cravingDate = Date()
-        craving.cravingSmoked = smoked
-        ad.saveContext()
-        fetchCravingData()
+        self.persistenceManager?.addCraving(catagory: catagory, smoked: smoked)
     }
 }
 
@@ -224,22 +220,11 @@ extension MainVC {
     }
     
     func fetchSavingsGoalsData() {
-        let fetchRequest: NSFetchRequest<SavingGoal> = SavingGoal.fetchRequest()
-        let sort = NSSortDescriptor(key: "goalAmount", ascending: false)
-        fetchRequest.sortDescriptors = [sort]
-        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        controller.delegate = self
-        self.savingsController = controller
-        do {
-            try self.savingsController.performFetch()
-            if let count = self.savingsController.fetchedObjects?.count {
-                self.savingsPageControl.numberOfPages = count + 1
-            } else {
-                self.savingsPageControl.numberOfPages = 1
-            }
-        } catch {
-            let error = error as NSError
-            print("\(error)")
+        let savingsData = persistenceManager?.savingsGoals
+        if let count = savingsData?.count {
+            self.savingsPageControl.numberOfPages = count + 1
+        } else {
+            self.savingsPageControl.numberOfPages = 1
         }
     }
     
@@ -264,7 +249,7 @@ extension MainVC {
         savingsPageOne.isEditable = false
         self.savingsScrollView.addSubview(savingsPageOne)
         //Set up any potential savings goals
-        for x in 0..<savingsController.fetchedObjects!.count {
+        for x in 0..<persistenceManager!.savingsGoals.count {
             let progress = KDCircularProgress(frame: CGRect(x: scrollViewWidth * CGFloat(x + 1), y: 0 ,width: scrollViewWidth, height: scrollViewHeight))
             let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
             tap.numberOfTapsRequired = 1
@@ -283,19 +268,19 @@ extension MainVC {
             progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
             var progressAngle = 0.0
             if (quitData?.quitDate)! < Date() {
-                progressAngle = (quitData!.savedSoFar / savingsController.fetchedObjects![x].goalAmount) * 360
+                progressAngle = (quitData!.savedSoFar / (persistenceManager?.savingsGoals[x].goalAmount)!) * 360
             }
             progress.animate(toAngle: progressAngle < 360 ? progressAngle : 360, duration: 2, completion: nil)
             self.savingsScrollView.addSubview(progress)
             let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 3)), y: scrollViewHeight / 2 ,width: scrollViewWidth - (scrollViewWidth / 3), height: 100))
-            let string = NSAttributedString(string: savingsController.fetchedObjects![x].goalName!, attributes: savingsInfoAtt)
+            let string = NSAttributedString(string: persistenceManager!.savingsGoals[x].goalName!, attributes: savingsInfoAtt)
             label.attributedText = string
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0
             label.minimumScaleFactor = 0.5
             self.savingsScrollView.addSubview(label)
         }
-        self.savingsScrollView.contentSize = CGSize(width:self.savingsScrollView.frame.width * CGFloat(1 + (savingsController.fetchedObjects?.count ?? 0)), height:self.savingsScrollView.frame.height)
+        self.savingsScrollView.contentSize = CGSize(width:self.savingsScrollView.frame.width * CGFloat(1 + (persistenceManager?.savingsGoals.count ?? 0)), height:self.savingsScrollView.frame.height)
         self.savingsScrollView.delegate = self
         self.savingsPageControl.currentPage = 0
     }
@@ -303,7 +288,7 @@ extension MainVC {
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         let view = sender.view
         let tag = view?.tag
-        let savingGoal = savingsController.fetchedObjects![tag!]
+        let savingGoal = persistenceManager?.savingsGoals[tag!]
         performSegue(withIdentifier: "toSavingGoalVC", sender: savingGoal)
     }
     
@@ -314,10 +299,7 @@ extension MainVC {
     }
     
     func addSavingGoal(title: String, cost: Double) {
-        let saving = SavingGoal(context: context)
-        saving.goalName = title
-        saving.goalAmount = cost
-        ad.saveContext()
+        self.persistenceManager?.addSavingGoal(title: title, cost: cost)
     }
 }
 
@@ -336,36 +318,24 @@ extension MainVC {
         var cravingTriggerDictionary = [String: Int]()
         var cravingDateDictionary = [Date: Int]()
         var smokedDateDictionary = [Date: Int]()
-        //Fetching data on cravings.
-        let fetchRequest: NSFetchRequest<Craving> = Craving.fetchRequest()
-        let dateSort = NSSortDescriptor(key: "cravingDate", ascending: false)
-        fetchRequest.sortDescriptors = [dateSort]
-        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        controller.delegate = self
-        self.cravingController = controller
-        do {
-            try self.cravingController.performFetch()
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = .none
-            dateFormatter.dateStyle = .short
-            for x in self.cravingController.fetchedObjects! {
-                if let catagory = x.cravingCatagory {
-                    cravingTriggerDictionary[catagory] = (cravingTriggerDictionary[catagory] == nil) ? 1 : cravingTriggerDictionary[catagory]! + 1
-                }
-                if let y = x.cravingDate {
-                    let stringDate = dateFormatter.string(from: y)
-                    let standardisedDate = dateFormatter.date(from: stringDate)
-                    cravingDateDictionary[standardisedDate!] = (cravingDateDictionary[standardisedDate!] == nil) ? 1 : cravingDateDictionary[standardisedDate!]! + 1
-                    if x.cravingSmoked == true {
-                        smokedDateDictionary[standardisedDate!] = (smokedDateDictionary[standardisedDate!] == nil) ? 1 : smokedDateDictionary[standardisedDate!]! + 1
-                    }
+        let cravingData = persistenceManager?.cravings
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .short
+        for x in cravingData! {
+            if let catagory = x.cravingCatagory {
+                cravingTriggerDictionary[catagory] = (cravingTriggerDictionary[catagory] == nil) ? 1 : cravingTriggerDictionary[catagory]! + 1
+            }
+            if let y = x.cravingDate {
+                let stringDate = dateFormatter.string(from: y)
+                let standardisedDate = dateFormatter.date(from: stringDate)
+                cravingDateDictionary[standardisedDate!] = (cravingDateDictionary[standardisedDate!] == nil) ? 1 : cravingDateDictionary[standardisedDate!]! + 1
+                if x.cravingSmoked == true {
+                    smokedDateDictionary[standardisedDate!] = (smokedDateDictionary[standardisedDate!] == nil) ? 1 : smokedDateDictionary[standardisedDate!]! + 1
                 }
             }
-            displayCravingsData(cravingDict: cravingDateDictionary, smokedDict: smokedDateDictionary, catagoryDict: cravingTriggerDictionary)
-        } catch {
-            let error = error as NSError
-            print("\(error)")
         }
+        displayCravingsData(cravingDict: cravingDateDictionary, smokedDict: smokedDateDictionary, catagoryDict: cravingTriggerDictionary)
     }
     
     func displayCravingsData(cravingDict: [Date: Int], smokedDict: [Date: Int], catagoryDict: [String: Int]) {

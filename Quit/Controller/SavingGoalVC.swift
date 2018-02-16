@@ -15,6 +15,7 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var deleteButton: UIButton!
     weak var delegate: savingGoalVCDelegate?
     var savingGoal: SavingGoal? = nil
+    var persistenceManager: PersistenceManager? = nil
     
     override func viewDidLoad() {
         goalTitleTextField.delegate = self
@@ -61,13 +62,12 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
                 return
             }
             if self.savingGoal == nil {
-                delegate?.addSavingGoal(title: goalTitleTextField.text!, cost: cost)
+                persistenceManager?.addSavingGoal(title: goalTitleTextField.text!, cost: cost)
                 delegate?.setupSection2()
                 dismiss(animated: true, completion: nil)
             } else {
                 savingGoal!.goalAmount = cost
                 savingGoal!.goalName = goalTitleTextField.text!
-                ad.saveContext()
                 delegate?.setupSection2()
                 dismiss(animated: true, completion: nil)
             }
@@ -78,8 +78,7 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
         if savingGoal != nil {
-            context.delete(savingGoal!)
-            ad.saveContext()
+            persistenceManager?.deleteObject(object: savingGoal!)
             delegate?.setupSection2()
             self.dismiss(animated: true, completion: nil)
         }
@@ -87,6 +86,5 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
 }
 
 protocol savingGoalVCDelegate: class {
-    func addSavingGoal(title: String, cost: Double)
     func setupSection2()
 }

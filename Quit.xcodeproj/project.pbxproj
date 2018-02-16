@@ -18,6 +18,7 @@
 		177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04162027C49600CC7CA8 /* QuitInfoVC.swift */; };
 		177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F041A2028A08800CC7CA8 /* Extensions.swift */; };
 		177F04242029104900CC7CA8 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
+		1788CBAE2037703A00064A86 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBAD2037703A00064A86 /* StateController.swift */; };
 		17A29F782029EBEE007B1938 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A29F772029EBED007B1938 /* KDCircularProgress.swift */; };
 		17C553D42035A4F500882CDD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C553D12035A20F00882CDD /* Charts.framework */; };
 		17C553D52035A4F500882CDD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 17C553D12035A20F00882CDD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -95,6 +96,7 @@
 		177F04162027C49600CC7CA8 /* QuitInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVC.swift; sourceTree = "<group>"; };
 		177F041A2028A08800CC7CA8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		177F04232029104900CC7CA8 /* QuitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitData.swift; sourceTree = "<group>"; };
+		1788CBAD2037703A00064A86 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
 		17A29F772029EBED007B1938 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		17C553CB2035A20E00882CDD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master 4/Charts.xcodeproj"; sourceTree = "<group>"; };
 		17C6B5DF2035D47400AAE086 /* QuitDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitDateTests.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				177F03E62025220000CC7CA8 /* MainVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
+				1788CBAD2037703A00064A86 /* StateController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */,
 				17A29F782029EBEE007B1938 /* KDCircularProgress.swift in Sources */,
 				17F022002031EA83005EF65C /* SettingsVC.swift in Sources */,
+				1788CBAE2037703A00064A86 /* StateController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

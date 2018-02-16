@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AdT-Gb-GEI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AdT-Gb-GEI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14075.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--SettingsVC-->
         <scene sceneID="7RW-ah-qTz">
@@ -179,6 +185,7 @@
                                                 </scrollView>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y7T-Dr-deW">
                                                     <rect key="frame" x="160" y="5" width="55" height="37"/>
+                                                    <color key="pageIndicatorTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </pageControl>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for quit date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gfv-4Y-hKF">
@@ -233,7 +240,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-tk-7A1">
-                                                    <rect key="frame" x="8" y="8" width="359" height="308"/>
+                                                    <rect key="frame" x="8" y="11" width="359" height="303"/>
                                                 </scrollView>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for quit date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-Ax-Opp">
                                                     <rect key="frame" x="10" y="128" width="355" height="68.5"/>
@@ -270,7 +277,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-xc-Jd2">
-                                                    <rect key="frame" x="8" y="8" width="359" height="308"/>
+                                                    <rect key="frame" x="8" y="11" width="359" height="303"/>
                                                 </scrollView>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for quit date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YwL-tw-utG">
                                                     <rect key="frame" x="10" y="124.5" width="355" height="75"/>
@@ -304,6 +311,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="addSavingButton" destination="ADb-HH-0vd" id="WEh-lM-zzw"/>
                         <outlet property="countdownLabel" destination="hG6-eD-bHy" id="0KN-EC-8z3"/>
                         <outlet property="cravingButton" destination="GMq-UF-hgc" id="hUe-tR-gHg"/>
                         <outlet property="cravingScrollView" destination="9CZ-tk-7A1" id="3Zg-Kc-bEo"/>

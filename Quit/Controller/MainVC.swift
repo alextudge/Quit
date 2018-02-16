@@ -33,6 +33,7 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
     @IBOutlet weak var section2Placeholder: UILabel!
     @IBOutlet weak var section3Placeholder: UILabel!
     @IBOutlet weak var section4Placeholder: UILabel!
+    @IBOutlet weak var addSavingButton: UIButton!
     
     override func viewDidLoad() {
         self.tableView.refreshControl = refreshController
@@ -83,6 +84,8 @@ class MainVC: UITableViewController, NSFetchedResultsControllerDelegate, QuitVCD
         setQuitDataButton.isHidden = false
         quitDateLabel.isHidden = true
         cravingButton.isHidden = true
+        addSavingButton.isHidden = true
+        savingsPageControl.isHidden = true
         isQuitDateSet()
         //Request permission to send notifications
         let center = UNUserNotificationCenter.current()
@@ -174,7 +177,7 @@ extension MainVC {
     }
     
     @IBAction func cravingButton(_ sender: Any) {
-        let alertController = UIAlertController(title: "Did you smoke?", message: "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing.\n\n Bin anything you've got left and pick yourself back up.\n\n Add a catagory or trigger below if you want to track them!", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Did you smoke?", message: "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing.\n\n Bin anything you've got left and carry on!.\n\n Add a catagory or trigger below if you want to track them. Craving data will appear after 24 hours.", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
             //Reset the quit date if they've smoked
             if (self.quitData?.quitDate)! < Date() {
@@ -200,7 +203,7 @@ extension MainVC {
     
     func addCraving(catagory: String, smoked: Bool) {
         let craving = Craving(context: context)
-        craving.cravingCatagory = catagory
+        craving.cravingCatagory = catagory.capitalized
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         ad.saveContext()
@@ -211,6 +214,7 @@ extension MainVC {
 //Section 2 - Financial Info
 extension MainVC {
     func setupSection2() {
+        savingsPageControl.isHidden = false
         let subViews = self.savingsScrollView.subviews
         for subview in subViews {
             subview.removeFromSuperview()
@@ -321,6 +325,7 @@ extension MainVC {
 extension MainVC {
     func setupSection3() {
         fetchCravingData()
+        addSavingButton.isHidden = false
     }
     
     func fetchCravingData() {
@@ -368,7 +373,7 @@ extension MainVC {
         let scrollViewWidth = cravingScrollView.bounds.width
         //Setup chart
         let recentCravingsLineChart = CombinedChartView(frame: CGRect(x: 0, y: 0, width: scrollViewWidth, height: scrollViewHeight))
-        recentCravingsLineChart.noDataText = "Data on you cravings and smoking habits will be diaplayed here!"
+        recentCravingsLineChart.noDataText = "Data on you cravings and smoking habits will be displayed here!"
         recentCravingsLineChart.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
         recentCravingsLineChart.noDataTextColor = .white
         recentCravingsLineChart.noDataTextAlignment = .center

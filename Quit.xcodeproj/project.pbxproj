@@ -20,6 +20,7 @@
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		1788CBBB2038347900064A86 /* PersistenceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBBA2038347900064A86 /* PersistenceModelTests.swift */; };
 		1788CBBD2038C06A00064A86 /* CoreDataTestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBBC2038C06A00064A86 /* CoreDataTestsHelper.swift */; };
+		1788CBCC2039B3E000064A86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		17A29F782029EBEE007B1938 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A29F772029EBED007B1938 /* KDCircularProgress.swift */; };
 		17C553D42035A4F500882CDD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C553D12035A20F00882CDD /* Charts.framework */; };
 		17C553D52035A4F500882CDD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 17C553D12035A20F00882CDD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -98,6 +99,7 @@
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1788CBBA2038347900064A86 /* PersistenceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceModelTests.swift; sourceTree = "<group>"; };
 		1788CBBC2038C06A00064A86 /* CoreDataTestsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestsHelper.swift; sourceTree = "<group>"; };
+		1788CBCB2039B3E000064A86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		17A29F772029EBED007B1938 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		17C553CB2035A20E00882CDD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master 4/Charts.xcodeproj"; sourceTree = "<group>"; };
 		17C6B5DF2035D47400AAE086 /* QuitDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitDataTests.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				17A29F772029EBED007B1938 /* KDCircularProgress.swift */,
 				177F041A2028A08800CC7CA8 /* Extensions.swift */,
+				1788CBCB2039B3E000064A86 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
+				1788CBCC2039B3E000064A86 /* Constants.swift in Sources */,
 				177F03E72025220000CC7CA8 /* MainVC.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,
 				177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */,

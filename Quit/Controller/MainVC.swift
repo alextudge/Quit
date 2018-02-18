@@ -7,12 +7,9 @@
 //
 
 import Charts
-import CoreData
 import StoreKit
 import UIKit
 import UserNotifications
-
-let healthStats: [String: Double] = ["Correcting blood pressure": 20, "Normalising heart rate": 20, "Nicotine down to 90%": 480, "Raising blood oxygen levels to normal": 480, "Normalising carbon monoxide levels": 720, "Started removing lung debris": 1440, "Starting to repair nerve endings": 2880, "Correcting smell and taste": 2880, "Removing all nicotine": 4320, "Improving lung performance": 4320, "Worst withdrawal symptoms over": 4320, "Fixing mouth and gum circulation": 14400, "Emotional trauma ended": 21600, "Halving heart attack risk": 525600]
 
 class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, settingsVCDelegate {
     
@@ -412,7 +409,7 @@ extension MainVC {
         let notAchieved = [NSAttributedStringKey.foregroundColor: UIColor.gray, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
         var int = 0
         let scrollViewWidth = self.healthScrollView.frame.width
-        for (i,x) in healthStats {
+        for (i,x) in Constants.healthStats {
             let label = UILabel(frame: CGRect(x: 0, y: int, width: Int(scrollViewWidth), height: 100))
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0
@@ -429,7 +426,7 @@ extension MainVC {
         }
         self.healthScrollView.bounces = false
         self.healthScrollView.alwaysBounceHorizontal = false
-        self.healthScrollView.contentSize = CGSize(width: scrollViewWidth, height: CGFloat(healthStats.count * 100))
+        self.healthScrollView.contentSize = CGSize(width: scrollViewWidth, height: CGFloat(Constants.healthStats.count * 100))
         self.healthScrollView.delegate = self
     }
 }

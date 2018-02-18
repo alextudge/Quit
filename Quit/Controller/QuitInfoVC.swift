@@ -73,7 +73,7 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
     }
     
     func setLocalNotif() {
-        for x in healthStats {
+        for x in Constants.healthStats {
             generateLocalNotif(title: x.key, body: "Process complete!", minutes: Int(x.value))
         }
     }

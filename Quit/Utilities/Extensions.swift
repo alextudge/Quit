@@ -10,6 +10,7 @@ import Foundation
 import Charts
 
 extension Date {
+    
     func offsetFrom(date: Date) -> String {
         let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
         let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self)
@@ -25,30 +26,8 @@ extension Date {
     }
 }
 
-//Make it possible to loop over all properties in a structure
-protocol Loopable {
-    func allProperties() throws -> [String: Any]
-}
-
-extension Loopable {
-    func allProperties() throws -> [String: Any] {
-        var result: [String: Any] = [:]
-        let mirror = Mirror(reflecting: self)
-        guard let style = mirror.displayStyle, style == .struct else {
-            throw NSError()
-        }
-        
-        for (property, value) in mirror.children {
-            guard let property = property else {
-                continue
-            }
-            result[property] = value
-        }
-        return result
-    }
-}
-
 class ChartXAxisFormatter: NSObject {
+    
     fileprivate var dateFormatter: DateFormatter?
     fileprivate var referenceTimeInterval: TimeInterval?
     
@@ -67,7 +46,6 @@ extension ChartXAxisFormatter: IAxisValueFormatter {
             else {
                 return ""
         }
-        
         let date = Date(timeIntervalSince1970: value * 3600 * 24 + referenceTimeInterval)
         return dateFormatter.string(from: date)
     }

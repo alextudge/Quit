@@ -16,11 +16,12 @@ let healthStats: [String: Double] = ["Correcting blood pressure": 20, "Normalisi
 
 class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, settingsVCDelegate {
     
-    var persistenceManager: PersistenceManager? = nil
+    let refreshController = UIRefreshControl()
     let userDefaults = UserDefaults.standard
+    var persistenceManager: PersistenceManager? = nil
     var quitData: QuitData? = nil
     var hasSetupOnce = false
-    let refreshController = UIRefreshControl()
+    
     @IBOutlet weak var cravingButton: UIButton!
     @IBOutlet weak var quitDateLabel: UILabel!
     @IBOutlet weak var setQuitDataButton: UIButton!
@@ -38,6 +39,12 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
         self.tableView.refreshControl = refreshController
         refreshController.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         refreshController.tintColor = UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1)
+        //Assume no quit date is set
+        setQuitDataButton.isHidden = false
+        quitDateLabel.isHidden = true
+        cravingButton.isHidden = true
+        addSavingButton.isHidden = true
+        savingsPageControl.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,44 +58,12 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
         isQuitDateSet()
     }
     
-//    func generateTestDate() {
-//        var today = Date()
-//        for _ in 1...30 {
-//            let randomNumber = Int(arc4random_uniform(10))
-//            let randomBool = Int(arc4random_uniform(3))
-//            let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: today)
-//            let date = DateFormatter()
-//            date.dateFormat = "dd-MM-yyyy"
-//            let stringDate : String = date.string(from: today)
-//            today = tomorrow!
-//            for _ in 0...randomNumber {
-//                let craving = Craving(context: context)
-//                if randomBool == 0 {
-//                    craving.cravingCatagory = "Tired"
-//                } else if randomBool == 1 {
-//                    craving.cravingCatagory = "Alcohol"
-//                } else {
-//                    craving.cravingCatagory = "Stressed"
-//                }
-//                craving.cravingDate = date.date(from: stringDate)
-//                craving.cravingSmoked = false
-//            }
-//        }
-//        ad.saveContext()
-//    }
-    
     func setupUI() {
         tableView.rowHeight = UIScreen.main.bounds.height / 2
-        //Assume no quit date is set
-        setQuitDataButton.isHidden = false
-        quitDateLabel.isHidden = true
-        cravingButton.isHidden = true
-        addSavingButton.isHidden = true
-        savingsPageControl.isHidden = true
-        isQuitDateSet()
         //Request permission to send notifications
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in }
+        isQuitDateSet()
     }
     
     func isQuitDateSet() {
@@ -188,22 +163,19 @@ extension MainVC {
             }
             let textField = alertController.textFields![0] as UITextField
             //Add the craving data to coreData
-            self.addCraving(catagory: (textField.text != nil) ? textField.text!.capitalized : "", smoked: true)
+            self.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text!.capitalized : "", smoked: true)
         }
         alertController.addAction(yesAction)
         let noAction = UIAlertAction(title: "No", style: .default) { action in
             let textField = alertController.textFields![0] as UITextField
-            self.addCraving(catagory: (textField.text != nil) ? textField.text! : "", smoked: false)
+            self.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text! : "", smoked: false)
+            self.isQuitDateSet()
         }
         alertController.addAction(noAction)
         alertController.addTextField { (textField) in
             textField.placeholder = "Store a mood or trigger?"
         }
         self.present(alertController, animated: true) { }
-    }
-    
-    func addCraving(catagory: String, smoked: Bool) {
-        self.persistenceManager?.addCraving(catagory: catagory, smoked: smoked)
     }
 }
 
@@ -296,10 +268,6 @@ extension MainVC {
         let pageWidth = savingsScrollView.frame.width
         let currentPage = floor((savingsScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1
         self.savingsPageControl.currentPage = Int(currentPage)
-    }
-    
-    func addSavingGoal(title: String, cost: Double) {
-        self.persistenceManager?.addSavingGoal(title: title, cost: cost)
     }
 }
 

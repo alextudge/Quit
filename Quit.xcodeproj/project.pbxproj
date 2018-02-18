@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		170006892035D0DC0056F25C /* QuitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170006882035D0DC0056F25C /* QuitTests.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03E72025220000CC7CA8 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E62025220000CC7CA8 /* MainVC.swift */; };
@@ -19,11 +18,12 @@
 		177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F041A2028A08800CC7CA8 /* Extensions.swift */; };
 		177F04242029104900CC7CA8 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
+		1788CBBB2038347900064A86 /* PersistenceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBBA2038347900064A86 /* PersistenceModelTests.swift */; };
+		1788CBBD2038C06A00064A86 /* CoreDataTestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBBC2038C06A00064A86 /* CoreDataTestsHelper.swift */; };
 		17A29F782029EBEE007B1938 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A29F772029EBED007B1938 /* KDCircularProgress.swift */; };
 		17C553D42035A4F500882CDD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C553D12035A20F00882CDD /* Charts.framework */; };
 		17C553D52035A4F500882CDD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 17C553D12035A20F00882CDD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		17C6B5E02035D47400AAE086 /* QuitDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5DF2035D47400AAE086 /* QuitDateTests.swift */; };
-		17C6B5E32035DE5100AAE086 /* QuitSavingGoalVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5E22035DE5100AAE086 /* QuitSavingGoalVCTests.swift */; };
+		17C6B5E02035D47400AAE086 /* QuitDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5DF2035D47400AAE086 /* QuitDataTests.swift */; };
 		17C6B5EB2035DFF100AAE086 /* QuitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5EA2035DFF100AAE086 /* QuitUITests.swift */; };
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +82,6 @@
 
 /* Begin PBXFileReference section */
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		170006882035D0DC0056F25C /* QuitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTests.swift; sourceTree = "<group>"; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,10 +96,11 @@
 		177F041A2028A08800CC7CA8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		177F04232029104900CC7CA8 /* QuitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitData.swift; sourceTree = "<group>"; };
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		1788CBBA2038347900064A86 /* PersistenceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceModelTests.swift; sourceTree = "<group>"; };
+		1788CBBC2038C06A00064A86 /* CoreDataTestsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestsHelper.swift; sourceTree = "<group>"; };
 		17A29F772029EBED007B1938 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		17C553CB2035A20E00882CDD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master 4/Charts.xcodeproj"; sourceTree = "<group>"; };
-		17C6B5DF2035D47400AAE086 /* QuitDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitDateTests.swift; sourceTree = "<group>"; };
-		17C6B5E22035DE5100AAE086 /* QuitSavingGoalVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSavingGoalVCTests.swift; sourceTree = "<group>"; };
+		17C6B5DF2035D47400AAE086 /* QuitDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitDataTests.swift; sourceTree = "<group>"; };
 		17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C6B5EA2035DFF100AAE086 /* QuitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitUITests.swift; sourceTree = "<group>"; };
 		17C6B5EC2035DFF100AAE086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,9 +136,9 @@
 		170006872035D0DC0056F25C /* QuitTests */ = {
 			isa = PBXGroup;
 			children = (
-				17C6B5DF2035D47400AAE086 /* QuitDateTests.swift */,
-				17C6B5E22035DE5100AAE086 /* QuitSavingGoalVCTests.swift */,
-				170006882035D0DC0056F25C /* QuitTests.swift */,
+				17C6B5DF2035D47400AAE086 /* QuitDataTests.swift */,
+				1788CBBA2038347900064A86 /* PersistenceModelTests.swift */,
+				1788CBBC2038C06A00064A86 /* CoreDataTestsHelper.swift */,
 				1700068A2035D0DC0056F25C /* Info.plist */,
 			);
 			path = QuitTests;
@@ -395,9 +395,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17C6B5E02035D47400AAE086 /* QuitDateTests.swift in Sources */,
-				17C6B5E32035DE5100AAE086 /* QuitSavingGoalVCTests.swift in Sources */,
-				170006892035D0DC0056F25C /* QuitTests.swift in Sources */,
+				17C6B5E02035D47400AAE086 /* QuitDataTests.swift in Sources */,
+				1788CBBB2038347900064A86 /* PersistenceModelTests.swift in Sources */,
+				1788CBBD2038C06A00064A86 /* CoreDataTestsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

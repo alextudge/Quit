@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewContoller.persistenceManager = persistenceManager
             print("Persistence Manager set")
         }
+        
         return true
     }
 

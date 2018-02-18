@@ -6,8 +6,8 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
     
@@ -19,11 +19,12 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
     override init() {
         super.init()
         self.context = self.persistentContainer.viewContext
+        //generateTestDate()
         fetchSavingsGoalsData()
         fetchCravingData()
     }
     
-    // MARK: - Core Data stack
+    //Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Quit")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -34,7 +35,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
         return container
     }()
     
-    // MARK: - Core Data Saving support
+    //Core Data Saving support
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -49,6 +50,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    //Craving model fucntions
     func addCraving(catagory: String, smoked: Bool) {
         let craving = Craving(context: context)
         craving.cravingCatagory = catagory.capitalized
@@ -68,6 +70,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    //Saving model functions
     func addSavingGoal(title: String, cost: Double) {
         let saving = SavingGoal(context: context)
         saving.goalName = title
@@ -86,6 +89,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    //Deletion functions
     func deleteObject(object: NSManagedObject) {
         context.delete(object)
     }
@@ -95,10 +99,39 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
             let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: x))
             do {
                 try context.execute(DelAllReqVar)
+                savingsGoals = [SavingGoal]()
+                cravings = [Craving]()
             }
             catch {
                 print(error)
             }
         }
+    }
+    
+    //Test data generator
+    func generateTestDate() {
+        var today = Date()
+        for _ in 1...30 {
+            let randomNumber = Int(arc4random_uniform(10))
+            let randomBool = Int(arc4random_uniform(3))
+            let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: today)
+            let date = DateFormatter()
+            date.dateFormat = "dd-MM-yyyy"
+            let stringDate : String = date.string(from: today)
+            today = tomorrow!
+            for _ in 0...randomNumber {
+                let craving = Craving(context: context)
+                if randomBool == 0 {
+                    craving.cravingCatagory = "Tired"
+                } else if randomBool == 1 {
+                    craving.cravingCatagory = "Alcohol"
+                } else {
+                    craving.cravingCatagory = "Stressed"
+                }
+                craving.cravingDate = date.date(from: stringDate)
+                craving.cravingSmoked = false
+            }
+        }
+        saveContext()
     }
 }

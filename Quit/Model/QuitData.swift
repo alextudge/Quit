@@ -9,6 +9,13 @@
 import Foundation
 
 struct QuitData {
+    
+    init(quitData: Dictionary<String, Any>) {
+        self.smokedDaily = quitData["smokedDaily"] as! Int
+        self.costOf20 = quitData["costOf20"] as! Double
+        self.quitDate = quitData["quitDate"] as! Date
+    }
+    
     var smokedDaily: Int
     var costOf20: Double
     var quitDate: Date

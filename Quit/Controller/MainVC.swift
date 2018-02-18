@@ -16,9 +16,9 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
     let refreshController = UIRefreshControl()
     let userDefaults = UserDefaults.standard
     var persistenceManager: PersistenceManager? = nil
-    var quitData: QuitData? = nil
     var hasSetupOnce = false
-    
+    let viewModel = QuitVCVM()
+        
     @IBOutlet weak var cravingButton: UIButton!
     @IBOutlet weak var quitDateLabel: UILabel!
     @IBOutlet weak var setQuitDataButton: UIButton!
@@ -64,8 +64,8 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
     }
     
     func isQuitDateSet() {
-        if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
-            quitData = QuitData(smokedDaily: returnedData["smokedDaily"] as! Int, costOf20: returnedData["costOf20"] as! Double, quitDate: returnedData["quitDate"] as! Date)
+        if viewModel.quitData != nil {
+            //quitData = QuitData(quitData: returnedData)
             //If a quit date has been set, populate the UI
             section2Placeholder.isHidden = true
             section3Placeholder.isHidden = true
@@ -74,7 +74,7 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
             setupSection2()
             setupSection3()
             //Only set up health stats if the quit date has passed
-            if (quitData?.quitDate)! < Date() {
+            if viewModel.quitDateIsInPast {
                 setupSection4()
             } else {
                 let subViews = self.healthScrollView.subviews
@@ -89,7 +89,7 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
     
     func appStoreReview() {
         //Ask for a store review after a few days of quitting
-        if Date().timeIntervalSince(quitData!.quitDate) > 518400 {
+        if Date().timeIntervalSince(viewModel.quitData!.quitDate) > 518400 {
             if #available(iOS 10.3, *) {
                 SKStoreReviewController.requestReview()
             }
@@ -100,7 +100,7 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
         if segue.identifier == "toQuitInfoVC" {
             if let destination = segue.destination as? QuitInfoVC {
                 destination.delegate = self
-                destination.quitData = self.quitData
+                destination.quitData = viewModel.quitData
             }
         }
         if segue.identifier == "toSettingsVC" {
@@ -130,13 +130,10 @@ extension MainVC {
     }
     
     func displayQuitDate() {
-        if quitData?.quitDate != nil {
+        if viewModel.quitData?.quitDate != nil {
             setQuitDataButton.isHidden = true
             quitDateLabel.isHidden = false
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
-            quitDateLabel.text = "\(formatter.string(from: quitData!.quitDate))"
+            quitDateLabel.text = viewModel.stringQuitDate()
         }
     }
     
@@ -146,15 +143,15 @@ extension MainVC {
     }
     
     @objc func updateCountdownLabel() {
-        countdownLabel.text = "\(Date().offsetFrom(date: quitData!.quitDate))"
+        countdownLabel.text = viewModel.countdownLabel()
     }
     
     @IBAction func cravingButton(_ sender: Any) {
         let alertController = UIAlertController(title: "Did you smoke?", message: "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing.\n\n Bin anything you've got left and carry on!.\n\n Add a catagory or trigger below if you want to track them. Craving data will appear after 24 hours.", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
             //Reset the quit date if they've smoked
-            if (self.quitData?.quitDate)! < Date() {
-                let quitData: [String: Any] = ["smokedDaily": self.quitData!.smokedDaily, "costOf20": self.quitData!.costOf20, "quitDate": Date()]
+            if self.viewModel.quitDateIsInPast {
+                let quitData: [String: Any] = ["smokedDaily": self.viewModel.quitData!.smokedDaily, "costOf20": self.viewModel.quitData!.costOf20, "quitDate": Date()]
                 self.userDefaults.set(quitData, forKey: "quitData")
                 self.isQuitDateSet()
             }
@@ -166,7 +163,7 @@ extension MainVC {
         let noAction = UIAlertAction(title: "No", style: .default) { action in
             let textField = alertController.textFields![0] as UITextField
             self.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text! : "", smoked: false)
-            self.isQuitDateSet()
+            self.setupSection3()
         }
         alertController.addAction(noAction)
         alertController.addTextField { (textField) in
@@ -203,10 +200,8 @@ extension MainVC {
         let savingsInfoAtt = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.black, NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
         //Setting up the savings overview screen
         var screenOneText = NSAttributedString()
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        if let formattedDailyCost = formatter.string(from: quitData!.costPerDay as NSNumber), let formattedAnnualCost = formatter.string(from: quitData!.costPerYear as NSNumber), let formattedSoFarSaving = formatter.string(from: quitData!.savedSoFar as NSNumber) {
-            if (quitData?.quitDate)! < Date() {
+        if let formattedDailyCost = viewModel.stringFromCurrencyFormatter(data: viewModel.quitData!.costPerDay as NSNumber), let formattedAnnualCost = viewModel.stringFromCurrencyFormatter(data: viewModel.quitData!.costPerYear as NSNumber), let formattedSoFarSaving = viewModel.stringFromCurrencyFormatter(data: viewModel.quitData!.savedSoFar as NSNumber) {
+            if viewModel.quitDateIsInPast {
                 screenOneText = NSAttributedString(string: "\(formattedDailyCost) saved daily, \(formattedAnnualCost) saved yearly. \(formattedSoFarSaving) saved so far.", attributes: savingsInfoAtt)
             } else {
                 screenOneText = NSAttributedString(string: "You're going to save \(formattedDailyCost) daily and \(formattedAnnualCost) yearly.", attributes: savingsInfoAtt)
@@ -236,8 +231,8 @@ extension MainVC {
             progress.glowAmount = 0.5
             progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
             var progressAngle = 0.0
-            if (quitData?.quitDate)! < Date() {
-                progressAngle = (quitData!.savedSoFar / (persistenceManager?.savingsGoals[x].goalAmount)!) * 360
+            if (viewModel.quitData?.quitDate)! < Date() {
+                progressAngle = (viewModel.quitData!.savedSoFar / (persistenceManager?.savingsGoals[x].goalAmount)!) * 360
             }
             progress.animate(toAngle: progressAngle < 360 ? progressAngle : 360, duration: 2, completion: nil)
             self.savingsScrollView.addSubview(progress)
@@ -415,8 +410,8 @@ extension MainVC {
             label.numberOfLines = 0
             label.minimumScaleFactor = 0.5
             let attString: NSAttributedString?
-            if (quitData!.minuteSmokeFree / x) * 100 < 100 {
-                attString = NSAttributedString(string: "\(i): \(Int((quitData!.minuteSmokeFree / x) * 100 < 100 ? (quitData!.minuteSmokeFree / x) * 100 : 100))%", attributes: notAchieved)
+            if (viewModel.quitData!.minuteSmokeFree / x) * 100 < 100 {
+                attString = NSAttributedString(string: "\(i): \(Int((viewModel.quitData!.minuteSmokeFree / x) * 100 < 100 ? (viewModel.quitData!.minuteSmokeFree / x) * 100 : 100))%", attributes: notAchieved)
             } else {
                 attString = NSAttributedString(string: "\(i): 100%", attributes: achieved)
             }

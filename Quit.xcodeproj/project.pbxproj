@@ -17,6 +17,7 @@
 		177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04162027C49600CC7CA8 /* QuitInfoVC.swift */; };
 		177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F041A2028A08800CC7CA8 /* Extensions.swift */; };
 		177F04242029104900CC7CA8 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
+		1786F4F5203A342800C8E1BA /* QuitVCVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786F4F4203A342800C8E1BA /* QuitVCVM.swift */; };
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		1788CBBB2038347900064A86 /* PersistenceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBBA2038347900064A86 /* PersistenceModelTests.swift */; };
 		1788CBBD2038C06A00064A86 /* CoreDataTestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBBC2038C06A00064A86 /* CoreDataTestsHelper.swift */; };
@@ -96,6 +97,7 @@
 		177F04162027C49600CC7CA8 /* QuitInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVC.swift; sourceTree = "<group>"; };
 		177F041A2028A08800CC7CA8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		177F04232029104900CC7CA8 /* QuitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitData.swift; sourceTree = "<group>"; };
+		1786F4F4203A342800C8E1BA /* QuitVCVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitVCVM.swift; sourceTree = "<group>"; };
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1788CBBA2038347900064A86 /* PersistenceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceModelTests.swift; sourceTree = "<group>"; };
 		1788CBBC2038C06A00064A86 /* CoreDataTestsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestsHelper.swift; sourceTree = "<group>"; };
@@ -204,9 +206,10 @@
 			isa = PBXGroup;
 			children = (
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
-				177F03E62025220000CC7CA8 /* MainVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
+				177F03E62025220000CC7CA8 /* MainVC.swift */,
+				1786F4F4203A342800C8E1BA /* QuitVCVM.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1786F4F5203A342800C8E1BA /* QuitVCVM.swift in Sources */,
 				177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,

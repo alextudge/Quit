@@ -33,6 +33,10 @@ class MainVCViewModel: NSObject {
         return quitData!.quitDate < Date()
     }
     
+    var quitDataLongerThan3DaysAgo: Bool {
+        return Date().timeIntervalSince(quitData!.quitDate) > 518400
+    }
+    
     func stringQuitDate() -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

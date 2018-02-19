@@ -129,7 +129,11 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
                     craving.cravingCatagory = "Stressed"
                 }
                 craving.cravingDate = date.date(from: stringDate)
-                craving.cravingSmoked = false
+                if randomBool == 0 {
+                    craving.cravingSmoked = true
+                } else {
+                    craving.cravingSmoked = false
+                }
             }
         }
         saveContext()

@@ -30,9 +30,6 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

@@ -1,5 +1,5 @@
 //
-//  QuitVCMV.swift
+//  MainVCViewModel
 //  Quit
 //
 //  Created by Alex Tudge on 18/02/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class QuitVCVM: NSObject {
+class MainVCViewModel: NSObject {
     
     var quitData: QuitData?
     let userDefaults = UserDefaults.standard
@@ -45,6 +45,11 @@ class QuitVCVM: NSObject {
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         return formatter
+    }
+    
+    func setUserDefaultsQuitDateToCurrent() {
+        let quitData: [String: Any] = ["smokedDaily": self.quitData!.smokedDaily, "costOf20": self.quitData!.costOf20, "quitDate": Date()]
+        self.userDefaults.set(quitData, forKey: "quitData")
     }
     
     func standardisedDate(date: Date) -> Date {

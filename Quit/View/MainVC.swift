@@ -17,7 +17,7 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
     let userDefaults = UserDefaults.standard
     var persistenceManager: PersistenceManager? = nil
     var hasSetupOnce = false
-    let viewModel = QuitVCVM()
+    let viewModel = MainVCViewModel()
         
     @IBOutlet weak var cravingButton: UIButton!
     @IBOutlet weak var quitDateLabel: UILabel!
@@ -151,8 +151,7 @@ extension MainVC {
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
             //Reset the quit date if they've smoked
             if self.viewModel.quitDateIsInPast {
-                let quitData: [String: Any] = ["smokedDaily": self.viewModel.quitData!.smokedDaily, "costOf20": self.viewModel.quitData!.costOf20, "quitDate": Date()]
-                self.userDefaults.set(quitData, forKey: "quitData")
+                self.viewModel.setUserDefaultsQuitDateToCurrent()
                 self.isQuitDateSet()
             }
             let textField = alertController.textFields![0] as UITextField
@@ -214,22 +213,12 @@ extension MainVC {
         self.savingsScrollView.addSubview(savingsPageOne)
         //Set up any potential savings goals
         for x in 0..<persistenceManager!.savingsGoals.count {
-            let progress = KDCircularProgress(frame: CGRect(x: scrollViewWidth * CGFloat(x + 1), y: 0 ,width: scrollViewWidth, height: scrollViewHeight))
+            let progress = generateProgressView()
             let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+            progress.frame = CGRect(x: scrollViewWidth * CGFloat(x + 1), y: 0 ,width: scrollViewWidth, height: scrollViewHeight)
             tap.numberOfTapsRequired = 1
             progress.tag = x
-            progress.isUserInteractionEnabled = true
             progress.addGestureRecognizer(tap)
-            progress.startAngle = -90
-            progress.progressThickness = 0.6
-            progress.trackThickness = 0.6
-            progress.clockwise = true
-            progress.gradientRotateSpeed = 2
-            progress.roundedCorners = false
-            progress.glowMode = .forward
-            progress.trackColor = .lightGray
-            progress.glowAmount = 0.5
-            progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
             progress.animate(toAngle: viewModel.savingsProgressAngle(goalAmount: (persistenceManager?.savingsGoals[x].goalAmount)!), duration: 2, completion: nil)
             self.savingsScrollView.addSubview(progress)
             let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 3)), y: scrollViewHeight / 2 ,width: scrollViewWidth - (scrollViewWidth / 3), height: 100))
@@ -243,6 +232,22 @@ extension MainVC {
         self.savingsScrollView.contentSize = CGSize(width:self.savingsScrollView.frame.width * CGFloat(1 + (persistenceManager?.savingsGoals.count ?? 0)), height:self.savingsScrollView.frame.height)
         self.savingsScrollView.delegate = self
         self.savingsPageControl.currentPage = 0
+    }
+    
+    func generateProgressView() -> KDCircularProgress {
+        let progress = KDCircularProgress()
+        progress.startAngle = -90
+        progress.isUserInteractionEnabled = true
+        progress.progressThickness = 0.6
+        progress.trackThickness = 0.6
+        progress.clockwise = true
+        progress.gradientRotateSpeed = 2
+        progress.roundedCorners = false
+        progress.glowMode = .forward
+        progress.trackColor = .lightGray
+        progress.glowAmount = 0.5
+        progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
+        return progress
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {

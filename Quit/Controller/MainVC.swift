@@ -230,11 +230,7 @@ extension MainVC {
             progress.trackColor = .lightGray
             progress.glowAmount = 0.5
             progress.set(colors: UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1))
-            var progressAngle = 0.0
-            if (viewModel.quitData?.quitDate)! < Date() {
-                progressAngle = (viewModel.quitData!.savedSoFar / (persistenceManager?.savingsGoals[x].goalAmount)!) * 360
-            }
-            progress.animate(toAngle: progressAngle < 360 ? progressAngle : 360, duration: 2, completion: nil)
+            progress.animate(toAngle: viewModel.savingsProgressAngle(goalAmount: (persistenceManager?.savingsGoals[x].goalAmount)!), duration: 2, completion: nil)
             self.savingsScrollView.addSubview(progress)
             let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 3)), y: scrollViewHeight / 2 ,width: scrollViewWidth - (scrollViewWidth / 3), height: 100))
             let string = NSAttributedString(string: persistenceManager!.savingsGoals[x].goalName!, attributes: savingsInfoAtt)
@@ -287,11 +283,10 @@ extension MainVC {
                 cravingTriggerDictionary[catagory] = (cravingTriggerDictionary[catagory] == nil) ? 1 : cravingTriggerDictionary[catagory]! + 1
             }
             if let y = x.cravingDate {
-                let stringDate = dateFormatter.string(from: y)
-                let standardisedDate = dateFormatter.date(from: stringDate)
-                cravingDateDictionary[standardisedDate!] = (cravingDateDictionary[standardisedDate!] == nil) ? 1 : cravingDateDictionary[standardisedDate!]! + 1
+                let standardisedDate = viewModel.standardisedDate(date: y)
+                cravingDateDictionary[standardisedDate] = (cravingDateDictionary[standardisedDate] == nil) ? 1 : cravingDateDictionary[standardisedDate]! + 1
                 if x.cravingSmoked == true {
-                    smokedDateDictionary[standardisedDate!] = (smokedDateDictionary[standardisedDate!] == nil) ? 1 : smokedDateDictionary[standardisedDate!]! + 1
+                    smokedDateDictionary[standardisedDate] = (smokedDateDictionary[standardisedDate] == nil) ? 1 : smokedDateDictionary[standardisedDate]! + 1
                 }
             }
         }
@@ -312,10 +307,7 @@ extension MainVC {
         if let minTimeInterval = (cravingDict.map { $0.key.timeIntervalSince1970 }).min() {
             referenceTimeInterval = minTimeInterval
         }
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        let xValuesNumberFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: formatter)
+        let xValuesNumberFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: viewModel.mediumDateFormatter())
         let xAxis = recentCravingsLineChart.xAxis
         xAxis.labelPosition = .bottom
         xAxis.labelCount = cravingDict.count

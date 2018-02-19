@@ -40,6 +40,21 @@ class QuitVCVM: NSObject {
         return formatter.string(from: quitData!.quitDate)
     }
     
+    func mediumDateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter
+    }
+    
+    func standardisedDate(date: Date) -> Date {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .short
+        let stringDate = formatter.string(from: date)
+        return formatter.date(from: stringDate)!
+    }
+    
     func stringFromCurrencyFormatter(data: NSNumber) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -48,5 +63,17 @@ class QuitVCVM: NSObject {
     
     func countdownLabel() -> String {
         return Date().offsetFrom(date: quitData!.quitDate)
+    }
+    
+    func savingsProgressAngle(goalAmount: Double) -> Double {
+        var angle = 0.0
+        if self.quitDateIsInPast {
+            angle = self.quitData!.savedSoFar / goalAmount * 360
+        }
+        if angle < 360 {
+            return angle
+        } else {
+            return 360
+        }
     }
 }

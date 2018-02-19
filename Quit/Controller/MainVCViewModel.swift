@@ -23,7 +23,7 @@ class MainVCViewModel: NSObject {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
             quitData = QuitData(quitData: returnedData)
         }

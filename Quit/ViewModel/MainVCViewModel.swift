@@ -33,7 +33,7 @@ class MainVCViewModel: NSObject {
         return quitData!.quitDate < Date()
     }
     
-    var quitDataLongerThan3DaysAgo: Bool {
+    var quitDataLongerThan6DaysAgo: Bool {
         return Date().timeIntervalSince(quitData!.quitDate) > 518400
     }
     

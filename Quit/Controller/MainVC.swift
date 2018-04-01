@@ -19,6 +19,7 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
     var hasSetupOnce = false
     lazy var barChart = generateBarChart()
     lazy var catagoryTextField = UITextView()
+    
     let viewModel = MainVCViewModel()
         
     @IBOutlet weak var cravingButton: UIButton!
@@ -35,9 +36,11 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
     @IBOutlet weak var addSavingButton: UIButton!
     
     override func viewDidLoad() {
+        
         self.tableView.refreshControl = refreshController
         refreshController.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         refreshController.tintColor = Constants.greenColour
+        
         //Assume no quit date is set
         setQuitDataButton.isHidden = false
         quitDateLabel.isHidden = true
@@ -94,7 +97,7 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
     
     func appStoreReview() {
         //Ask for a store review after a few days of quitting
-        if viewModel.quitDataLongerThan3DaysAgo {
+        if viewModel.quitDataLongerThan6DaysAgo {
             if #available(iOS 10.3, *) {
                 SKStoreReviewController.requestReview()
             }

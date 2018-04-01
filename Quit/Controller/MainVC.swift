@@ -6,22 +6,21 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
+//Save context on every new item addition/deletion
+
+import UIKit
+
 import Charts
 import StoreKit
-import UIKit
 import UserNotifications
 
 class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, settingsVCDelegate {
     
     let refreshController = UIRefreshControl()
-    let userDefaults = UserDefaults.standard
-    var persistenceManager: PersistenceManager? = nil
-    var hasSetupOnce = false
     lazy var barChart = generateBarChart()
     lazy var catagoryTextField = UITextView()
+    var viewModel: MainVCViewModel!
     
-    let viewModel = MainVCViewModel()
-        
     @IBOutlet weak var cravingButton: UIButton!
     @IBOutlet weak var quitDateLabel: UILabel!
     @IBOutlet weak var setQuitDataButton: UIButton!
@@ -37,9 +36,33 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
     
     override func viewDidLoad() {
         
+        viewModel = MainVCViewModel()
+        
+        requestNotifAuth()
+        setupInitialState()
+        
+        //Pull to refrsh the time-dependent data
         self.tableView.refreshControl = refreshController
         refreshController.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         refreshController.tintColor = Constants.greenColour
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if !viewModel.hasSetupOnce {
+            
+            //This needs to be called only once, but also after the UI has been setup to ensure object dimensions are correct
+            setupUI()
+        }
+    }
+    
+    func requestNotifAuth() {
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in }
+    }
+    
+    func setupInitialState() {
         
         //Assume no quit date is set
         setQuitDataButton.isHidden = false
@@ -49,53 +72,49 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
         savingsPageControl.isHidden = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if !hasSetupOnce {
-            //This needs to be called only once, but also after the UI has been setup to ensure object dimensions are correct
-            setupUI()
-        }
+    func setupUI() {
+        
+        tableView.rowHeight = UIScreen.main.bounds.height / 2
+        isQuitDateSet()
     }
     
     @objc private func refreshData(_ sender: Any) {
         isQuitDateSet()
     }
     
-    func setupUI() {
-        tableView.rowHeight = UIScreen.main.bounds.height / 2
-        //Request permission to send notifications
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in }
-        isQuitDateSet()
-    }
-    
     func isQuitDateSet() {
+        
         if viewModel.quitData != nil {
+            
             //If a quit date has been set, populate the UI
             hidePlaceholders()
             setupSection1()
             setupSection2()
             setupSection3()
+            
             //Only set up health stats if the quit date has passed
             if viewModel.quitDateIsInPast {
                 setupSection4()
             } else {
+                
                 let subViews = self.healthScrollView.subviews
                 for subview in subViews {
                     subview.removeFromSuperview()
                 }
             }
-            appStoreReview()
         }
         refreshController.endRefreshing()
     }
     
     func hidePlaceholders() {
+        
         section2Placeholder.isHidden = true
         section3Placeholder.isHidden = true
         section4Placeholder.isHidden = true
     }
     
     func appStoreReview() {
+        
         //Ask for a store review after a few days of quitting
         if viewModel.quitDataLongerThan6DaysAgo {
             if #available(iOS 10.3, *) {
@@ -115,13 +134,13 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
         if segue.identifier == "toSettingsVC" {
             if let destination = segue.destination as? SettingsVC {
                 destination.delegate = self
-                destination.persistenceManager = self.persistenceManager
+                destination.persistenceManager = self.viewModel.persistenceManager
             }
         }
         if segue.identifier == "toSavingGoalVC" {
             if let destination = segue.destination as? SavingGoalVC {
                 destination.delegate = self
-                destination.persistenceManager = self.persistenceManager
+                destination.persistenceManager = self.viewModel.persistenceManager
                 if let sender = sender as? SavingGoal {
                     destination.savingGoal = sender
                 }
@@ -157,28 +176,38 @@ extension MainVC {
     }
     
     @IBAction func cravingButton(_ sender: Any) {
-        let alertController = UIAlertController(title: "Did you smoke?", message: "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing.\n\n Bin anything you've got left and carry on!.\n\n Add a catagory or trigger below if you want to track them. Craving data will appear after 24 hours.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: viewModel.cravingButtonAlertTitle(), message: viewModel.cravingButtonAlertMessage(), preferredStyle: .alert)
+        
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
+            
             //Reset the quit date if they've smoked
             if self.viewModel.quitDateIsInPast {
                 self.viewModel.setUserDefaultsQuitDateToCurrent()
             }
+            
             let textField = alertController.textFields![0] as UITextField
+            
             //Add the craving data to coreData
-            self.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text!.capitalized : "", smoked: true)
+            self.viewModel.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text!.capitalized : "", smoked: true)
             self.isQuitDateSet()
         }
+        
         alertController.addAction(yesAction)
+        
         let noAction = UIAlertAction(title: "No", style: .default) { action in
             let textField = alertController.textFields![0] as UITextField
-            self.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text! : "", smoked: false)
+            self.viewModel.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text! : "", smoked: false)
             self.processCravingData()
+            self.appStoreReview()
         }
+        
         alertController.addAction(noAction)
+        
         alertController.addTextField { (textField) in
             textField.placeholder = "Store a mood or trigger?"
         }
-        self.present(alertController, animated: true) { }
+        
+        self.present(alertController, animated: true)
     }
 }
 
@@ -186,83 +215,65 @@ extension MainVC {
 extension MainVC {
     
     func setupSection2() {
+        
         savingsPageControl.isHidden = false
         let subViews = self.savingsScrollView.subviews
-        for subview in subViews {
-            subview.removeFromSuperview()
-        }
+        for subview in subViews { subview.removeFromSuperview() }
         fetchSavingsGoalsData()
         populateScrollView()
     }
     
     func fetchSavingsGoalsData() {
-        let savingsData = persistenceManager?.savingsGoals
-        if let count = savingsData?.count {
-            self.savingsPageControl.numberOfPages = count + 1
-        } else {
-            self.savingsPageControl.numberOfPages = 1
-        }
+        self.savingsPageControl.numberOfPages = viewModel.countForSavingPageController()
     }
     
     func populateScrollView()  {
+        
         let scrollViewWidth = self.savingsScrollView.bounds.width
         let scrollViewHeight = self.savingsScrollView.bounds.height
-        var screenOneText = NSAttributedString()
-        if let formattedDailyCost = viewModel.stringFromCurrencyFormatter(data: viewModel.quitData!.costPerDay as NSNumber), let formattedAnnualCost = viewModel.stringFromCurrencyFormatter(data: viewModel.quitData!.costPerYear as NSNumber), let formattedSoFarSaving = viewModel.stringFromCurrencyFormatter(data: viewModel.quitData!.savedSoFar as NSNumber) {
-            if viewModel.quitDateIsInPast {
-                screenOneText = NSAttributedString(string: "\(formattedDailyCost) saved daily, \(formattedAnnualCost) saved yearly. \(formattedSoFarSaving) saved so far.", attributes: Constants.savingsInfoAttributes)
-            } else {
-                screenOneText = NSAttributedString(string: "You're going to save \(formattedDailyCost) daily and \(formattedAnnualCost) yearly.", attributes: Constants.savingsInfoAttributes)
-            }
-        }
-        let savingsPageOne = UITextView(frame: CGRect(x:0, y: scrollViewHeight / 3, width: scrollViewWidth, height: scrollViewHeight))
-        savingsPageOne.attributedText = screenOneText
-        savingsPageOne.backgroundColor = .clear
-        savingsPageOne.isEditable = false
-        self.savingsScrollView.addSubview(savingsPageOne)
+
+        let savingsOverviewText = UITextView(frame: CGRect(x: 0, y: scrollViewHeight / 3, width: scrollViewWidth, height: scrollViewHeight))
+        savingsOverviewText.attributedText = viewModel.savingsAttributedText()
+        savingsOverviewText.backgroundColor = .clear
+        savingsOverviewText.isEditable = false
+        
+        self.savingsScrollView.addSubview(savingsOverviewText)
+        
         //Set up any potential savings goals
-        for x in 0..<persistenceManager!.savingsGoals.count {
-            let progress = generateProgressView()
-            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-            progress.frame = CGRect(x: scrollViewWidth * CGFloat(x + 1), y: 0 ,width: scrollViewWidth, height: scrollViewHeight)
+        for x in 0..<viewModel.persistenceManager.savingsGoals.count {
+            
+            let savingGoal = viewModel.persistenceManager!.savingsGoals[x]
+            
+            let savingGoalProgressView = viewModel.generateProgressView()
+            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapOnASavingsGoal(_:)))
+            savingGoalProgressView.frame = CGRect(x: scrollViewWidth * CGFloat(x + 1), y: 0, width: scrollViewWidth, height: scrollViewHeight)
             tap.numberOfTapsRequired = 1
-            progress.tag = x
-            progress.addGestureRecognizer(tap)
-            progress.animate(toAngle: viewModel.savingsProgressAngle(goalAmount: (persistenceManager?.savingsGoals[x].goalAmount)!), duration: 2, completion: nil)
-            self.savingsScrollView.addSubview(progress)
+            savingGoalProgressView.tag = x
+            savingGoalProgressView.addGestureRecognizer(tap)
+            
+            savingGoalProgressView.animate(toAngle: viewModel.savingsProgressAngle(goalAmount: savingGoal.goalAmount), duration: 2, completion: nil)
+            
+            self.savingsScrollView.addSubview(savingGoalProgressView)
+            
             let label = UILabel(frame: CGRect(x: (scrollViewWidth * CGFloat(x + 1) + (scrollViewWidth / 3)), y: scrollViewHeight / 2 ,width: scrollViewWidth - (scrollViewWidth / 3), height: 100))
-            let string = NSAttributedString(string: persistenceManager!.savingsGoals[x].goalName!, attributes: Constants.savingsInfoAttributes)
+            let string = NSAttributedString(string: savingGoal.goalName!, attributes: Constants.savingsInfoAttributes)
             label.attributedText = string
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0
             label.minimumScaleFactor = 0.5
             self.savingsScrollView.addSubview(label)
         }
-        self.savingsScrollView.contentSize = CGSize(width:self.savingsScrollView.frame.width * CGFloat(1 + (persistenceManager?.savingsGoals.count ?? 0)), height:self.savingsScrollView.frame.height)
+        
+        self.savingsScrollView.contentSize = CGSize(width:self.savingsScrollView.frame.width * CGFloat(1 + (viewModel.persistenceManager?.savingsGoals.count ?? 0)), height: self.savingsScrollView.frame.height)
         self.savingsScrollView.delegate = self
         self.savingsPageControl.currentPage = 0
     }
     
-    func generateProgressView() -> KDCircularProgress {
-        let progress = KDCircularProgress()
-        progress.startAngle = -90
-        progress.isUserInteractionEnabled = true
-        progress.progressThickness = 0.6
-        progress.trackThickness = 0.6
-        progress.clockwise = true
-        progress.gradientRotateSpeed = 2
-        progress.roundedCorners = false
-        progress.glowMode = .forward
-        progress.trackColor = .lightGray
-        progress.glowAmount = 0.5
-        progress.set(colors: Constants.greenColour)
-        return progress
-    }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+    @objc func handleTapOnASavingsGoal(_ sender: UITapGestureRecognizer) {
+        
         let view = sender.view
         let tag = view?.tag
-        let savingGoal = persistenceManager?.savingsGoals[tag!]
+        let savingGoal = viewModel.persistenceManager?.savingsGoals[tag!]
         performSegue(withIdentifier: "toSavingGoalVC", sender: savingGoal)
     }
     
@@ -304,7 +315,6 @@ extension MainVC {
         barChart.noDataText = "Data on you cravings and smoking habits will be displayed here!"
         barChart.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
         barChart.noDataTextColor = .white
-        barChart.noDataTextAlignment = .center
         //Formatting the x (date) axis
         xAxis.labelPosition = .bottom
         xAxis.drawLabelsEnabled = true
@@ -339,7 +349,7 @@ extension MainVC {
         var cravingTriggerDictionary = [String: Int]()
         var cravingDateDictionary = [Date: Int]()
         var smokedDateDictionary = [Date: Int]()
-        for craving in persistenceManager!.cravings {
+        for craving in viewModel.persistenceManager!.cravings {
             if let cravingCatagory = craving.cravingCatagory {
                 cravingTriggerDictionary[cravingCatagory] = (cravingTriggerDictionary[cravingCatagory] == nil) ? 1 : cravingTriggerDictionary[cravingCatagory]! + 1
             }

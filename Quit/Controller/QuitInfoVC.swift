@@ -20,11 +20,13 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var quitDatePicker: UIDatePicker!
     
     override func viewDidLoad() {
+        
         cigarettesSmokedDaily.delegate = self
         costOf20.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         if quitData != nil {
             self.costOf20.text = String(quitData!.costOf20)
             self.cigarettesSmokedDaily.text = String(quitData!.smokedDaily)
@@ -33,11 +35,13 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         cigarettesSmokedDaily.resignFirstResponder()
         costOf20.resignFirstResponder()
         self.view.endEditing(true)
@@ -48,6 +52,7 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
     }
     
     func showDataMissingAlert() {
+        
         let alert = UIAlertController(title: "Add all data!", message: "", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(okButton)
@@ -55,6 +60,7 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        
         if costOf20.text != "" && cigarettesSmokedDaily.text != "" {
             guard let cost = Double(costOf20.text!), let amount = Double(cigarettesSmokedDaily.text!) else {
                 showDataMissingAlert()

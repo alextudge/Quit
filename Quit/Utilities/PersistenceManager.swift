@@ -18,6 +18,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
     
     override init() {
         super.init()
+        
         self.context = self.persistentContainer.viewContext
         //generateTestDate()
         fetchSavingsGoalsData()
@@ -57,6 +58,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         cravings.append(craving)
+        saveContext()
     }
     
     func fetchCravingData() {
@@ -76,6 +78,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
         saving.goalName = title
         saving.goalAmount = cost
         savingsGoals.append(saving)
+        saveContext()
     }
     
     func fetchSavingsGoalsData() {
@@ -92,6 +95,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
     //Deletion functions
     func deleteObject(object: NSManagedObject) {
         context.delete(object)
+        saveContext()
     }
     
     func deleteAllData() {

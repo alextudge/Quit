@@ -10,20 +10,31 @@ import Foundation
 
 class MainVCViewModel: NSObject {
     
-    var quitData: QuitData?
-    let userDefaults = UserDefaults.standard
+    private let userDefaults = UserDefaults.standard
     
-    override init() {
+    private(set) var persistenceManager: PersistenceManager!
+    private(set) var quitData: QuitData?
+    
+    var hasSetupOnce = false
+    
+    init(persistenceManager: PersistenceManager = PersistenceManager()) {
         super.init()
+        
+        self.persistenceManager = persistenceManager
+        
         userDefaults.addObserver(self, forKeyPath: "quitData", options: NSKeyValueObservingOptions.new, context: nil)
+        
         if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
             self.quitData = QuitData(quitData: returnedData)
-        } else {
-            self.quitData = nil
         }
     }
     
+    deinit {
+        persistenceManager?.saveContext()
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        
         if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
             quitData = QuitData(quitData: returnedData)
         }
@@ -84,5 +95,54 @@ class MainVCViewModel: NSObject {
         } else {
             return 360
         }
+    }
+    
+    func cravingButtonAlertTitle() -> String {
+        return "Did you smoke?"
+    }
+    
+    func cravingButtonAlertMessage() -> String {
+        return "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing.\n\n Bin anything you've got left and carry on!\n\n Add a catagory or trigger below if you want to track them. Craving data will appear after 24 hours."
+    }
+    
+    func countForSavingPageController() -> Int {
+        
+        if let count = persistenceManager?.savingsGoals.count {
+            return count + 1
+        } else {
+            return 1
+        }
+    }
+    
+    func savingsAttributedText() -> NSAttributedString? {
+        
+        guard quitData != nil else { return nil }
+        var screenOneText = NSAttributedString()
+        
+        if let formattedDailyCost = stringFromCurrencyFormatter(data: quitData!.costPerDay as NSNumber), let formattedAnnualCost = stringFromCurrencyFormatter(data: quitData!.costPerYear as NSNumber), let formattedSoFarSaving = stringFromCurrencyFormatter(data: quitData!.savedSoFar as NSNumber) {
+            
+            if quitDateIsInPast {
+                screenOneText = NSAttributedString(string: "\(formattedDailyCost) saved daily, \(formattedAnnualCost) saved yearly. \(formattedSoFarSaving) saved so far.", attributes: Constants.savingsInfoAttributes)
+            } else {
+                screenOneText = NSAttributedString(string: "You're going to save \(formattedDailyCost) daily and \(formattedAnnualCost) yearly.", attributes: Constants.savingsInfoAttributes)
+            }
+        }
+        return screenOneText
+    }
+    
+    func generateProgressView() -> KDCircularProgress {
+        let progress = KDCircularProgress()
+        progress.startAngle = -90
+        progress.isUserInteractionEnabled = true
+        progress.progressThickness = 0.6
+        progress.trackThickness = 0.6
+        progress.clockwise = true
+        progress.gradientRotateSpeed = 2
+        progress.roundedCorners = false
+        progress.glowMode = .forward
+        progress.trackColor = .lightGray
+        progress.glowAmount = 0.5
+        progress.set(colors: Constants.greenColour)
+        return progress
     }
 }

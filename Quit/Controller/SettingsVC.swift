@@ -12,7 +12,7 @@ import CoreData
 class SettingsVC: UIViewController {
     
     weak var delegate: QuitVCDelegate?
-    var persistenceManager: PersistenceManager? = nil
+    var persistenceManager: PersistenceManagerProtocol? = nil
     @IBOutlet weak var deleteAllDataButton: UIButton!
     
     @IBAction func goBackButtonPressed(_ sender: Any) {

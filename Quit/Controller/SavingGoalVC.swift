@@ -16,7 +16,7 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
     
     weak var delegate: savingGoalVCDelegate?
     var savingGoal: SavingGoal? = nil
-    var persistenceManager: PersistenceManager? = nil
+    var persistenceManager: PersistenceManagerProtocol? = nil
     
     override func viewDidLoad() {
         

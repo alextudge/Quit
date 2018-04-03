@@ -20,11 +20,13 @@ class MainVCViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        sut = MainVCViewModel()
+        sut = MainVCViewModel(persistenceManager = PersistenceManagerMock())
+        
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         testDate = formatter.date(from: "2017/10/08 22:31")!
         changedDate = formatter.date(from: "2016/10/08 22:31")!
-        sut.quitData = QuitData(quitData: ["smokedDaily": 10, "costOf20": 10.0, "quitDate": testDate])
+        
+        //sut.quitData = QuitData(quitData: ["smokedDaily": 10, "costOf20": 10.0, "quitDate": testDate])
     }
     
     override func tearDown() {

@@ -7,17 +7,19 @@
 //
 
 import Foundation
+import StoreKit
+import UserNotifications
 
 class MainVCViewModel: NSObject {
     
     private let userDefaults = UserDefaults.standard
     
-    private(set) var persistenceManager: PersistenceManager!
+    private(set) var persistenceManager: PersistenceManagerProtocol!
     private(set) var quitData: QuitData?
     
     var hasSetupOnce = false
     
-    init(persistenceManager: PersistenceManager = PersistenceManager()) {
+    init(persistenceManager: PersistenceManagerProtocol = PersistenceManager()) {
         super.init()
         
         self.persistenceManager = persistenceManager
@@ -102,7 +104,7 @@ class MainVCViewModel: NSObject {
     }
     
     func cravingButtonAlertMessage() -> String {
-        return "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing.\n\n Bin anything you've got left and carry on!\n\n Add a catagory or trigger below if you want to track them. Craving data will appear after 24 hours."
+        return "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing. \n\n Add a catagory or trigger below if you want to track them."
     }
     
     func countForSavingPageController() -> Int {
@@ -144,5 +146,21 @@ class MainVCViewModel: NSObject {
         progress.glowAmount = 0.5
         progress.set(colors: Constants.greenColour)
         return progress
+    }
+    
+    func appStoreReview() {
+        
+        //Ask for a store review after a few days of quitting
+        if quitDataLongerThan6DaysAgo {
+            if #available(iOS 10.3, *) {
+                SKStoreReviewController.requestReview()
+            }
+        }
+    }
+    
+    func requestNotifAuth() {
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in }
     }
 }

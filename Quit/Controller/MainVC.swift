@@ -6,19 +6,17 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-//Save context on every new item addition/deletion
-
 import UIKit
-
 import Charts
-import StoreKit
-import UserNotifications
+//import UserNotifications
 
 class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, settingsVCDelegate {
     
     let refreshController = UIRefreshControl()
+    
     lazy var barChart = generateBarChart()
     lazy var catagoryTextField = UITextView()
+    
     var viewModel: MainVCViewModel!
     
     @IBOutlet weak var cravingButton: UIButton!
@@ -38,7 +36,7 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
         
         viewModel = MainVCViewModel()
         
-        requestNotifAuth()
+        viewModel.requestNotifAuth()
         setupInitialState()
         
         //Pull to refrsh the time-dependent data
@@ -54,12 +52,6 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
             //This needs to be called only once, but also after the UI has been setup to ensure object dimensions are correct
             setupUI()
         }
-    }
-    
-    func requestNotifAuth() {
-        
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in }
     }
     
     func setupInitialState() {
@@ -98,9 +90,7 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
             } else {
                 
                 let subViews = self.healthScrollView.subviews
-                for subview in subViews {
-                    subview.removeFromSuperview()
-                }
+                for subview in subViews { subview.removeFromSuperview() }
             }
         }
         refreshController.endRefreshing()
@@ -111,16 +101,6 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
         section2Placeholder.isHidden = true
         section3Placeholder.isHidden = true
         section4Placeholder.isHidden = true
-    }
-    
-    func appStoreReview() {
-        
-        //Ask for a store review after a few days of quitting
-        if viewModel.quitDataLongerThan6DaysAgo {
-            if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
-            }
-        }
     }
     
     //Pass relevent objects to new views
@@ -153,12 +133,14 @@ class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, setti
 extension MainVC {
     
     func setupSection1() {
+        
         cravingButton.isHidden = false
         displayQuitDate()
         setupQuitTimer()
     }
     
     func displayQuitDate() {
+        
         if viewModel.quitData?.quitDate != nil {
             setQuitDataButton.isHidden = true
             quitDateLabel.isHidden = false
@@ -190,15 +172,17 @@ extension MainVC {
             //Add the craving data to coreData
             self.viewModel.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text!.capitalized : "", smoked: true)
             self.isQuitDateSet()
+            //Don't need to call processCravingData here as its covered by isQuitDateSet > setupSection3
         }
         
         alertController.addAction(yesAction)
         
         let noAction = UIAlertAction(title: "No", style: .default) { action in
+            
             let textField = alertController.textFields![0] as UITextField
             self.viewModel.persistenceManager?.addCraving(catagory: (textField.text != nil) ? textField.text! : "", smoked: false)
             self.processCravingData()
-            self.appStoreReview()
+            self.viewModel.appStoreReview()
         }
         
         alertController.addAction(noAction)
@@ -219,11 +203,11 @@ extension MainVC {
         savingsPageControl.isHidden = false
         let subViews = self.savingsScrollView.subviews
         for subview in subViews { subview.removeFromSuperview() }
-        fetchSavingsGoalsData()
+        setSavingsPageControllerCount()
         populateScrollView()
     }
     
-    func fetchSavingsGoalsData() {
+    func setSavingsPageControllerCount() {
         self.savingsPageControl.numberOfPages = viewModel.countForSavingPageController()
     }
     
@@ -261,6 +245,7 @@ extension MainVC {
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0
             label.minimumScaleFactor = 0.5
+            
             self.savingsScrollView.addSubview(label)
         }
         
@@ -277,7 +262,8 @@ extension MainVC {
         performSegue(withIdentifier: "toSavingGoalVC", sender: savingGoal)
     }
     
-    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
         let pageWidth = savingsScrollView.frame.width
         let currentPage = floor((savingsScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1
         self.savingsPageControl.currentPage = Int(currentPage)
@@ -286,15 +272,19 @@ extension MainVC {
 
 //Section 3 - Craving information
 extension MainVC {
+    
     func setupSection3() {
+        
         setupScrollView()
         processCravingData()
         addSavingButton.isHidden = false
     }
     
     func setupScrollView() {
+        
         let scrollViewHeight = cravingScrollView.bounds.height
         let scrollViewWidth = cravingScrollView.bounds.width
+        
         barChart.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: scrollViewHeight)
         cravingScrollView.addSubview(barChart)
         catagoryTextField.frame = CGRect(x: scrollViewWidth * 1, y: 0, width: scrollViewWidth - 10, height: scrollViewHeight)
@@ -307,6 +297,7 @@ extension MainVC {
     }
     
     func generateBarChart() -> BarChartView {
+        
         let barChart = BarChartView()
         let xAxis = barChart.xAxis
         let leftAxis = barChart.leftAxis
@@ -346,10 +337,12 @@ extension MainVC {
     }
     
     func processCravingData() {
+        
         var cravingTriggerDictionary = [String: Int]()
         var cravingDateDictionary = [Date: Int]()
         var smokedDateDictionary = [Date: Int]()
-        for craving in viewModel.persistenceManager!.cravings {
+        
+        for craving in viewModel.persistenceManager.cravings {
             if let cravingCatagory = craving.cravingCatagory {
                 cravingTriggerDictionary[cravingCatagory] = (cravingTriggerDictionary[cravingCatagory] == nil) ? 1 : cravingTriggerDictionary[cravingCatagory]! + 1
             }

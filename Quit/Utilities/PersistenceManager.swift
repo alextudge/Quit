@@ -9,7 +9,19 @@
 import CoreData
 import Foundation
 
-class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate {
+protocol PersistenceManagerProtocol {
+    
+    func saveContext ()
+    func addCraving(catagory: String, smoked: Bool)
+    func deleteObject(object: NSManagedObject)
+    func deleteAllData()
+    func addSavingGoal(title: String, cost: Double)
+    
+    var cravings: [Craving] { get }
+    var savingsGoals: [SavingGoal] { get }
+}
+
+class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, PersistenceManagerProtocol {
     
     private var context: NSManagedObjectContext!
     private(set) var cravings = [Craving]()

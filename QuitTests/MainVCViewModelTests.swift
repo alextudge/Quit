@@ -15,6 +15,7 @@ class MainVCViewModelTests: XCTestCase {
     var quitData: QuitData!
     
     let formatter = DateFormatter()
+    
     var testDate: Date!
     var changedDate: Date!
     
@@ -22,31 +23,36 @@ class MainVCViewModelTests: XCTestCase {
         super.setUp()
         
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        
         testDate = formatter.date(from: "2017/10/08 22:31")!
         changedDate = formatter.date(from: "2016/10/08 22:31")!
         
         quitData = QuitData(quitData: ["smokedDaily": 10, "costOf20": 10.0, "quitDate": testDate])
-        
-        sut = MainVCViewModel(persistenceManager: PersistenceManagerMock(), quitData: quitData)
+        sut = MainVCViewModel(persistenceManager: PersistenceManagerMock())
+        sut.quitData = quitData
     }
     
     override func tearDown() {
+        super.tearDown()
         
         sut = nil
-        super.tearDown()
+        quitData = nil
     }
     
     func testQuitDateIsInPast() {
+        
         XCTAssertTrue(sut.quitDateIsInPast == true)
         XCTAssertFalse(sut.quitDateIsInPast == false)
     }
     
-    func testQuitDateIs3DaysAgoOrMore() {
-        XCTAssertTrue(sut.quitDataLongerThan3DaysAgo == true)
-        XCTAssertFalse(sut.quitDataLongerThan3DaysAgo == false)
+    func testQuitDateIs6DaysAgoOrMore() {
+        
+        XCTAssertTrue(sut.quitDataLongerThan6DaysAgo == true)
+        XCTAssertFalse(sut.quitDataLongerThan6DaysAgo == false)
     }
     
     func testConvertQuitDateToString() {
+        
         let altFormatter = DateFormatter()
         altFormatter.dateStyle = .medium
         altFormatter.timeStyle = .none
@@ -57,6 +63,7 @@ class MainVCViewModelTests: XCTestCase {
     }
     
     func testReturnMediumDateFormatter() {
+        
         let altFormatter = DateFormatter()
         altFormatter.dateStyle = .medium
         altFormatter.timeStyle = .none
@@ -76,5 +83,29 @@ class MainVCViewModelTests: XCTestCase {
         XCTAssertTrue(sut.savingsProgressAngle(goalAmount: 50) == 360.0)
         let savedSoFar = sut.quitData?.savedSoFar
         XCTAssertTrue(sut.savingsProgressAngle(goalAmount: savedSoFar! * 2) <= 200)
+    }
+    
+    func testCravingAlertTitle() {
+        XCTAssertEqual("Did you smoke?", sut.cravingButtonAlertTitle())
+    }
+    
+    func testCravingAlertMessage() {
+        XCTAssertEqual("If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing. \n\n Add a catagory or trigger below if you want to track them.", sut.cravingButtonAlertMessage())
+    }
+    
+    func testCountForSavingsPageController() {
+        
+        XCTAssert(sut.countForSavingPageController() == 1)
+
+        //TODO adding savings
+    }
+    
+    func testSavingsAttributedTestGenerator() {
+        
+        let generatedText = sut.savingsAttributedText()
+        
+        //As we know the quit date is set to more than 6 days ago, test that the generated string reflects this
+        XCTAssertTrue((generatedText?.string.contains("saved daily"))!)
+        XCTAssertFalse((generatedText?.string.contains("You're"))!)
     }
 }

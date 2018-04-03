@@ -15,15 +15,14 @@ class MainVCViewModel: NSObject {
     private let userDefaults = UserDefaults.standard
     
     private(set) var persistenceManager: PersistenceManagerProtocol!
-    private(set) var quitData: QuitData?
+    var quitData: QuitData?
     
     var hasSetupOnce = false
     
-    init(persistenceManager: PersistenceManagerProtocol = PersistenceManager(), quitData: QuitData? = nil) {
+    init(persistenceManager: PersistenceManagerProtocol = PersistenceManager()) {
         super.init()
         
         self.persistenceManager = persistenceManager
-        self.quitData = quitData
         
         userDefaults.addObserver(self, forKeyPath: "quitData", options: NSKeyValueObservingOptions.new, context: nil)
         

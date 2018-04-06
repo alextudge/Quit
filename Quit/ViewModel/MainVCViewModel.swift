@@ -133,6 +133,7 @@ class MainVCViewModel: NSObject {
     }
     
     func generateProgressView() -> KDCircularProgress {
+        
         let progress = KDCircularProgress()
         progress.startAngle = -90
         progress.isUserInteractionEnabled = true
@@ -146,6 +147,29 @@ class MainVCViewModel: NSObject {
         progress.glowAmount = 0.5
         progress.set(colors: Constants.greenColour)
         return progress
+    }
+    
+    func processCravingData() -> ([Date: Int], [Date: Int], [String: Int]) {
+        
+        var cravingTriggerDictionary = [String: Int]()
+        var cravingDateDictionary = [Date: Int]()
+        var smokedDateDictionary = [Date: Int]()
+        
+        for craving in persistenceManager.cravings {
+            if let cravingCatagory = craving.cravingCatagory {
+                cravingTriggerDictionary[cravingCatagory] = (cravingTriggerDictionary[cravingCatagory] == nil) ? 1 : cravingTriggerDictionary[cravingCatagory]! + 1
+            }
+            if let cravingDate = craving.cravingDate {
+                let standardisedDate = self.standardisedDate(date: cravingDate)
+                if craving.cravingSmoked == true {
+                    smokedDateDictionary[standardisedDate] = (smokedDateDictionary[standardisedDate] == nil) ? 1 : smokedDateDictionary[standardisedDate]! + 1
+                } else {
+                    cravingDateDictionary[standardisedDate] = (cravingDateDictionary[standardisedDate] == nil) ? 1 : cravingDateDictionary[standardisedDate]! + 1
+                }
+            }
+        }
+        return (cravingDateDictionary, smokedDateDictionary, cravingTriggerDictionary)
+        //updateCravingData(cravingDict: cravingDateDictionary, smokedDict: smokedDateDictionary, catagoryDict: cravingTriggerDictionary)
     }
     
     func appStoreReview() {

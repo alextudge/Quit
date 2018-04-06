@@ -8,7 +8,6 @@
 
 import UIKit
 import Charts
-//import UserNotifications
 
 class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, settingsVCDelegate {
     
@@ -336,26 +335,32 @@ extension MainVC {
         return barChart
     }
     
+//    func processCravingDataVM() -> ([Date: Int], [Date: Int], [String: Int]) {
+//        
+//        var cravingTriggerDictionary = [String: Int]()
+//        var cravingDateDictionary = [Date: Int]()
+//        var smokedDateDictionary = [Date: Int]()
+//        
+//        for craving in viewModel.persistenceManager.cravings {
+//            if let cravingCatagory = craving.cravingCatagory {
+//                cravingTriggerDictionary[cravingCatagory] = (cravingTriggerDictionary[cravingCatagory] == nil) ? 1 : cravingTriggerDictionary[cravingCatagory]! + 1
+//            }
+//            if let cravingDate = craving.cravingDate {
+//                let standardisedDate = viewModel.standardisedDate(date: cravingDate)
+//                if craving.cravingSmoked == true {
+//                    smokedDateDictionary[standardisedDate] = (smokedDateDictionary[standardisedDate] == nil) ? 1 : smokedDateDictionary[standardisedDate]! + 1
+//                } else {
+//                    cravingDateDictionary[standardisedDate] = (cravingDateDictionary[standardisedDate] == nil) ? 1 : cravingDateDictionary[standardisedDate]! + 1
+//                }
+//            }
+//        }
+//        return (cravingDateDictionary, smokedDateDictionary, cravingTriggerDictionary)
+//        //updateCravingData(cravingDict: cravingDateDictionary, smokedDict: smokedDateDictionary, catagoryDict: cravingTriggerDictionary)
+//    }
+    
     func processCravingData() {
-        
-        var cravingTriggerDictionary = [String: Int]()
-        var cravingDateDictionary = [Date: Int]()
-        var smokedDateDictionary = [Date: Int]()
-        
-        for craving in viewModel.persistenceManager.cravings {
-            if let cravingCatagory = craving.cravingCatagory {
-                cravingTriggerDictionary[cravingCatagory] = (cravingTriggerDictionary[cravingCatagory] == nil) ? 1 : cravingTriggerDictionary[cravingCatagory]! + 1
-            }
-            if let cravingDate = craving.cravingDate {
-                let standardisedDate = viewModel.standardisedDate(date: cravingDate)
-                if craving.cravingSmoked == true {
-                    smokedDateDictionary[standardisedDate] = (smokedDateDictionary[standardisedDate] == nil) ? 1 : smokedDateDictionary[standardisedDate]! + 1
-                } else {
-                    cravingDateDictionary[standardisedDate] = (cravingDateDictionary[standardisedDate] == nil) ? 1 : cravingDateDictionary[standardisedDate]! + 1
-                }
-            }
-        }
-        updateCravingData(cravingDict: cravingDateDictionary, smokedDict: smokedDateDictionary, catagoryDict: cravingTriggerDictionary)
+        let data = viewModel.processCravingData()
+        updateCravingData(cravingDict: data.0, smokedDict: data.1, catagoryDict: data.2)
     }
     
     func updateCravingData(cravingDict: [Date: Int], smokedDict: [Date: Int], catagoryDict: [String: Int]) {

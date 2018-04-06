@@ -169,7 +169,6 @@ class MainVCViewModel: NSObject {
             }
         }
         return (cravingDateDictionary, smokedDateDictionary, cravingTriggerDictionary)
-        //updateCravingData(cravingDict: cravingDateDictionary, smokedDict: smokedDateDictionary, catagoryDict: cravingTriggerDictionary)
     }
     
     func appStoreReview() {

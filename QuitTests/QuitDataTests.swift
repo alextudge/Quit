@@ -13,13 +13,13 @@ class QuitDateTests: XCTestCase {
     
     var quitDate: QuitData!
     var formatter = DateFormatter()
-    var testDate: Date? = nil
+    var testDate: Date?
     
     override func setUp() {
         super.setUp()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         testDate = formatter.date(from: "2017/10/08 22:31")!
-        quitDate = QuitData(quitData: ["smokedDaily": 10 , "costOf20": 10.0, "quitDate": formatter.date(from: "2016/10/08 22:31")!])
+        quitDate = QuitData(quitData: ["smokedDaily": 10, "costOf20": 10.0, "quitDate": formatter.date(from: "2016/10/08 22:31")!])
         print(quitDate.quitDate)
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171910CE20BA18F000B72D0A /* ChartFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171910CD20BA18E600B72D0A /* ChartFactory.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		176D2EF920740E4400115AE2 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D2EF820740E4400115AE2 /* Mocks.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
@@ -26,6 +27,8 @@
 		17C6B5E02035D47400AAE086 /* QuitDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5DF2035D47400AAE086 /* QuitDataTests.swift */; };
 		17C6B5EB2035DFF100AAE086 /* MainVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */; };
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
+		17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */; };
+		17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
 		45EB774CEFB204A24B2152A7 /* Pods_QuitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */; };
 		AFCC50839C8F1E441234087D /* Pods_Quit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212F2A76F0721C15EF160C14 /* Pods_Quit.framework */; };
 		E5A7377D6A8742637F6D358E /* Pods_QuitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */; };
@@ -64,6 +67,7 @@
 /* Begin PBXFileReference section */
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		171910CD20BA18E600B72D0A /* ChartFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFactory.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		176D2EF820740E4400115AE2 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +91,8 @@
 		17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUITests.swift; sourceTree = "<group>"; };
 		17C6B5EC2035DFF100AAE086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F021FF2031EA83005EF65C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVCViewModel.swift; sourceTree = "<group>"; };
+		17F4E6F420C14AC600B9A21B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		212F2A76F0721C15EF160C14 /* Pods_Quit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E50A3FB87BCE92EA0607FF /* Pods-QuitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 			children = (
 				177F04222028A70600CC7CA8 /* Utilities */,
 				177F041E2028A6CF00CC7CA8 /* Model */,
+				17F4E6F120C146B200B9A21B /* View */,
 				177F04212028A6F000CC7CA8 /* Controller */,
 				17C8AB50206971310078680A /* ViewModel */,
 				177F03E42025220000CC7CA8 /* AppDelegate.swift */,
@@ -202,6 +209,7 @@
 				17A29F772029EBED007B1938 /* KDCircularProgress.swift */,
 				177F041A2028A08800CC7CA8 /* Extensions.swift */,
 				1788CBCB2039B3E000064A86 /* Constants.swift */,
+				171910CD20BA18E600B72D0A /* ChartFactory.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -219,8 +227,17 @@
 			isa = PBXGroup;
 			children = (
 				1786F4F4203A342800C8E1BA /* MainVCViewModel.swift */,
+				17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		17F4E6F120C146B200B9A21B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17F4E6F420C14AC600B9A21B /* RoundButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4F797A7321EFCB28DD35F62E /* Pods */ = {
@@ -281,6 +298,7 @@
 				177F04062027716900CC7CA8 /* Embed Frameworks */,
 				727D64CEA1A1B372892E3CC4 /* [CP] Embed Pods Frameworks */,
 				616D766CB628082678302426 /* [CP] Copy Pods Resources */,
+				171910CC20A9E2D100B72D0A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -400,6 +418,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuitUITests/Pods-QuitUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		171910CC20A9E2D100B72D0A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
 		1BB9DFD1A61914773FDA1D87 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -558,9 +589,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1786F4F5203A342800C8E1BA /* MainVCViewModel.swift in Sources */,
+				171910CE20BA18F000B72D0A /* ChartFactory.swift in Sources */,
+				17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */,
 				177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
+				17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */,
 				1788CBCC2039B3E000064A86 /* Constants.swift in Sources */,
 				177F03E72025220000CC7CA8 /* MainVC.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,

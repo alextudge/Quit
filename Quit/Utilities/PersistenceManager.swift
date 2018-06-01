@@ -11,7 +11,8 @@ import Foundation
 
 protocol PersistenceManagerProtocol {
     
-    func saveContext ()
+    func setQuitDataInUserDefaults(object: [String: Any], key: String)
+    func saveContext()
     func addCraving(catagory: String, smoked: Bool)
     func deleteObject(object: NSManagedObject)
     func deleteAllData()
@@ -26,7 +27,8 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     private var context: NSManagedObjectContext!
     private(set) var cravings = [Craving]()
     private(set) var savingsGoals = [SavingGoal]()
-    private let objects = ["Craving","SavingGoal"]
+    private let objects = ["Craving", "SavingGoal"]
+    private let userDefaults = UserDefaults.standard
     
     override init() {
         super.init()
@@ -37,10 +39,16 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         fetchCravingData()
     }
     
+    //Persiting in userDefaults
+    
+    func setQuitDataInUserDefaults(object: [String: Any], key: String) {
+        userDefaults.set(object, forKey: key)
+    }
+    
     //Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Quit")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -78,7 +86,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         let sort = NSSortDescriptor(key: "cravingDate", ascending: false)
         cravingFetch.sortDescriptors = [sort]
         do {
-            cravings = try context.fetch(cravingFetch) as! [Craving]
+            cravings = (try context.fetch(cravingFetch) as? [Craving])!
         } catch {
             fatalError("Failed to fetch employees: \(error)")
         }
@@ -98,7 +106,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         let sort = NSSortDescriptor(key: "goalAmount", ascending: true)
         savingsFetch.sortDescriptors = [sort]
         do {
-            savingsGoals = try context.fetch(savingsFetch) as! [SavingGoal]
+            savingsGoals = (try context.fetch(savingsFetch) as? [SavingGoal])!
         } catch {
             fatalError("Failed to fetch employees: \(error)")
         }
@@ -117,8 +125,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
                 try context.execute(DelAllReqVar)
                 savingsGoals = [SavingGoal]()
                 cravings = [Craving]()
-            }
-            catch {
+            } catch {
                 print(error)
             }
         }
@@ -133,7 +140,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
             let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: today)
             let date = DateFormatter()
             date.dateFormat = "dd-MM-yyyy"
-            let stringDate : String = date.string(from: today)
+            let stringDate: String = date.string(from: today)
             today = tomorrow!
             for _ in 0...randomNumber {
                 let craving = Craving(context: context)

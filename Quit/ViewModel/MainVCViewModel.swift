@@ -12,64 +12,60 @@ import UserNotifications
 
 class MainVCViewModel: NSObject {
     
-    private let userDefaults = UserDefaults.standard
-    
     private(set) var persistenceManager: PersistenceManagerProtocol!
-    var quitData: QuitData?
-    
-    var hasSetupOnce = false
+    private(set) var chartFactory: ChartFactory?
     
     init(persistenceManager: PersistenceManagerProtocol = PersistenceManager()) {
         super.init()
         
         self.persistenceManager = persistenceManager
-        
-        userDefaults.addObserver(self, forKeyPath: "quitData", options: NSKeyValueObservingOptions.new, context: nil)
-        
-        if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
-            self.quitData = QuitData(quitData: returnedData)
-        }
+        self.chartFactory = ChartFactory()
     }
     
     deinit {
         persistenceManager?.saveContext()
+        persistenceManager = nil
+        chartFactory = nil
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+    //Time related functions
+    
+    func quitDateIsInPast(quitData: QuitData?) -> Bool {
         
-        if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
-            quitData = QuitData(quitData: returnedData)
-        }
+        guard let quitDate = quitData?.quitDate else { return false }
+        return quitDate < Date()
     }
     
-    var quitDateIsInPast: Bool {
-        return quitData!.quitDate < Date()
+    func quitDataLongerThan4DaysAgo(quitData: QuitData?) -> Bool {
+        
+        //Time intervals are processed in seconds
+        
+        guard let quitDate = quitData?.quitDate else { return false }
+        let sixDaysInSeconds = Double(345600)
+        return Date().timeIntervalSince(quitDate) > sixDaysInSeconds
     }
     
-    var quitDataLongerThan6DaysAgo: Bool {
-        return Date().timeIntervalSince(quitData!.quitDate) > 518400
-    }
+    //Date formatters
     
-    func stringQuitDate() -> String {
+    func stringQuitDate(quitData: QuitData?) -> String? {
+        
+        guard let quitDate = quitData?.quitDate else { return nil }
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
-        return formatter.string(from: quitData!.quitDate)
+        return formatter.string(from: quitDate)
     }
     
     func mediumDateFormatter() -> DateFormatter {
+        
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         return formatter
     }
     
-    func setUserDefaultsQuitDateToCurrent() {
-        let quitData: [String: Any] = ["smokedDaily": self.quitData!.smokedDaily, "costOf20": self.quitData!.costOf20, "quitDate": Date()]
-        self.userDefaults.set(quitData, forKey: "quitData")
-    }
-    
     func standardisedDate(date: Date) -> Date {
+        
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateStyle = .short
@@ -77,26 +73,30 @@ class MainVCViewModel: NSObject {
         return formatter.date(from: stringDate)!
     }
     
+    //Model manipulation
+    
+    func setUserDefaultsQuitDateToCurrent(quitData: QuitData?) {
+        
+        guard quitData != nil else { return }
+        let quitData: [String: Any] = ["smokedDaily": quitData!.smokedDaily as Any,
+                                       "costOf20": quitData!.costOf20 as Any,
+                                       "quitDate": Date()]
+        persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
+    }
+    
+    //General formatters
+    
     func stringFromCurrencyFormatter(data: NSNumber) -> String? {
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         return formatter.string(from: data)
     }
     
-    func countdownLabel() -> String {
-        return Date().offsetFrom(date: quitData!.quitDate)
-    }
-    
-    func savingsProgressAngle(goalAmount: Double) -> Double {
-        var angle = 0.0
-        if self.quitDateIsInPast {
-            angle = self.quitData!.savedSoFar / goalAmount * 360
-        }
-        if angle < 360 {
-            return angle
-        } else {
-            return 360
-        }
+    func countdownLabel(quitData: QuitData?) -> String? {
+        
+        guard let quitDate = quitData?.quitDate else { return nil }
+        return Date().offsetFrom(date: quitDate)
     }
     
     func cravingButtonAlertTitle() -> String {
@@ -104,7 +104,53 @@ class MainVCViewModel: NSObject {
     }
     
     func cravingButtonAlertMessage() -> String {
-        return "If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing. \n\n Add a catagory or trigger below if you want to track them."
+        
+        let honesty = "Be honest.\n"
+        let resetNotif = "We'll reset the quit date but your work so far doesn't count for nothing.\n\n"
+        let triggers = "Add a trigger below to track them."
+        return honesty + resetNotif + triggers
+    }
+    
+    func savingsAttributedText(quitData: QuitData?) -> NSAttributedString? {
+        
+        guard let costPerDay = quitData?.costPerDay as NSNumber?,
+            let costPerYear = quitData?.costPerYear as NSNumber?,
+            let savedSoFar = quitData?.savedSoFar as NSNumber? else { return nil }
+        
+        //Format the costs with local currencies
+        
+        var text = NSAttributedString()
+        if let dailyCost = stringFromCurrencyFormatter(data: costPerDay),
+            let annualCost = stringFromCurrencyFormatter(data: costPerYear),
+            let soFar = stringFromCurrencyFormatter(data: savedSoFar) {
+            
+            if quitDateIsInPast(quitData: quitData) {
+                text = NSAttributedString(
+                    string: "\(dailyCost) saved daily, \(annualCost) saved yearly. \(soFar) saved so far.",
+                    attributes: Constants.savingsInfoAttributes)
+            } else {
+                text = NSAttributedString(string: "You'll save \(dailyCost) daily and \(annualCost) yearly.",
+                    attributes: Constants.savingsInfoAttributes)
+            }
+        }
+        return text
+    }
+    
+    //General functions
+    
+    func savingsProgressAngle(goalAmount: Double, quitData: QuitData?) -> Double? {
+        
+        guard let quitSavingsToDate = quitData?.savedSoFar else { return nil }
+        
+        var angle = 0.0
+        if self.quitDateIsInPast(quitData: quitData) {
+            angle = quitSavingsToDate / goalAmount * 360
+        }
+        if angle < 360 {
+            return angle
+        } else {
+            return 360
+        }
     }
     
     func countForSavingPageController() -> Int {
@@ -116,65 +162,39 @@ class MainVCViewModel: NSObject {
         }
     }
     
-    func savingsAttributedText() -> NSAttributedString? {
-        
-        guard quitData != nil else { return nil }
-        var screenOneText = NSAttributedString()
-        
-        if let formattedDailyCost = stringFromCurrencyFormatter(data: quitData!.costPerDay as NSNumber), let formattedAnnualCost = stringFromCurrencyFormatter(data: quitData!.costPerYear as NSNumber), let formattedSoFarSaving = stringFromCurrencyFormatter(data: quitData!.savedSoFar as NSNumber) {
-            
-            if quitDateIsInPast {
-                screenOneText = NSAttributedString(string: "\(formattedDailyCost) saved daily, \(formattedAnnualCost) saved yearly. \(formattedSoFarSaving) saved so far.", attributes: Constants.savingsInfoAttributes)
-            } else {
-                screenOneText = NSAttributedString(string: "You're going to save \(formattedDailyCost) daily and \(formattedAnnualCost) yearly.", attributes: Constants.savingsInfoAttributes)
-            }
-        }
-        return screenOneText
-    }
-    
-    func generateProgressView() -> KDCircularProgress {
-        
-        let progress = KDCircularProgress()
-        progress.startAngle = -90
-        progress.isUserInteractionEnabled = true
-        progress.progressThickness = 0.6
-        progress.trackThickness = 0.6
-        progress.clockwise = true
-        progress.gradientRotateSpeed = 2
-        progress.roundedCorners = false
-        progress.glowMode = .forward
-        progress.trackColor = .lightGray
-        progress.glowAmount = 0.5
-        progress.set(colors: Constants.greenColour)
-        return progress
-    }
-    
     func processCravingData() -> ([Date: Int], [Date: Int], [String: Int]) {
         
+        //THIS NEEDS CLEANING UP/SIMPLIFYING
         var cravingTriggerDictionary = [String: Int]()
         var cravingDateDictionary = [Date: Int]()
         var smokedDateDictionary = [Date: Int]()
         
         for craving in persistenceManager.cravings {
             if let cravingCatagory = craving.cravingCatagory {
-                cravingTriggerDictionary[cravingCatagory] = (cravingTriggerDictionary[cravingCatagory] == nil) ? 1 : cravingTriggerDictionary[cravingCatagory]! + 1
+                cravingTriggerDictionary[cravingCatagory] = (cravingTriggerDictionary[cravingCatagory] == nil) ? 1 :
+                    cravingTriggerDictionary[cravingCatagory]! + 1
             }
             if let cravingDate = craving.cravingDate {
                 let standardisedDate = self.standardisedDate(date: cravingDate)
                 if craving.cravingSmoked == true {
-                    smokedDateDictionary[standardisedDate] = (smokedDateDictionary[standardisedDate] == nil) ? 1 : smokedDateDictionary[standardisedDate]! + 1
+                    smokedDateDictionary[standardisedDate] = (smokedDateDictionary[standardisedDate] == nil) ? 1 :
+                        smokedDateDictionary[standardisedDate]! + 1
                 } else {
-                    cravingDateDictionary[standardisedDate] = (cravingDateDictionary[standardisedDate] == nil) ? 1 : cravingDateDictionary[standardisedDate]! + 1
+                    cravingDateDictionary[standardisedDate] = (cravingDateDictionary[standardisedDate] == nil) ? 1 :
+                        cravingDateDictionary[standardisedDate]! + 1
                 }
             }
         }
         return (cravingDateDictionary, smokedDateDictionary, cravingTriggerDictionary)
     }
     
-    func appStoreReview() {
+    func appStoreReview(quitData: QuitData?) {
+        
+        guard quitData != nil else { return }
         
         //Ask for a store review after a few days of quitting
-        if quitDataLongerThan6DaysAgo {
+        
+        if quitDataLongerThan4DaysAgo(quitData: quitData) {
             if #available(iOS 10.3, *) {
                 SKStoreReviewController.requestReview()
             }
@@ -184,6 +204,6 @@ class MainVCViewModel: NSObject {
     func requestNotifAuth() {
         
         let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in }
+        center.requestAuthorization(options: [.alert, .sound]) { (_, _) in }
     }
 }

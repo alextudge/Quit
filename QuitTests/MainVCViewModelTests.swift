@@ -90,7 +90,9 @@ class MainVCViewModelTests: XCTestCase {
     }
     
     func testCravingAlertMessage() {
-        XCTAssertEqual("If you smoked, be honest. We'll reset your counter but that doesn't mean the time you've been clean for means nothing. \n\n Add a catagory or trigger below if you want to track them.", sut.cravingButtonAlertMessage())
+        
+        XCTAssertEqual("them.",
+                       sut.cravingButtonAlertMessage())
     }
     
     func testCountForSavingsPageController() {

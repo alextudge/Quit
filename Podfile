@@ -3,7 +3,8 @@ target 'Quit' do
 
   # Pods for Quit
   pod 'Charts'
-
+  pod 'SwiftLint'
+  
   target 'QuitTests' do
     inherit! :search_paths
   end

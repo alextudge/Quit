@@ -10,41 +10,59 @@ import Foundation
 
 struct QuitData {
     
-    init(quitData: Dictionary<String, Any>) {
-        self.smokedDaily = quitData["smokedDaily"] as! Int
-        self.costOf20 = quitData["costOf20"] as! Double
-        self.quitDate = quitData["quitDate"] as! Date
+    var smokedDaily: Int?
+    var costOf20: Double?
+    var quitDate: Date?
+    
+    init(quitData: [String: Any]) {
+        
+        self.smokedDaily = quitData["smokedDaily"] as? Int
+        self.costOf20 = quitData["costOf20"] as? Double
+        self.quitDate = quitData["quitDate"] as? Date
     }
     
-    var smokedDaily: Int
-    var costOf20: Double
-    var quitDate: Date
-    var costPerCigarette: Double {
-        return Double(self.costOf20) / 20.0
+    //Calculated variables
+    
+    var costPerCigarette: Double? {
+        
+        guard let costOfPack = costOf20 else { return nil }
+        return Double(costOfPack) / 20.0
     }
     
-    var costPerDay: Double {
-        return self.costPerCigarette * Double(self.smokedDaily)
+    var costPerDay: Double? {
+        
+        guard let costPerCig = costPerCigarette, let daily = smokedDaily else { return nil }
+        return costPerCig * Double(daily)
     }
     
-    var costPerMinute: Double {
-        return self.costPerDay / 1440
+    var costPerMinute: Double? {
+        
+        guard let dailyCost = costPerDay else { return nil }
+        return dailyCost / 1440
     }
     
-    var costPerWeek: Double {
-        return self.costPerDay * 7
+    var costPerWeek: Double? {
+        
+        guard let dailyCost = costPerDay else { return nil }
+        return dailyCost * 7
     }
     
-    var costPerYear: Double {
-        return self.costPerWeek * 52
+    var costPerYear: Double? {
+        
+        guard let weeklyCost = costPerWeek else { return nil }
+        return weeklyCost * 52
     }
     
-    var minuteSmokeFree: Double {
-        let secondsSmokeFree = Date().timeIntervalSince(self.quitDate)
+    var minuteSmokeFree: Double? {
+        
+        guard let dateStopped = quitDate else { return nil }
+        let secondsSmokeFree = Date().timeIntervalSince(dateStopped)
         return (secondsSmokeFree / 60)
     }
     
-    var savedSoFar: Double {
-        return self.minuteSmokeFree * costPerMinute
+    var savedSoFar: Double? {
+        
+        guard let minutesSmokeFree = minuteSmokeFree, let minuteCost = costPerMinute else { return nil }
+        return minutesSmokeFree * minuteCost
     }
 }

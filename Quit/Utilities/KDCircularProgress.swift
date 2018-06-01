@@ -28,7 +28,7 @@ private extension Comparable {
 @IBDesignable
 public class KDCircularProgress: UIView, CAAnimationDelegate {
     private enum Conversion {
-        static func degreesToRadians (value:CGFloat) -> CGFloat {
+        static func degreesToRadians (value: CGFloat) -> CGFloat {
             return value * .pi / 180.0
         }
     }
@@ -52,7 +52,10 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
             var (r1, g1, b1, a1) = (zero, zero, zero, zero)
             minMax.1.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
             
-            return UIColor(red: lerp(value: clampedValue, minMax: (r0, r1)), green: lerp(value: clampedValue, minMax: (g0, g1)), blue: lerp(value: clampedValue, minMax: (b0, b1)), alpha: lerp(value: clampedValue, minMax: (a0, a1)))
+            return UIColor(red: lerp(value: clampedValue, minMax: (r0, r1)),
+                           green: lerp(value: clampedValue, minMax: (g0, g1)),
+                           blue: lerp(value: clampedValue, minMax: (b0, b1)),
+                           alpha: lerp(value: clampedValue, minMax: (a0, a1)))
         }
         
         static func mod(value: Double, range: Double, minMax: (Double, Double)) -> Double {
@@ -68,15 +71,13 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         }
     }
     
-    private var progressLayer: KDCircularProgressViewLayer {
-        get {
-            return layer as! KDCircularProgressViewLayer
-        }
+    private var progressLayer: KDCircularProgressViewLayer? {
+        return layer as? KDCircularProgressViewLayer
     }
     
     private var radius: CGFloat = 0 {
         didSet {
-            progressLayer.radius = radius
+            progressLayer?.radius = radius
         }
     }
     
@@ -92,90 +93,90 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
             if self.isAnimating() {
                 self.pauseAnimation()
             }
-            progressLayer.angle = angle
+            progressLayer?.angle = angle
         }
     }
     
     @IBInspectable public var startAngle: Double = 0 {
         didSet {
             startAngle = Utility.mod(value: startAngle, range: 360, minMax: (0, 360))
-            progressLayer.startAngle = startAngle
-            progressLayer.setNeedsDisplay()
+            progressLayer?.startAngle = startAngle
+            progressLayer?.setNeedsDisplay()
         }
     }
     
     @IBInspectable public var clockwise: Bool = true {
         didSet {
-            progressLayer.clockwise = clockwise
-            progressLayer.setNeedsDisplay()
+            progressLayer?.clockwise = clockwise
+            progressLayer?.setNeedsDisplay()
         }
     }
     
     @IBInspectable public var roundedCorners: Bool = true {
         didSet {
-            progressLayer.roundedCorners = roundedCorners
+            progressLayer?.roundedCorners = roundedCorners
         }
     }
     
     @IBInspectable public var lerpColorMode: Bool = false {
         didSet {
-            progressLayer.lerpColorMode = lerpColorMode
+            progressLayer?.lerpColorMode = lerpColorMode
         }
     }
     
     @IBInspectable public var gradientRotateSpeed: CGFloat = 0 {
         didSet {
-            progressLayer.gradientRotateSpeed = gradientRotateSpeed
+            progressLayer?.gradientRotateSpeed = gradientRotateSpeed
         }
     }
     
     @IBInspectable public var glowAmount: CGFloat = 1.0 {//Between 0 and 1
         didSet {
             glowAmount = glowAmount.clamped(toMinimum: 0, maximum: 1)
-            progressLayer.glowAmount = glowAmount
+            progressLayer?.glowAmount = glowAmount
         }
     }
     
     public var glowMode: KDCircularProgressGlowMode = .forward {
         didSet {
-            progressLayer.glowMode = glowMode
+            progressLayer?.glowMode = glowMode
         }
     }
     
     @IBInspectable public var progressThickness: CGFloat = 0.4 {//Between 0 and 1
         didSet {
             progressThickness = progressThickness.clamped(toMinimum: 0, maximum: 1)
-            progressLayer.progressThickness = progressThickness / 2
+            progressLayer?.progressThickness = progressThickness / 2
         }
     }
     
     @IBInspectable public var trackThickness: CGFloat = 0.5 {//Between 0 and 1
         didSet {
             trackThickness = trackThickness.clamped(toMinimum: 0, maximum: 1)
-            progressLayer.trackThickness = trackThickness / 2
+            progressLayer?.trackThickness = trackThickness / 2
         }
     }
     
     @IBInspectable public var trackColor: UIColor = .black {
         didSet {
-            progressLayer.trackColor = trackColor
-            progressLayer.setNeedsDisplay()
+            progressLayer?.trackColor = trackColor
+            progressLayer?.setNeedsDisplay()
         }
     }
     
     @IBInspectable public var progressInsideFillColor: UIColor? = nil {
         didSet {
-            progressLayer.progressInsideFillColor = progressInsideFillColor ?? .clear
+            progressLayer?.progressInsideFillColor = progressInsideFillColor ?? .clear
         }
     }
     
-    public var progressColors: [UIColor] {
+    public var progressColors: [UIColor]? {
         get {
-            return progressLayer.colorsArray
+            return progressLayer?.colorsArray
         }
         
         set {
-            set(colors: newValue)
+            set(colors: newValue!)
         }
     }
     
@@ -194,7 +195,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         checkAndSetIBColors()
     }
     
-    convenience public init(frame:CGRect, colors: UIColor...) {
+    convenience public init(frame: CGRect, colors: UIColor...) {
         self.init(frame: frame)
         set(colors: colors)
     }
@@ -226,17 +227,17 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
     }
     
     private func refreshValues() {
-        progressLayer.angle = angle
-        progressLayer.startAngle = startAngle
-        progressLayer.clockwise = clockwise
-        progressLayer.roundedCorners = roundedCorners
-        progressLayer.lerpColorMode = lerpColorMode
-        progressLayer.gradientRotateSpeed = gradientRotateSpeed
-        progressLayer.glowAmount = glowAmount
-        progressLayer.glowMode = glowMode
-        progressLayer.progressThickness = progressThickness / 2
-        progressLayer.trackColor = trackColor
-        progressLayer.trackThickness = trackThickness / 2
+        progressLayer?.angle = angle
+        progressLayer?.startAngle = startAngle
+        progressLayer?.clockwise = clockwise
+        progressLayer?.roundedCorners = roundedCorners
+        progressLayer?.lerpColorMode = lerpColorMode
+        progressLayer?.gradientRotateSpeed = gradientRotateSpeed
+        progressLayer?.glowAmount = glowAmount
+        progressLayer?.glowMode = glowMode
+        progressLayer?.progressThickness = progressThickness / 2
+        progressLayer?.trackColor = trackColor
+        progressLayer?.trackThickness = trackThickness / 2
     }
     
     private func checkAndSetIBColors() {
@@ -251,8 +252,8 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
     }
     
     private func set(colors: [UIColor]) {
-        progressLayer.colorsArray = colors
-        progressLayer.setNeedsDisplay()
+        progressLayer?.colorsArray = colors
+        progressLayer?.setNeedsDisplay()
     }
     
     public func animate(fromAngle: Double, toAngle: Double, duration: TimeInterval, relativeDuration: Bool = true, completion: ((Bool) -> Void)?) {
@@ -278,7 +279,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         angle = toAngle
         animationCompletionBlock = completion
         
-        progressLayer.add(animation, forKey: "angle")
+        progressLayer?.add(animation, forKey: "angle")
     }
     
     public func animate(toAngle: Double, duration: TimeInterval, relativeDuration: Bool = true, completion: ((Bool) -> Void)?) {
@@ -289,20 +290,20 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
     }
     
     public func pauseAnimation() {
-        guard let presentationLayer = progressLayer.presentation() else { return }
+        guard let presentationLayer = progressLayer?.presentation() else { return }
         
         let currentValue = presentationLayer.angle
-        progressLayer.removeAllAnimations()
+        progressLayer?.removeAllAnimations()
         angle = currentValue
     }
     
     public func stopAnimation() {
-        progressLayer.removeAllAnimations()
+        progressLayer?.removeAllAnimations()
         angle = 0
     }
     
     public func isAnimating() -> Bool {
-        return progressLayer.animation(forKey: "angle") != nil
+        return progressLayer?.animation(forKey: "angle") != nil
     }
     
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
@@ -314,7 +315,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
     
     public override func didMoveToWindow() {
         if let window = window {
-            progressLayer.contentsScale = window.screen.scale
+            progressLayer?.contentsScale = window.screen.scale
         }
     }
     
@@ -328,7 +329,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         setInitialValues()
         refreshValues()
         checkAndSetIBColors()
-        progressLayer.setNeedsDisplay()
+        progressLayer?.setNeedsDisplay()
     }
     
     private class KDCircularProgressViewLayer: CALayer {
@@ -389,21 +390,21 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         
         override init(layer: Any) {
             super.init(layer: layer)
-            let progressLayer = layer as! KDCircularProgressViewLayer
-            radius = progressLayer.radius
-            angle = progressLayer.angle
-            startAngle = progressLayer.startAngle
-            clockwise = progressLayer.clockwise
-            roundedCorners = progressLayer.roundedCorners
-            lerpColorMode = progressLayer.lerpColorMode
-            gradientRotateSpeed = progressLayer.gradientRotateSpeed
-            glowAmount = progressLayer.glowAmount
-            glowMode = progressLayer.glowMode
-            progressThickness = progressLayer.progressThickness
-            trackThickness = progressLayer.trackThickness
-            trackColor = progressLayer.trackColor
-            colorsArray = progressLayer.colorsArray
-            progressInsideFillColor = progressLayer.progressInsideFillColor
+            let progressLayer = layer as? KDCircularProgressViewLayer
+            radius = progressLayer!.radius
+            angle = progressLayer!.angle
+            startAngle = progressLayer!.startAngle
+            clockwise = progressLayer!.clockwise
+            roundedCorners = progressLayer!.roundedCorners
+            lerpColorMode = progressLayer!.lerpColorMode
+            gradientRotateSpeed = progressLayer!.gradientRotateSpeed
+            glowAmount = progressLayer!.glowAmount
+            glowMode = progressLayer!.glowMode
+            progressThickness = progressLayer!.progressThickness
+            trackThickness = progressLayer!.trackThickness
+            trackColor = progressLayer!.trackColor
+            colorsArray = progressLayer!.colorsArray
+            progressInsideFillColor = progressLayer!.progressInsideFillColor
         }
         
         override init() {
@@ -490,7 +491,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
                     let step = 1 / CGFloat(steps)
                     for i in 1...steps {
                         let fi = CGFloat(i)
-                        if (t <= fi * step || i == steps) {
+                        if t <= fi * step || i == steps {
                             let colorT = Utility.inverseLerp(value: t, minMax: ((fi - 1) * step, fi * step))
                             color = Utility.colorLerp(value: colorT, minMax: (colorsArray[i - 1], colorsArray[i]))
                             break

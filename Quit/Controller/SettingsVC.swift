@@ -7,25 +7,26 @@
 //
 
 import UIKit
-import CoreData
 
 class SettingsVC: UIViewController {
     
-    weak var delegate: QuitVCDelegate?
-    var persistenceManager: PersistenceManagerProtocol? = nil
     @IBOutlet weak var deleteAllDataButton: UIButton!
+    
+    weak var delegate: QuitVCDelegate?
+    var persistenceManager: PersistenceManagerProtocol?
     
     @IBAction func goBackButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func deleteAllDataButtonPressed(_ sender: Any) {
+        
         persistenceManager?.deleteAllData()
         delegate?.isQuitDateSet()
         self.dismiss(animated: true, completion: nil)
     }
 }
 
-protocol settingsVCDelegate: class {
+protocol SettingsVCDelegate: class {
     func isQuitDateSet()
 }

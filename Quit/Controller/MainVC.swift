@@ -8,14 +8,14 @@
 
 import UIKit
 
-class MainVC: UITableViewController, QuitVCDelegate, savingGoalVCDelegate, SettingsVCDelegate {
+class MainVC: UITableViewController, SavingGoalVCDelegate, QuitDateSetVCDelegate {
     
-    var viewModel: MainVCViewModel?
+    private var viewModel: MainVCViewModel?
     
     private let refreshController = UIRefreshControl()
     private let userDefaults = UserDefaults.standard
     private var catagoryTextView: UITextView?
-
+    
     private var quitData: QuitData?
     private var hasSetupOnce = false
     

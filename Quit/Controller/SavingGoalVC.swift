@@ -14,7 +14,7 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var goalCostTextField: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
     
-    weak var delegate: savingGoalVCDelegate?
+    weak var delegate: SavingGoalVCDelegate?
     var savingGoal: SavingGoal?
     var persistenceManager: PersistenceManagerProtocol?
     
@@ -88,6 +88,6 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
     }
 }
 
-protocol savingGoalVCDelegate: class {
+protocol SavingGoalVCDelegate: class {
     func setupSection2()
 }

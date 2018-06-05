@@ -57,16 +57,17 @@ class ChartFactory {
     
     func updateCravingData(cravingDict: [Date: Int], smokedDict: [Date: Int], catagoryDict: [String: Int]) -> NSAttributedString? {
         
-        guard let chart = barChart else { return nil }
+        guard barChart != nil else { return nil }
         
         //Setup chart
+        
         var referenceTimeInterval: TimeInterval = 0
         if let minTimeInterval = (cravingDict.map { $0.key.timeIntervalSince1970 }).min() {
             referenceTimeInterval = minTimeInterval
         }
         let xValuesNumberFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval,
                                                          dateFormatter: mediumDateFormatter())
-        chart.xAxis.valueFormatter = xValuesNumberFormatter
+        barChart!.xAxis.valueFormatter = xValuesNumberFormatter
         var entries = [BarChartDataEntry]()
         
         for x in cravingDict {
@@ -84,8 +85,8 @@ class ChartFactory {
         barChartSet.stackLabels = ["Cravings", "Smoked"]
         barChartSet.drawValuesEnabled = false
         let data = BarChartData(dataSets: [barChartSet])
-        chart.data = data
-        chart.notifyDataSetChanged()
+        barChart!.data = data
+        barChart!.notifyDataSetChanged()
         let sortedDict = catagoryDict.sorted(by: { $0.value > $1.value })
         var string = ""
         for x in sortedDict {

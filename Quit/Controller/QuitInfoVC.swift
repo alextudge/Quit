@@ -10,7 +10,7 @@ import UIKit
 
 class QuitInfoVC: UIViewController, UITextFieldDelegate {
     
-    weak var delegate: QuitVCDelegate?
+    weak var delegate: QuitDateSetVCDelegate?
     var persistenceManager: PersistenceManagerProtocol?
     var quitData: QuitData?
     var viewModel: QuitInfoVCViewModel?
@@ -88,8 +88,4 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
                                                datePicker: quitDatePicker.date)
         }
     }
-}
-
-protocol QuitVCDelegate: class {
-    func isQuitDateSet()
 }

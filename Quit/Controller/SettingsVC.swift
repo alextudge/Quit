@@ -12,7 +12,7 @@ class SettingsVC: UIViewController {
     
     @IBOutlet weak var deleteAllDataButton: UIButton!
     
-    weak var delegate: QuitVCDelegate?
+    weak var delegate: QuitDateSetVCDelegate?
     var persistenceManager: PersistenceManagerProtocol?
     
     @IBAction func goBackButtonPressed(_ sender: Any) {
@@ -27,6 +27,6 @@ class SettingsVC: UIViewController {
     }
 }
 
-protocol SettingsVCDelegate: class {
+protocol QuitDateSetVCDelegate: class {
     func isQuitDateSet()
 }

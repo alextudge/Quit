@@ -8,14 +8,15 @@
 
 import UIKit
 
+//Crash on deletion of savings goal
+//Vaping stats?
+
 class MainVC: UITableViewController, SavingGoalVCDelegate, QuitDateSetVCDelegate {
     
     private var viewModel: MainVCViewModel?
-    
     private let refreshController = UIRefreshControl()
     private let userDefaults = UserDefaults.standard
     private var catagoryTextView: UITextView?
-    
     private var quitData: QuitData?
     private var hasSetupOnce = false
     
@@ -231,6 +232,7 @@ extension MainVC {
                 smoked: false)
             self.processCravingData()
             self.viewModel?.appStoreReview(quitData: self.quitData)
+            self.isQuitDateSet()
         }
         alertController.addAction(noAction)
         
@@ -266,7 +268,7 @@ extension MainVC {
     
     private func populateScrollView() {
         
-        guard viewModel != nil, viewModel!.persistenceManager != nil else { return }
+        guard viewModel != nil, viewModel?.persistenceManager != nil else { return }
         
         let width = self.savingsScrollView.bounds.width
         let height = self.savingsScrollView.bounds.height
@@ -274,6 +276,8 @@ extension MainVC {
         savingsScrollView.addSubview(financialSummary(height: height, width: width))
         
         //Set up any potential savings goals
+        
+        guard viewModel!.persistenceManager!.savingsGoals.count > 0 else { return }
         
         for x in 0..<viewModel!.persistenceManager.savingsGoals.count {
             
@@ -284,11 +288,11 @@ extension MainVC {
                                                  width: width)
             if savingProgress != nil {
                 self.savingsScrollView.addSubview(savingProgress!)
+                self.savingsScrollView.addSubview(savingsNameLabel(goal: savingGoal,
+                                                                    index: x,
+                                                                    height: height,
+                                                                    width: width))
             }
-            self.savingsScrollView.addSubview(savingsNameLabel(goal: savingGoal,
-                                                                     index: x,
-                                                                     height: height,
-                                                                     width: width))
         }
         savingScrollAdmin()
     }
@@ -304,6 +308,7 @@ extension MainVC {
         savingsOverviewText.attributedText = viewModel?.savingsAttributedText(quitData: quitData)
         savingsOverviewText.backgroundColor = .clear
         savingsOverviewText.isEditable = false
+        savingsOverviewText.isSelectable = false
         return savingsOverviewText
     }
     
@@ -336,7 +341,8 @@ extension MainVC {
                                           y: height / 2,
                                           width: width - (width / 3),
                                           height: 100))
-        let string = NSAttributedString(string: goal.goalName!, attributes: Constants.savingsInfoAttributes)
+        guard let savingGoalName = goal.goalName else { return UILabel() }
+        let string = NSAttributedString(string: savingGoalName, attributes: Constants.savingsInfoAttributes)
         label.attributedText = string
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
@@ -374,8 +380,21 @@ extension MainVC {
         processCravingData()
     }
     
+    private func removeCravingsSubViews() {
+        
+        let subViews = self.cravingScrollView.subviews
+        for subview in subViews { subview.removeFromSuperview() }
+    }
+    
     private func setupScrollView() {
         
+        removeCravingsSubViews()
+        cravingPageControl.isHidden = true
+        
+        guard viewModel?.persistenceManager.cravings != nil,
+            viewModel?.persistenceManager.cravings.count != 0 else { return }
+        
+        cravingPageControl.isHidden = false
         let scrollViewHeight = cravingScrollView.bounds.height
         let scrollViewWidth = cravingScrollView.bounds.width
         

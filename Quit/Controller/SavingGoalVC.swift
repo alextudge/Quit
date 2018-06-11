@@ -65,12 +65,12 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
                 return
             }
             if self.savingGoal == nil {
-                persistenceManager?.addSavingGoal(title: goalTitleTextField.text!, cost: cost)
+                persistenceManager?.addSavingGoal(title: goalTitleTextField.text!.capitalized, cost: cost)
                 delegate?.setupSection2()
                 dismiss(animated: true, completion: nil)
             } else {
                 savingGoal!.goalAmount = cost
-                savingGoal!.goalName = goalTitleTextField.text!
+                savingGoal!.goalName = goalTitleTextField.text!.capitalized
                 delegate?.setupSection2()
                 dismiss(animated: true, completion: nil)
             }

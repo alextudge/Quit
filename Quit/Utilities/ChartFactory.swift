@@ -22,7 +22,7 @@ class ChartFactory {
         let leftAxis = barChart?.leftAxis
         let rightAxis = barChart?.rightAxis
         //No data formatting
-        barChart?.noDataText = "Data on you cravings and smoking habits will be displayed here!"
+        barChart?.noDataText = "No cravings!"
         barChart?.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
         barChart?.noDataTextColor = .white
         //Formatting the x (date) axis
@@ -39,6 +39,7 @@ class ChartFactory {
         xAxis?.axisLineWidth = 2.5
         //Setup other UI elements
         leftAxis?.setLabelCount(2, force: true)
+        leftAxis?.axisMinimum = 0
         leftAxis?.drawGridLinesEnabled = false
         rightAxis?.drawAxisLineEnabled = false
         leftAxis?.drawAxisLineEnabled = false
@@ -88,7 +89,7 @@ class ChartFactory {
         barChart!.data = data
         barChart!.notifyDataSetChanged()
         let sortedDict = catagoryDict.sorted(by: { $0.value > $1.value })
-        var string = ""
+        var string = "Triggers\n"
         for x in sortedDict {
             guard x.key != "" else { continue }
             string += "\(x.key): \(x.value)\n"

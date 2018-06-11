@@ -105,8 +105,8 @@ class MainVCViewModel: NSObject {
     
     func cravingButtonAlertMessage() -> String {
         
-        let honesty = "Be honest.\n"
-        let resetNotif = "We'll reset the quit date but your work so far doesn't count for nothing.\n\n"
+        let honesty = "Be honest!\n"
+        let resetNotif = "We'll reset the quit date but your work so far still counts.\n\n"
         let triggers = "Add a trigger below to track them."
         return honesty + resetNotif + triggers
     }

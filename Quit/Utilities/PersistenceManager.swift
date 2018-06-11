@@ -50,7 +50,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         let container = NSPersistentContainer(name: "Quit")
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                print("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
@@ -63,10 +63,8 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                print("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
@@ -88,7 +86,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         do {
             cravings = (try context.fetch(cravingFetch) as? [Craving])!
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            print("Failed to fetch cravings: \(error)")
         }
     }
     
@@ -108,7 +106,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         do {
             savingsGoals = (try context.fetch(savingsFetch) as? [SavingGoal])!
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            print("Failed to fetch savings: \(error)")
         }
     }
     

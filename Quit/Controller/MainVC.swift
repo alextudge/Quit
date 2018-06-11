@@ -80,6 +80,8 @@ class MainVC: UITableViewController, SavingGoalVCDelegate, QuitDateSetVCDelegate
         //Assume no quit date is set
         
         setQuitDataButton.isHidden = false
+        setQuitDataButton.titleLabel?.numberOfLines = 1
+        setQuitDataButton.titleLabel?.adjustsFontSizeToFitWidth = true
         quitDateLabel.isHidden = true
         cravingButton.isHidden = true
         addSavingButton.isHidden = true

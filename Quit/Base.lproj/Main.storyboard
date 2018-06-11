@@ -53,15 +53,26 @@
                                     <action selector="deleteAllDataButtonPressed:" destination="jZe-XE-UUn" eventType="touchUpInside" id="eCg-oE-i2t"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laD-R9-w5G">
+                                <rect key="frame" x="10" y="130" width="355" height="537"/>
+                                <string key="text">Clear Data removes your cravings and savings goals. Click on the date in the main screen to change your quit date. Quit stores your data on this device. It's never sent over the interent, we can't see it, and it's only used to display your stats.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="laD-R9-w5G" firstAttribute="top" secondItem="Lwb-wY-ALk" secondAttribute="bottom" constant="5" id="19S-go-yCB"/>
                             <constraint firstItem="BOi-sa-AAp" firstAttribute="top" secondItem="8tM-dF-NAA" secondAttribute="top" id="DKO-yr-8I2"/>
                             <constraint firstItem="Lwb-wY-ALk" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="Dl2-Dt-uBs"/>
                             <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="Lwb-wY-ALk" secondAttribute="trailing" constant="10" id="IJz-sX-FLf"/>
+                            <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="laD-R9-w5G" secondAttribute="trailing" constant="10" id="USr-2m-8wM"/>
                             <constraint firstItem="Lwb-wY-ALk" firstAttribute="top" secondItem="BOi-sa-AAp" secondAttribute="bottom" constant="5" id="bOB-5J-4cR"/>
+                            <constraint firstItem="8tM-dF-NAA" firstAttribute="bottom" secondItem="laD-R9-w5G" secondAttribute="bottom" id="euU-n8-Bso"/>
                             <constraint firstItem="BOi-sa-AAp" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="hKl-qt-avu"/>
                             <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="BOi-sa-AAp" secondAttribute="trailing" constant="10" id="hzt-rL-Fa8"/>
+                            <constraint firstItem="laD-R9-w5G" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="s6x-XE-9gh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8tM-dF-NAA"/>
                     </view>
@@ -117,7 +128,7 @@
                                                                 <outletCollection property="gestureRecognizers" destination="A2h-hu-0SR" appends="YES" id="uf5-ar-KNa"/>
                                                             </connections>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxW-8l-hbe">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxW-8l-hbe">
                                                             <rect key="frame" x="177.5" y="0.0" width="177.5" height="75"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="50"/>
                                                             <state key="normal" title="Set Quit Date">

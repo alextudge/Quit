@@ -71,11 +71,11 @@ class ChartFactory {
         barChart!.xAxis.valueFormatter = xValuesNumberFormatter
         var entries = [BarChartDataEntry]()
         
-        for x in cravingDict {
-            let timeInerval = x.key.timeIntervalSince1970
+        for data in cravingDict {
+            let timeInerval = data.key.timeIntervalSince1970
             let xValue = (timeInerval - referenceTimeInterval) / (3600 * 24)
-            let cravingCount = x.value
-            let smokedCount = (smokedDict[x.key] == nil) ? 0 : smokedDict[x.key]
+            let cravingCount = data.value
+            let smokedCount = (smokedDict[data.key] == nil) ? 0 : smokedDict[data.key]
             let entry = BarChartDataEntry(x: xValue, yValues: [Double(cravingCount), Double(smokedCount!)])
             entries.append(entry)
         }
@@ -90,9 +90,9 @@ class ChartFactory {
         barChart!.notifyDataSetChanged()
         let sortedDict = catagoryDict.sorted(by: { $0.value > $1.value })
         var string = "Triggers\n"
-        for x in sortedDict {
-            guard x.key != "" else { continue }
-            string += "\(x.key): \(x.value)\n"
+        for trigger in sortedDict {
+            guard trigger.key != "" else { continue }
+            string += "\(trigger.key): \(trigger.value)\n"
         }
         
         let attString = [NSAttributedStringKey.foregroundColor: UIColor.white,

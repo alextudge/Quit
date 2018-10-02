@@ -486,14 +486,14 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
                     color = colorsArray[0]
                 } else {
                     // lerpColorMode is true
-                    let t = CGFloat(reducedAngle) / 360
+                    let temp = CGFloat(reducedAngle) / 360
                     let steps = colorsArray.count - 1
                     let step = 1 / CGFloat(steps)
-                    for i in 1...steps {
-                        let fi = CGFloat(i)
-                        if t <= fi * step || i == steps {
-                            let colorT = Utility.inverseLerp(value: t, minMax: ((fi - 1) * step, fi * step))
-                            color = Utility.colorLerp(value: colorT, minMax: (colorsArray[i - 1], colorsArray[i]))
+                    for variable in 1...steps {
+                        let fi = CGFloat(variable)
+                        if temp <= fi * step || variable == steps {
+                            let colorT = Utility.inverseLerp(value: temp, minMax: ((fi - 1) * step, fi * step))
+                            color = Utility.colorLerp(value: colorT, minMax: (colorsArray[variable - 1], colorsArray[variable]))
                             break
                         }
                     }

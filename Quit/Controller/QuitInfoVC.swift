@@ -81,10 +81,10 @@ class QuitInfoVC: UIViewController, UITextFieldDelegate {
     
     func setLocalNotif() {
         
-        for x in Constants.healthStats {
-            self.viewModel?.generateLocalNotif(title: x.key,
+        for stat in Constants.healthStats {
+            self.viewModel?.generateLocalNotif(title: stat.key,
                                                body: "Process complete!",
-                                               minutes: Int(x.value),
+                                               minutes: Int(stat.value),
                                                datePicker: quitDatePicker.date)
         }
     }

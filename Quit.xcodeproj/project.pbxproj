@@ -178,7 +178,6 @@
 				177F03EE2025220900CC7CA8 /* Assets.xcassets */,
 				177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */,
 				177F03F32025220900CC7CA8 /* Info.plist */,
-				177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */,
 			);
 			path = Quit;
 			sourceTree = "<group>";
@@ -186,6 +185,7 @@
 		177F041E2028A6CF00CC7CA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */,
 				177F04232029104900CC7CA8 /* QuitData.swift */,
 			);
 			path = Model;

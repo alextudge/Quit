@@ -281,17 +281,17 @@ extension MainVC {
         
         guard viewModel!.persistenceManager!.savingsGoals.count > 0 else { return }
         
-        for x in 0..<viewModel!.persistenceManager.savingsGoals.count {
+        for goal in 0..<viewModel!.persistenceManager.savingsGoals.count {
             
-            let savingGoal = viewModel!.persistenceManager!.savingsGoals[x]
+            let savingGoal = viewModel!.persistenceManager!.savingsGoals[goal]
             let savingProgress = savingsProgress(goal: savingGoal,
-                                                 index: x,
+                                                 index: goal,
                                                  height: height,
                                                  width: width)
             if savingProgress != nil {
                 self.savingsScrollView.addSubview(savingProgress!)
                 self.savingsScrollView.addSubview(savingsNameLabel(goal: savingGoal,
-                                                                    index: x,
+                                                                    index: goal,
                                                                     height: height,
                                                                     width: width))
             }
@@ -444,12 +444,12 @@ extension MainVC {
         hideHealthStats()
         
         var int = 0
-        for (i, x) in Constants.healthStats {
+        for (index, xValue) in Constants.healthStats {
 
             let label = generateHealthLabel(int: int,
                                             width: scrollViewWidth,
-                                            xValue: x,
-                                            iValue: i)
+                                            xValue: xValue,
+                                            iValue: index)
             self.healthScrollView.addSubview(label)
             int += Int(label.bounds.height)
         }

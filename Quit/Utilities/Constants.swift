@@ -10,6 +10,12 @@ import UIKit
 
 struct Constants {
     
+    struct QuitDataConstants {
+        static let smokedDaily = "smokedDaily"
+        static let costOf20 = "costOf20"
+        static let quitDate = "quitDate"
+    }
+    
    static let healthStats: [String: Double] =
     ["Correcting blood pressure": 20,
      "Normalising heart rate": 20,

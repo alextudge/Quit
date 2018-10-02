@@ -10,14 +10,11 @@ import CoreData
 import Foundation
 
 protocol PersistenceManagerProtocol {
-    
     func setQuitDataInUserDefaults(object: [String: Any], key: String)
-    func saveContext()
     func addCraving(catagory: String, smoked: Bool)
     func deleteObject(object: NSManagedObject)
     func deleteAllData()
     func addSavingGoal(title: String, cost: Double)
-    
     var cravings: [Craving] { get }
     var savingsGoals: [SavingGoal] { get }
 }
@@ -27,25 +24,9 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     private var context: NSManagedObjectContext!
     private(set) var cravings = [Craving]()
     private(set) var savingsGoals = [SavingGoal]()
-    private let objects = ["Craving", "SavingGoal"]
+    private let coreDataObjectNames = ["Craving", "SavingGoal"]
     private let userDefaults = UserDefaults.standard
     
-    override init() {
-        super.init()
-        
-        self.context = self.persistentContainer.viewContext
-        //generateTestDate()
-        fetchSavingsGoalsData()
-        fetchCravingData()
-    }
-    
-    //Persiting in userDefaults
-    
-    func setQuitDataInUserDefaults(object: [String: Any], key: String) {
-        userDefaults.set(object, forKey: key)
-    }
-    
-    //Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Quit")
         container.loadPersistentStores(completionHandler: { (_, error) in
@@ -56,8 +37,15 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         return container
     }()
     
-    //Core Data Saving support
-    func saveContext () {
+    override init() {
+        super.init()
+        context = persistentContainer.viewContext
+        fetchSavingsGoalsData()
+        fetchCravingData()
+        deleteOldCravings()
+    }
+    
+    private func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -80,11 +68,13 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     }
     
     func fetchCravingData() {
-        let cravingFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Craving")
+        let cravingFetch = NSFetchRequest<Craving>(entityName: "Craving")
+        let predicate = NSPredicate(format: "(cravingDate >= %@)", thirtyDaysAgo())
         let sort = NSSortDescriptor(key: "cravingDate", ascending: false)
+        cravingFetch.predicate = predicate
         cravingFetch.sortDescriptors = [sort]
         do {
-            cravings = (try context.fetch(cravingFetch) as? [Craving])!
+            cravings = try context.fetch(cravingFetch)
         } catch {
             print("Failed to fetch cravings: \(error)")
         }
@@ -100,11 +90,11 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     }
     
     func fetchSavingsGoalsData() {
-        let savingsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "SavingGoal")
+        let savingsFetch = NSFetchRequest<SavingGoal>(entityName: "SavingGoal")
         let sort = NSSortDescriptor(key: "goalAmount", ascending: true)
         savingsFetch.sortDescriptors = [sort]
         do {
-            savingsGoals = (try context.fetch(savingsFetch) as? [SavingGoal])!
+            savingsGoals = (try context.fetch(savingsFetch))
         } catch {
             print("Failed to fetch savings: \(error)")
         }
@@ -117,19 +107,48 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     }
     
     func deleteAllData() {
-        for x in objects {
-            let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: x))
+        for object in coreDataObjectNames {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: object)
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             do {
-                try context.execute(DelAllReqVar)
-                savingsGoals = [SavingGoal]()
-                cravings = [Craving]()
+                try context.execute(batchDeleteRequest)
             } catch {
                 print(error)
             }
         }
+        savingsGoals = [SavingGoal]()
+        cravings = [Craving]()
+        saveContext()
     }
     
-    //Test data generator
+    func setQuitDataInUserDefaults(object: [String: Any], key: String) {
+        userDefaults.set(object, forKey: key)
+    }
+}
+
+private extension PersistenceManager {
+    func thirtyDaysAgo() -> NSDate {
+        let calendar = Calendar.current
+        let date = calendar.date(byAdding: .day, value: -30, to: Date())! as NSDate
+        return date
+    }
+    
+    func deleteOldCravings() {
+        let cravingFetch = NSFetchRequest<Craving>(entityName: "Craving")
+        let predicate = NSPredicate(format: "(cravingDate < %@)", thirtyDaysAgo())
+        let sort = NSSortDescriptor(key: "cravingDate", ascending: false)
+        cravingFetch.predicate = predicate
+        cravingFetch.sortDescriptors = [sort]
+        do {
+            cravings = try context.fetch(cravingFetch)
+            cravings.forEach {
+                context.delete($0)
+            }
+        } catch {
+            print("Failed to fetch cravings: \(error)")
+        }
+    }
+    
     func generateTestDate() {
         var today = Date()
         for _ in 1...30 {

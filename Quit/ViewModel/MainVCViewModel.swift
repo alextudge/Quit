@@ -23,7 +23,6 @@ class MainVCViewModel: NSObject {
     }
     
     deinit {
-        persistenceManager?.saveContext()
         persistenceManager = nil
         chartFactory = nil
     }

@@ -9,11 +9,9 @@
 import UIKit
 
 class RoundedButton: UIButton {
-    
     override func layoutSubviews() {
         super .layoutSubviews()
-        
-        layer.cornerRadius = self.frame.height / 2
+        layer.cornerRadius = 5
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOpacity = 0.8
         layer.shadowRadius = 1

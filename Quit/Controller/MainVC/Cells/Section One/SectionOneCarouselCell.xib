@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SectionOneCarouselCell" customModule="Quit" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionOneCarouselCell" rowHeight="152" id="9rn-qE-IqH" customClass="SectionOneCarouselCell" customModule="Quit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="152"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9rn-qE-IqH" id="4eL-9M-7ox">
+                <rect key="frame" x="0.0" y="0.0" width="324" height="151.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="klq-yE-7GA">
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="151.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kzq-64-2e9">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="VgE-iL-nIc">
+                        <rect key="frame" x="150.5" y="104.5" width="23" height="37"/>
+                        <color key="pageIndicatorTintColor" white="1" alpha="0.25112371575342468" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </pageControl>
+                </subviews>
+                <color key="backgroundColor" red="0.98041182760000001" green="0.33680224419999999" blue="0.42892789840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="klq-yE-7GA" secondAttribute="trailing" id="58G-Eq-QaV"/>
+                    <constraint firstAttribute="bottom" secondItem="VgE-iL-nIc" secondAttribute="bottom" constant="10" id="KVb-62-MeV"/>
+                    <constraint firstItem="klq-yE-7GA" firstAttribute="leading" secondItem="4eL-9M-7ox" secondAttribute="leading" id="QBG-KK-47N"/>
+                    <constraint firstItem="klq-yE-7GA" firstAttribute="top" secondItem="4eL-9M-7ox" secondAttribute="top" id="egO-qu-J4d"/>
+                    <constraint firstItem="VgE-iL-nIc" firstAttribute="centerX" secondItem="4eL-9M-7ox" secondAttribute="centerX" id="kuE-7X-O8g"/>
+                    <constraint firstAttribute="bottom" secondItem="klq-yE-7GA" secondAttribute="bottom" id="mW2-E3-oYj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionView" destination="klq-yE-7GA" id="unq-CY-k3x"/>
+                <outlet property="pageController" destination="VgE-iL-nIc" id="NOX-R5-o4I"/>
+            </connections>
+            <point key="canvasLocation" x="104" y="47.676161919040482"/>
+        </tableViewCell>
+    </objects>
+</document>

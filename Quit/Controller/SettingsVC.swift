@@ -22,11 +22,7 @@ class SettingsVC: UIViewController {
     @IBAction func deleteAllDataButtonPressed(_ sender: Any) {
         
         persistenceManager?.deleteAllData()
-        delegate?.isQuitDateSet()
+        delegate?.reloadTableView()
         self.dismiss(animated: true, completion: nil)
     }
-}
-
-protocol QuitDateSetVCDelegate: class {
-    func isQuitDateSet()
 }

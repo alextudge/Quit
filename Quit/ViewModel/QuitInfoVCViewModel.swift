@@ -12,7 +12,6 @@ import UserNotifications
 class QuitInfoVCViewModel {
     
     func generateLocalNotif(title: String, body: String, minutes: Int, datePicker: Date) {
-        
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
             let content = UNMutableNotificationContent()

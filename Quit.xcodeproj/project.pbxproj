@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		171910CE20BA18F000B72D0A /* ChartFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171910CD20BA18E600B72D0A /* ChartFactory.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
-		176D2EF920740E4400115AE2 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D2EF820740E4400115AE2 /* Mocks.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
-		177F03E72025220000CC7CA8 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E62025220000CC7CA8 /* MainVC.swift */; };
 		177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Main.storyboard */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
@@ -19,12 +16,35 @@
 		177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04162027C49600CC7CA8 /* QuitInfoVC.swift */; };
 		177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F041A2028A08800CC7CA8 /* Extensions.swift */; };
 		177F04242029104900CC7CA8 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
-		1786F4F5203A342800C8E1BA /* MainVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786F4F4203A342800C8E1BA /* MainVCViewModel.swift */; };
-		1786F4F9203B0A8100C8E1BA /* MainVCViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786F4F8203B0A8000C8E1BA /* MainVCViewModelTests.swift */; };
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		1788CBCC2039B3E000064A86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
-		17A29F782029EBEE007B1938 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A29F772029EBED007B1938 /* KDCircularProgress.swift */; };
-		17C6B5E02035D47400AAE086 /* QuitDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5DF2035D47400AAE086 /* QuitDataTests.swift */; };
+		179FDFC52164045A003131C5 /* SectionOneCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFC42164045A003131C5 /* SectionOneCarouselCell.xib */; };
+		179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */; };
+		179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */; };
+		179FDFCC21640536003131C5 /* SectionOneCravingDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */; };
+		179FDFCE216406B3003131C5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFCD216406B3003131C5 /* HomeVC.swift */; };
+		179FDFD1216419CC003131C5 /* SectionOneVapingDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFCF216419CC003131C5 /* SectionOneVapingDataCell.swift */; };
+		179FDFD2216419CC003131C5 /* SectionOneVapingDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFD0216419CC003131C5 /* SectionOneVapingDataCell.xib */; };
+		179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFD321641B0D003131C5 /* RoundedView.swift */; };
+		179FDFD62166A2BF003131C5 /* HomeVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFD52166A2BF003131C5 /* HomeVCViewModel.swift */; };
+		179FDFD82166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFD72166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift */; };
+		179FDFDC2166C3FA003131C5 /* SectionTwoCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFDA2166C3FA003131C5 /* SectionTwoCarouselCell.swift */; };
+		179FDFDD2166C3FA003131C5 /* SectionTwoCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFDB2166C3FA003131C5 /* SectionTwoCarouselCell.xib */; };
+		179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFDE2168118C003131C5 /* SectionTwoSavingsOverviewCell.swift */; };
+		179FDFE12168118C003131C5 /* SectionTwoSavingsOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFDF2168118C003131C5 /* SectionTwoSavingsOverviewCell.xib */; };
+		179FDFE621681AFE003131C5 /* SectionTwoSavingsGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFE421681AFE003131C5 /* SectionTwoSavingsGoalCell.swift */; };
+		179FDFE721681AFE003131C5 /* SectionTwoSavingsGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFE521681AFE003131C5 /* SectionTwoSavingsGoalCell.xib */; };
+		179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFE921693389003131C5 /* SectionThreeCarouselCell.swift */; };
+		179FDFEC216933A3003131C5 /* SectionThreeCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFEB216933A3003131C5 /* SectionThreeCarouselCell.xib */; };
+		179FDFEF216935D1003131C5 /* SectionThreeCravingsChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFED216935D1003131C5 /* SectionThreeCravingsChartCell.swift */; };
+		179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFEE216935D1003131C5 /* SectionThreeCravingsChartCell.xib */; };
+		179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFF3216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift */; };
+		179FDFF6216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFF4216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib */; };
+		17BA70902175143A00ACA5F6 /* SectionFourCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA708E2175143A00ACA5F6 /* SectionFourCarouselCell.swift */; };
+		17BA70912175143A00ACA5F6 /* SectionFourCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */; };
+		17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */; };
+		17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */; };
+		17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA70962175199500ACA5F6 /* WaveAnimationView.swift */; };
 		17C6B5EB2035DFF100AAE086 /* MainVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */; };
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
 		17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */; };
@@ -67,12 +87,9 @@
 /* Begin PBXFileReference section */
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		171910CD20BA18E600B72D0A /* ChartFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFactory.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
-		176D2EF820740E4400115AE2 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		177F03E62025220000CC7CA8 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		177F03E92025220000CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		177F03EC2025220000CC7CA8 /* Quit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quit.xcdatamodel; sourceTree = "<group>"; };
 		177F03EE2025220900CC7CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,12 +98,35 @@
 		177F04162027C49600CC7CA8 /* QuitInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVC.swift; sourceTree = "<group>"; };
 		177F041A2028A08800CC7CA8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		177F04232029104900CC7CA8 /* QuitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitData.swift; sourceTree = "<group>"; };
-		1786F4F4203A342800C8E1BA /* MainVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCViewModel.swift; sourceTree = "<group>"; };
-		1786F4F8203B0A8000C8E1BA /* MainVCViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCViewModelTests.swift; sourceTree = "<group>"; };
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1788CBCB2039B3E000064A86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		17A29F772029EBED007B1938 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
-		17C6B5DF2035D47400AAE086 /* QuitDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitDataTests.swift; sourceTree = "<group>"; };
+		179FDFC42164045A003131C5 /* SectionOneCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCarouselCell.xib; sourceTree = "<group>"; };
+		179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCarouselCell.swift; sourceTree = "<group>"; };
+		179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCravingDataCell.swift; sourceTree = "<group>"; };
+		179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCravingDataCell.xib; sourceTree = "<group>"; };
+		179FDFCD216406B3003131C5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		179FDFCF216419CC003131C5 /* SectionOneVapingDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneVapingDataCell.swift; sourceTree = "<group>"; };
+		179FDFD0216419CC003131C5 /* SectionOneVapingDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneVapingDataCell.xib; sourceTree = "<group>"; };
+		179FDFD321641B0D003131C5 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		179FDFD52166A2BF003131C5 /* HomeVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCViewModel.swift; sourceTree = "<group>"; };
+		179FDFD72166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCravingDataCellViewModel.swift; sourceTree = "<group>"; };
+		179FDFDA2166C3FA003131C5 /* SectionTwoCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTwoCarouselCell.swift; sourceTree = "<group>"; };
+		179FDFDB2166C3FA003131C5 /* SectionTwoCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoCarouselCell.xib; sourceTree = "<group>"; };
+		179FDFDE2168118C003131C5 /* SectionTwoSavingsOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTwoSavingsOverviewCell.swift; sourceTree = "<group>"; };
+		179FDFDF2168118C003131C5 /* SectionTwoSavingsOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoSavingsOverviewCell.xib; sourceTree = "<group>"; };
+		179FDFE421681AFE003131C5 /* SectionTwoSavingsGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTwoSavingsGoalCell.swift; sourceTree = "<group>"; };
+		179FDFE521681AFE003131C5 /* SectionTwoSavingsGoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoSavingsGoalCell.xib; sourceTree = "<group>"; };
+		179FDFE921693389003131C5 /* SectionThreeCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThreeCarouselCell.swift; sourceTree = "<group>"; };
+		179FDFEB216933A3003131C5 /* SectionThreeCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeCarouselCell.xib; sourceTree = "<group>"; };
+		179FDFED216935D1003131C5 /* SectionThreeCravingsChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThreeCravingsChartCell.swift; sourceTree = "<group>"; };
+		179FDFEE216935D1003131C5 /* SectionThreeCravingsChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeCravingsChartCell.xib; sourceTree = "<group>"; };
+		179FDFF3216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThreeTriggerChartCell.swift; sourceTree = "<group>"; };
+		179FDFF4216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeTriggerChartCell.xib; sourceTree = "<group>"; };
+		17BA708E2175143A00ACA5F6 /* SectionFourCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFourCarouselCell.swift; sourceTree = "<group>"; };
+		17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourCarouselCell.xib; sourceTree = "<group>"; };
+		17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFourHealthCell.swift; sourceTree = "<group>"; };
+		17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourHealthCell.xib; sourceTree = "<group>"; };
+		17BA70962175199500ACA5F6 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
 		17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUITests.swift; sourceTree = "<group>"; };
 		17C6B5EC2035DFF100AAE086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,9 +175,6 @@
 		170006872035D0DC0056F25C /* QuitTests */ = {
 			isa = PBXGroup;
 			children = (
-				17C6B5DF2035D47400AAE086 /* QuitDataTests.swift */,
-				1786F4F8203B0A8000C8E1BA /* MainVCViewModelTests.swift */,
-				176D2EF820740E4400115AE2 /* Mocks.swift */,
 				1700068A2035D0DC0056F25C /* Info.plist */,
 			);
 			path = QuitTests;
@@ -194,7 +231,7 @@
 		177F04212028A6F000CC7CA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				177F03E62025220000CC7CA8 /* MainVC.swift */,
+				179FDFC2216403F3003131C5 /* MainVC */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
@@ -206,12 +243,82 @@
 			isa = PBXGroup;
 			children = (
 				1788CBB52037853D00064A86 /* PersistenceManager.swift */,
-				17A29F772029EBED007B1938 /* KDCircularProgress.swift */,
 				177F041A2028A08800CC7CA8 /* Extensions.swift */,
 				1788CBCB2039B3E000064A86 /* Constants.swift */,
-				171910CD20BA18E600B72D0A /* ChartFactory.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		179FDFC2216403F3003131C5 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				179FDFC32164040A003131C5 /* Cells */,
+				179FDFCD216406B3003131C5 /* HomeVC.swift */,
+				179FDFD52166A2BF003131C5 /* HomeVCViewModel.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		179FDFC32164040A003131C5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				179FDFC821640494003131C5 /* Section One */,
+				179FDFD92166C3A4003131C5 /* Section Two */,
+				179FDFE82169332C003131C5 /* Section Three */,
+				17BA708D217513FE00ACA5F6 /* Section Four */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		179FDFC821640494003131C5 /* Section One */ = {
+			isa = PBXGroup;
+			children = (
+				179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */,
+				179FDFC42164045A003131C5 /* SectionOneCarouselCell.xib */,
+				179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */,
+				179FDFD72166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift */,
+				179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */,
+				179FDFCF216419CC003131C5 /* SectionOneVapingDataCell.swift */,
+				179FDFD0216419CC003131C5 /* SectionOneVapingDataCell.xib */,
+			);
+			path = "Section One";
+			sourceTree = "<group>";
+		};
+		179FDFD92166C3A4003131C5 /* Section Two */ = {
+			isa = PBXGroup;
+			children = (
+				179FDFDA2166C3FA003131C5 /* SectionTwoCarouselCell.swift */,
+				179FDFDB2166C3FA003131C5 /* SectionTwoCarouselCell.xib */,
+				179FDFDE2168118C003131C5 /* SectionTwoSavingsOverviewCell.swift */,
+				179FDFDF2168118C003131C5 /* SectionTwoSavingsOverviewCell.xib */,
+				179FDFE421681AFE003131C5 /* SectionTwoSavingsGoalCell.swift */,
+				179FDFE521681AFE003131C5 /* SectionTwoSavingsGoalCell.xib */,
+			);
+			path = "Section Two";
+			sourceTree = "<group>";
+		};
+		179FDFE82169332C003131C5 /* Section Three */ = {
+			isa = PBXGroup;
+			children = (
+				179FDFE921693389003131C5 /* SectionThreeCarouselCell.swift */,
+				179FDFEB216933A3003131C5 /* SectionThreeCarouselCell.xib */,
+				179FDFED216935D1003131C5 /* SectionThreeCravingsChartCell.swift */,
+				179FDFEE216935D1003131C5 /* SectionThreeCravingsChartCell.xib */,
+				179FDFF3216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift */,
+				179FDFF4216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib */,
+			);
+			path = "Section Three";
+			sourceTree = "<group>";
+		};
+		17BA708D217513FE00ACA5F6 /* Section Four */ = {
+			isa = PBXGroup;
+			children = (
+				17BA708E2175143A00ACA5F6 /* SectionFourCarouselCell.swift */,
+				17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */,
+				17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */,
+				17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */,
+			);
+			path = "Section Four";
 			sourceTree = "<group>";
 		};
 		17C6B5E92035DFF100AAE086 /* QuitUITests */ = {
@@ -226,7 +333,6 @@
 		17C8AB50206971310078680A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1786F4F4203A342800C8E1BA /* MainVCViewModel.swift */,
 				17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */,
 			);
 			path = ViewModel;
@@ -236,6 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				17F4E6F420C14AC600B9A21B /* RoundButton.swift */,
+				179FDFD321641B0D003131C5 /* RoundedView.swift */,
+				17BA70962175199500ACA5F6 /* WaveAnimationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,8 +382,6 @@
 				170006822035D0DC0056F25C /* Sources */,
 				170006832035D0DC0056F25C /* Frameworks */,
 				170006842035D0DC0056F25C /* Resources */,
-				482AD5DD0FDF6C0F80CDD724 /* [CP] Embed Pods Frameworks */,
-				9D5A79D973732277C84D2DA6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,7 +403,6 @@
 				177F03DF2025220000CC7CA8 /* Resources */,
 				177F04062027716900CC7CA8 /* Embed Frameworks */,
 				727D64CEA1A1B372892E3CC4 /* [CP] Embed Pods Frameworks */,
-				616D766CB628082678302426 /* [CP] Copy Pods Resources */,
 				171910CC20A9E2D100B72D0A /* ShellScript */,
 			);
 			buildRules = (
@@ -317,8 +422,6 @@
 				17C6B5E42035DFF100AAE086 /* Sources */,
 				17C6B5E52035DFF100AAE086 /* Frameworks */,
 				17C6B5E62035DFF100AAE086 /* Resources */,
-				EF01E60130C186C43FD20ABA /* [CP] Embed Pods Frameworks */,
-				0456BCD07AFF1F9DDC61D17D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -388,8 +491,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179FDFF6216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib in Resources */,
+				179FDFE721681AFE003131C5 /* SectionTwoSavingsGoalCell.xib in Resources */,
+				179FDFC52164045A003131C5 /* SectionOneCarouselCell.xib in Resources */,
+				179FDFE12168118C003131C5 /* SectionTwoSavingsOverviewCell.xib in Resources */,
+				17BA70912175143A00ACA5F6 /* SectionFourCarouselCell.xib in Resources */,
 				177F03F22025220900CC7CA8 /* LaunchScreen.storyboard in Resources */,
+				179FDFCC21640536003131C5 /* SectionOneCravingDataCell.xib in Resources */,
+				179FDFD2216419CC003131C5 /* SectionOneVapingDataCell.xib in Resources */,
+				17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */,
+				179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */,
+				179FDFEC216933A3003131C5 /* SectionThreeCarouselCell.xib in Resources */,
 				177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */,
+				179FDFDD2166C3FA003131C5 /* SectionTwoCarouselCell.xib in Resources */,
 				177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,21 +518,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0456BCD07AFF1F9DDC61D17D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuitUITests/Pods-QuitUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		171910CC20A9E2D100B72D0A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,43 +547,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		482AD5DD0FDF6C0F80CDD724 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
-				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		616D766CB628082678302426 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Quit/Pods-Quit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7177911D672C849D8CC5A5FD /* [CP] Check Pods Manifest.lock */ = {
@@ -541,36 +603,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9D5A79D973732277C84D2DA6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF01E60130C186C43FD20ABA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuitUITests/Pods-QuitUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -578,9 +610,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17C6B5E02035D47400AAE086 /* QuitDataTests.swift in Sources */,
-				1786F4F9203B0A8100C8E1BA /* MainVCViewModelTests.swift in Sources */,
-				176D2EF920740E4400115AE2 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,20 +617,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1786F4F5203A342800C8E1BA /* MainVCViewModel.swift in Sources */,
-				171910CE20BA18F000B72D0A /* ChartFactory.swift in Sources */,
 				17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */,
+				179FDFCE216406B3003131C5 /* HomeVC.swift in Sources */,
+				179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */,
 				177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */,
+				179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
+				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
+				17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */,
+				17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */,
+				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
+				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,
 				17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */,
+				179FDFD1216419CC003131C5 /* SectionOneVapingDataCell.swift in Sources */,
+				179FDFEF216935D1003131C5 /* SectionThreeCravingsChartCell.swift in Sources */,
 				1788CBCC2039B3E000064A86 /* Constants.swift in Sources */,
-				177F03E72025220000CC7CA8 /* MainVC.swift in Sources */,
+				179FDFDC2166C3FA003131C5 /* SectionTwoCarouselCell.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,
+				179FDFD82166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift in Sources */,
 				177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */,
 				177F04242029104900CC7CA8 /* QuitData.swift in Sources */,
+				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,
 				177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */,
-				17A29F782029EBEE007B1938 /* KDCircularProgress.swift in Sources */,
+				179FDFD62166A2BF003131C5 /* HomeVCViewModel.swift in Sources */,
+				179FDFE621681AFE003131C5 /* SectionTwoSavingsGoalCell.swift in Sources */,
+				17BA70902175143A00ACA5F6 /* SectionFourCarouselCell.swift in Sources */,
 				17F022002031EA83005EF65C /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,7 +777,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -792,7 +833,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -815,7 +856,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Quit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -837,7 +878,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Quit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

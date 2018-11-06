@@ -8,84 +8,96 @@
 
 import UIKit
 
-class QuitInfoVC: UIViewController, UITextFieldDelegate {
+protocol QuitDateSetVCDelegate: class {
+    func reloadTableView()
+    func resetQuitData()
+}
+
+class QuitInfoVC: UIViewController {
     
-    weak var delegate: QuitDateSetVCDelegate?
+    private let viewModel = QuitInfoVCViewModel()
     var persistenceManager: PersistenceManagerProtocol?
     var quitData: QuitData?
-    var viewModel: QuitInfoVCViewModel?
+    
+    weak var delegate: QuitDateSetVCDelegate?
 
-    @IBOutlet weak var smokedDailyTextField: UITextField!
-    @IBOutlet weak var costOf20TextField: UITextField!
-    @IBOutlet weak var quitDatePicker: UIDatePicker!
+    @IBOutlet private weak var smokedDailyTextField: UITextField!
+    @IBOutlet private weak var costOf20TextField: UITextField!
+    @IBOutlet private weak var quitDatePicker: UIDatePicker!
     
     override func viewDidLoad() {
-        
-        viewModel = QuitInfoVCViewModel()
+        setupDelegates()
+        setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setupInitialValues(quitData)
+    }
+    
+    private func setupDelegates() {
         smokedDailyTextField.delegate = self
         costOf20TextField.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if quitData != nil {
-            self.costOf20TextField.text = "\(quitData?.costOf20 ?? 0)"
-            self.smokedDailyTextField.text = "\(quitData?.smokedDaily ?? 0)"
-            self.quitDatePicker.date = quitData?.quitDate ?? Date()
-        }
+    private func setupUI() {
+        quitDatePicker.setValue(UIColor.white, forKeyPath: "textColor")
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        textField.resignFirstResponder()
-        return true
+    private func setupInitialValues(_ quitData: QuitData?) {
+        costOf20TextField.text = "\(quitData?.costOf20 ?? 0)"
+        smokedDailyTextField.text = "\(quitData?.smokedDaily ?? 0)"
+        quitDatePicker.date = quitData?.quitDate ?? Date()
+    }
+    
+    private func showDataMissingAlert() {
+        let alert = UIAlertController(title: "Complete data", message: "We need all of this data to set you up (you can change it at any time)!", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         smokedDailyTextField.resignFirstResponder()
         costOf20TextField.resignFirstResponder()
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    func showDataMissingAlert() {
-        
-        let alert = UIAlertController(title: "Add all data!", message: "", preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alert.addAction(okButton)
-        self.present(alert, animated: true)
-    }
-    
     @IBAction func saveButtonPressed(_ sender: Any) {
-        
-        if costOf20TextField.text != "" && smokedDailyTextField.text != "" {
-            guard let cost = Double(costOf20TextField.text!), let amount = Double(smokedDailyTextField.text!) else {
+        guard costOf20TextField.text != "" &&
+            smokedDailyTextField.text != "",
+            let cost = Double(costOf20TextField.text!),
+            let amount = Double(smokedDailyTextField.text!) else {
                 showDataMissingAlert()
                 return
-            }
-            let quitData: [String: Any] = ["smokedDaily": amount, "costOf20": cost, "quitDate": quitDatePicker.date]
-            self.viewModel?.cancelAppleLocalNotifs()
-            self.setLocalNotif()
-            persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
-            delegate?.isQuitDateSet()
-            dismiss(animated: true, completion: nil)
-        } else {
-            showDataMissingAlert()
-            return
         }
+        let quitData: [String: Any] = [Constants.QuitDataConstants.smokedDaily: amount,
+                                       Constants.QuitDataConstants.costOf20: cost,
+                                       Constants.QuitDataConstants.quitDate: quitDatePicker.date]
+        persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
+        setNotifications()
+        delegate?.resetQuitData()
+        delegate?.reloadTableView()
+        dismiss(animated: true, completion: nil)
     }
     
-    func setLocalNotif() {
-        
+    func setNotifications() {
+        viewModel.cancelAppleLocalNotifs()
         for stat in Constants.healthStats {
-            self.viewModel?.generateLocalNotif(title: stat.key,
-                                               body: "Process complete!",
-                                               minutes: Int(stat.value),
-                                               datePicker: quitDatePicker.date)
+//            self.viewModel?.generateLocalNotif(title: stat.key,
+//                                               body: "Process complete!",
+//                                               minutes: Int(stat.value),
+//                                               datePicker: quitDatePicker.date)
         }
+    }
+}
+
+extension QuitInfoVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

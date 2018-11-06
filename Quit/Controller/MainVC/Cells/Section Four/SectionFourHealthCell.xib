@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionFourHealthCell" id="gTV-IL-0wX" customClass="SectionFourHealthCell" customModule="Quit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="265" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="265" height="220"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qLv-L5-JzL" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
+                        <rect key="frame" x="5" y="5" width="255" height="210"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="IYB-Xv-N2l" customClass="WaveAnimationView" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="255" height="210"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IYB-Xv-N2l" firstAttribute="top" secondItem="qLv-L5-JzL" secondAttribute="top" id="2vF-0T-Gng"/>
+                            <constraint firstAttribute="trailing" secondItem="IYB-Xv-N2l" secondAttribute="trailing" id="SWX-cp-ux8"/>
+                            <constraint firstItem="IYB-Xv-N2l" firstAttribute="leading" secondItem="qLv-L5-JzL" secondAttribute="leading" id="aIL-XK-UNp"/>
+                            <constraint firstAttribute="bottom" secondItem="IYB-Xv-N2l" secondAttribute="bottom" id="cFB-uh-Q8F"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-dy-ULj">
+                        <rect key="frame" x="10" y="180" width="245" height="30"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8Sm-dy-ULj" secondAttribute="trailing" constant="10" id="1xa-OO-sCh"/>
+                <constraint firstAttribute="trailing" secondItem="qLv-L5-JzL" secondAttribute="trailing" constant="5" id="7uW-L2-VGn"/>
+                <constraint firstAttribute="bottom" secondItem="qLv-L5-JzL" secondAttribute="bottom" constant="5" id="Kcy-gf-WaM"/>
+                <constraint firstItem="qLv-L5-JzL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="OFv-av-MXP"/>
+                <constraint firstItem="8Sm-dy-ULj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="VBJ-Vr-Ixn"/>
+                <constraint firstItem="qLv-L5-JzL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="oS8-7N-Vly"/>
+                <constraint firstAttribute="bottom" secondItem="8Sm-dy-ULj" secondAttribute="bottom" constant="10" id="sUQ-Q1-wYG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="265" height="220"/>
+            <connections>
+                <outlet property="healthStateLabel" destination="8Sm-dy-ULj" id="i27-zz-2Wg"/>
+                <outlet property="waveAnimationView" destination="IYB-Xv-N2l" id="Y6m-8S-qkv"/>
+            </connections>
+            <point key="canvasLocation" x="148" y="43.178410794602705"/>
+        </collectionViewCell>
+    </objects>
+</document>

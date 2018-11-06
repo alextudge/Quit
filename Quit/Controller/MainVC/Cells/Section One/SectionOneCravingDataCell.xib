@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionOneCravingDataCell" id="xeY-of-lYy" customClass="SectionOneCravingDataCell" customModule="Quit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="399" height="231"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="399" height="231"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd4-ei-MaL" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
+                        <rect key="frame" x="5" y="5" width="389" height="221"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acL-Ea-F7b">
+                                <rect key="frame" x="10" y="10" width="369" height="48"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2R-Oo-gzw">
+                                <rect key="frame" x="10" y="175" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Qes-XX-ypd"/>
+                                    <constraint firstAttribute="width" constant="36" id="mYg-qd-CQY"/>
+                                </constraints>
+                                <state key="normal" image="Settings"/>
+                                <connections>
+                                    <action selector="didPressSettingsButton:" destination="xeY-of-lYy" eventType="touchUpInside" id="zaq-pd-6YE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBZ-sB-DqH" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="329" y="137.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="M46-lb-qbg"/>
+                                    <constraint firstAttribute="width" constant="50" id="o9o-SZ-4or"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="Plus">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cravingButton:" destination="xeY-of-lYy" eventType="touchUpInside" id="JIm-Fo-rjA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Craving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJo-jE-TGE">
+                                <rect key="frame" x="333.5" y="197.5" width="41.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="AJo-jE-TGE" secondAttribute="bottom" constant="10" id="1Tu-BV-o5v"/>
+                            <constraint firstAttribute="bottom" secondItem="B2R-Oo-gzw" secondAttribute="bottom" constant="10" id="BSN-dg-wAS"/>
+                            <constraint firstItem="B2R-Oo-gzw" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="10" id="QNL-vN-GHN"/>
+                            <constraint firstAttribute="trailing" secondItem="acL-Ea-F7b" secondAttribute="trailing" constant="10" id="SF5-4J-Ncx"/>
+                            <constraint firstItem="acL-Ea-F7b" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="10" id="XV0-oL-Fut"/>
+                            <constraint firstItem="AJo-jE-TGE" firstAttribute="top" secondItem="ZBZ-sB-DqH" secondAttribute="bottom" constant="10" id="cqX-Dv-e02"/>
+                            <constraint firstItem="acL-Ea-F7b" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="10" id="gJ1-TU-GtF"/>
+                            <constraint firstAttribute="trailing" secondItem="ZBZ-sB-DqH" secondAttribute="trailing" constant="10" id="qKf-vW-x2J"/>
+                            <constraint firstItem="AJo-jE-TGE" firstAttribute="centerX" secondItem="ZBZ-sB-DqH" secondAttribute="centerX" id="ygd-3q-YIT"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Xd4-ei-MaL" firstAttribute="leading" secondItem="xeY-of-lYy" secondAttribute="leading" constant="5" id="FpK-wq-rQ8"/>
+                <constraint firstAttribute="bottom" secondItem="Xd4-ei-MaL" secondAttribute="bottom" constant="5" id="QYm-Of-VIF"/>
+                <constraint firstItem="Xd4-ei-MaL" firstAttribute="top" secondItem="xeY-of-lYy" secondAttribute="top" constant="5" id="mqr-mW-ccA"/>
+                <constraint firstAttribute="trailing" secondItem="Xd4-ei-MaL" secondAttribute="trailing" constant="5" id="oxI-U8-5sd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="bKf-NW-ezf"/>
+            <size key="customSize" width="399" height="231"/>
+            <connections>
+                <outlet property="addCravingButton" destination="ZBZ-sB-DqH" id="hA4-86-G6m"/>
+                <outlet property="quitDateLabel" destination="acL-Ea-F7b" id="9th-yk-jzM"/>
+                <outlet property="settingsButton" destination="B2R-Oo-gzw" id="17k-mS-nnW"/>
+            </connections>
+            <point key="canvasLocation" x="348" y="-12.143928035982009"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Plus" width="50" height="50"/>
+        <image name="Settings" width="50" height="50"/>
+    </resources>
+</document>

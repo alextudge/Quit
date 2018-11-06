@@ -21,12 +21,11 @@ protocol PersistenceManagerProtocol {
 
 class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, PersistenceManagerProtocol {
     
-    private var context: NSManagedObjectContext!
     private(set) var cravings = [Craving]()
     private(set) var savingsGoals = [SavingGoal]()
+    private var context: NSManagedObjectContext!
     private let coreDataObjectNames = ["Craving", "SavingGoal"]
     private let userDefaults = UserDefaults.standard
-    
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Quit")
         container.loadPersistentStores(completionHandler: { (_, error) in
@@ -40,9 +39,9 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     override init() {
         super.init()
         context = persistentContainer.viewContext
+        deleteOldCravings()
         fetchSavingsGoalsData()
         fetchCravingData()
-        deleteOldCravings()
     }
     
     private func saveContext () {
@@ -80,7 +79,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         }
     }
     
-    //Saving model functions
+    //Save
     func addSavingGoal(title: String, cost: Double) {
         let saving = SavingGoal(context: context)
         saving.goalName = title
@@ -100,7 +99,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         }
     }
     
-    //Deletion functions
+    //Delete
     func deleteObject(object: NSManagedObject) {
         context.delete(object)
         saveContext()
@@ -124,6 +123,13 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     func setQuitDataInUserDefaults(object: [String: Any], key: String) {
         userDefaults.set(object, forKey: key)
     }
+    
+    func getQuitDataFromUserDefaults() -> QuitData? {
+        if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
+            return QuitData(quitData: returnedData)
+        }
+        return nil
+    }
 }
 
 private extension PersistenceManager {
@@ -142,7 +148,7 @@ private extension PersistenceManager {
         do {
             cravings = try context.fetch(cravingFetch)
             cravings.forEach {
-                context.delete($0)
+                deleteObject(object: $0)
             }
         } catch {
             print("Failed to fetch cravings: \(error)")

@@ -47,10 +47,10 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         trackShapeLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(trackShapeLayer)
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = Constants.greenColour.cgColor
+        shapeLayer.strokeColor = Constants.Colours.greenColour.cgColor
         shapeLayer.lineWidth = 30
         shapeLayer.strokeEnd = 0
-        shapeLayer.lineCap = kCALineCapRound
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(shapeLayer)
 //        let progressView = UITapGestureRecognizer(target: self, action: #selector(handleTapOnASavingsGoal(_:)))
@@ -62,14 +62,14 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         let angle = savingsProgressAngle()
         basicAnimation.toValue = angle
         basicAnimation.duration = 2
-        basicAnimation.fillMode = kCAFillModeForwards
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: "basicAnimation")
         let pulseAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
         pulseAnimation.duration = 3
         pulseAnimation.fromValue = 0.7
         pulseAnimation.toValue = 1
-        pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         pulseAnimation.autoreverses = true
         pulseAnimation.repeatCount = .greatestFiniteMagnitude
         trackShapeLayer.add(pulseAnimation, forKey: "animateOpacity")

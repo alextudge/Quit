@@ -16,6 +16,19 @@ struct Constants {
         static let quitDate = "quitDate"
     }
     
+    struct Segues {
+        static let toQuitInfoVC = "toQuitInfoVC"
+        static let toSettingsVC = "toSettingsVC"
+        static let toSavingsGoalVC = "toSavingsGoalVC"
+    }
+    
+    struct Cells {
+        static let sectionOneCarouselCell = "SectionOneCarouselCell"
+        static let sectionTwoCarouselCell = "SectionTwoCarouselCell"
+        static let sectionThreeCarouselCell = "SectionThreeCarouselCell"
+        static let sectionFourCarouselCell = "SectionFourCarouselCell"
+    }
+    
     static let healthStats: [String] =
         ["Correcting blood pressure",
          "Normalising heart rate",
@@ -32,19 +45,12 @@ struct Constants {
          "Emotional trauma ended",
          "Halving heart attack risk"]
     
-    static let greenColour = UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1)
+    struct Colours {
+        static let greenColour = UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1)
+    }
     
     static let savingsInfoAttributes =
-        [NSAttributedStringKey.foregroundColor: UIColor.white,
-         NSAttributedStringKey.backgroundColor: UIColor.black,
-         NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
-    
-    static let achieved = [NSAttributedStringKey.foregroundColor: UIColor(red: 102/255,
-                                                                          green: 204/255,
-                                                                          blue: 150/255,
-                                                                          alpha: 1),
-                                       NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
-    
-    static let notAchieved = [NSAttributedStringKey.foregroundColor: UIColor.gray,
-                                      NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        [NSAttributedString.Key.foregroundColor: UIColor.white,
+         NSAttributedString.Key.backgroundColor: UIColor.black,
+         NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
 }

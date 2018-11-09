@@ -110,7 +110,7 @@ class WaveAnimationView: UIView {
         
         let progressText = (NSString(format: "%.0f", validProgress) as String) + "%"
         
-        var attributes: [NSAttributedStringKey : Any] = [.font: progressTextFont]
+        var attributes: [NSAttributedString.Key : Any] = [.font: progressTextFont]
         if progress > 0.45 {
             attributes.updateValue(UIColor.white, forKey: .foregroundColor)
         } else {

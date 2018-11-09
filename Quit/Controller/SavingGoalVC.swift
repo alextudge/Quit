@@ -17,9 +17,12 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
     weak var delegate: SavingGoalVCDelegate?
     var savingGoal: SavingGoal?
     var persistenceManager: PersistenceManagerProtocol?
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         goalTitleTextField.delegate = self
         goalCostTextField.delegate = self
         if self.savingGoal != nil {
@@ -32,21 +35,23 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
         return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         goalCostTextField.resignFirstResponder()
         goalTitleTextField.resignFirstResponder()
         self.view.endEditing(true)
     }
     
     func showDataMissingAlert() {
-        
         let alert = UIAlertController(title: "Add all data!", message: "", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(okButton)
@@ -66,12 +71,12 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
             }
             if self.savingGoal == nil {
                 persistenceManager?.addSavingGoal(title: goalTitleTextField.text!.capitalized, cost: cost)
-                delegate?.setupSection2()
+                delegate?.reloadTableView()
                 dismiss(animated: true, completion: nil)
             } else {
                 savingGoal!.goalAmount = cost
                 savingGoal!.goalName = goalTitleTextField.text!.capitalized
-                delegate?.setupSection2()
+                delegate?.reloadTableView()
                 dismiss(animated: true, completion: nil)
             }
         } else {
@@ -82,12 +87,12 @@ class SavingGoalVC: UIViewController, UITextFieldDelegate {
     @IBAction func deleteButtonPressed(_ sender: Any) {
         if savingGoal != nil {
             persistenceManager?.deleteObject(object: savingGoal!)
-            delegate?.setupSection2()
+            delegate?.reloadTableView()
             self.dismiss(animated: true, completion: nil)
         }
     }
 }
 
 protocol SavingGoalVCDelegate: class {
-    func setupSection2()
+    func reloadTableView()
 }

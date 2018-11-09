@@ -68,4 +68,3 @@ extension UIBezierPath {
         self.close()
     }
 }
-

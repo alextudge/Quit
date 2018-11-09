@@ -10,54 +10,58 @@ import UIKit
 
 class HomeVC: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
-    var viewModel = HomeVCViewModel()
-    var quitData: QuitData?
+    private(set) var viewModel = HomeVCViewModel()
+    private var quitData: QuitData? {
+        return viewModel.persistenceManager.getQuitDataFromUserDefaults()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCells()
-        tableView.delegate = self
-        tableView.dataSource = self
-        resetQuitData()
-        tableView.reloadData()
-        tableView.contentInset.top = view.safeAreaInsets.top
+        setupTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if quitData == nil {
-            performSegue(withIdentifier: "toQuitInfoVC", sender: nil)
+            segueToQuitDataVC()
         }
     }
     
-    func resetQuitData() {
-        quitData = viewModel.persistenceManager.getQuitDataFromUserDefaults()
-    }
-    
-    private func registerCells() {
-        tableView.register(UINib(nibName: "SectionOneCarouselCell", bundle: nil),  forCellReuseIdentifier: "SectionOneCarouselCell")
-        tableView.register(UINib(nibName: "SectionTwoCarouselCell", bundle: nil), forCellReuseIdentifier: "SectionTwoCarouselCell")
-        tableView.register(UINib(nibName: "SectionThreeCarouselCell", bundle: nil), forCellReuseIdentifier: "SectionThreeCarouselCell")
-        tableView.register(UINib(nibName: "SectionFourCarouselCell", bundle: nil), forCellReuseIdentifier: "SectionFourCarouselCell")
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInset.top = view.safeAreaInsets.top
+        tableView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toQuitInfoVC" {
+        if segue.identifier == Constants.Segues.toQuitInfoVC {
             if let destination = segue.destination as? QuitInfoVC {
                 destination.delegate = self
-                destination.quitData = quitData
                 destination.persistenceManager = self.viewModel.persistenceManager
             }
         }
-        if segue.identifier == "toSettingsVC" {
+        if segue.identifier == Constants.Segues.toSettingsVC {
             if let destination = segue.destination as? SettingsVC {
                 destination.delegate = self
                 destination.persistenceManager = self.viewModel.persistenceManager
             }
         }
-        if segue.identifier == "toSavingsGoalVC" {
+        if segue.identifier == Constants.Segues.toSavingsGoalVC {
             if let destination = segue.destination as? SavingGoalVC {
                 destination.delegate = self
                 destination.persistenceManager = self.viewModel.persistenceManager
@@ -66,6 +70,10 @@ class HomeVC: UIViewController {
                 }
             }
         }
+    }
+    
+    private func segueToQuitDataVC() {
+        performSegue(withIdentifier: Constants.Segues.toQuitInfoVC, sender: nil)
     }
 }
 
@@ -80,7 +88,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SectionOneCarouselCell", for: indexPath) as? SectionOneCarouselCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionOneCarouselCell, for: indexPath) as? SectionOneCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
@@ -88,20 +96,20 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             cell.setup()
             return cell
         } else if indexPath.section == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SectionTwoCarouselCell", for: indexPath) as? SectionTwoCarouselCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionTwoCarouselCell, for: indexPath) as? SectionTwoCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
             cell.persistenceManager = viewModel.persistenceManager
             cell.setupCell()
         } else if indexPath.section == 2 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SectionThreeCarouselCell", for: indexPath) as? SectionThreeCarouselCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
                 return UITableViewCell()
             }
             cell.persistenceManager = viewModel.persistenceManager
             cell.setup()
         } else if indexPath.section == 3 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SectionFourCarouselCell", for: indexPath) as? SectionFourCarouselCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
                 return UITableViewCell()
             }
             cell.persistenceManager = viewModel.persistenceManager
@@ -113,13 +121,9 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIScreen.main.bounds.height / 3
     }
-    
-    func segueToQuitDataVC() {
-        performSegue(withIdentifier: "toQuitInfoVC", sender: nil)
-    }
 }
 
-extension HomeVC: QuitDateSetVCDelegate {
+extension HomeVC: QuitDateSetVCDelegate, SavingGoalVCDelegate {
     func reloadTableView() {
         tableView.reloadData()
     }
@@ -127,11 +131,11 @@ extension HomeVC: QuitDateSetVCDelegate {
 
 extension HomeVC: SectionOneCarouselCellDelegate {
     func didPressSegueToSettings() {
-        performSegue(withIdentifier: "toSettingsVC", sender: nil)
+        performSegue(withIdentifier: Constants.Segues.toSettingsVC, sender: nil)
     }
     
     func didPressChangeQuitDate() {
-        performSegue(withIdentifier: "toQuitInfoVC", sender: nil)
+        segueToQuitDataVC()
     }
     
     func presentAlert(_ alert: UIAlertController) {
@@ -141,12 +145,6 @@ extension HomeVC: SectionOneCarouselCellDelegate {
 
 extension HomeVC: SectionTwoCarouselCellDelegate {
     func didTapSavingGoal(sender: SavingGoal?) {
-        performSegue(withIdentifier: "toSavingsGoalVC", sender: sender)
-    }
-}
-
-extension HomeVC: SavingGoalVCDelegate {
-    func setupSection2() {
-        tableView.reloadData()
+        performSegue(withIdentifier: Constants.Segues.toSavingsGoalVC, sender: sender)
     }
 }

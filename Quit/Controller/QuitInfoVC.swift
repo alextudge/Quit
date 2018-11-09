@@ -10,27 +10,34 @@ import UIKit
 
 protocol QuitDateSetVCDelegate: class {
     func reloadTableView()
-    func resetQuitData()
 }
 
 class QuitInfoVC: UIViewController {
     
-    private let viewModel = QuitInfoVCViewModel()
-    var persistenceManager: PersistenceManagerProtocol?
-    var quitData: QuitData?
-    
     weak var delegate: QuitDateSetVCDelegate?
-
+    
+    var persistenceManager: PersistenceManager?
+    private let viewModel = QuitInfoVCViewModel()
+    private var quitData: QuitData? {
+        return persistenceManager?.getQuitDataFromUserDefaults()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBOutlet private weak var smokedDailyTextField: UITextField!
     @IBOutlet private weak var costOf20TextField: UITextField!
     @IBOutlet private weak var quitDatePicker: UIDatePicker!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setupDelegates()
         setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupInitialValues(quitData)
     }
     
@@ -44,29 +51,33 @@ class QuitInfoVC: UIViewController {
     }
     
     private func setupInitialValues(_ quitData: QuitData?) {
-        costOf20TextField.text = "\(quitData?.costOf20 ?? 0)"
-        smokedDailyTextField.text = "\(quitData?.smokedDaily ?? 0)"
+        if let costOf20 = quitData?.costOf20 {
+            costOf20TextField.text = "\(costOf20)"
+        }
+        if let smokedDaily = quitData?.smokedDaily {
+            smokedDailyTextField.text = "\(smokedDaily)"
+        }
         quitDatePicker.date = quitData?.quitDate ?? Date()
     }
     
     private func showDataMissingAlert() {
-        let alert = UIAlertController(title: "Complete data", message: "We need all of this data to set you up (you can change it at any time)!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Complete data",
+                                      message: "We need all of this data to set you up (you can change it at any time)!",
+                                      preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(okButton)
         present(alert, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        smokedDailyTextField.resignFirstResponder()
-        costOf20TextField.resignFirstResponder()
         view.endEditing(true)
     }
     
-    @IBAction func cancelButtonPressed(_ sender: Any) {
+    @IBAction private func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveButtonPressed(_ sender: Any) {
+    @IBAction private func saveButtonPressed(_ sender: Any) {
         guard costOf20TextField.text != "" &&
             smokedDailyTextField.text != "",
             let cost = Double(costOf20TextField.text!),
@@ -79,7 +90,6 @@ class QuitInfoVC: UIViewController {
                                        Constants.QuitDataConstants.quitDate: quitDatePicker.date]
         persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
         setNotifications()
-        delegate?.resetQuitData()
         delegate?.reloadTableView()
         dismiss(animated: true, completion: nil)
     }

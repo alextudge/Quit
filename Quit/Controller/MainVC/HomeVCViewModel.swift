@@ -9,6 +9,5 @@
 import Foundation
 
 class HomeVCViewModel {
-
     private(set) var persistenceManager = PersistenceManager()
 }

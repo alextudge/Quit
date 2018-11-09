@@ -10,19 +10,22 @@ import UIKit
 
 class SettingsVC: UIViewController {
     
-    @IBOutlet weak var deleteAllDataButton: UIButton!
+    @IBOutlet private weak var deleteAllDataButton: UIButton!
     
     weak var delegate: QuitDateSetVCDelegate?
     var persistenceManager: PersistenceManagerProtocol?
     
-    @IBAction func goBackButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
-    @IBAction func deleteAllDataButtonPressed(_ sender: Any) {
-        
+    @IBAction private func goBackButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction private func deleteAllDataButtonPressed(_ sender: Any) {
         persistenceManager?.deleteAllData()
         delegate?.reloadTableView()
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

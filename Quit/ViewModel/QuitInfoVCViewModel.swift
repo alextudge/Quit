@@ -17,7 +17,7 @@ class QuitInfoVCViewModel {
             let content = UNMutableNotificationContent()
             content.title = title
             content.body = body
-            content.sound = UNNotificationSound.default()
+            content.sound = UNNotificationSound.default
             let date = Date(timeInterval: TimeInterval(minutes * 60), since: datePicker)
             let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second],
                                                               from: date)

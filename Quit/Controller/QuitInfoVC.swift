@@ -14,6 +14,10 @@ protocol QuitDateSetVCDelegate: class {
 
 class QuitInfoVC: UIViewController {
     
+    @IBOutlet private weak var smokedDailyTextField: UITextField!
+    @IBOutlet private weak var costOf20TextField: UITextField!
+    @IBOutlet private weak var quitDatePicker: UIDatePicker!
+    
     weak var delegate: QuitDateSetVCDelegate?
     
     var persistenceManager: PersistenceManager?
@@ -25,10 +29,6 @@ class QuitInfoVC: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    @IBOutlet private weak var smokedDailyTextField: UITextField!
-    @IBOutlet private weak var costOf20TextField: UITextField!
-    @IBOutlet private weak var quitDatePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,10 +78,10 @@ class QuitInfoVC: UIViewController {
     }
     
     @IBAction private func saveButtonPressed(_ sender: Any) {
-        guard costOf20TextField.text != "" &&
-            smokedDailyTextField.text != "",
-            let cost = Double(costOf20TextField.text!),
-            let amount = Double(smokedDailyTextField.text!) else {
+        guard let costOf20Text = costOf20TextField.text,
+            let smokedDaily = smokedDailyTextField.text,
+            let cost = Double(costOf20Text),
+            let amount = Double(smokedDaily) else {
                 showDataMissingAlert()
                 return
         }

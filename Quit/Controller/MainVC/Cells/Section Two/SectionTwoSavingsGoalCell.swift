@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol SectionTwoSavingsGoalCellDelegate: class {
-    func didTapSavingGoal(sender: SavingGoal?)
-}
-
 class SectionTwoSavingsGoalCell: UICollectionViewCell {
     
     var persistenceManager: PersistenceManager?
@@ -26,8 +22,6 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
             addSubview(savingsNameLabel(goal: savingGoal))
         }
     }
-    
-    weak var delegate: SectionTwoSavingsGoalCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,8 +47,6 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(shapeLayer)
-//        let progressView = UITapGestureRecognizer(target: self, action: #selector(handleTapOnASavingsGoal(_:)))
-        //Add tap gesture recogniser
     }
     
     private func animateProgressView() {
@@ -109,14 +101,5 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
     func quitDateIsInPast(quitData: QuitData?) -> Bool {
         guard let quitDate = quitData?.quitDate else { return false }
         return quitDate < Date()
-    }
-    
-    @objc func handleTapOnASavingsGoal(_ sender: UITapGestureRecognizer) {
-        let view = sender.view
-        guard let tag = view?.tag else {
-            return
-        }
-        let savingGoal = persistenceManager?.savingsGoals[tag]
-        delegate?.didTapSavingGoal(sender: savingGoal)
     }
 }

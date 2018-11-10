@@ -8,13 +8,10 @@
 
 import UIKit
 
-protocol CanShowAlert: class {
-    func presentAlert(_ alert: UIAlertController)
-}
-
-protocol SectionOneCravingDataCellDelegate: CanShowAlert {
+protocol SectionOneCravingDataCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToSettings()
+    func presentAlert(_ alert: UIAlertController)
 }
 
 class SectionOneCravingDataCell: UICollectionViewCell {

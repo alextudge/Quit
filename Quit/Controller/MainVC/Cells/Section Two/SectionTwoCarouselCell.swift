@@ -29,8 +29,12 @@ class SectionTwoCarouselCell: UITableViewCell {
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: "SectionTwoSavingsOverviewCell", bundle: nil), forCellWithReuseIdentifier: "SectionTwoSavingsOverviewCell")
-        collectionView.register(UINib(nibName: "SectionTwoSavingsGoalCell", bundle: nil), forCellWithReuseIdentifier: "SectionTwoSavingsGoalCell")
+        collectionView.register(UINib(nibName: "SectionTwoSavingsOverviewCell",
+                                      bundle: nil),
+                                forCellWithReuseIdentifier: "SectionTwoSavingsOverviewCell")
+        collectionView.register(UINib(nibName: "SectionTwoSavingsGoalCell",
+                                      bundle: nil),
+                                forCellWithReuseIdentifier: "SectionTwoSavingsGoalCell")
         collectionView.reloadData()
     }
     
@@ -61,22 +65,22 @@ extension SectionTwoCarouselCell: UICollectionViewDelegate, UICollectionViewData
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionTwoSavingsGoalCell", for: indexPath) as? SectionTwoSavingsGoalCell else {
                 return UICollectionViewCell()
             }
-            cell.delegate = self
             cell.persistenceManager = persistenceManager
             cell.savingGoal = persistenceManager?.savingsGoals[indexPath.row - 1]
             return cell
         }
-        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
     }
-}
-
-extension SectionTwoCarouselCell: SectionTwoSavingsGoalCellDelegate {
-    func didTapSavingGoal(sender: SavingGoal?) {
-        delegate?.didTapSavingGoal(sender: sender)
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.row != 0,
+            let data = persistenceManager?.savingsGoals[indexPath.row - 1] else {
+                return
+        }
+        delegate?.didTapSavingGoal(sender: data)
     }
 }
 

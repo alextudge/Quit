@@ -30,8 +30,8 @@
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="VgE-iL-nIc">
                         <rect key="frame" x="150.5" y="104.5" width="23" height="37"/>
-                        <color key="pageIndicatorTintColor" white="1" alpha="0.25112371575342468" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="0.50470890410958902" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </pageControl>
                 </subviews>
                 <color key="backgroundColor" red="0.98041182760000001" green="0.33680224419999999" blue="0.42892789840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

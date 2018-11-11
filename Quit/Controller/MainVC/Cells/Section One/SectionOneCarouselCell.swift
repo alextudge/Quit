@@ -62,6 +62,7 @@ extension SectionOneCarouselCell: UICollectionViewDelegate, UICollectionViewData
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionOneVapingDataCell", for: indexPath) as? SectionOneVapingDataCell else {
                 return UICollectionViewCell()
             }
+            cell.delegate = self
             cell.persistenceManager = persistenceManager
             cell.setup()
             return cell

@@ -98,7 +98,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
             cravingData.forEach {
                 let date = standardisedDate(date: $0.cravingDate ?? Date())
                 guard let category = $0.cravingCatagory,
-                    category != "" else {
+                    category == categoryDict.category else {
                         return
                 }
                 categoryDict.dict[date] = categoryDict.dict[date] == nil ? 1 :
@@ -120,7 +120,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         
         lineChartView.xAxis.valueFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: mediumDateFormatter())
         
-        var chartDataSets = [LineChartDataSet]()
+        let data = LineChartData()
         categoryDataArray.forEach {
             let dict = $0.dict
             var entries = [ChartDataEntry]()
@@ -134,12 +134,18 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
             entries.sort(by: {$0.x < $1.x})
             let chartSet = LineChartDataSet(values: entries, label: $0.category)
             chartSet.drawValuesEnabled = false
-            chartDataSets.append(chartSet)
+            chartSet.drawCirclesEnabled = false
+            chartSet.setColor(randomColor(), alpha: 1)
+            data.addDataSet(chartSet)
         }
-        let data = LineChartData(dataSets: chartDataSets)
         lineChartView.data = data
-        lineChartView.notifyDataSetChanged()
-        lineChartView.data?.notifyDataChanged()
+    }
+    
+    private func randomColor() -> UIColor {
+        let randomRed: CGFloat = CGFloat(drand48())
+        let randomGreen: CGFloat = CGFloat(drand48())
+        let randomBlue: CGFloat = CGFloat(drand48())
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
 }
 

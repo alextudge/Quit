@@ -42,6 +42,10 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         var cravingDict = [Date: Int]()
         var smokedDict = [Date: Int]()
         
+        guard cravingData.count > 0 else {
+            return
+        }
+        
         cravingData.forEach {
             let date = standardisedDate(date: $0.cravingDate ?? Date())
             if $0.cravingSmoked {

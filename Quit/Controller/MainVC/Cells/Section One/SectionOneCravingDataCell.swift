@@ -87,7 +87,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
             self.viewModel.persistenceManager.addCraving(
                 catagory: (textField.text != nil) ? textField.text!.capitalized : "",
                 smoked: true)
-            self.delegate?.reloadTableView()
+//            self.delegate?.reloadTableView()
         }
         alertController.addAction(yesAction)
         let noAction = UIAlertAction(title: "No", style: .default) { _ in
@@ -95,7 +95,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
             self.viewModel.persistenceManager.addCraving(
                 catagory: (textField.text != nil) ? textField.text! : "",
                 smoked: false)
-            self.delegate?.reloadTableView()
+//            self.delegate?.reloadTableView()
             self.viewModel.appStoreReview(quitData: self.quitData)
         }
         alertController.addAction(noAction)

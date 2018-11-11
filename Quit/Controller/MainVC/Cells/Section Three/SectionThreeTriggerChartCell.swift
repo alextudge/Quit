@@ -37,7 +37,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         let leftAxis = lineChartView?.leftAxis
         let rightAxis = lineChartView?.rightAxis
         //No data formatting
-        lineChartView.noDataText = "No cravings!"
+        lineChartView.noDataText = "No triggers added!"
         lineChartView.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
         lineChartView.noDataTextColor = .darkGray
         //Formatting the x (date) axis
@@ -85,6 +85,10 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
                 !categories.contains(category) {
                 categories.append(category)
             }
+        }
+        
+        guard categories.count > 0 else {
+            return
         }
         
         categories.forEach {

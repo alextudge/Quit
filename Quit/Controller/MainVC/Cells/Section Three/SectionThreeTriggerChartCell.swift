@@ -18,6 +18,14 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
             loadChartData()
         }
     }
+    
+    private struct CategoryData {
+        var category: String?
+        var dict = [Date: Int]()
+        init(category: String? = nil) {
+            self.category = category
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,9 +72,74 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
     }
     
     func loadChartData() {
-        guard let data = persistenceManager?.cravings else {
+        
+        //Loop over each category and create a dictionary of occuraces by date
+        //Render each individual line
+        
+        guard let cravingData = persistenceManager?.cravings else {
             return
         }
+        
+        var categories = [String]()
+        var referenceTimeInterval: TimeInterval = 0
+        var categoryDataArray = [CategoryData]()
+        
+        cravingData.forEach {
+            if let category = $0.cravingCatagory,
+                category != "",
+                !categories.contains(category) {
+                categories.append(category)
+            }
+        }
+        
+        categories.forEach {
+            var categoryDict = CategoryData()
+            categoryDict.category = $0
+            cravingData.forEach {
+                let date = standardisedDate(date: $0.cravingDate ?? Date())
+                guard let category = $0.cravingCatagory,
+                    category != "" else {
+                        return
+                }
+                categoryDict.dict[date] = categoryDict.dict[date] == nil ? 1 :
+                    categoryDict.dict[date]! + 1
+            }
+            categoryDataArray.append(categoryDict)
+        }
+        
+        var minTimeInterval: TimeInterval = 0
+        categoryDataArray.forEach {
+            let localMinTimeInterval: TimeInterval = 0
+            if let localMinTimeInterval = ($0.dict.map { $0.key.timeIntervalSince1970 }).min() {
+                if localMinTimeInterval < minTimeInterval {
+                    minTimeInterval = localMinTimeInterval
+                }
+            }
+        }
+        referenceTimeInterval = minTimeInterval
+        
+        lineChartView.xAxis.valueFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: mediumDateFormatter())
+        
+        var chartDataSets = [LineChartDataSet]()
+        categoryDataArray.forEach {
+            let dict = $0.dict
+            var entries = [ChartDataEntry]()
+            dict.forEach {
+                let timeInerval = $0.key.timeIntervalSince1970
+                let xValue = (timeInerval - referenceTimeInterval) / (3600 * 24)
+                let categoryCount = $0.value
+                let entry = ChartDataEntry(x: xValue, y: Double(categoryCount))
+                entries.append(entry)
+            }
+            entries.sort(by: {$0.x < $1.x})
+            let chartSet = LineChartDataSet(values: entries, label: $0.category)
+            chartSet.drawValuesEnabled = false
+            chartDataSets.append(chartSet)
+        }
+        let data = LineChartData(dataSets: chartDataSets)
+        lineChartView.data = data
+        lineChartView.notifyDataSetChanged()
+        lineChartView.data?.notifyDataChanged()
     }
 }
 

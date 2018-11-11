@@ -12,6 +12,7 @@ protocol SectionOneCarouselCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToSettings()
     func presentAlert(_ alert: UIAlertController)
+    func reloadTableView()
 }
 
 class SectionOneCarouselCell: UITableViewCell {
@@ -88,6 +89,10 @@ extension SectionOneCarouselCell: SectionOneCravingDataCellDelegate {
     
     func didPressChangeQuitDate() {
         delegate?.didPressChangeQuitDate()
+    }
+    
+    func reloadTableView() {
+        delegate?.reloadTableView()
     }
     
     func presentAlert(_ alert: UIAlertController) {

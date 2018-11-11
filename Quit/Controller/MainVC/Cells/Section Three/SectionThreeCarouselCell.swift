@@ -23,6 +23,7 @@ class SectionThreeCarouselCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "SectionThreeCravingsChartCell", bundle: nil), forCellWithReuseIdentifier: "SectionThreeCravingsChartCell")
         collectionView.register(UINib(nibName: "SectionThreeTriggerChartCell", bundle: nil), forCellWithReuseIdentifier: "SectionThreeTriggerChartCell")
+        collectionView.reloadData()
     }
 }
 
@@ -41,6 +42,7 @@ extension SectionThreeCarouselCell: UICollectionViewDelegate, UICollectionViewDa
                 return UICollectionViewCell()
             }
             cell.persistenceManager = persistenceManager
+            cell.reloadBarChart()
             return cell
         } else if indexPath.row == 1 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionThreeTriggerChartCell", for: indexPath) as? SectionThreeTriggerChartCell else {

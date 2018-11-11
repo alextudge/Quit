@@ -28,6 +28,11 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         formatBarChart()
     }
     
+    func reloadBarChart() {
+        barChart.notifyDataSetChanged()
+        barChart.data?.notifyDataChanged()
+    }
+    
     private func loadBarChartData() {
         guard let cravingData = persistenceManager?.cravings else {
             return

@@ -52,19 +52,19 @@ class HomeVC: UIViewController {
         if segue.identifier == Constants.Segues.toQuitInfoVC {
             if let destination = segue.destination as? QuitInfoVC {
                 destination.delegate = self
-                destination.persistenceManager = self.viewModel.persistenceManager
+                destination.persistenceManager = viewModel.persistenceManager
             }
         }
         if segue.identifier == Constants.Segues.toSettingsVC {
             if let destination = segue.destination as? SettingsVC {
                 destination.delegate = self
-                destination.persistenceManager = self.viewModel.persistenceManager
+                destination.persistenceManager = viewModel.persistenceManager
             }
         }
         if segue.identifier == Constants.Segues.toSavingsGoalVC {
             if let destination = segue.destination as? SavingGoalVC {
                 destination.delegate = self
-                destination.persistenceManager = self.viewModel.persistenceManager
+                destination.persistenceManager = viewModel.persistenceManager
                 if let sender = sender as? SavingGoal {
                     destination.savingGoal = sender
                 }

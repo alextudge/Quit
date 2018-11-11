@@ -97,10 +97,10 @@ class QuitInfoVC: UIViewController {
     func setNotifications() {
         viewModel.cancelAppleLocalNotifs()
         for stat in Constants.healthStats {
-//            self.viewModel?.generateLocalNotif(title: stat.key,
-//                                               body: "Process complete!",
-//                                               minutes: Int(stat.value),
-//                                               datePicker: quitDatePicker.date)
+            self.viewModel.generateLocalNotif(title: stat,
+                                               body: "Process complete!",
+                                               minutes: secondsForHealthState(healthStat: stat),
+                                               datePicker: quitDatePicker.date)
         }
     }
 }

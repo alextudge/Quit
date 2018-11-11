@@ -31,20 +31,18 @@ struct Constants {
     }
     
     static let healthStats: [String] =
-        ["Correcting blood pressure",
-         "Normalising heart rate",
-         "Nicotine down to 90%",
-         "Raising blood oxygen levels to normal",
-         "Normalising carbon monoxide levels",
-         "Started removing lung debris",
-         "Starting to repair nerve endings",
-         "Correcting smell and taste",
-         "Removing all nicotine",
-         "Improving lung performance",
-         "Worst withdrawal symptoms over",
-         "Fixing mouth and gum circulation",
-         "Emotional trauma ended",
-         "Halving heart attack risk"]
+        ["Pule normal",
+         "Oxygen levels normal",
+         "Most nicotine removed",
+         "All carbon monoxide removed from body",
+         "Nerve endings start repairing",
+         "Taste and smell start improving",
+         "Bronchial tubes relaxing",
+         "9 times more likely to quit after reaching one week",
+         "30% improvement in lung performance",
+         "Fertility and birth related issues reduced",
+         "Heart disease risk halved",
+         "Risk of lung cancer halved"]
     
     struct Colours {
         static let greenColour = UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1)
@@ -54,4 +52,35 @@ struct Constants {
         [NSAttributedString.Key.foregroundColor: UIColor.white,
          NSAttributedString.Key.backgroundColor: UIColor.black,
          NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+}
+
+func secondsForHealthState(healthStat: String) -> Double {
+    switch healthStat {
+    case "Pule normal":
+        return 1200
+    case "Oxygen levels normal":
+        return 28800
+    case "Most nicotine removed":
+        return 86400
+    case "All carbon monoxide removed from body":
+        return 172800
+    case "Nerve endings start repairing":
+        return 172800
+    case "Taste and smell start improving":
+        return 172800
+    case "Bronchial tubes relaxing":
+        return 259200
+    case "9 times more likely to quit after reaching one week":
+        return 604800
+    case "30% improvement in lung performance":
+        return 1209600
+    case "Fertility and birth related issues reduced":
+        return 7890000
+    case "Heart disease risk halved":
+        return 31536000
+    case "Risk of lung cancer halved":
+        return 31536000 * 10
+    default:
+        return 0
+    }
 }

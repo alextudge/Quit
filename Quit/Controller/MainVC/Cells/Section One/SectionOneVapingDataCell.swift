@@ -28,7 +28,7 @@ class SectionOneVapingDataCell: UICollectionViewCell {
         } else {
             decreaseSpendingLabel.isHidden = true
             vapeSpendLabel.text = "You haven't registered any spending on vaping"
-            vapeSpendLabel.text = ""
+            vapeSavingsLabel.text = ""
         }
     }
     

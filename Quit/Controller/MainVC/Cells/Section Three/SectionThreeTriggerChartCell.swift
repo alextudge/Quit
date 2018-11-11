@@ -39,18 +39,18 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         //No data formatting
         lineChartView.noDataText = "No cravings!"
         lineChartView.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
-        lineChartView.noDataTextColor = .white
+        lineChartView.noDataTextColor = .darkGray
         //Formatting the x (date) axis
         xAxis?.labelPosition = .bottom
         xAxis?.drawLabelsEnabled = true
         xAxis?.drawLimitLinesBehindDataEnabled = true
         xAxis?.avoidFirstLastClippingEnabled = true
         xAxis?.drawGridLinesEnabled = false
-        xAxis?.labelTextColor = .white
+        xAxis?.labelTextColor = .darkGray
         xAxis?.setLabelCount(2, force: true)
         xAxis?.avoidFirstLastClippingEnabled = true
         xAxis?.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
-        xAxis?.axisLineColor = .white
+        xAxis?.axisLineColor = .darkGray
         xAxis?.axisLineWidth = 2.5
         //Setup other UI elements
         leftAxis?.setLabelCount(2, force: true)
@@ -59,10 +59,10 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         rightAxis?.drawAxisLineEnabled = false
         leftAxis?.drawAxisLineEnabled = false
         rightAxis?.drawLabelsEnabled = false
-        leftAxis?.labelTextColor = .white
+        leftAxis?.labelTextColor = .darkGray
         rightAxis?.drawGridLinesEnabled = false
         lineChartView.backgroundColor = .clear
-        lineChartView.legend.textColor = .white
+        lineChartView.legend.textColor = .darkGray
         lineChartView.legend.font = UIFont(name: "AvenirNext-Bold", size: 15)!
         lineChartView.chartDescription?.text = ""
         lineChartView.highlightPerTapEnabled = false
@@ -72,14 +72,9 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
     }
     
     func loadChartData() {
-        
-        //Loop over each category and create a dictionary of occuraces by date
-        //Render each individual line
-        
         guard let cravingData = persistenceManager?.cravings else {
             return
         }
-        
         var categories = [String]()
         var referenceTimeInterval: TimeInterval = 0
         var categoryDataArray = [CategoryData]()

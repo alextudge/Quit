@@ -13,11 +13,13 @@ struct QuitData {
     var smokedDaily: Int?
     var costOf20: Double?
     var quitDate: Date?
+    var vapeSpending: Double?
     
     init(quitData: [String: Any]) {
         smokedDaily = quitData[Constants.QuitDataConstants.smokedDaily] as? Int
         costOf20 = quitData[Constants.QuitDataConstants.costOf20] as? Double
         quitDate = quitData[Constants.QuitDataConstants.quitDate] as? Date
+        vapeSpending = quitData[Constants.QuitDataConstants.vapeSpending] as? Double
     }
     
     var costPerCigarette: Double? {
@@ -70,5 +72,13 @@ struct QuitData {
                 return nil
         }
         return minutesSmokeFree * costPerMinute
+    }
+    
+    var vapingSavings: Double? {
+        guard let savedSoFar = savedSoFar,
+            let vapeSpend = vapeSpending else {
+                return nil
+        }
+        return savedSoFar - vapeSpend
     }
 }

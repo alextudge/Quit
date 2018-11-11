@@ -37,7 +37,6 @@ class SectionOneCravingDataCell: UICollectionViewCell {
         let image = UIImage(named: "Plus")?.withRenderingMode(.alwaysTemplate)
         addCravingButton.setImage(image, for: .normal)
         addCravingButton.tintColor = .white
-        addCravingButton.image
         quitDateLabel.isUserInteractionEnabled = true
         quitDateLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didPressChangeQuitDateButton)))
         quitDateLabel.text = "No quit date set!"

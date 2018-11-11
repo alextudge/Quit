@@ -14,6 +14,7 @@ struct Constants {
         static let smokedDaily = "smokedDaily"
         static let costOf20 = "costOf20"
         static let quitDate = "quitDate"
+        static let vapeSpending = "vapeSpending"
     }
     
     struct Segues {

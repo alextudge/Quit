@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd4-ei-MaL" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
                         <rect key="frame" x="5" y="5" width="389" height="221"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acL-Ea-F7b">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acL-Ea-F7b">
                                 <rect key="frame" x="10" y="10" width="369" height="48"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
@@ -64,6 +64,7 @@
                         <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="AJo-jE-TGE" secondAttribute="bottom" constant="10" id="1Tu-BV-o5v"/>
+                            <constraint firstItem="ZBZ-sB-DqH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="acL-Ea-F7b" secondAttribute="bottom" id="AQR-dj-uan"/>
                             <constraint firstAttribute="bottom" secondItem="B2R-Oo-gzw" secondAttribute="bottom" constant="10" id="BSN-dg-wAS"/>
                             <constraint firstItem="B2R-Oo-gzw" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="10" id="QNL-vN-GHN"/>
                             <constraint firstAttribute="trailing" secondItem="acL-Ea-F7b" secondAttribute="trailing" constant="10" id="SF5-4J-Ncx"/>

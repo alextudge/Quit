@@ -58,7 +58,6 @@
 		17F8FF96219A10060095CD6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
-		17F8FF99219A1B4C0095CD6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
 		45EB774CEFB204A24B2152A7 /* Pods_QuitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */; };
 		AFCC50839C8F1E441234087D /* Pods_Quit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212F2A76F0721C15EF160C14 /* Pods_Quit.framework */; };
 		E5A7377D6A8742637F6D358E /* Pods_QuitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */; };
@@ -613,7 +612,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17F8FF99219A1B4C0095CD6E /* Assets.xcassets in Resources */,
 				17F8FF89219A08E70095CD6E /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

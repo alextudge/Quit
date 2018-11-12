@@ -44,6 +44,6 @@ extension SectionFourCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width / 1.5, height: UIScreen.main.bounds.height / 3)
+        return CGSize(width: UIScreen.main.bounds.width / 1.5, height: UIScreen.main.bounds.height / 2)
     }
 }

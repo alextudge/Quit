@@ -119,7 +119,10 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.height / 3
+        guard indexPath.section != 3 else {
+            return UIScreen.main.bounds.height / 2
+        }
+        return UIScreen.main.bounds.height / 2.2
     }
 }
 

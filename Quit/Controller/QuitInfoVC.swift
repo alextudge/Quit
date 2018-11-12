@@ -79,7 +79,9 @@ class QuitInfoVC: UIViewController {
     
     @IBAction private func saveButtonPressed(_ sender: Any) {
         guard let costOf20Text = costOf20TextField.text,
+            costOf20Text != "",
             let smokedDaily = smokedDailyTextField.text,
+            smokedDaily != "",
             let cost = Double(costOf20Text),
             let amount = Double(smokedDaily) else {
                 showDataMissingAlert()

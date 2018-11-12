@@ -25,19 +25,19 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     private(set) var savingsGoals = [SavingGoal]()
     private var context: NSManagedObjectContext!
     private let coreDataObjectNames = ["Craving", "SavingGoal"]
-    private let userDefaults = UserDefaults.init(suiteName: "group.com.Alex.Quit")
+    private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.group)
     
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Quit")
         let appName: String = "Quit"
         var persistentStoreDescriptions: NSPersistentStoreDescription
-        let storeUrl =  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.Alex.Quit")!.appendingPathComponent("Quit.sqlite")
+        let storeUrl =  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.AppConfig.group)!.appendingPathComponent("Quit.sqlite")
         let description = NSPersistentStoreDescription()
         description.shouldInferMappingModelAutomatically = true
         description.shouldMigrateStoreAutomatically = true
         description.url = storeUrl
         // swiftlint:disable:next line_length
-        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url:  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.Alex.Quit")!.appendingPathComponent("Quit.sqlite"))]
+        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url:  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.AppConfig.group)!.appendingPathComponent("Quit.sqlite"))]
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")

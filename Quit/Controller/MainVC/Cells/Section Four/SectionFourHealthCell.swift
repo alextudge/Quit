@@ -14,20 +14,38 @@ class SectionFourHealthCell: UICollectionViewCell {
     @IBOutlet weak var healthStateLabel: UILabel!
     
     var persistenceManager: PersistenceManager?
+    private var color = Constants.Colours.greenColour
     
-    func setupCell(data: String) {
-        let time = secondsForHealthState(healthStat: data)
-        let quitData = persistenceManager?.getQuitDataFromUserDefaults()
-        let progress = quitData?.minuteSmokeFree ?? 0 / time
-        healthStateLabel.text = data
-        waveAnimationView.progress = progress < 1 ? progress : 1
-        waveAnimationView.heartAmplitude = 30
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        color = randomColor()
+        waveAnimationView.heavyHeartColor = color
+        waveAnimationView.lightHeartColor = color.withAlphaComponent(0.4)
         let randomNumber = Int.random(in: 20...40)
         waveAnimationView.heartAmplitude = Double(randomNumber)
+    }
+    
+    func setupCell(data: String) {
+        guard let quitData = persistenceManager?.getQuitDataFromUserDefaults(),
+            let minuteSmokeFree = quitData.minuteSmokeFree else {
+            return
+        }
+        let time = secondsForHealthState(healthStat: data) / 60
+        let progress = minuteSmokeFree / time
+        waveAnimationView.progress = progress < 1 ? progress : 1
+        waveAnimationView.heartAmplitude = 30
+        healthStateLabel.text = data
         if progress > 0.2 {
             healthStateLabel.textColor = .white
         } else {
-            healthStateLabel.textColor = UIColor(red: 254/255.0, green: 102/255.0, blue: 131/255.0, alpha: 1.0)
+            healthStateLabel.textColor = color
         }
+    }
+    
+    private func randomColor() -> UIColor {
+        let randomRed: CGFloat = CGFloat(drand48())
+        let randomGreen: CGFloat = CGFloat(drand48())
+        let randomBlue: CGFloat = CGFloat(drand48())
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
 }

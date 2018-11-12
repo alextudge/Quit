@@ -10,6 +10,10 @@ import UIKit
 
 struct Constants {
     
+    struct AppConfig {
+        static let group = "group.com.Alex.Quit"
+    }
+    
     struct QuitDataConstants {
         static let smokedDaily = "smokedDaily"
         static let costOf20 = "costOf20"

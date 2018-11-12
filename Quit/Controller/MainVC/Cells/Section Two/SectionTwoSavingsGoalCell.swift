@@ -27,7 +27,7 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         super.awakeFromNib()
         savingsProgress()
     }
-    
+        
     private func savingsProgress() {
         let circularPath = UIBezierPath(arcCenter: center,
                                         radius: frame.height * 0.4,

@@ -66,6 +66,13 @@ struct QuitData {
         return secondsSmokeFree / 60
     }
     
+    var secondsSmokeFree: Double? {
+        guard let quitDate = quitDate else {
+            return nil
+        }
+        return Date().timeIntervalSince(quitDate)
+    }
+    
     var savedSoFar: Double? {
         guard let minutesSmokeFree = minuteSmokeFree,
             let costPerMinute = costPerMinute else {

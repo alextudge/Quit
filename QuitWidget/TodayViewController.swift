@@ -39,6 +39,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         return nil
     }
+    
     private func stringFromCurrencyFormatter(data: NSNumber) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -47,5 +48,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBAction func didTapRecordCravingButton(_ sender: Any) {
         persistenceManager.addCraving(catagory: "", smoked: false)
+        registerCravingLabel.setTitle("Saved!", for: .normal)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
+            self?.registerCravingLabel.setTitle("Record a craving", for: .normal)
+        })
     }
 }

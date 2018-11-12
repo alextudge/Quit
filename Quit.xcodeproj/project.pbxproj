@@ -49,6 +49,16 @@
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
 		17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */; };
 		17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
+		17F8FF83219A08E70095CD6E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F8FF82219A08E70095CD6E /* NotificationCenter.framework */; };
+		17F8FF86219A08E70095CD6E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8FF85219A08E70095CD6E /* TodayViewController.swift */; };
+		17F8FF89219A08E70095CD6E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F8FF87219A08E70095CD6E /* MainInterface.storyboard */; };
+		17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17F8FF81219A08E70095CD6E /* QuitWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17F8FF92219A0B320095CD6E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
+		17F8FF95219A0F050095CD6E /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
+		17F8FF96219A10060095CD6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
+		17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
+		17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
+		17F8FF99219A1B4C0095CD6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
 		45EB774CEFB204A24B2152A7 /* Pods_QuitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */; };
 		AFCC50839C8F1E441234087D /* Pods_Quit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212F2A76F0721C15EF160C14 /* Pods_Quit.framework */; };
 		E5A7377D6A8742637F6D358E /* Pods_QuitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */; };
@@ -69,6 +79,13 @@
 			remoteGlobalIDString = 177F03E02025220000CC7CA8;
 			remoteInfo = Quit;
 		};
+		17F8FF8B219A08E70095CD6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 177F03D92025220000CC7CA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17F8FF80219A08E70095CD6E;
+			remoteInfo = QuitWidget;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +97,17 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17F8FF91219A08E70095CD6E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -133,6 +161,13 @@
 		17F021FF2031EA83005EF65C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVCViewModel.swift; sourceTree = "<group>"; };
 		17F4E6F420C14AC600B9A21B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		17F8FF81219A08E70095CD6E /* QuitWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuitWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		17F8FF82219A08E70095CD6E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		17F8FF85219A08E70095CD6E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		17F8FF88219A08E70095CD6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		17F8FF8A219A08E70095CD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17F8FF93219A0CE20095CD6E /* QuitWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitWidget.entitlements; sourceTree = "<group>"; };
+		17F8FF94219A0CF10095CD6E /* Quit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quit.entitlements; sourceTree = "<group>"; };
 		212F2A76F0721C15EF160C14 /* Pods_Quit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E50A3FB87BCE92EA0607FF /* Pods-QuitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +204,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17F8FF7E219A08E70095CD6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F8FF83219A08E70095CD6E /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -186,6 +229,7 @@
 				177F03E32025220000CC7CA8 /* Quit */,
 				170006872035D0DC0056F25C /* QuitTests */,
 				17C6B5E92035DFF100AAE086 /* QuitUITests */,
+				17F8FF84219A08E70095CD6E /* QuitWidget */,
 				177F03E22025220000CC7CA8 /* Products */,
 				4F797A7321EFCB28DD35F62E /* Pods */,
 				F794A69D49B54B9AB70B83F4 /* Frameworks */,
@@ -198,6 +242,7 @@
 				177F03E12025220000CC7CA8 /* Quit.app */,
 				170006862035D0DC0056F25C /* QuitTests.xctest */,
 				17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */,
+				17F8FF81219A08E70095CD6E /* QuitWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +250,7 @@
 		177F03E32025220000CC7CA8 /* Quit */ = {
 			isa = PBXGroup;
 			children = (
+				17F8FF94219A0CF10095CD6E /* Quit.entitlements */,
 				177F04222028A70600CC7CA8 /* Utilities */,
 				177F041E2028A6CF00CC7CA8 /* Model */,
 				17F4E6F120C146B200B9A21B /* View */,
@@ -348,6 +394,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		17F8FF84219A08E70095CD6E /* QuitWidget */ = {
+			isa = PBXGroup;
+			children = (
+				17F8FF93219A0CE20095CD6E /* QuitWidget.entitlements */,
+				17F8FF85219A08E70095CD6E /* TodayViewController.swift */,
+				17F8FF87219A08E70095CD6E /* MainInterface.storyboard */,
+				17F8FF8A219A08E70095CD6E /* Info.plist */,
+			);
+			path = QuitWidget;
+			sourceTree = "<group>";
+		};
 		4F797A7321EFCB28DD35F62E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +424,7 @@
 				212F2A76F0721C15EF160C14 /* Pods_Quit.framework */,
 				27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */,
 				84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */,
+				17F8FF82219A08E70095CD6E /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -404,10 +462,12 @@
 				177F04062027716900CC7CA8 /* Embed Frameworks */,
 				727D64CEA1A1B372892E3CC4 /* [CP] Embed Pods Frameworks */,
 				171910CC20A9E2D100B72D0A /* ShellScript */,
+				17F8FF91219A08E70095CD6E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				17F8FF8C219A08E70095CD6E /* PBXTargetDependency */,
 			);
 			name = Quit;
 			productName = Quit;
@@ -433,13 +493,30 @@
 			productReference = 17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		17F8FF80219A08E70095CD6E /* QuitWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17F8FF90219A08E70095CD6E /* Build configuration list for PBXNativeTarget "QuitWidget" */;
+			buildPhases = (
+				17F8FF7D219A08E70095CD6E /* Sources */,
+				17F8FF7E219A08E70095CD6E /* Frameworks */,
+				17F8FF7F219A08E70095CD6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuitWidget;
+			productName = QuitWidget;
+			productReference = 17F8FF81219A08E70095CD6E /* QuitWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		177F03D92025220000CC7CA8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Alex Tudge";
 				TargetAttributes = {
@@ -452,12 +529,26 @@
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					17C6B5E72035DFF100AAE086 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 177F03E02025220000CC7CA8;
+					};
+					17F8FF80219A08E70095CD6E = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -477,6 +568,7 @@
 				177F03E02025220000CC7CA8 /* Quit */,
 				170006852035D0DC0056F25C /* QuitTests */,
 				17C6B5E72035DFF100AAE086 /* QuitUITests */,
+				17F8FF80219A08E70095CD6E /* QuitWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -514,6 +606,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17F8FF7F219A08E70095CD6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F8FF99219A1B4C0095CD6E /* Assets.xcassets in Resources */,
+				17F8FF89219A08E70095CD6E /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +758,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17F8FF7D219A08E70095CD6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F8FF92219A0B320095CD6E /* RoundButton.swift in Sources */,
+				17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */,
+				17F8FF95219A0F050095CD6E /* QuitData.swift in Sources */,
+				17F8FF86219A08E70095CD6E /* TodayViewController.swift in Sources */,
+				17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */,
+				17F8FF96219A10060095CD6E /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -669,6 +783,11 @@
 			isa = PBXTargetDependency;
 			target = 177F03E02025220000CC7CA8 /* Quit */;
 			targetProxy = 17C6B5ED2035DFF100AAE086 /* PBXContainerItemProxy */;
+		};
+		17F8FF8C219A08E70095CD6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17F8FF80219A08E70095CD6E /* QuitWidget */;
+			targetProxy = 17F8FF8B219A08E70095CD6E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -687,6 +806,14 @@
 				177F03F12025220900CC7CA8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		17F8FF87219A08E70095CD6E /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17F8FF88219A08E70095CD6E /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -851,6 +978,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Quit/Quit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -873,6 +1001,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Quit/Quit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -923,6 +1052,43 @@
 			};
 			name = Release;
 		};
+		17F8FF8E219A08E70095CD6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QuitWidget/QuitWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8E3HCRWG9;
+				INFOPLIST_FILE = QuitWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.QuitWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17F8FF8F219A08E70095CD6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QuitWidget/QuitWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8E3HCRWG9;
+				INFOPLIST_FILE = QuitWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.QuitWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -958,6 +1124,15 @@
 			buildConfigurations = (
 				17C6B5F02035DFF100AAE086 /* Debug */,
 				17C6B5F12035DFF100AAE086 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17F8FF90219A08E70095CD6E /* Build configuration list for PBXNativeTarget "QuitWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17F8FF8E219A08E70095CD6E /* Debug */,
+				17F8FF8F219A08E70095CD6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

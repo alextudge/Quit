@@ -25,10 +25,20 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     private(set) var savingsGoals = [SavingGoal]()
     private var context: NSManagedObjectContext!
     private let coreDataObjectNames = ["Craving", "SavingGoal"]
-    private let userDefaults = UserDefaults.standard
+    private let userDefaults = UserDefaults.init(suiteName: "group.com.Alex.Quit")
+    
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Quit")
-        container.loadPersistentStores(completionHandler: { (_, error) in
+        let appName: String = "Quit"
+        var persistentStoreDescriptions: NSPersistentStoreDescription
+        let storeUrl =  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.Alex.Quit")!.appendingPathComponent("Quit.sqlite")
+        let description = NSPersistentStoreDescription()
+        description.shouldInferMappingModelAutomatically = true
+        description.shouldMigrateStoreAutomatically = true
+        description.url = storeUrl
+        // swiftlint:disable:next line_length
+        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url:  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.Alex.Quit")!.appendingPathComponent("Quit.sqlite"))]
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")
             }
@@ -121,11 +131,11 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     }
     
     func setQuitDataInUserDefaults(object: [String: Any], key: String) {
-        userDefaults.set(object, forKey: key)
+        userDefaults?.set(object, forKey: key)
     }
     
     func getQuitDataFromUserDefaults() -> QuitData? {
-        if let returnedData = userDefaults.object(forKey: "quitData") as? [String: Any] {
+        if let returnedData = userDefaults?.object(forKey: "quitData") as? [String: Any] {
             return QuitData(quitData: returnedData)
         }
         return nil

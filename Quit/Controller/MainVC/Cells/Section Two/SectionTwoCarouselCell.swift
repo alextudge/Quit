@@ -23,7 +23,7 @@ class SectionTwoCarouselCell: UITableViewCell {
     
     func setupCell() {
         setupCollectionView()
-        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 2
+        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
     }
     
     private func setupCollectionView() {

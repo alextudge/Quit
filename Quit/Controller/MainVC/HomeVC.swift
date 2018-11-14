@@ -72,7 +72,7 @@ class HomeVC: UIViewController {
         }
     }
     
-    private func segueToQuitDataVC() {
+    func segueToQuitDataVC() {
         performSegue(withIdentifier: Constants.Segues.toQuitInfoVC, sender: nil)
     }
 }
@@ -151,3 +151,5 @@ extension HomeVC: SectionTwoCarouselCellDelegate {
         performSegue(withIdentifier: Constants.Segues.toSavingsGoalVC, sender: sender)
     }
 }
+
+extension HomeVC: SettingsVCDelegate {}

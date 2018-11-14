@@ -8,15 +8,25 @@
 
 import UIKit
 
+protocol SettingsVCDelegate: class {
+    func reloadTableView()
+    func segueToQuitDataVC()
+}
+
 class SettingsVC: UIViewController {
     
     @IBOutlet private weak var deleteAllDataButton: UIButton!
     
-    weak var delegate: QuitDateSetVCDelegate?
+    weak var delegate: SettingsVCDelegate?
     var persistenceManager: PersistenceManagerProtocol?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.97)
     }
     
     @IBAction private func goBackButtonPressed(_ sender: Any) {
@@ -27,5 +37,11 @@ class SettingsVC: UIViewController {
         persistenceManager?.deleteAllData()
         delegate?.reloadTableView()
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapChangeQuitDate(_ sender: Any) {
+        dismiss(animated: true) {
+            self.delegate?.segueToQuitDataVC()
+        }
     }
 }

@@ -47,25 +47,42 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laD-R9-w5G">
-                                <rect key="frame" x="10" y="135" width="355" height="532"/>
+                                <rect key="frame" x="10" y="200" width="355" height="467"/>
                                 <string key="text">Clear Data removes your cravings and savings goals. Click on the date in the main screen to change your quit date. Quit stores your data on this device. It's never sent over the interent, we can't see it, and it's only used to display your stats.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0d-UT-RUZ" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="10" y="140" width="355" height="50"/>
+                                <color key="backgroundColor" red="0.98041182760000001" green="0.33680224419999999" blue="0.42892789840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xjQ-11-oKY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <state key="normal" title="Change quit date">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapChangeQuitDate:" destination="jZe-XE-UUn" eventType="touchUpInside" id="Y4C-e9-00T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="0.96999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="laD-R9-w5G" firstAttribute="top" secondItem="Lwb-wY-ALk" secondAttribute="bottom" constant="5" id="19S-go-yCB"/>
+                            <constraint firstItem="N0d-UT-RUZ" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="D9N-sr-hm2"/>
                             <constraint firstItem="BOi-sa-AAp" firstAttribute="top" secondItem="8tM-dF-NAA" secondAttribute="top" id="DKO-yr-8I2"/>
                             <constraint firstItem="Lwb-wY-ALk" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="Dl2-Dt-uBs"/>
                             <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="Lwb-wY-ALk" secondAttribute="trailing" constant="10" id="IJz-sX-FLf"/>
+                            <constraint firstItem="N0d-UT-RUZ" firstAttribute="top" secondItem="Lwb-wY-ALk" secondAttribute="bottom" constant="10" id="OZ5-6G-jiK"/>
                             <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="laD-R9-w5G" secondAttribute="trailing" constant="10" id="USr-2m-8wM"/>
                             <constraint firstItem="Lwb-wY-ALk" firstAttribute="top" secondItem="BOi-sa-AAp" secondAttribute="bottom" constant="10" id="bOB-5J-4cR"/>
+                            <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="N0d-UT-RUZ" secondAttribute="trailing" constant="10" id="eAw-Ad-D4r"/>
                             <constraint firstItem="8tM-dF-NAA" firstAttribute="bottom" secondItem="laD-R9-w5G" secondAttribute="bottom" id="euU-n8-Bso"/>
                             <constraint firstItem="BOi-sa-AAp" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="hKl-qt-avu"/>
                             <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="BOi-sa-AAp" secondAttribute="trailing" constant="10" id="hzt-rL-Fa8"/>
                             <constraint firstItem="laD-R9-w5G" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="s6x-XE-9gh"/>
+                            <constraint firstItem="laD-R9-w5G" firstAttribute="top" secondItem="N0d-UT-RUZ" secondAttribute="bottom" constant="10" id="sGd-dd-5XB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8tM-dF-NAA"/>
                     </view>
@@ -85,7 +102,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-L8-fgz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-L8-fgz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>

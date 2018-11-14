@@ -14,6 +14,7 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
     @IBOutlet weak var roundedView: RoundedView!
     @IBOutlet weak var barChart: BarChartView!
     
+    private var gradientLayer: CAGradientLayer?
     var persistenceManager: PersistenceManager? {
         didSet {
             guard persistenceManager != nil else {
@@ -25,7 +26,19 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        roundedView.frame = CGRect(x: CGFloat(5),
+                                   y: CGFloat(5),
+                                   width: UIScreen.main.bounds.width - 10,
+                                   height: UIScreen.main.bounds.height / 2.3 - 10)
+        roundedView.layer.cornerRadius = 10
+        gradientLayer = roundedView.gradient(colors: Constants.Colours.grayGradient.reversed())
         formatBarChart()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer?.frame = roundedView.bounds
+        gradientLayer?.cornerRadius = roundedView.layer.cornerRadius
     }
     
     func reloadBarChart() {

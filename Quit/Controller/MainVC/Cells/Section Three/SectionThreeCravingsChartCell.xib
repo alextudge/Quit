@@ -19,20 +19,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="303" height="138"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-W7-5lD" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-W7-5lD" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
                         <rect key="frame" x="5" y="5" width="293" height="128"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="0Zn-Bz-n45" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="0.0" width="293" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zn-Bz-n45" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="5" y="5" width="283" height="118"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.4394648075" green="0.68392395969999997" blue="0.96788817640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="0Zn-Bz-n45" secondAttribute="bottom" id="Al6-8v-5s5"/>
-                            <constraint firstAttribute="trailing" secondItem="0Zn-Bz-n45" secondAttribute="trailing" id="GhZ-AJ-pxG"/>
-                            <constraint firstItem="0Zn-Bz-n45" firstAttribute="top" secondItem="aqe-W7-5lD" secondAttribute="top" id="ijP-dG-aPL"/>
-                            <constraint firstItem="0Zn-Bz-n45" firstAttribute="leading" secondItem="aqe-W7-5lD" secondAttribute="leading" id="xzB-tR-Kjs"/>
+                            <constraint firstItem="0Zn-Bz-n45" firstAttribute="top" secondItem="aqe-W7-5lD" secondAttribute="top" constant="5" id="NSs-bq-gyz"/>
+                            <constraint firstItem="0Zn-Bz-n45" firstAttribute="leading" secondItem="aqe-W7-5lD" secondAttribute="leading" constant="5" id="P7j-1g-HFu"/>
+                            <constraint firstAttribute="bottom" secondItem="0Zn-Bz-n45" secondAttribute="bottom" constant="5" id="UUn-t6-Peb"/>
+                            <constraint firstAttribute="trailing" secondItem="0Zn-Bz-n45" secondAttribute="trailing" constant="5" id="lsK-Nn-df3"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -47,7 +45,7 @@
             <size key="customSize" width="303" height="138"/>
             <connections>
                 <outlet property="barChart" destination="0Zn-Bz-n45" id="QME-fK-Qd9"/>
-                <outlet property="roundedView" destination="aqe-W7-5lD" id="d0R-T9-OZU"/>
+                <outlet property="roundedView" destination="aqe-W7-5lD" id="760-hj-HvF"/>
             </connections>
             <point key="canvasLocation" x="335.19999999999999" y="82.758620689655174"/>
         </collectionViewCell>

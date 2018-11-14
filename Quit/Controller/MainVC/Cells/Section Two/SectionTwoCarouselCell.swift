@@ -21,9 +21,22 @@ class SectionTwoCarouselCell: UITableViewCell {
     
     weak var delegate: SectionTwoCarouselCellDelegate?
     
-    func setupCell() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadData(notification:)),
+                                               name: Constants.InternalNotifs.savingsChanged,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadData(notification:)),
+                                               name: Constants.InternalNotifs.quitDateChanged,
+                                               object: nil)
         setupCollectionView()
+    }
+    
+    @objc private func reloadData(notification: NSNotification) {
         pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
+        collectionView.reloadData()
     }
     
     private func setupCollectionView() {
@@ -35,7 +48,7 @@ class SectionTwoCarouselCell: UITableViewCell {
         collectionView.register(UINib(nibName: "SectionTwoSavingsGoalCell",
                                       bundle: nil),
                                 forCellWithReuseIdentifier: "SectionTwoSavingsGoalCell")
-        collectionView.reloadData()
+        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -72,7 +85,7 @@ extension SectionTwoCarouselCell: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.2)
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

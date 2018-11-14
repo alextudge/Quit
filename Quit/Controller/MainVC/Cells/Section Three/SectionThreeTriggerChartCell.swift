@@ -11,8 +11,10 @@ import Charts
 
 class SectionThreeTriggerChartCell: UICollectionViewCell {
     
+    @IBOutlet weak var roundedView: RoundedView!
     @IBOutlet weak var lineChartView: LineChartView!
     
+    private var gradientLayer: CAGradientLayer?
     var persistenceManager: PersistenceManager? {
         didSet {
             loadChartData()
@@ -29,7 +31,19 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        roundedView.frame = CGRect(x: CGFloat(5),
+                                   y: CGFloat(5),
+                                   width: UIScreen.main.bounds.width - 10,
+                                   height: UIScreen.main.bounds.height / 2.3 - 10)
+        roundedView.layer.cornerRadius = 10
+        gradientLayer = roundedView.gradient(colors: Constants.Colours.grayGradient.reversed())
         formatChart()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer?.frame = roundedView.bounds
+        gradientLayer?.cornerRadius = roundedView.layer.cornerRadius
     }
     
     func formatChart() {
@@ -39,18 +53,18 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         //No data formatting
         lineChartView.noDataText = "No triggers added!"
         lineChartView.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
-        lineChartView.noDataTextColor = .darkGray
+        lineChartView.noDataTextColor = .white
         //Formatting the x (date) axis
         xAxis?.labelPosition = .bottom
         xAxis?.drawLabelsEnabled = true
         xAxis?.drawLimitLinesBehindDataEnabled = true
         xAxis?.avoidFirstLastClippingEnabled = true
         xAxis?.drawGridLinesEnabled = false
-        xAxis?.labelTextColor = .darkGray
+        xAxis?.labelTextColor = .white
         xAxis?.setLabelCount(2, force: true)
         xAxis?.avoidFirstLastClippingEnabled = true
         xAxis?.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
-        xAxis?.axisLineColor = .darkGray
+        xAxis?.axisLineColor = .white
         xAxis?.axisLineWidth = 2.5
         //Setup other UI elements
         leftAxis?.setLabelCount(2, force: true)
@@ -59,10 +73,10 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         rightAxis?.drawAxisLineEnabled = false
         leftAxis?.drawAxisLineEnabled = false
         rightAxis?.drawLabelsEnabled = false
-        leftAxis?.labelTextColor = .darkGray
+        leftAxis?.labelTextColor = .white
         rightAxis?.drawGridLinesEnabled = false
         lineChartView.backgroundColor = .clear
-        lineChartView.legend.textColor = .darkGray
+        lineChartView.legend.textColor = .white
         lineChartView.legend.font = UIFont(name: "AvenirNext-Bold", size: 15)!
         lineChartView.chartDescription?.text = ""
         lineChartView.highlightPerTapEnabled = false

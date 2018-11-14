@@ -11,15 +11,22 @@ import UIKit
 class HomeVC: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var statusBarViewHeight: NSLayoutConstraint!
     
     private(set) var viewModel = HomeVCViewModel()
     private var quitData: QuitData? {
         return viewModel.persistenceManager.getQuitDataFromUserDefaults()
     }
+    internal var alertView: QuitAlertView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        statusBarViewHeight.constant = UIApplication.shared.statusBarFrame.height
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,13 +52,11 @@ class HomeVC: UIViewController {
         tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell,
                                  bundle: nil),
                            forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
-        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.Segues.toQuitInfoVC {
             if let destination = segue.destination as? QuitInfoVC {
-                destination.delegate = self
                 destination.persistenceManager = viewModel.persistenceManager
             }
         }
@@ -63,7 +68,6 @@ class HomeVC: UIViewController {
         }
         if segue.identifier == Constants.Segues.toSavingsGoalVC {
             if let destination = segue.destination as? SavingGoalVC {
-                destination.delegate = self
                 destination.persistenceManager = viewModel.persistenceManager
                 if let sender = sender as? SavingGoal {
                     destination.savingGoal = sender
@@ -74,6 +78,32 @@ class HomeVC: UIViewController {
     
     func segueToQuitDataVC() {
         performSegue(withIdentifier: Constants.Segues.toQuitInfoVC, sender: nil)
+    }
+    
+    private func headerFor(section: Int) -> UIView {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        header.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        let label = UILabel(frame: CGRect(x: 15, y: 5, width: UIScreen.main.bounds.width - 40, height: 45))
+        label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.text = viewModel.titleForHeaderOf(section: section)
+        header.addSubview(label)
+        header.clipsToBounds = true
+        return header
+    }
+    
+    private func showAlert() {
+        let parameters = QuitAlertViewParameters(title: "Hey", message: "By contining you agree to the terms found at the bottom of this page!", secondButtonRequired: true, textFieldsRequired: 0)
+        alertView = QuitAlertView.initFromNibFile(parameters, delegate: self)
+        alertView?.buttonOne.setTitle("Cancel", for: .normal)
+        alertView?.buttonTwo.setTitle("I agree!", for: .normal)
+        alertView?.showAlert()
+    }
+}
+
+extension HomeVC: QuitAlertViewDelegate {
+    func didPressButton(_ button: Int, textField1: String?, textField2: String?) {
+        alertView?.removeAlert()
     }
 }
 
@@ -93,7 +123,6 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             }
             cell.delegate = self
             cell.persistenceManager = viewModel.persistenceManager
-            cell.setup()
             return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionTwoCarouselCell, for: indexPath) as? SectionTwoCarouselCell else {
@@ -101,42 +130,30 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             }
             cell.delegate = self
             cell.persistenceManager = viewModel.persistenceManager
-            cell.setupCell()
         } else if indexPath.section == 2 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
                 return UITableViewCell()
             }
             cell.persistenceManager = viewModel.persistenceManager
-            cell.setup()
         } else if indexPath.section == 3 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
                 return UITableViewCell()
             }
             cell.persistenceManager = viewModel.persistenceManager
-            cell.setup()
         }
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard indexPath.section != 3 else {
-            return UIScreen.main.bounds.height / 2
-        }
-        return UIScreen.main.bounds.height / 2.2
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return headerFor(section: section)
     }
-}
-
-extension HomeVC: QuitDateSetVCDelegate, SavingGoalVCDelegate {
-    func reloadTableView(_ withSections: [Int]?) {
-        guard let sectionsToReload = withSections else {
-            tableView.reloadData()
-            return
-        }
-        var indexSet = IndexSet()
-        sectionsToReload.forEach {
-            indexSet.insert($0)
-        }
-        tableView.reloadSections(indexSet, with: .automatic)
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return viewModel.sizeForCellOf(type: indexPath.section)
     }
 }
 
@@ -154,7 +171,8 @@ extension HomeVC: SectionOneCarouselCellDelegate {
     }
     
     func presentAlert(_ alert: UIAlertController) {
-        present(alert, animated: true, completion: nil)
+//        present(alert, animated: true, completion: nil)
+        showAlert()
     }
 }
 

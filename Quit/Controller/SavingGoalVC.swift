@@ -8,17 +8,12 @@
 
 import UIKit
 
-protocol SavingGoalVCDelegate: class {
-    func reloadTableView(_ withSections: [Int]?)
-}
-
 class SavingGoalVC: UIViewController {
     
     @IBOutlet private weak var goalTitleTextField: UITextField!
     @IBOutlet private weak var goalCostTextField: UITextField!
     @IBOutlet private weak var deleteButton: UIButton!
     
-    weak var delegate: SavingGoalVCDelegate?
     var savingGoal: SavingGoal?
     var persistenceManager: PersistenceManagerProtocol?
     
@@ -72,7 +67,6 @@ class SavingGoalVC: UIViewController {
             } else {
                 persistenceManager?.addSavingGoal(title: goalTitle, cost: cost)
             }
-            delegate?.reloadTableView([1])
             dismiss(animated: true, completion: nil)
         } else {
             showDataMissingAlert()
@@ -81,8 +75,7 @@ class SavingGoalVC: UIViewController {
     
     @IBAction private func deleteButtonPressed(_ sender: Any) {
         if let savingGoal = savingGoal {
-            persistenceManager?.deleteObject(object: savingGoal)
-            delegate?.reloadTableView([1])
+            persistenceManager?.deleteSavingsGoal(savingGoal)
             dismiss(animated: true, completion: nil)
         }
     }

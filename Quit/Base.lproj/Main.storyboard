@@ -97,7 +97,7 @@
         <!--HomeVC-->
         <scene sceneID="w91-Xs-71h">
             <objects>
-                <viewController id="Q6M-9X-UAi" customClass="HomeVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Q6M-9X-UAi" customClass="HomeVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WKb-pO-LKa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,22 +106,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcL-aS-aqe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="500" constant="20" id="ThO-Ad-dsL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="18o-1p-mi4" firstAttribute="trailing" secondItem="ntA-L8-fgz" secondAttribute="trailing" id="GKF-in-igI"/>
+                            <constraint firstItem="dcL-aS-aqe" firstAttribute="trailing" secondItem="18o-1p-mi4" secondAttribute="trailing" id="KSk-gh-lzs"/>
                             <constraint firstItem="18o-1p-mi4" firstAttribute="bottom" secondItem="ntA-L8-fgz" secondAttribute="bottom" id="PkG-ug-LrU"/>
+                            <constraint firstItem="dcL-aS-aqe" firstAttribute="top" secondItem="WKb-pO-LKa" secondAttribute="top" id="eFd-aN-scz"/>
                             <constraint firstItem="ntA-L8-fgz" firstAttribute="leading" secondItem="18o-1p-mi4" secondAttribute="leading" id="fYx-fv-Da5"/>
                             <constraint firstItem="ntA-L8-fgz" firstAttribute="top" secondItem="WKb-pO-LKa" secondAttribute="top" id="sW3-hN-vdt"/>
+                            <constraint firstItem="dcL-aS-aqe" firstAttribute="leading" secondItem="18o-1p-mi4" secondAttribute="leading" id="wZS-9P-Lx0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="18o-1p-mi4"/>
                     </view>
                     <connections>
+                        <outlet property="statusBarViewHeight" destination="ThO-Ad-dsL" id="O4R-yN-JYJ"/>
                         <outlet property="tableView" destination="ntA-L8-fgz" id="RbX-6h-M1z"/>
                         <segue destination="8jn-cv-7Ec" kind="presentation" identifier="toQuitInfoVC" modalPresentationStyle="overCurrentContext" id="qZa-nq-HKd"/>
                         <segue destination="jZe-XE-UUn" kind="show" identifier="toSettingsVC" id="9Fi-QT-yQi"/>
                         <segue destination="Fw9-3W-pdP" kind="presentation" identifier="toSavingsGoalVC" modalPresentationStyle="overCurrentContext" id="gLw-8r-06g"/>
-                        <segue destination="rkx-Ct-qGu" kind="show" identifier="toSmokedVC" id="tde-Eg-MI3"/>
+                        <segue destination="rkx-Ct-qGu" kind="presentation" identifier="toSmokedVC" modalPresentationStyle="overCurrentContext" id="tde-Eg-MI3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s7j-lv-aCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -132,7 +143,7 @@
         <scene sceneID="BXc-N5-ysI">
             <objects>
                 <viewController id="rkx-Ct-qGu" customClass="SmokedVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1bj-U3-H7Q">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="1bj-U3-H7Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -164,7 +175,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="0.97950556506849318" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Qba-83-lMH" firstAttribute="top" secondItem="bZL-b4-YAF" secondAttribute="top" constant="30" id="74b-BQ-hCr"/>
                             <constraint firstItem="4L9-yC-83k" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="30" id="A1x-Pi-VL4"/>

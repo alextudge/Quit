@@ -10,13 +10,26 @@ import UIKit
 
 class SectionOneVapingDataCell: UICollectionViewCell {
     
+    @IBOutlet weak var roundedView: RoundedView!
     @IBOutlet weak var vapeSpendLabel: UILabel!
     @IBOutlet weak var vapeSavingsLabel: UILabel!
     @IBOutlet weak var decreaseSpendingLabel: UIButton!
     
     var persistenceManager: PersistenceManager?
+    private var gradientLayer: CAGradientLayer?
 
     weak var delegate: SectionOneCravingDataCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        gradientLayer = roundedView.gradient(colors: Constants.Colours.blueGradient.reversed())
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer?.frame = roundedView.bounds
+        gradientLayer?.cornerRadius = roundedView.layer.cornerRadius
+    }
     
     func setup() {
         let data = persistenceManager?.getQuitDataFromUserDefaults()

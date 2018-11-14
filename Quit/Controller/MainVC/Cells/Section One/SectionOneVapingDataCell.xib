@@ -63,7 +63,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6t1-Ei-zDf" firstAttribute="leading" secondItem="pnU-HI-Nd9" secondAttribute="trailing" constant="20" id="4A6-q7-Kzb"/>
                             <constraint firstAttribute="bottom" secondItem="6t1-Ei-zDf" secondAttribute="bottom" constant="10" id="8Mj-kP-VnE"/>
@@ -88,6 +87,7 @@
             <size key="customSize" width="270" height="149"/>
             <connections>
                 <outlet property="decreaseSpendingLabel" destination="du2-7Q-Esr" id="rpp-V2-1eA"/>
+                <outlet property="roundedView" destination="ZAG-W5-zR0" id="Oq4-cP-VYr"/>
                 <outlet property="vapeSavingsLabel" destination="IF3-nM-Bgd" id="nce-sF-lJM"/>
                 <outlet property="vapeSpendLabel" destination="pnU-HI-Nd9" id="Tbd-aP-JF3"/>
             </connections>

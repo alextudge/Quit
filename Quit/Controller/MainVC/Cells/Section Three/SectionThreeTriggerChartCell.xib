@@ -19,13 +19,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="349" height="138"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PB1-iX-Z5W" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PB1-iX-Z5W" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
                         <rect key="frame" x="5" y="5" width="339" height="128"/>
-                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyU-zB-Qpm" customClass="LineChartView" customModule="Charts">
-                        <rect key="frame" x="5" y="5" width="339" height="128"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="10" y="10" width="329" height="118"/>
                     </view>
                 </subviews>
             </view>
@@ -33,16 +31,17 @@
                 <constraint firstItem="PB1-iX-Z5W" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="66Q-tL-QaT"/>
                 <constraint firstAttribute="trailing" secondItem="PB1-iX-Z5W" secondAttribute="trailing" constant="5" id="8Sq-L5-7bc"/>
                 <constraint firstItem="PB1-iX-Z5W" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Cpm-uO-Ud1"/>
-                <constraint firstItem="uyU-zB-Qpm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="F04-w2-rAW"/>
-                <constraint firstItem="uyU-zB-Qpm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="eBc-gD-5Tn"/>
-                <constraint firstAttribute="bottom" secondItem="uyU-zB-Qpm" secondAttribute="bottom" constant="5" id="fSK-22-Yu9"/>
-                <constraint firstAttribute="trailing" secondItem="uyU-zB-Qpm" secondAttribute="trailing" constant="5" id="s5J-Qq-QVH"/>
+                <constraint firstItem="uyU-zB-Qpm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="F04-w2-rAW"/>
+                <constraint firstItem="uyU-zB-Qpm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="eBc-gD-5Tn"/>
+                <constraint firstAttribute="bottom" secondItem="uyU-zB-Qpm" secondAttribute="bottom" constant="10" id="fSK-22-Yu9"/>
+                <constraint firstAttribute="trailing" secondItem="uyU-zB-Qpm" secondAttribute="trailing" constant="10" id="s5J-Qq-QVH"/>
                 <constraint firstAttribute="bottom" secondItem="PB1-iX-Z5W" secondAttribute="bottom" constant="5" id="v3m-Jx-ckT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="349" height="138"/>
             <connections>
                 <outlet property="lineChartView" destination="uyU-zB-Qpm" id="rbp-ON-n93"/>
+                <outlet property="roundedView" destination="PB1-iX-Z5W" id="7Pj-iO-XD1"/>
             </connections>
             <point key="canvasLocation" x="52" y="87.256371814092958"/>
         </collectionViewCell>

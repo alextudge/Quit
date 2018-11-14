@@ -14,8 +14,17 @@ class SectionFourCarouselCell: UITableViewCell {
     
     var persistenceManager: PersistenceManager?
     
-    func setup() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadData(notification:)),
+                                               name: Constants.InternalNotifs.quitDateChanged,
+                                               object: nil)
         setupCollectionView()
+    }
+    
+    @objc private func reloadData(notification: NSNotification) {
+        collectionView.reloadData()
     }
     
     private func setupCollectionView() {

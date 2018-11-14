@@ -12,21 +12,28 @@ protocol SectionOneCarouselCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToSettings()
     func presentAlert(_ alert: UIAlertController)
-    func reloadTableView(_ withSections: [Int]?)
     func segueToSmokedVC()
 }
 
 class SectionOneCarouselCell: UITableViewCell {
     
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageController: UIPageControl!
     
     weak var delegate: SectionOneCarouselCellDelegate?
     
     var persistenceManager: PersistenceManager?
     
-    func setup() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadData(notification:)),
+                                               name: Constants.InternalNotifs.quitDateChanged,
+                                               object: nil)
         setupCollectionView()
+    }
+    
+    @objc private func reloadData(notification: NSNotification) {
         collectionView.reloadData()
     }
     
@@ -79,7 +86,7 @@ extension SectionOneCarouselCell: UICollectionViewDelegate, UICollectionViewData
 
 extension SectionOneCarouselCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.2)
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
     }
 }
 
@@ -94,10 +101,6 @@ extension SectionOneCarouselCell: SectionOneCravingDataCellDelegate {
     
     func didPressChangeQuitDate() {
         delegate?.didPressChangeQuitDate()
-    }
-    
-    func reloadTableView() {
-        delegate?.reloadTableView([1])
     }
     
     func presentAlert(_ alert: UIAlertController) {

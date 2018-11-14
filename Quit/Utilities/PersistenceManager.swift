@@ -12,7 +12,8 @@ import Foundation
 protocol PersistenceManagerProtocol {
     func setQuitDataInUserDefaults(object: [String: Any], key: String)
     func addCraving(catagory: String, smoked: Bool)
-    func deleteObject(object: NSManagedObject)
+    func deleteCraving(_ craving: Craving)
+    func deleteSavingsGoal(_ goal: SavingGoal)
     func deleteAllData()
     func addSavingGoal(title: String, cost: Double)
     var cravings: [Craving] { get }
@@ -21,8 +22,16 @@ protocol PersistenceManagerProtocol {
 
 class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, PersistenceManagerProtocol {
     
-    private(set) var cravings = [Craving]()
-    private(set) var savingsGoals = [SavingGoal]()
+    private(set) var cravings = [Craving]() {
+        didSet {
+            NotificationCenter.default.post(name: Constants.InternalNotifs.cravingsChanged, object: nil)
+        }
+    }
+    private(set) var savingsGoals = [SavingGoal]() {
+        didSet {
+            NotificationCenter.default.post(name: Constants.InternalNotifs.savingsChanged, object: nil)
+        }
+    }
     private var context: NSManagedObjectContext!
     private let coreDataObjectNames = ["Craving", "SavingGoal"]
     private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.group)
@@ -89,7 +98,6 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         }
     }
     
-    //Save
     func addSavingGoal(title: String, cost: Double) {
         let saving = SavingGoal(context: context)
         saving.goalName = title
@@ -109,10 +117,18 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         }
     }
     
-    //Delete
-    func deleteObject(object: NSManagedObject) {
-        context.delete(object)
-        saveContext()
+    func deleteCraving(_ craving: Craving) {
+        if let index = cravings.firstIndex(of: craving) {
+            cravings.remove(at: index)
+            context.delete(craving)
+        }
+    }
+    
+    func deleteSavingsGoal(_ goal: SavingGoal) {
+        if let index = savingsGoals.firstIndex(of: goal) {
+            savingsGoals.remove(at: index)
+            context.delete(goal)
+        }
     }
     
     func deleteAllData() {
@@ -132,6 +148,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
     
     func setQuitDataInUserDefaults(object: [String: Any], key: String) {
         userDefaults?.set(object, forKey: key)
+        NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
     }
     
     func getQuitDataFromUserDefaults() -> QuitData? {
@@ -158,7 +175,7 @@ private extension PersistenceManager {
         do {
             cravings = try context.fetch(cravingFetch)
             cravings.forEach {
-                deleteObject(object: $0)
+                deleteCraving($0)
             }
         } catch {
             print("Failed to fetch cravings: \(error)")

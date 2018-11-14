@@ -8,17 +8,11 @@
 
 import UIKit
 
-protocol QuitDateSetVCDelegate: class {
-    func reloadTableView(_ withSections: [Int]?)
-}
-
 class QuitInfoVC: UIViewController {
     
     @IBOutlet private weak var smokedDailyTextField: UITextField!
     @IBOutlet private weak var costOf20TextField: UITextField!
     @IBOutlet private weak var quitDatePicker: UIDatePicker!
-    
-    weak var delegate: QuitDateSetVCDelegate?
     
     var persistenceManager: PersistenceManager?
     private let viewModel = QuitInfoVCViewModel()
@@ -74,6 +68,15 @@ class QuitInfoVC: UIViewController {
     }
     
     @IBAction private func cancelButtonPressed(_ sender: Any) {
+        guard let costOf20Text = costOf20TextField.text,
+            costOf20Text != "",
+            let smokedDaily = smokedDailyTextField.text,
+            smokedDaily != "",
+            let _ = Double(costOf20Text),
+            let _ = Double(smokedDaily) else {
+                showDataMissingAlert()
+                return
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -92,7 +95,7 @@ class QuitInfoVC: UIViewController {
                                        Constants.QuitDataConstants.quitDate: quitDatePicker.date]
         persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
         setNotifications()
-        delegate?.reloadTableView(nil)
+        NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
         dismiss(animated: true, completion: nil)
     }
     

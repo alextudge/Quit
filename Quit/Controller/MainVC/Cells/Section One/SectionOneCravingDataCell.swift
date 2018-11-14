@@ -11,23 +11,35 @@ import UIKit
 protocol SectionOneCravingDataCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToSettings()
-    func reloadTableView()
     func presentAlert(_ alert: UIAlertController)
     func segueToSmokedVC()
 }
 
 class SectionOneCravingDataCell: UICollectionViewCell {
     
+    @IBOutlet weak var roundedView: RoundedView!
     @IBOutlet weak var quitDateLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var addCravingButton: RoundedButton!
     
     var viewModel = SectionOneCravingDataCellViewModel()
+    private var gradientLayer: CAGradientLayer?
     private var quitData: QuitData? {
         return viewModel.persistenceManager.getQuitDataFromUserDefaults()
     }
     
     weak var delegate: SectionOneCravingDataCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        gradientLayer = roundedView.gradient(colors: Constants.Colours.blueGradient)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer?.frame = roundedView.bounds
+        gradientLayer?.cornerRadius = roundedView.layer.cornerRadius
+    }
     
     func setup() {
         setupInitialUI()
@@ -85,7 +97,6 @@ class SectionOneCravingDataCell: UICollectionViewCell {
             self.viewModel.persistenceManager.addCraving(
                 catagory: (textField.text != nil) ? textField.text!.capitalized : "",
                 smoked: true)
-            self.delegate?.reloadTableView()
             self.delegate?.segueToSmokedVC()
         }
         alertController.addAction(yesAction)
@@ -94,7 +105,6 @@ class SectionOneCravingDataCell: UICollectionViewCell {
             self.viewModel.persistenceManager.addCraving(
                 catagory: (textField.text != nil) ? textField.text! : "",
                 smoked: false)
-//            self.delegate?.reloadTableView()
             self.viewModel.appStoreReview(quitData: self.quitData)
         }
         alertController.addAction(noAction)

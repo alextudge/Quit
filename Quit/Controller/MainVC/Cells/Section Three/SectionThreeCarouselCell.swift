@@ -14,8 +14,17 @@ class SectionThreeCarouselCell: UITableViewCell {
     
     var persistenceManager: PersistenceManager?
     
-    func setup() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadData(notification:)),
+                                               name: Constants.InternalNotifs.cravingsChanged,
+                                               object: nil)
         setupCollectionView()
+    }
+    
+    @objc private func reloadData(notification: NSNotification) {
+        collectionView.reloadData()
     }
     
     private func setupCollectionView() {
@@ -23,7 +32,6 @@ class SectionThreeCarouselCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "SectionThreeCravingsChartCell", bundle: nil), forCellWithReuseIdentifier: "SectionThreeCravingsChartCell")
         collectionView.register(UINib(nibName: "SectionThreeTriggerChartCell", bundle: nil), forCellWithReuseIdentifier: "SectionThreeTriggerChartCell")
-        collectionView.reloadData()
     }
 }
 
@@ -55,6 +63,6 @@ extension SectionThreeCarouselCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.2)
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
     }
 }

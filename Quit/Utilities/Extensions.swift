@@ -76,3 +76,36 @@ extension UIBezierPath {
         self.close()
     }
 }
+
+extension UIView {
+    func gradient(colors: [CGColor]) -> CAGradientLayer {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.cornerRadius = layer.cornerRadius
+        gradientLayer.colors = colors
+        layer.insertSublayer(gradientLayer, at: 0)
+        return gradientLayer
+    }
+    
+    class func fromNib<T: UIView>() -> T {
+        //swiftlint:disable:next force_cast
+        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
+    }
+}
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
+}

@@ -17,7 +17,6 @@ class HomeVC: UIViewController {
     private var quitData: QuitData? {
         return viewModel.persistenceManager.getQuitDataFromUserDefaults()
     }
-    internal var alertView: QuitAlertView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,20 +90,6 @@ class HomeVC: UIViewController {
         header.clipsToBounds = true
         return header
     }
-    
-    private func showAlert() {
-        let parameters = QuitAlertViewParameters(title: "Hey", message: "By contining you agree to the terms found at the bottom of this page!", secondButtonRequired: true, textFieldsRequired: 0)
-        alertView = QuitAlertView.initFromNibFile(parameters, delegate: self)
-        alertView?.buttonOne.setTitle("Cancel", for: .normal)
-        alertView?.buttonTwo.setTitle("I agree!", for: .normal)
-        alertView?.showAlert()
-    }
-}
-
-extension HomeVC: QuitAlertViewDelegate {
-    func didPressButton(_ button: Int, textField1: String?, textField2: String?) {
-        alertView?.removeAlert()
-    }
 }
 
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
@@ -171,8 +156,7 @@ extension HomeVC: SectionOneCarouselCellDelegate {
     }
     
     func presentAlert(_ alert: UIAlertController) {
-//        present(alert, animated: true, completion: nil)
-        showAlert()
+        present(alert, animated: true, completion: nil)
     }
 }
 

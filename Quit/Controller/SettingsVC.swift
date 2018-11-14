@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SettingsVCDelegate: class {
-    func reloadTableView()
+    func reloadTableView(_ withSections: [Int]?)
     func segueToQuitDataVC()
 }
 
@@ -35,7 +35,7 @@ class SettingsVC: UIViewController {
     
     @IBAction private func deleteAllDataButtonPressed(_ sender: Any) {
         persistenceManager?.deleteAllData()
-        delegate?.reloadTableView()
+        delegate?.reloadTableView(nil)
         dismiss(animated: true, completion: nil)
     }
     

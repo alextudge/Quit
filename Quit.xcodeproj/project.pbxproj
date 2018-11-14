@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
+		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Main.storyboard */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
@@ -115,6 +116,7 @@
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
+		1767D300219C417F007E4DE9 /* SmokedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokedVC.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F03E92025220000CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
+				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
 				17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */,
+				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,
 				17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */,
 				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
 				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol QuitDateSetVCDelegate: class {
-    func reloadTableView()
+    func reloadTableView(_ withSections: [Int]?)
 }
 
 class QuitInfoVC: UIViewController {
@@ -92,7 +92,7 @@ class QuitInfoVC: UIViewController {
                                        Constants.QuitDataConstants.quitDate: quitDatePicker.date]
         persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
         setNotifications()
-        delegate?.reloadTableView()
+        delegate?.reloadTableView(nil)
         dismiss(animated: true, completion: nil)
     }
     

@@ -127,12 +127,24 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension HomeVC: QuitDateSetVCDelegate, SavingGoalVCDelegate {
-    func reloadTableView() {
-        tableView.reloadData()
+    func reloadTableView(_ withSections: [Int]?) {
+        guard let sectionsToReload = withSections else {
+            tableView.reloadData()
+            return
+        }
+        var indexSet = IndexSet()
+        sectionsToReload.forEach {
+            indexSet.insert($0)
+        }
+        tableView.reloadSections(indexSet, with: .automatic)
     }
 }
 
 extension HomeVC: SectionOneCarouselCellDelegate {
+    func segueToSmokedVC() {
+        performSegue(withIdentifier: Constants.Segues.toSmokedVC, sender: nil)
+    }
+    
     func didPressSegueToSettings() {
         performSegue(withIdentifier: Constants.Segues.toSettingsVC, sender: nil)
     }

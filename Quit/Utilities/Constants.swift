@@ -25,6 +25,7 @@ struct Constants {
         static let toQuitInfoVC = "toQuitInfoVC"
         static let toSettingsVC = "toSettingsVC"
         static let toSavingsGoalVC = "toSavingsGoalVC"
+        static let toSmokedVC = "toSmokedVC"
     }
     
     struct Cells {

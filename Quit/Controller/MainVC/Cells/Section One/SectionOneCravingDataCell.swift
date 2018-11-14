@@ -13,6 +13,7 @@ protocol SectionOneCravingDataCellDelegate: class {
     func didPressSegueToSettings()
     func reloadTableView()
     func presentAlert(_ alert: UIAlertController)
+    func segueToSmokedVC()
 }
 
 class SectionOneCravingDataCell: UICollectionViewCell {
@@ -77,9 +78,6 @@ class SectionOneCravingDataCell: UICollectionViewCell {
                                                 preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
-            
-            //Reset the quit date
-            
             if self.viewModel.quitDateIsInPast(quitData: self.quitData) == true {
                 self.viewModel.setUserDefaultsQuitDateToCurrent(quitData: self.quitData)
             }
@@ -87,7 +85,8 @@ class SectionOneCravingDataCell: UICollectionViewCell {
             self.viewModel.persistenceManager.addCraving(
                 catagory: (textField.text != nil) ? textField.text!.capitalized : "",
                 smoked: true)
-//            self.delegate?.reloadTableView()
+            self.delegate?.reloadTableView()
+            self.delegate?.segueToSmokedVC()
         }
         alertController.addAction(yesAction)
         let noAction = UIAlertAction(title: "No", style: .default) { _ in

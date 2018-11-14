@@ -12,7 +12,8 @@ protocol SectionOneCarouselCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToSettings()
     func presentAlert(_ alert: UIAlertController)
-    func reloadTableView()
+    func reloadTableView(_ withSections: [Int]?)
+    func segueToSmokedVC()
 }
 
 class SectionOneCarouselCell: UITableViewCell {
@@ -83,6 +84,10 @@ extension SectionOneCarouselCell: UICollectionViewDelegateFlowLayout {
 }
 
 extension SectionOneCarouselCell: SectionOneCravingDataCellDelegate {
+    func segueToSmokedVC() {
+        delegate?.segueToSmokedVC()
+    }
+    
     func didPressSegueToSettings() {
         delegate?.didPressSegueToSettings()
     }
@@ -92,7 +97,7 @@ extension SectionOneCarouselCell: SectionOneCravingDataCellDelegate {
     }
     
     func reloadTableView() {
-        delegate?.reloadTableView()
+        delegate?.reloadTableView([1])
     }
     
     func presentAlert(_ alert: UIAlertController) {

@@ -11,6 +11,7 @@ import UIKit
 class SectionTwoSavingsGoalCell: UICollectionViewCell {
     
     var persistenceManager: PersistenceManager?
+    var label: UILabel?
     var shapeLayer = CAShapeLayer()
     var trackShapeLayer = CAShapeLayer()
     var savingGoal: SavingGoal? {
@@ -26,6 +27,11 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         savingsProgress()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        label?.removeFromSuperview()
     }
         
     private func savingsProgress() {
@@ -85,17 +91,17 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
     }
     
     private func savingsNameLabel(goal: SavingGoal) -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0,
-                                          y: 0,
-                                          width: frame.width,
-                                          height: 100))
+        label = UILabel(frame: CGRect(x: 0,
+                                      y: 0,
+                                      width: frame.width,
+                                      height: 100))
         guard let savingGoalName = goal.goalName else { return UILabel() }
         let string = NSAttributedString(string: savingGoalName, attributes: Constants.savingsInfoAttributes)
-        label.attributedText = string
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        label.minimumScaleFactor = 0.5
-        return label
+        label?.attributedText = string
+        label?.lineBreakMode = .byWordWrapping
+        label?.numberOfLines = 0
+        label?.minimumScaleFactor = 0.5
+        return label ?? UILabel()
     }
     
     func quitDateIsInPast(quitData: QuitData?) -> Bool {

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SavingGoalVCDelegate: class {
-    func reloadTableView()
+    func reloadTableView(_ withSections: [Int]?)
 }
 
 class SavingGoalVC: UIViewController {
@@ -72,7 +72,7 @@ class SavingGoalVC: UIViewController {
             } else {
                 persistenceManager?.addSavingGoal(title: goalTitle, cost: cost)
             }
-            delegate?.reloadTableView()
+            delegate?.reloadTableView([1])
             dismiss(animated: true, completion: nil)
         } else {
             showDataMissingAlert()
@@ -82,7 +82,7 @@ class SavingGoalVC: UIViewController {
     @IBAction private func deleteButtonPressed(_ sender: Any) {
         if let savingGoal = savingGoal {
             persistenceManager?.deleteObject(object: savingGoal)
-            delegate?.reloadTableView()
+            delegate?.reloadTableView([1])
             dismiss(animated: true, completion: nil)
         }
     }

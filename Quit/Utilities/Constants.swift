@@ -12,6 +12,11 @@ struct Constants {
     
     struct AppConfig {
         static let group = "group.com.Alex.Quit"
+        static let adBannerId = "ca-app-pub-9559625170509646/6744087773"
+    }
+    
+    struct UserDefaults {
+        static let appLoadCount = "appLoadCount"
     }
     
     struct QuitDataConstants {
@@ -26,6 +31,8 @@ struct Constants {
         static let toSettingsVC = "toSettingsVC"
         static let toSavingsGoalVC = "toSavingsGoalVC"
         static let toSmokedVC = "toSmokedVC"
+        static let toAddCraving = "toAddCraving"
+        static let toWidgetInformationVC = "toWidgetInformationVC"
     }
     
     struct Cells {
@@ -39,6 +46,10 @@ struct Constants {
         static let cravingsChanged = NSNotification.Name("cravingsChanged")
         static let savingsChanged = NSNotification.Name("savingsChanged")
         static let quitDateChanged = NSNotification.Name("quitDateChanged")
+    }
+    
+    struct ExternalNotifCategories {
+        static let healthProgress = "healthProgressNotification"
     }
     
     struct Colours {

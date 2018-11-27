@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,8 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let healthNotificationCategory = UNNotificationCategory(identifier: "healthNotificationCategory", actions: [], intentIdentifiers: [], options: [])
-    UNUserNotificationCenter.current().setNotificationCategories([healthNotificationCategory])
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-9559625170509646~1544442423")
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                let healthNotificationCategory = UNNotificationCategory(identifier: Constants.ExternalNotifCategories.healthProgress, actions: [], intentIdentifiers: [], options: [])
+                UNUserNotificationCenter.current().setNotificationCategories([healthNotificationCategory])
+            } else {
+                return
+            }
+        }
         return true
     }
 }

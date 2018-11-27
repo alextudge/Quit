@@ -11,8 +11,9 @@ import UIKit
 protocol SectionOneCravingDataCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToSettings()
-    func presentAlert(_ alert: UIAlertController)
+    func addCraving()
     func segueToSmokedVC()
+    func presentAlert(_ alert: UIAlertController)
 }
 
 class SectionOneCravingDataCell: UICollectionViewCell {
@@ -85,32 +86,6 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     }
     
     @IBAction func cravingButton(_ sender: Any) {
-        let alertController = UIAlertController(title: viewModel.cravingButtonAlertTitle(),
-                                                message: viewModel.cravingButtonAlertMessage(),
-                                                preferredStyle: .alert)
-        
-        let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
-            if self.viewModel.quitDateIsInPast(quitData: self.quitData) == true {
-                self.viewModel.setUserDefaultsQuitDateToCurrent(quitData: self.quitData)
-            }
-            let textField = alertController.textFields![0] as UITextField
-            self.viewModel.persistenceManager.addCraving(
-                catagory: (textField.text != nil) ? textField.text!.capitalized : "",
-                smoked: true)
-            self.delegate?.segueToSmokedVC()
-        }
-        alertController.addAction(yesAction)
-        let noAction = UIAlertAction(title: "No", style: .default) { _ in
-            let textField = alertController.textFields![0] as UITextField
-            self.viewModel.persistenceManager.addCraving(
-                catagory: (textField.text != nil) ? textField.text! : "",
-                smoked: false)
-            self.viewModel.appStoreReview(quitData: self.quitData)
-        }
-        alertController.addAction(noAction)
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Mood/trigger"
-        }
-        delegate?.presentAlert(alertController)
+        delegate?.addCraving()
     }
 }

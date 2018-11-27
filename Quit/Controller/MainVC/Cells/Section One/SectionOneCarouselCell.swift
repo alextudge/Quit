@@ -11,8 +11,9 @@ import UIKit
 protocol SectionOneCarouselCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToSettings()
-    func presentAlert(_ alert: UIAlertController)
+    func addCraving()
     func segueToSmokedVC()
+    func presentAlert(_ alert: UIAlertController)
 }
 
 class SectionOneCarouselCell: UITableViewCell {
@@ -91,6 +92,10 @@ extension SectionOneCarouselCell: UICollectionViewDelegateFlowLayout {
 }
 
 extension SectionOneCarouselCell: SectionOneCravingDataCellDelegate {
+    func addCraving() {
+        delegate?.addCraving()
+    }
+    
     func segueToSmokedVC() {
         delegate?.segueToSmokedVC()
     }

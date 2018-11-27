@@ -10,8 +10,10 @@ import Foundation
 import Charts
 
 extension Date {
-    
     func offsetFrom(date: Date) -> String {
+        guard date > Date() else {
+            return "Counting down to your quit date!"
+        }
         let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
         let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self)
         let seconds = "\(difference.second ?? 0) secs"
@@ -35,10 +37,8 @@ extension Date {
 }
 
 class ChartXAxisFormatter: NSObject {
-    
     fileprivate var dateFormatter: DateFormatter?
     fileprivate var referenceTimeInterval: TimeInterval?
-    
     convenience init(referenceTimeInterval: TimeInterval, dateFormatter: DateFormatter) {
         self.init()
         self.referenceTimeInterval = referenceTimeInterval
@@ -47,7 +47,6 @@ class ChartXAxisFormatter: NSObject {
 }
 
 extension ChartXAxisFormatter: IAxisValueFormatter {
-    
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         guard let dateFormatter = dateFormatter,
             let referenceTimeInterval = referenceTimeInterval
@@ -60,7 +59,9 @@ extension ChartXAxisFormatter: IAxisValueFormatter {
 }
 
 extension Int {
-    var degreesToRadians: CGFloat { return CGFloat(self) * .pi / 180 }
+    var degreesToRadians: CGFloat {
+        return CGFloat(self) * .pi / 180
+    }
 }
 
 extension UIBezierPath {
@@ -108,4 +109,19 @@ extension UIApplication {
         }
         return controller
     }
+}
+
+func standardisedDate(date: Date) -> Date {
+    let formatter = DateFormatter()
+    formatter.timeStyle = .none
+    formatter.dateStyle = .short
+    let stringDate = formatter.string(from: date)
+    return formatter.date(from: stringDate)!
+}
+
+func mediumDateFormatter() -> DateFormatter {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .none
+    return formatter
 }

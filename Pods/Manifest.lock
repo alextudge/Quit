@@ -2,21 +2,25 @@ PODS:
   - Charts (3.2.1):
     - Charts/Core (= 3.2.1)
   - Charts/Core (3.2.1)
+  - Google-Mobile-Ads-SDK (7.34.0)
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
   - Charts
+  - Google-Mobile-Ads-SDK
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Charts
+    - Google-Mobile-Ads-SDK
     - SwiftLint
 
 SPEC CHECKSUMS:
   Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
+  Google-Mobile-Ads-SDK: a1cbce28c0c78ca1fb0b6c4f213485f55527c99f
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: e523c435f12807c0824f908c1098984e72e3bd5e
+PODFILE CHECKSUM: c7f51d2621d697fc0174bf75cecd1f055e676c96
 
 COCOAPODS: 1.5.3

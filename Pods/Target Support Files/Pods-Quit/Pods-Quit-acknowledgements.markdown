@@ -207,6 +207,10 @@ Apache License
 
 
 
+## Google-Mobile-Ads-SDK
+
+Copyright 2018 Google
+
 ## SwiftLint
 
 The MIT License (MIT)

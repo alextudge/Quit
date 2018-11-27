@@ -96,7 +96,7 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         let leftAxis = barChart?.leftAxis
         let rightAxis = barChart?.rightAxis
         //No data formatting
-        barChart.noDataText = "No cravings!"
+        barChart.noDataText = "Recorded cravings will appear here"
         barChart.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
         barChart.noDataTextColor = .white
         //Formatting the x (date) axis

@@ -32,7 +32,9 @@ class HomeVC: UIViewController {
         super.viewDidAppear(animated)
         if quitData == nil {
             segueToQuitDataVC()
+            return
         }
+        showOnboarding()
     }
     
     private func setupTableView() {
@@ -73,6 +75,12 @@ class HomeVC: UIViewController {
                 }
             }
         }
+        if segue.identifier == Constants.Segues.toAddCraving {
+            if let destination = segue.destination as? AddCravingVC {
+                destination.viewModel.persistenceManager = viewModel.persistenceManager
+                destination.delegate = self
+            }
+        }
     }
     
     func segueToQuitDataVC() {
@@ -89,6 +97,13 @@ class HomeVC: UIViewController {
         header.addSubview(label)
         header.clipsToBounds = true
         return header
+    }
+    
+    private func showOnboarding() {
+        let appLoadCount = viewModel.persistenceManager.appLoadCounter()
+        if appLoadCount == 1 {
+            performSegue(withIdentifier: Constants.Segues.toWidgetInformationVC, sender: nil)
+        }
     }
 }
 
@@ -158,12 +173,20 @@ extension HomeVC: SectionOneCarouselCellDelegate {
     func presentAlert(_ alert: UIAlertController) {
         present(alert, animated: true, completion: nil)
     }
+    
+    func addCraving() {
+        performSegue(withIdentifier: Constants.Segues.toAddCraving, sender: nil)
+    }
 }
 
 extension HomeVC: SectionTwoCarouselCellDelegate {
     func didTapSavingGoal(sender: SavingGoal?) {
         performSegue(withIdentifier: Constants.Segues.toSavingsGoalVC, sender: sender)
     }
+}
+
+extension HomeVC: AddCravingVCDelegate {
+    
 }
 
 extension HomeVC: SettingsVCDelegate {}

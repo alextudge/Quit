@@ -32,6 +32,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
             NotificationCenter.default.post(name: Constants.InternalNotifs.savingsChanged, object: nil)
         }
     }
+    private(set) var triggers: [String]?
     private var context: NSManagedObjectContext!
     private let coreDataObjectNames = ["Craving", "SavingGoal"]
     private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.group)
@@ -61,6 +62,17 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         deleteOldCravings()
         fetchSavingsGoalsData()
         fetchCravingData()
+        reloadTriggers()
+    }
+    
+    func appLoadCounter() -> Int {
+        if let appLoadCount = userDefaults?.integer(forKey: Constants.UserDefaults.appLoadCount) {
+            userDefaults?.set(appLoadCount + 1, forKey: Constants.UserDefaults.appLoadCount)
+            return appLoadCount
+        } else {
+            userDefaults?.set(1, forKey: Constants.UserDefaults.appLoadCount)
+            return 0
+        }
     }
     
     private func saveContext () {
@@ -82,6 +94,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         cravings.append(craving)
+        reloadTriggers()
         saveContext()
     }
     
@@ -103,6 +116,7 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         saving.goalName = title
         saving.goalAmount = cost
         savingsGoals.append(saving)
+        reloadTriggers()
         saveContext()
     }
     
@@ -156,6 +170,13 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
             return QuitData(quitData: returnedData)
         }
         return nil
+    }
+    
+    func reloadTriggers() {
+        let triggersTotal = cravings.compactMap {
+            $0.cravingCatagory
+        }
+        triggers = Array(Set(triggersTotal)).sorted()
     }
 }
 

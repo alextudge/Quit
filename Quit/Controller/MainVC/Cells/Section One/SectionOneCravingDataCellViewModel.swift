@@ -54,25 +54,4 @@ class SectionOneCravingDataCellViewModel {
         let sixDaysInSeconds = Double(345600)
         return Date().timeIntervalSince(quitDate) > sixDaysInSeconds
     }
-    
-    func setUserDefaultsQuitDateToCurrent(quitData: QuitData?) {
-        guard quitData != nil else {
-            return
-        }
-        let quitData: [String: Any] = ["smokedDaily": quitData!.smokedDaily as Any,
-                                       "costOf20": quitData!.costOf20 as Any,
-                                       "quitDate": Date()]
-        persistenceManager.setQuitDataInUserDefaults(object: quitData, key: "quitData")
-    }
-    
-    func appStoreReview(quitData: QuitData?) {
-        guard quitData != nil else {
-            return
-        }        
-        if quitDataLongerThan4DaysAgo(quitData: quitData) {
-            if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
-            }
-        }
-    }
 }

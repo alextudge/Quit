@@ -51,7 +51,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         let leftAxis = lineChartView?.leftAxis
         let rightAxis = lineChartView?.rightAxis
         //No data formatting
-        lineChartView.noDataText = "No triggers added!"
+        lineChartView.noDataText = "Your craving triggers will appear here"
         lineChartView.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
         lineChartView.noDataTextColor = .white
         //Formatting the x (date) axis
@@ -160,19 +160,4 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         let randomBlue: CGFloat = CGFloat(drand48())
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
-}
-
-func standardisedDate(date: Date) -> Date {
-    let formatter = DateFormatter()
-    formatter.timeStyle = .none
-    formatter.dateStyle = .short
-    let stringDate = formatter.string(from: date)
-    return formatter.date(from: stringDate)!
-}
-
-func mediumDateFormatter() -> DateFormatter {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .medium
-    formatter.timeStyle = .none
-    return formatter
 }

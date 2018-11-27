@@ -4,6 +4,7 @@ target 'Quit' do
   # Pods for Quit
   pod 'Charts'
   pod 'SwiftLint'
+  pod 'Google-Mobile-Ads-SDK'
   
   target 'QuitTests' do
     inherit! :search_paths

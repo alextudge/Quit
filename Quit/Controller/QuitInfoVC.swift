@@ -94,19 +94,14 @@ class QuitInfoVC: UIViewController {
                                        Constants.QuitDataConstants.costOf20: cost,
                                        Constants.QuitDataConstants.quitDate: quitDatePicker.date]
         persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
-        setNotifications()
+        setNotifications(quitDate: quitDatePicker.date)
         NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
         dismiss(animated: true, completion: nil)
     }
     
-    func setNotifications() {
+    private func setNotifications(quitDate: Date) {
         viewModel.cancelAppleLocalNotifs()
-        for stat in Constants.healthStats {
-            self.viewModel.generateLocalNotif(title: stat,
-                                               body: "Process complete!",
-                                               minutes: secondsForHealthState(healthStat: stat),
-                                               datePicker: quitDatePicker.date)
-        }
+        viewModel.generateLocalNotif(quitDate: quitDate)
     }
 }
 

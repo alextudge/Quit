@@ -11,7 +11,7 @@ import Charts
 
 extension Date {
     func offsetFrom(date: Date) -> String {
-        guard date > Date() else {
+        if date > Date() {
             return "Counting down to your quit date!"
         }
         let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]

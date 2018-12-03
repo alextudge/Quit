@@ -41,6 +41,8 @@ class QuitInfoVC: UIViewController {
     }
     
     private func setupUI() {
+        smokedDailyTextField.addDoneButtonToKeyboard(action: #selector(smokedDailyTextField.resignFirstResponder))
+        costOf20TextField.addDoneButtonToKeyboard(action: #selector(costOf20TextField.resignFirstResponder))
         quitDatePicker.setValue(UIColor.white, forKeyPath: "textColor")
     }
     
@@ -64,6 +66,15 @@ class QuitInfoVC: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        endEditing()
+    }
+    
+    private func setNotifications(quitDate: Date) {
+        viewModel.cancelAppleLocalNotifs()
+        viewModel.generateLocalNotif(quitDate: quitDate)
+    }
+    
+    @objc private func endEditing() {
         view.endEditing(true)
     }
     
@@ -78,6 +89,10 @@ class QuitInfoVC: UIViewController {
                 return
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func pickerViewDidChange(_ sender: Any) {
+        view.endEditing(true)
     }
     
     @IBAction private func saveButtonPressed(_ sender: Any) {
@@ -97,11 +112,6 @@ class QuitInfoVC: UIViewController {
         setNotifications(quitDate: quitDatePicker.date)
         NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
         dismiss(animated: true, completion: nil)
-    }
-    
-    private func setNotifications(quitDate: Date) {
-        viewModel.cancelAppleLocalNotifs()
-        viewModel.generateLocalNotif(quitDate: quitDate)
     }
 }
 

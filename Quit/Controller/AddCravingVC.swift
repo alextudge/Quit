@@ -40,6 +40,7 @@ class AddCravingVC: UIViewController {
     
     private func setupUI() {
         textField.placeholder = "Add a new trigger here"
+        textField.addDoneButtonToKeyboard(action: #selector(textField.resignFirstResponder))
         guard viewModel.persistenceManager?.triggers?.count ?? 0 > 0 else {
             pickerView.isHidden = true
             return
@@ -113,6 +114,10 @@ extension AddCravingVC: UIPickerViewDelegate, UIPickerViewDataSource {
         }
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         return NSAttributedString(string: title, attributes: attributes)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        textField.resignFirstResponder()
     }
 }
 

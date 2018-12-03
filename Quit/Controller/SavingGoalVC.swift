@@ -33,6 +33,8 @@ class SavingGoalVC: UIViewController {
     }
     
     private func setupUI() {
+        goalCostTextField.addDoneButtonToKeyboard(action: #selector(goalCostTextField.resignFirstResponder))
+        goalTitleTextField.addDoneButtonToKeyboard(action: #selector(goalTitleTextField.resignFirstResponder))
         if let savingGoal = savingGoal {
             deleteButton.isHidden = false
             goalTitleTextField.text = savingGoal.goalName

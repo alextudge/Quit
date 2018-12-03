@@ -155,8 +155,8 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
                 print(error)
             }
         }
-        savingsGoals = [SavingGoal]()
-        cravings = [Craving]()
+        savingsGoals.removeAll()
+        cravings.removeAll()
         saveContext()
     }
     

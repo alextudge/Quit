@@ -19,8 +19,8 @@ class SectionFourHealthCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         color = randomColor()
-        waveAnimationView.heavyHeartColor = color
-        waveAnimationView.lightHeartColor = color.withAlphaComponent(0.4)
+        waveAnimationView.darkColor = color
+        waveAnimationView.lightColor = color.withAlphaComponent(0.4)
         let randomNumber = Int.random(in: 20...40)
         waveAnimationView.heartAmplitude = Double(randomNumber)
     }

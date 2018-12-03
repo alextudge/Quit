@@ -17,23 +17,23 @@ class WaveAnimationView: UIView {
     private var amplitude = 29.0
     private var position = 40.0
     private let animationMoveSpan = 5.0
-    private let animationUnitTime = 0.08
-    
-    public var heavyHeartColor = UIColor(red: 254/255.0, green: 102/255.0, blue: 131/255.0, alpha: 1.0)
-    public var lightHeartColor = UIColor(red: 254/255.0, green: 168/255.0, blue: 194/255.0, alpha: 1.0)
-    public var fillHeartColor = UIColor(red: 248/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0)
-    
-    public let progressTextFont: UIFont = UIFont.systemFont(ofSize: 30.0)
-    public var isShowProgressText = true
-    
-    public var isAnimated: Bool = true
+    private let animationUnitTime = 0.25
+    var darkColor = UIColor.red
+    var lightColor = UIColor.orange
+    let progressTextFont: UIFont = .systemFont(ofSize: 30.0)
+    var isShowProgressText = true
+    var isAnimated: Bool = true
     
     public var progress: Double = 0.5 {
-        didSet { self.setNeedsDisplay() }
+        didSet {
+            self.setNeedsDisplay()
+        }
     }
     
     public var heartAmplitude: Double {
-        get { return amplitude }
+        get {
+            return amplitude
+        }
         set {
             amplitude = newValue
             self.setNeedsDisplay()
@@ -41,14 +41,14 @@ class WaveAnimationView: UIView {
     }
     
     override public func awakeFromNib() {
-        animationHeart()
-        self.backgroundColor = UIColor.clear
+        animate()
+        backgroundColor = .clear
     }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        animationHeart()
-        self.backgroundColor = UIColor.clear
+        animate()
+        backgroundColor = .clear
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -56,10 +56,9 @@ class WaveAnimationView: UIView {
     }
     
     override public func draw(_ rect: CGRect) {
-        position =  (1 - progress) * Double(rect.height) + (amplitude / 2)
-        drawHeartWave(originX: originX - term / 5, fillColor: lightHeartColor)
-        drawHeartWave(originX: originX, fillColor: heavyHeartColor)
-        
+        position = (1 - progress) * Double(rect.height) + (amplitude / 2)
+        drawHeartWave(originX: originX - term / 5, fillColor: lightColor)
+        drawHeartWave(originX: originX, fillColor: darkColor)
         if isShowProgressText {
             drawProgressText()
         }
@@ -67,7 +66,7 @@ class WaveAnimationView: UIView {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        term =  Double(self.bounds.size.width) / cycle
+        term =  Double(bounds.size.width) / cycle
     }
     
     override public func removeFromSuperview() {
@@ -78,26 +77,25 @@ class WaveAnimationView: UIView {
     func drawHeartWave(originX: Double, fillColor: UIColor) {
         let curvePath = UIBezierPath()
         curvePath.move(to: CGPoint(x: originX, y: position))
-        
         var tempPoint = originX
         for _ in 1...rounding(value: 4 * cycle) {
             curvePath.addQuadCurve(to: keyPoint(x: tempPoint + term / 2, originX: originX),
                                    controlPoint: keyPoint(x: tempPoint + term / 4, originX: originX))
             tempPoint += term / 2
         }
-        
         curvePath.addLine(to: CGPoint(x: curvePath.currentPoint.x, y: self.bounds.size.height))
         curvePath.addLine(to: CGPoint(x: CGFloat(originX), y: self.bounds.size.height))
         curvePath.close()
-        
         fillColor.setFill()
         curvePath.lineWidth = 10
         curvePath.fill()
     }
+    
     // swiftlint:disable variable_name
     func keyPoint(x: Double, originX: Double) -> CGPoint {
         return CGPoint(x: x, y: columnYPoint(x: x - originX))
     }
+    
     // swiftlint:disable variable_name
     func columnYPoint(x: Double) -> Double {
         let result = amplitude * sin((2 * Double.pi / term) * x + phasePosition)
@@ -107,40 +105,37 @@ class WaveAnimationView: UIView {
     func drawProgressText() {
         var validProgress = progress * 100
         validProgress = validProgress < 1 ? 0 : validProgress
-        
         let progressText = (NSString(format: "%.0f", validProgress) as String) + "%"
-        
-        var attributes: [NSAttributedString.Key : Any] = [.font: progressTextFont]
+        var attributes: [NSAttributedString.Key: Any] = [.font: progressTextFont]
         if progress > 0.45 {
             attributes.updateValue(UIColor.white, forKey: .foregroundColor)
         } else {
-            attributes.updateValue(heavyHeartColor, forKey: .foregroundColor)
+            attributes.updateValue(darkColor, forKey: .foregroundColor)
         }
-        
         let textSize = progressText.size(withAttributes: attributes)
-        let textRect = CGRect(x: self.bounds.width/2 - textSize.width/2,
-                              y: self.bounds.height/2 - textSize.height/2, width:textSize.width, height:textSize.height)
-        
+        let textRect = CGRect(x: bounds.width / 2 - textSize.width / 2,
+                              y: bounds.height / 2 - textSize.height / 2, width: textSize.width, height: textSize.height)
         progressText.draw(in: textRect, withAttributes: attributes)
     }
     
-    func animationHeart() {
-        DispatchQueue.global(qos: .default).async { [weak self]() -> Void in
-            if self != nil {
-                let tempOriginX = self!.originX
-                while self != nil && self!.isAnimated {
-                    if self!.originX <= tempOriginX - self!.term {
-                        self!.originX = tempOriginX - self!.animationMoveSpan
-                    } else {
-                        self!.originX -= self!.animationMoveSpan
-                    }
-                    DispatchQueue.main.async(execute: { () -> Void in
-                        self!.setNeedsDisplay()
-                    })
-                    Thread.sleep(forTimeInterval: self!.animationUnitTime)
-                }
-            }
-        }
+    func animate() {
+//        DispatchQueue.global(qos: .background).async { [weak self]() -> Void in
+//            guard let self = self else {
+//                return
+//            }
+//            let tempOriginX = self.originX
+//            while self.isAnimated {
+//                if self.originX <= tempOriginX - self.term {
+//                    self.originX = tempOriginX - self.animationMoveSpan
+//                } else {
+//                    self.originX -= self.animationMoveSpan
+//                }
+//                DispatchQueue.main.async(execute: { () -> Void in
+//                    self.setNeedsDisplay()
+//                })
+//                Thread.sleep(forTimeInterval: self.animationUnitTime)
+//            }
+//        }
     }
     
     func rounding(value: Double) -> Int {

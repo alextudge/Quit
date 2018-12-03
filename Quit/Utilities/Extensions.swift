@@ -111,6 +111,21 @@ extension UIApplication {
     }
 }
 
+extension UITextField {
+    func addDoneButtonToKeyboard(action: Selector?) {
+        let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+        doneToolbar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: action)
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        self.inputAccessoryView = doneToolbar
+    }
+}
+
 func standardisedDate(date: Date) -> Date {
     let formatter = DateFormatter()
     formatter.timeStyle = .none

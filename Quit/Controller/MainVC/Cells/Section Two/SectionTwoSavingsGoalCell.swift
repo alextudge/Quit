@@ -35,8 +35,9 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
     }
         
     private func savingsProgress() {
-        let circularPath = UIBezierPath(arcCenter: center,
-                                        radius: frame.height * 0.4,
+        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.width * 0.5,
+                                                           y: frame.height),
+                                        radius: frame.height * 0.5,
                                         startAngle: -CGFloat.pi / 3,
                                         endAngle: 2 * CGFloat.pi,
                                         clockwise: true)

@@ -26,15 +26,6 @@ struct Constants {
         static let vapeSpending = "vapeSpending"
     }
     
-    struct Segues {
-        static let toQuitInfoVC = "toQuitInfoVC"
-        static let toSettingsVC = "toSettingsVC"
-        static let toSavingsGoalVC = "toSavingsGoalVC"
-        static let toSmokedVC = "toSmokedVC"
-        static let toAddCraving = "toAddCraving"
-        static let toWidgetInformationVC = "toWidgetInformationVC"
-    }
-    
     struct Cells {
         static let sectionOneCarouselCell = "SectionOneCarouselCell"
         static let sectionTwoCarouselCell = "SectionTwoCarouselCell"

@@ -55,36 +55,11 @@ class HomeVC: UIViewController {
                            forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Segues.toQuitInfoVC {
-            if let destination = segue.destination as? QuitInfoVC {
-                destination.persistenceManager = viewModel.persistenceManager
-            }
-        }
-        if segue.identifier == Constants.Segues.toSettingsVC {
-            if let destination = segue.destination as? SettingsVC {
-                destination.delegate = self
-                destination.persistenceManager = viewModel.persistenceManager
-            }
-        }
-        if segue.identifier == Constants.Segues.toSavingsGoalVC {
-            if let destination = segue.destination as? SavingGoalVC {
-                destination.persistenceManager = viewModel.persistenceManager
-                if let sender = sender as? SavingGoal {
-                    destination.savingGoal = sender
-                }
-            }
-        }
-        if segue.identifier == Constants.Segues.toAddCraving {
-            if let destination = segue.destination as? AddCravingVC {
-                destination.viewModel.persistenceManager = viewModel.persistenceManager
-                destination.delegate = self
-            }
-        }
-    }
-    
     func segueToQuitDataVC() {
-        performSegue(withIdentifier: Constants.Segues.toQuitInfoVC, sender: nil)
+        if let viewController = ViewControllerFactory.viewController(for: .quitInfoVc) as? QuitInfoVC {
+            viewController.persistenceManager = viewModel.persistenceManager
+            present(viewController, animated: true, completion: nil)
+        }
     }
     
     private func headerFor(section: Int) -> UIView {
@@ -101,8 +76,9 @@ class HomeVC: UIViewController {
     
     private func showOnboarding() {
         let appLoadCount = viewModel.persistenceManager.appLoadCounter()
-        if appLoadCount == 1 {
-            performSegue(withIdentifier: Constants.Segues.toWidgetInformationVC, sender: nil)
+        if appLoadCount == 1,
+            let viewController = ViewControllerFactory.viewController(for: .widgetOnboardingVc) as? WidgetOnboardingVC {
+            present(viewController, animated: true, completion: nil)
         }
     }
 }
@@ -159,11 +135,17 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeVC: SectionOneCarouselCellDelegate {
     func segueToSmokedVC() {
-        performSegue(withIdentifier: Constants.Segues.toSmokedVC, sender: nil)
+        if let viewController = ViewControllerFactory.viewController(for: .smokedVc) as? SmokedVC {
+            present(viewController, animated: true, completion: nil)
+        }
     }
     
     func didPressSegueToSettings() {
-        performSegue(withIdentifier: Constants.Segues.toSettingsVC, sender: nil)
+        if let viewController = ViewControllerFactory.viewController(for: .settingsVc) as? SettingsVC {
+            viewController.delegate = self
+            viewController.persistenceManager = viewModel.persistenceManager
+            present(viewController, animated: true, completion: nil)
+        }
     }
     
     func didPressChangeQuitDate() {
@@ -175,13 +157,22 @@ extension HomeVC: SectionOneCarouselCellDelegate {
     }
     
     func addCraving() {
-        performSegue(withIdentifier: Constants.Segues.toAddCraving, sender: nil)
+        if let viewController = ViewControllerFactory.viewController(for: .addCravingVc) as? AddCravingVC {
+            viewController.viewModel.persistenceManager = viewModel.persistenceManager
+            viewController.delegate = self
+            present(viewController, animated: true, completion: nil)
+        }
     }
 }
 
 extension HomeVC: SectionTwoCarouselCellDelegate {
     func didTapSavingGoal(sender: SavingGoal?) {
-        performSegue(withIdentifier: Constants.Segues.toSavingsGoalVC, sender: sender)
+        if let viewController = ViewControllerFactory.viewController(for: .savingsGoalVc) as? SavingGoalVC {
+            viewController.persistenceManager = viewModel.persistenceManager
+            if let sender = sender {
+                viewController.savingGoal = sender
+            }
+        }
     }
 }
 

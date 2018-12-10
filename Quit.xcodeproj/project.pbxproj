@@ -18,6 +18,8 @@
 		1714FC9E219E359A00CFB203 /* AddCravingVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9D219E359A00CFB203 /* AddCravingVCViewModel.swift */; };
 		1714FCA021ADD63200CFB203 /* WidgetOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
+		1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsVC.swift */; };
+		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
 		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Main.storyboard */; };
@@ -143,6 +145,8 @@
 		1714FC9D219E359A00CFB203 /* AddCravingVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingVCViewModel.swift; sourceTree = "<group>"; };
 		1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetOnboardingVC.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
+		1752F0AE21BF11AE0056642F /* AchievementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsVC.swift; sourceTree = "<group>"; };
+		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
 		1767D300219C417F007E4DE9 /* SmokedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokedVC.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 			children = (
 				179FDFC2216403F3003131C5 /* MainVC */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
+				1752F0AE21BF11AE0056642F /* AchievementsVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
 				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
@@ -343,6 +348,7 @@
 				1788CBB52037853D00064A86 /* PersistenceManager.swift */,
 				177F041A2028A08800CC7CA8 /* Extensions.swift */,
 				1788CBCB2039B3E000064A86 /* Constants.swift */,
+				1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -819,12 +825,14 @@
 				17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */,
 				179FDFCE216406B3003131C5 /* HomeVC.swift in Sources */,
 				179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */,
+				1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */,
 				177F041B2028A08800CC7CA8 /* Extensions.swift in Sources */,
 				1714FC9C219E306000CFB203 /* AddCravingVC.swift in Sources */,
 				179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
+				1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */,
 				17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */,
 				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,
 				17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */,

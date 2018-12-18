@@ -11,6 +11,7 @@ import UIKit
 protocol SectionOneCravingDataCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToSettings()
+    func didPressSegueToAchievements()
     func addCraving()
     func segueToSmokedVC()
     func presentAlert(_ alert: UIAlertController)
@@ -87,5 +88,9 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     
     @IBAction func cravingButton(_ sender: Any) {
         delegate?.addCraving()
+    }
+    
+    @IBAction func achievementsButtonPressed(_ sender: Any) {
+        delegate?.didPressSegueToAchievements()
     }
 }

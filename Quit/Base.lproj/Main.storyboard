@@ -13,7 +13,7 @@
         <!--SettingsVC-->
         <scene sceneID="7RW-ah-qTz">
             <objects>
-                <viewController storyboardIdentifier="SettingsVC" id="jZe-XE-UUn" customClass="SettingsVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" modalPresentationStyle="overCurrentContext" id="jZe-XE-UUn" customClass="SettingsVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dYO-7K-FLy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +138,7 @@
         <!--SmokedVC-->
         <scene sceneID="BXc-N5-ysI">
             <objects>
-                <viewController storyboardIdentifier="SmokedVC" id="rkx-Ct-qGu" customClass="SmokedVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SmokedVC" modalPresentationStyle="overCurrentContext" id="rkx-Ct-qGu" customClass="SmokedVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="1bj-U3-H7Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,7 +194,7 @@
         <!--Add CravingVC-->
         <scene sceneID="aIr-GD-tFP">
             <objects>
-                <viewController storyboardIdentifier="AddCravingVC" id="B0T-Ki-ykB" customClass="AddCravingVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCravingVC" modalPresentationStyle="overCurrentContext" id="B0T-Ki-ykB" customClass="AddCravingVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="Ln4-ik-fzq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -321,7 +321,7 @@
         <!--Widget OnboardingVC-->
         <scene sceneID="L75-sk-add">
             <objects>
-                <viewController storyboardIdentifier="WidgetOnboardingVC" id="p8L-Sb-ZRn" customClass="WidgetOnboardingVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WidgetOnboardingVC" modalPresentationStyle="overCurrentContext" id="p8L-Sb-ZRn" customClass="WidgetOnboardingVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="6Yz-HR-mL8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,22 +375,92 @@
         <!--AchievementsVC-->
         <scene sceneID="5bT-1P-aCQ">
             <objects>
-                <viewController storyboardIdentifier="AchievementsVC" id="SOq-v4-4x6" customClass="AchievementsVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="34G-0S-DWq">
+                <viewController storyboardIdentifier="AchievementsVC" modalPresentationStyle="overCurrentContext" id="SOq-v4-4x6" customClass="AchievementsVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="34G-0S-DWq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="boN-sl-eJX">
+                                <rect key="frame" x="10" y="20" width="355" height="577"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="achievementCell" rowHeight="129" id="JKD-O4-NxR" customClass="AchievementCell" customModule="Quit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="129"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JKD-O4-NxR" id="QIV-e9-sQn">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnu-Jd-0s3">
+                                                    <rect key="frame" x="25" y="21" width="61" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6al-Jn-erb">
+                                                    <rect key="frame" x="266" y="98" width="64" height="30"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Mnu-Jd-0s3" firstAttribute="top" secondItem="QIV-e9-sQn" secondAttribute="topMargin" constant="10" id="Fpb-AZ-79F"/>
+                                                <constraint firstItem="6al-Jn-erb" firstAttribute="bottom" secondItem="QIV-e9-sQn" secondAttribute="bottomMargin" constant="10" id="Ksc-Ka-48R"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6al-Jn-erb" secondAttribute="trailing" constant="10" id="MCV-ce-ngH"/>
+                                                <constraint firstItem="Mnu-Jd-0s3" firstAttribute="leading" secondItem="QIV-e9-sQn" secondAttribute="leadingMargin" constant="10" id="Vtg-Tr-OXE"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Mnu-Jd-0s3" secondAttribute="trailing" id="cCy-Iy-TqG"/>
+                                                <constraint firstItem="6al-Jn-erb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QIV-e9-sQn" secondAttribute="leading" constant="10" id="mm9-fA-DEM"/>
+                                                <constraint firstItem="6al-Jn-erb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Mnu-Jd-0s3" secondAttribute="bottom" constant="20" id="smZ-g2-QGk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="resultLabel" destination="6al-Jn-erb" id="SDH-f3-0kX"/>
+                                            <outlet property="titleLabel" destination="Mnu-Jd-0s3" id="iE7-HK-aKe"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="As6-3l-Uvt" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="10" y="607" width="355" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9Ay-oN-BK3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="0.59999999999999998" blue="0.0" alpha="0.97950556509999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="SOq-v4-4x6" eventType="touchUpInside" id="hcp-ve-LBh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="0.97950556509999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="As6-3l-Uvt" firstAttribute="leading" secondItem="nO3-ZJ-c2N" secondAttribute="leading" constant="10" id="Les-Nt-PK7"/>
+                            <constraint firstItem="boN-sl-eJX" firstAttribute="leading" secondItem="nO3-ZJ-c2N" secondAttribute="leading" constant="10" id="OQ8-ns-7mi"/>
+                            <constraint firstItem="nO3-ZJ-c2N" firstAttribute="bottom" secondItem="As6-3l-Uvt" secondAttribute="bottom" constant="10" id="dgx-xy-wHo"/>
+                            <constraint firstItem="nO3-ZJ-c2N" firstAttribute="trailing" secondItem="As6-3l-Uvt" secondAttribute="trailing" constant="10" id="dzq-3L-F7C"/>
+                            <constraint firstItem="As6-3l-Uvt" firstAttribute="top" secondItem="boN-sl-eJX" secondAttribute="bottom" constant="10" id="gZM-eb-9eH"/>
+                            <constraint firstItem="nO3-ZJ-c2N" firstAttribute="trailing" secondItem="boN-sl-eJX" secondAttribute="trailing" constant="10" id="inG-sg-Tdh"/>
+                            <constraint firstItem="boN-sl-eJX" firstAttribute="top" secondItem="nO3-ZJ-c2N" secondAttribute="top" id="wm5-4x-aw4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nO3-ZJ-c2N"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="boN-sl-eJX" id="Pes-fb-8Oc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lff-2w-hgw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2718" y="-70"/>
+            <point key="canvasLocation" x="2717.5999999999999" y="-70.614692653673174"/>
         </scene>
         <!--Quit InfoVC-->
         <scene sceneID="PA2-Fq-E62">
             <objects>
-                <viewController storyboardIdentifier="QuitInfoVC" id="8jn-cv-7Ec" customClass="QuitInfoVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuitInfoVC" modalPresentationStyle="overCurrentContext" id="8jn-cv-7Ec" customClass="QuitInfoVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="EV8-tE-bpL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -485,7 +555,7 @@
         <!--Saving GoalVC-->
         <scene sceneID="xIf-A0-Uzd">
             <objects>
-                <viewController storyboardIdentifier="SavingGoalVC" id="Fw9-3W-pdP" customClass="SavingGoalVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavingGoalVC" modalPresentationStyle="overCurrentContext" id="Fw9-3W-pdP" customClass="SavingGoalVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dxm-Gy-w2S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

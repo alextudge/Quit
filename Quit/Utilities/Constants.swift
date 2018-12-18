@@ -31,6 +31,7 @@ struct Constants {
         static let sectionTwoCarouselCell = "SectionTwoCarouselCell"
         static let sectionThreeCarouselCell = "SectionThreeCarouselCell"
         static let sectionFourCarouselCell = "SectionFourCarouselCell"
+        static let achievementCell = "achievementCell"
     }
     
     struct InternalNotifs {

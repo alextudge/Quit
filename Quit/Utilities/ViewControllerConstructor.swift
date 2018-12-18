@@ -27,6 +27,7 @@ enum TypeOfViewController: String {
 
 extension TypeOfViewController {
     func storyboardRepresentation() -> StoryboardRepresentation {
+        //switch self for multiple storyboards
         return StoryboardRepresentation(bundle: nil, storyboardName: "Main", storyboardId: self.rawValue)
     }
 }

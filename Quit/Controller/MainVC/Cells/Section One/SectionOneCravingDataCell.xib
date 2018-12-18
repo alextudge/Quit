@@ -23,7 +23,7 @@
                         <rect key="frame" x="5" y="5" width="389" height="221"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acL-Ea-F7b">
-                                <rect key="frame" x="10" y="10" width="369" height="48"/>
+                                <rect key="frame" x="10" y="10" width="101.5" height="48"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,16 +60,26 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjR-81-bD8">
+                                <rect key="frame" x="282" y="10" width="97" height="30"/>
+                                <state key="normal" title="Achievements">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="achievementsButtonPressed:" destination="xeY-of-lYy" eventType="touchUpInside" id="lN9-M9-UIj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="AJo-jE-TGE" secondAttribute="bottom" constant="10" id="1Tu-BV-o5v"/>
                             <constraint firstItem="ZBZ-sB-DqH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="acL-Ea-F7b" secondAttribute="bottom" id="AQR-dj-uan"/>
                             <constraint firstAttribute="bottom" secondItem="B2R-Oo-gzw" secondAttribute="bottom" constant="10" id="BSN-dg-wAS"/>
                             <constraint firstItem="B2R-Oo-gzw" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="10" id="QNL-vN-GHN"/>
-                            <constraint firstAttribute="trailing" secondItem="acL-Ea-F7b" secondAttribute="trailing" constant="10" id="SF5-4J-Ncx"/>
+                            <constraint firstAttribute="trailing" secondItem="SjR-81-bD8" secondAttribute="trailing" constant="10" id="Snw-Ww-2f9"/>
                             <constraint firstItem="acL-Ea-F7b" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="10" id="XV0-oL-Fut"/>
                             <constraint firstItem="AJo-jE-TGE" firstAttribute="top" secondItem="ZBZ-sB-DqH" secondAttribute="bottom" constant="10" id="cqX-Dv-e02"/>
                             <constraint firstItem="acL-Ea-F7b" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="10" id="gJ1-TU-GtF"/>
+                            <constraint firstItem="SjR-81-bD8" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="10" id="moo-y3-e0d"/>
                             <constraint firstAttribute="trailing" secondItem="ZBZ-sB-DqH" secondAttribute="trailing" constant="10" id="qKf-vW-x2J"/>
                             <constraint firstItem="AJo-jE-TGE" firstAttribute="centerX" secondItem="ZBZ-sB-DqH" secondAttribute="centerX" id="ygd-3q-YIT"/>
                         </constraints>

@@ -88,4 +88,13 @@ struct QuitData {
         }
         return savedSoFar - vapeSpend
     }
+    
+    var notSmokedSoFar: Double? {
+        guard let minutesSmokeFree = minuteSmokeFree,
+            let smokedPerDay = smokedDaily else {
+                return nil
+        }
+        let smokedPerMinute = Double(smokedPerDay / 1440)
+        return smokedPerMinute * minutesSmokeFree
+    }
 }

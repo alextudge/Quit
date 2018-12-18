@@ -134,6 +134,12 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension HomeVC: SectionOneCarouselCellDelegate {
+    func didPressSegueToAchievements() {
+        if let viewController = ViewControllerFactory.viewController(for: .achievementsVc) as? AchievementsVC {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
     func segueToSmokedVC() {
         if let viewController = ViewControllerFactory.viewController(for: .smokedVc) as? SmokedVC {
             present(viewController, animated: true, completion: nil)

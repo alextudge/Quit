@@ -12,10 +12,12 @@ struct Constants {
     struct AppConfig {
         static let appName = "Quit"
         static let appGroupId = "group.com.Alex.Quit"
+        static let adAppId = "ca-app-pub-9559625170509646~1544442423"
         static let adBannerId = "ca-app-pub-9559625170509646/6744087773"
     }
     
     struct UserDefaults {
+        static let quitData = "quitData"
         static let appLoadCount = "appLoadCount"
     }
     

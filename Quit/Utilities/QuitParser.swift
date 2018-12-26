@@ -1,5 +1,5 @@
 //
-//  Parser.swift
+//  QuitParser.swift
 //  Quit
 //
 //  Created by Alex Tudge on 26/12/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Parser {
+class QuitParser {
     func parseQuitData(quitData: [String: Any]) -> QuitData {
         let smokedDaily = quitData[Constants.QuitDataConstants.smokedDaily] as? Int
         let costOf20 = quitData[Constants.QuitDataConstants.costOf20] as? Double

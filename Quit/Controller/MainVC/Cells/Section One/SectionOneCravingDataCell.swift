@@ -34,7 +34,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        gradientLayer = roundedView.gradient(colors: Constants.Colours.blueGradient)
+        gradientLayer = roundedView.gradient(colors: Styles.Colours.blueGradient)
     }
     
     override func layoutSubviews() {

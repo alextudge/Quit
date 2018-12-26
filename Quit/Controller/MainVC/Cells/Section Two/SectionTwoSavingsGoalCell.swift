@@ -48,7 +48,7 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         trackShapeLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(trackShapeLayer)
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = Constants.Colours.greenColour.cgColor
+        shapeLayer.strokeColor = Styles.Colours.greenColour.cgColor
         shapeLayer.lineWidth = 30
         shapeLayer.strokeEnd = 0
         shapeLayer.lineCap = CAShapeLayerLineCap.round
@@ -97,7 +97,7 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
                                       width: frame.width,
                                       height: 100))
         guard let savingGoalName = goal.goalName else { return UILabel() }
-        let string = NSAttributedString(string: savingGoalName, attributes: Constants.savingsInfoAttributes)
+        let string = NSAttributedString(string: savingGoalName, attributes: Styles.savingsInfoAttributes)
         label?.attributedText = string
         label?.lineBreakMode = .byWordWrapping
         label?.numberOfLines = 0

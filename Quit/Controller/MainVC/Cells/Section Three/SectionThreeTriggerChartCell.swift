@@ -36,7 +36,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
                                    width: UIScreen.main.bounds.width - 10,
                                    height: UIScreen.main.bounds.height / 2.3 - 10)
         roundedView.layer.cornerRadius = 10
-        gradientLayer = roundedView.gradient(colors: Constants.Colours.grayGradient.reversed())
+        gradientLayer = roundedView.gradient(colors: Styles.Colours.grayGradient.reversed())
         formatChart()
     }
     

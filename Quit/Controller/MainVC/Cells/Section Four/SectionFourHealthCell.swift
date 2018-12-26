@@ -14,7 +14,7 @@ class SectionFourHealthCell: UICollectionViewCell {
     @IBOutlet weak var healthStateLabel: UILabel!
     
     var persistenceManager: PersistenceManager?
-    private var color = Constants.Colours.greenColour
+    private var color = Styles.Colours.greenColour
     
     override func awakeFromNib() {
         super.awakeFromNib()

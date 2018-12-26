@@ -22,7 +22,7 @@ class SectionOneVapingDataCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        gradientLayer = roundedView.gradient(colors: Constants.Colours.blueGradient.reversed())
+        gradientLayer = roundedView.gradient(colors: Styles.Colours.blueGradient.reversed())
     }
     
     override func layoutSubviews() {

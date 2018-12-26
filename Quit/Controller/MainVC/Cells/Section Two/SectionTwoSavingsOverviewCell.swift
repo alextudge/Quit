@@ -40,10 +40,10 @@ class SectionTwoSavingsOverviewCell: UICollectionViewCell {
             if quitDateIsInPast(quitData: persistenceManager?.quitData) {
                 text = NSAttributedString(
                     string: "\(dailyCost) saved daily, \(annualCost) saved yearly. \(soFar) saved so far.",
-                    attributes: Constants.savingsInfoAttributes)
+                    attributes: Styles.savingsInfoAttributes)
             } else {
                 text = NSAttributedString(string: "You'll save \(dailyCost) daily and \(annualCost) yearly.",
-                    attributes: Constants.savingsInfoAttributes)
+                    attributes: Styles.savingsInfoAttributes)
             }
         }
         return text

@@ -30,9 +30,14 @@ class AchievementsViewModel {
 }
 
 private extension AchievementsViewModel {
+    enum Achievements: String {
+        case daysSmokeFree = "Cigarettes avoided",
+        oneDaySmokeFree = "Days smoke free"
+    }
+    
     func notSmokedAchievementDays(quitDate: QuitData) -> Achievement {
         let hasSucceeded = (quitDate.notSmokedSoFar ?? 0) > 0
-        return Achievement(title: "Cigarettes avoided",
+        return Achievement(title: Achievements.daysSmokeFree.rawValue,
                     result: "\(quitDate.notSmokedSoFar ?? 0)",
                     succeded: hasSucceeded)
     }
@@ -40,7 +45,7 @@ private extension AchievementsViewModel {
     func hasReachedOneDayAchievement(quitDate: QuitData) -> Achievement {
         let daysSmokeFree = ((quitDate.minuteSmokeFree ?? 0) / 1440)
         let daysSmokeFreeRounded = Int(daysSmokeFree.rounded(.toNearestOrAwayFromZero))
-        return Achievement(title: "Days smoke free",
+        return Achievement(title: Achievements.oneDaySmokeFree.rawValue,
                         result: "\(daysSmokeFreeRounded)",
                         succeded: daysSmokeFreeRounded > 1)
     }

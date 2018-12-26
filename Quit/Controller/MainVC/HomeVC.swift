@@ -182,8 +182,4 @@ extension HomeVC: SectionTwoCarouselCellDelegate {
     }
 }
 
-extension HomeVC: AddCravingVCDelegate {
-    
-}
-
-extension HomeVC: SettingsVCDelegate {}
+extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {}

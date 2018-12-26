@@ -17,8 +17,8 @@ class AchievementsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         achievements = viewModel.processAchievements()
+        setupTableView()
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {
@@ -45,7 +45,8 @@ extension AchievementsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.achievementCell, for: indexPath) as? AchievementCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.achievementCell,
+                                                       for: indexPath) as? AchievementCell else {
             return UITableViewCell()
         }
         cell.setupCell(data: achievements[indexPath.row])

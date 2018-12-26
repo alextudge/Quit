@@ -19,4 +19,11 @@ class QuitParser {
                         quitDate: quitDate,
                         vapeSpending: vapeSpending)
     }
+    
+    func parseAdditionalUserData(data: [String: Any]) -> AdditionalUserData {
+        let reasonsToSmoke = data[Constants.AdditionalUserDataConstants.reasonsToSmoke] as? [String]
+        var reasonsNotToSmoke = data[Constants.AdditionalUserDataConstants.reasonsNotToSmoke] as? [String]
+        return AdditionalUserData(reasonsToSmoke: reasonsToSmoke,
+                                  reasonsNotToSmoke: reasonsNotToSmoke)
+    }
 }

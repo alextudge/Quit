@@ -18,6 +18,7 @@ struct Constants {
     
     struct UserDefaults {
         static let quitData = "quitData"
+        static let additionalUserData = "additionalUserData"
         static let appLoadCount = "appLoadCount"
     }
     
@@ -33,6 +34,11 @@ struct Constants {
         static let costOf20 = "costOf20"
         static let quitDate = "quitDate"
         static let vapeSpending = "vapeSpending"
+    }
+    
+    struct AdditionalUserDataConstants {
+        static let reasonsToSmoke = "reasonsToSmoke"
+        static let reasonsNotToSmoke = "reasonsNotToSmoke"
     }
     
     struct Cells {

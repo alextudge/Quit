@@ -20,6 +20,7 @@
 		171EAFEB21D3E87B0088C90C /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
 		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
 		171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */; };
+		171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsVC.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
@@ -157,6 +158,7 @@
 		1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetOnboardingVC.swift; sourceTree = "<group>"; };
 		171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveCarouselCell.swift; sourceTree = "<group>"; };
 		171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveCarouselCell.xib; sourceTree = "<group>"; };
+		171EAFF121D40D200088C90C /* AdditionalUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalUserData.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsVC.swift; sourceTree = "<group>"; };
 		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			children = (
 				177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */,
 				177F04232029104900CC7CA8 /* QuitData.swift */,
+				171EAFF121D40D200088C90C /* AdditionalUserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */,
 				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
+				171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */,
 				1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */,
 				17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */,
 				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,

@@ -22,6 +22,9 @@ class PersistenceManager: NSObject {
     var quitData: QuitData? {
         return getQuitDataFromUserDefaults()
     }
+    var additionalUserData: AdditionalUserData? {
+        return getAdditionalUserDataFromUserDefaults()
+    }
     private(set) var triggers: [String]?
     private var context: NSManagedObjectContext!
     private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.appGroupId)
@@ -93,6 +96,10 @@ class PersistenceManager: NSObject {
     func setQuitDataInUserDefaults(object: [String: Any], key: String) {
         userDefaults?.set(object, forKey: key)
         NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
+    }
+    
+    func setAdditionalParametersInUserDefaults(object: [String: Any]) {
+        userDefaults?.set(object, forKey: Constants.UserDefaults.additionalUserData)
     }
 }
 
@@ -169,6 +176,13 @@ private extension PersistenceManager {
     func getQuitDataFromUserDefaults() -> QuitData? {
         if let returnedData = userDefaults?.object(forKey: Constants.UserDefaults.quitData) as? [String: Any] {
             return parser.parseQuitData(quitData: returnedData)
+        }
+        return nil
+    }
+    
+    func getAdditionalUserDataFromUserDefaults() -> AdditionalUserData? {
+        if let returnedData = userDefaults?.object(forKey: Constants.UserDefaults.additionalUserData) as? [String: Any] {
+            return parser.parseAdditionalUserData(data: returnedData)
         }
         return nil
     }

@@ -25,16 +25,16 @@ class SectionFourHealthCell: UICollectionViewCell {
         waveAnimationView.heartAmplitude = Double(randomNumber)
     }
     
-    func setupCell(data: String) {
+    func setupCell(data: Constants.HealthStats) {
         guard let quitData = persistenceManager?.quitData,
             let minuteSmokeFree = quitData.minuteSmokeFree else {
             return
         }
-        let time = secondsForHealthState(healthStat: data) / 60
+        let time = data.secondsForHealthState() / 60
         let progress = minuteSmokeFree / time
         waveAnimationView.progress = progress < 1 ? progress : 1
         waveAnimationView.heartAmplitude = 30
-        healthStateLabel.text = data
+        healthStateLabel.text = data.rawValue
         if progress > 0.2 {
             healthStateLabel.textColor = .white
         } else {

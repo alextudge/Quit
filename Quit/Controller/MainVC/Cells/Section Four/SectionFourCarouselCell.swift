@@ -40,7 +40,7 @@ extension SectionFourCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constants.healthStats.count
+        return Constants.HealthStats.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -48,7 +48,7 @@ extension SectionFourCarouselCell: UICollectionViewDelegate, UICollectionViewDat
                 return UICollectionViewCell()
         }
         cell.persistenceManager = persistenceManager
-        cell.setupCell(data: Constants.healthStats[indexPath.row])
+        cell.setupCell(data: Constants.HealthStats.allCases[indexPath.row])
         return cell
     }
     

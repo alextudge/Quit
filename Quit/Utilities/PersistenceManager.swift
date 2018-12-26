@@ -9,7 +9,6 @@
 import CoreData
 
 class PersistenceManager: NSObject {
-    
     private(set) var cravings = [Craving]() {
         didSet {
             notifyOfCravingsChanges()

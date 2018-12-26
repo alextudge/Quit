@@ -61,53 +61,51 @@ struct Constants {
                                    UIColor(red: 0.71, green: 0.93, blue: 0.32, alpha: 1.0).cgColor]
     }
     
-    static let healthStats: [String] =
-        ["Pule normal",
-         "Oxygen levels normal",
-         "Most nicotine removed",
-         "All carbon monoxide removed from body",
-         "Nerve endings start repairing",
-         "Taste and smell start improving",
-         "Bronchial tubes relaxing",
-         "9 times more likely to quit after reaching one week",
-         "30% improvement in lung performance",
-         "Fertility and birth related issues reduced",
-         "Heart disease risk halved",
-         "Risk of lung cancer halved"]
+    enum HealthStats: String, CaseIterable {
+        case pulseNormal = "Pulse normal",
+         oxygenLevels = "Oxygen levels normal",
+         nicotineRemoval = "Most nicotine removed",
+         monoxideRemoval = "All carbon monoxide removed from body",
+         nerveEndings = "Nerve endings start repairing",
+         tasteAndSmell = "Taste and smell start improving",
+         bronchialTubes = "Bronchial tubes relaxing",
+         oneWeekSuccess = "9 times more likely to quit after reaching one week",
+         lungPerformance = "30% improvement in lung performance",
+         fertility = "Fertility and birth related issues reduced",
+         heartDisease = "Heart disease risk halved",
+         lungCancer = "Risk of lung cancer halved"
+        
+        func secondsForHealthState() -> Double {
+            switch self {
+            case .pulseNormal:
+                return 1200
+            case .oxygenLevels:
+                return 28800
+            case .nicotineRemoval:
+                return 86400
+            case .monoxideRemoval:
+                return 172800
+            case .nerveEndings:
+                return 172800
+            case .tasteAndSmell:
+                return 172800
+            case .bronchialTubes:
+                return 259200
+            case .oneWeekSuccess:
+                return 604800
+            case .lungPerformance:
+                return 1209600
+            case .fertility:
+                return 7890000
+            case .heartDisease:
+                return 31536000
+            case .lungCancer:
+                return 31536000 * 10
+            }
+        }
+    }
     
     static let savingsInfoAttributes =
-        [NSAttributedString.Key.foregroundColor: UIColor.white,
-         NSAttributedString.Key.backgroundColor: UIColor.black,
+        [NSAttributedString.Key.foregroundColor: UIColor.black,
          NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
-}
-
-func secondsForHealthState(healthStat: String) -> Double {
-    switch healthStat {
-    case "Pule normal":
-        return 1200
-    case "Oxygen levels normal":
-        return 28800
-    case "Most nicotine removed":
-        return 86400
-    case "All carbon monoxide removed from body":
-        return 172800
-    case "Nerve endings start repairing":
-        return 172800
-    case "Taste and smell start improving":
-        return 172800
-    case "Bronchial tubes relaxing":
-        return 259200
-    case "9 times more likely to quit after reaching one week":
-        return 604800
-    case "30% improvement in lung performance":
-        return 1209600
-    case "Fertility and birth related issues reduced":
-        return 7890000
-    case "Heart disease risk halved":
-        return 31536000
-    case "Risk of lung cancer halved":
-        return 31536000 * 10
-    default:
-        return 0
-    }
 }

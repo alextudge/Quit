@@ -11,18 +11,18 @@ import UserNotifications
 
 class QuitInfoVCViewModel {
     func generateLocalNotif(quitDate: Date) {
-        Constants.healthStats.forEach {
+        Constants.HealthStats.allCases.forEach {
             let center = UNUserNotificationCenter.current()
             center.getNotificationSettings { settings in
                 guard settings.authorizationStatus == .authorized else {
                     return
                 }
             }
-            let minutes = Int(secondsForHealthState(healthStat: $0) / 60)
+            let minutes = Int($0.secondsForHealthState() / 60)
             let content = UNMutableNotificationContent()
             content.categoryIdentifier = Constants.ExternalNotifCategories.healthProgress
             content.title = "New health improvement"
-            content.subtitle = $0
+            content.subtitle = $0.rawValue
             content.body = "\(minutes) minutes smoke free!"
             content.sound = UNNotificationSound.default
             let date = Date(timeInterval: TimeInterval(minutes * 60), since: quitDate)

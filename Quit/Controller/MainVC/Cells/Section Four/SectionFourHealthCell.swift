@@ -25,7 +25,7 @@ class SectionFourHealthCell: UICollectionViewCell {
     
     func setupCell(data: Constants.HealthStats) {
         guard let quitData = persistenceManager?.quitData,
-            let minuteSmokeFree = quitData.minuteSmokeFree else {
+            let minuteSmokeFree = quitData.minutesSmokeFree else {
             return
         }
         let time = data.secondsForHealthState() / 60

@@ -23,8 +23,8 @@ class AchievementsViewModel {
             return []
         }
         var achievements = [Achievement]()
-        achievements.append(notSmokedAchievementDays(quitDate: quitDate))
-        achievements.append(hasReachedOneDayAchievement(quitDate: quitDate))
+        achievements.append(cigarettesAvoided(quitDate: quitDate))
+        achievements.append(oneDaySmokeFree(quitDate: quitDate))
         return achievements
     }
 }
@@ -35,15 +35,15 @@ private extension AchievementsViewModel {
         oneDaySmokeFree = "Days smoke free"
     }
     
-    func notSmokedAchievementDays(quitDate: QuitData) -> Achievement {
-        let hasSucceeded = (quitDate.notSmokedSoFar ?? 0) > 0
+    func cigarettesAvoided(quitDate: QuitData) -> Achievement {
+        let hasSucceeded = (quitDate.cigarettesAvoided ?? 0) > 0
         return Achievement(title: Achievements.daysSmokeFree.rawValue,
-                    result: "\(quitDate.notSmokedSoFar ?? 0)",
+                    result: "You've avoided \(Int(quitDate.cigarettesAvoided ?? 0)) cigarettes",
                     succeded: hasSucceeded)
     }
     
-    func hasReachedOneDayAchievement(quitDate: QuitData) -> Achievement {
-        let daysSmokeFree = ((quitDate.minuteSmokeFree ?? 0) / 1440)
+    func oneDaySmokeFree(quitDate: QuitData) -> Achievement {
+        let daysSmokeFree = ((quitDate.minutesSmokeFree ?? 0) / 1440)
         let daysSmokeFreeRounded = Int(daysSmokeFree.rounded(.toNearestOrAwayFromZero))
         return Achievement(title: Achievements.oneDaySmokeFree.rawValue,
                         result: "\(daysSmokeFreeRounded)",

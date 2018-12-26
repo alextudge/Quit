@@ -21,13 +21,17 @@ class AchievementsVC: UIViewController {
         achievements = viewModel.processAchievements()
     }
     
-    private func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-    
     @IBAction func didTapCloseButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+private extension AchievementsVC {
+    func setupTableView() {
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 

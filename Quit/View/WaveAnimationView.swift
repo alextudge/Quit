@@ -16,13 +16,10 @@ class WaveAnimationView: UIView {
     private var phasePosition = 0.0
     private var amplitude = 29.0
     private var position = 40.0
-    private let animationMoveSpan = 5.0
-    private let animationUnitTime = 0.25
     var darkColor = UIColor.red
     var lightColor = UIColor.orange
     let progressTextFont: UIFont = .systemFont(ofSize: 30.0)
     var isShowProgressText = true
-    var isAnimated: Bool = true
     
     public var progress: Double = 0.5 {
         didSet {
@@ -30,24 +27,12 @@ class WaveAnimationView: UIView {
         }
     }
     
-    public var heartAmplitude: Double {
-        get {
-            return amplitude
-        }
-        set {
-            amplitude = newValue
-            self.setNeedsDisplay()
-        }
-    }
-    
     override public func awakeFromNib() {
-        animate()
         backgroundColor = .clear
     }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        animate()
         backgroundColor = .clear
     }
     
@@ -66,12 +51,7 @@ class WaveAnimationView: UIView {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        term =  Double(bounds.size.width) / cycle
-    }
-    
-    override public func removeFromSuperview() {
-        super.removeFromSuperview()
-        isAnimated = false
+        term = Double(bounds.size.width) / cycle
     }
     
     func drawHeartWave(originX: Double, fillColor: UIColor) {
@@ -114,28 +94,10 @@ class WaveAnimationView: UIView {
         }
         let textSize = progressText.size(withAttributes: attributes)
         let textRect = CGRect(x: bounds.width / 2 - textSize.width / 2,
-                              y: bounds.height / 2 - textSize.height / 2, width: textSize.width, height: textSize.height)
+                              y: bounds.height / 2 - textSize.height / 2,
+                              width: textSize.width,
+                              height: textSize.height)
         progressText.draw(in: textRect, withAttributes: attributes)
-    }
-    
-    func animate() {
-//        DispatchQueue.global(qos: .background).async { [weak self]() -> Void in
-//            guard let self = self else {
-//                return
-//            }
-//            let tempOriginX = self.originX
-//            while self.isAnimated {
-//                if self.originX <= tempOriginX - self.term {
-//                    self.originX = tempOriginX - self.animationMoveSpan
-//                } else {
-//                    self.originX -= self.animationMoveSpan
-//                }
-//                DispatchQueue.main.async(execute: { () -> Void in
-//                    self.setNeedsDisplay()
-//                })
-//                Thread.sleep(forTimeInterval: self.animationUnitTime)
-//            }
-//        }
     }
     
     func rounding(value: Double) -> Int {

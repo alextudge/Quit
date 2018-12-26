@@ -21,8 +21,6 @@ class SectionFourHealthCell: UICollectionViewCell {
         color = randomColor()
         waveAnimationView.darkColor = color
         waveAnimationView.lightColor = color.withAlphaComponent(0.4)
-        let randomNumber = Int.random(in: 20...40)
-        waveAnimationView.heartAmplitude = Double(randomNumber)
     }
     
     func setupCell(data: Constants.HealthStats) {
@@ -33,7 +31,6 @@ class SectionFourHealthCell: UICollectionViewCell {
         let time = data.secondsForHealthState() / 60
         let progress = minuteSmokeFree / time
         waveAnimationView.progress = progress < 1 ? progress : 1
-        waveAnimationView.heartAmplitude = 30
         healthStateLabel.text = data.rawValue
         if progress > 0.2 {
             healthStateLabel.textColor = .white

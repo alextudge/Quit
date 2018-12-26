@@ -9,16 +9,52 @@
 import UIKit
 
 class SectionFiveCarouselCell: UITableViewCell {
-
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var persistenceManager: PersistenceManager?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        setupCollectionView()
     }
     
+    private func setupCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName: Constants.Cells.sectionFiveReasonsToSmokeCell,
+                                      bundle: nil),
+                                forCellWithReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell)
+        collectionView.register(UINib(nibName: Constants.Cells.sectionFiveReasonsNotToSmokeCell,
+                                      bundle: nil),forCellWithReuseIdentifier: Constants.Cells.sectionFiveReasonsNotToSmokeCell)
+    }
+}
+
+extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell, for: indexPath) as? SectionFiveReasonsToSmokeCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        } else if indexPath.row == 1 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveReasonsNotToSmokeCell, for: indexPath) as? SectionFiveReasonsNotToSmokeCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
+    }
 }

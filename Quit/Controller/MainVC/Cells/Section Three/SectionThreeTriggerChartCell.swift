@@ -109,7 +109,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
             var categoryDict = CategoryData()
             categoryDict.category = $0
             cravingData.forEach {
-                let date = standardisedDate(date: $0.cravingDate ?? Date())
+                let date = $0.cravingDate?.standardisedDate() ?? Date()
                 guard let category = $0.cravingCatagory,
                     category == categoryDict.category else {
                         return
@@ -131,7 +131,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         }
         referenceTimeInterval = minTimeInterval
         
-        lineChartView.xAxis.valueFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: mediumDateFormatter())
+        lineChartView.xAxis.valueFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: QuitFormatters().mediumDateFormatter())
         
         let data = LineChartData()
         categoryDataArray.forEach {

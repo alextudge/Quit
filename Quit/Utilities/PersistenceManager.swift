@@ -25,6 +25,7 @@ class PersistenceManager: NSObject {
     private(set) var triggers: [String]?
     private var context: NSManagedObjectContext!
     private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.appGroupId)
+    private let parser = Parser()
     private lazy var persistentContainer: NSPersistentContainer = {
         generatePersistenceContainer()
     }()
@@ -167,7 +168,7 @@ private extension PersistenceManager {
     
     func getQuitDataFromUserDefaults() -> QuitData? {
         if let returnedData = userDefaults?.object(forKey: "quitData") as? [String: Any] {
-            return QuitData(quitData: returnedData)
+            return parser.parseQuitData(returnedData)
         }
         return nil
     }

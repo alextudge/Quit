@@ -15,11 +15,11 @@ struct QuitData {
     var quitDate: Date?
     var vapeSpending: Double?
     
-    init(quitData: [String: Any]) {
-        smokedDaily = quitData[Constants.QuitDataConstants.smokedDaily] as? Int
-        costOf20 = quitData[Constants.QuitDataConstants.costOf20] as? Double
-        quitDate = quitData[Constants.QuitDataConstants.quitDate] as? Date
-        vapeSpending = quitData[Constants.QuitDataConstants.vapeSpending] as? Double
+    init(smokedDaily: Int?, costOf20: Double?, quitDate: Date?, vapeSpending: Double?) {
+        self.smokedDaily = smokedDaily
+        self.costOf20 = costOf20
+        self.quitDate = quitDate
+        self.vapeSpending = vapeSpending
     }
     
     var costPerCigarette: Double? {

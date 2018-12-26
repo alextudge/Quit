@@ -437,8 +437,8 @@
 				179FDFC821640494003131C5 /* Section One */,
 				179FDFD92166C3A4003131C5 /* Section Two */,
 				179FDFE82169332C003131C5 /* Section Three */,
-				171EAFEC21D409230088C90C /* Section Five */,
 				17BA708D217513FE00ACA5F6 /* Section Four */,
+				171EAFEC21D409230088C90C /* Section Five */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

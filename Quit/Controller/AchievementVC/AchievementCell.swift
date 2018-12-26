@@ -20,8 +20,6 @@ class AchievementCell: UITableViewCell {
         if let result = data.result {
             resultLabel.text = "\(result)"
         }
-        if data.succeded {
-            resultLabel.textColor = .green
-        }
+        resultLabel.textColor = data.succeded ? .lightGray : UIColor.lightGray.withAlphaComponent(0.5)
     }
 }

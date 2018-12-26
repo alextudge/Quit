@@ -19,12 +19,15 @@ class AchievementsViewModel {
     var persistenceManager = PersistenceManager()
     
     func processAchievements() -> [Achievement] {
-        guard let quitDate = persistenceManager.quitData else {
+        guard let quitData = persistenceManager.quitData else {
             return []
         }
         var achievements = [Achievement]()
-        achievements.append(cigarettesAvoided(quitDate: quitDate))
-        achievements.append(oneDaySmokeFree(quitDate: quitDate))
+        achievements.append(cigarettesAvoided(quitDate: quitData))
+        achievements.append(oneDaySmokeFree(quitDate: quitData))
+        achievements.append(twoDaysSmokeFree(quitDate: quitData))
+        achievements.append(threeDaysSmokeFree(quitDate: quitData))
+        achievements.append(oneHundredCigarettesNotSmoked(quitDate: quitData))
         return achievements
     }
 }
@@ -32,21 +35,48 @@ class AchievementsViewModel {
 private extension AchievementsViewModel {
     enum Achievements: String {
         case daysSmokeFree = "Cigarettes avoided",
-        oneDaySmokeFree = "Days smoke free"
+        oneDaySmokeFree = "One day smoke free",
+        twoDaysSmokeFree = "Two days smoke free",
+        threedaysSmokeFree = "Three days smoke free",
+        oneHundredCigarettesAvoided = "100 cigarettes not smoked"
     }
     
     func cigarettesAvoided(quitDate: QuitData) -> Achievement {
-        let hasSucceeded = (quitDate.cigarettesAvoided ?? 0) > 0
+        let success = (quitDate.cigarettesAvoided ?? 0) > 0
         return Achievement(title: Achievements.daysSmokeFree.rawValue,
                     result: "You've avoided \(Int(quitDate.cigarettesAvoided ?? 0)) cigarettes",
-                    succeded: hasSucceeded)
+                    succeded: success)
     }
     
     func oneDaySmokeFree(quitDate: QuitData) -> Achievement {
-        let daysSmokeFree = ((quitDate.minutesSmokeFree ?? 0) / 1440)
-        let daysSmokeFreeRounded = Int(daysSmokeFree.rounded(.toNearestOrAwayFromZero))
+        let daysSmokeFree = Int(quitDate.daysSmokeFree ?? 0)
+        let success = daysSmokeFree > 1
         return Achievement(title: Achievements.oneDaySmokeFree.rawValue,
-                        result: "\(daysSmokeFreeRounded)",
-                        succeded: daysSmokeFreeRounded > 1)
+                           result: success ? "Smashed it! You're \(daysSmokeFree) days free" : "Almost...",
+                        succeded: success)
+    }
+    
+    func twoDaysSmokeFree(quitDate: QuitData) -> Achievement {
+        let daysSmokeFree = Int(quitDate.daysSmokeFree ?? 0)
+        let success = daysSmokeFree > 2
+        return Achievement(title: Achievements.twoDaysSmokeFree.rawValue,
+                           result: success ? "Amazing, you're \(daysSmokeFree) days free" : "Almost...",
+                           succeded: success)
+    }
+    
+    func threeDaysSmokeFree(quitDate: QuitData) -> Achievement {
+        let daysSmokeFree = Int(quitDate.daysSmokeFree ?? 0)
+        let success = daysSmokeFree > 3
+        return Achievement(title: Achievements.threedaysSmokeFree.rawValue,
+                           result: success ? "For a lot of people the hardest part is over. Keep it up!" : "Almost...",
+                           succeded: success)
+    }
+    
+    func oneHundredCigarettesNotSmoked(quitDate: QuitData) -> Achievement {
+        let success = (quitDate.cigarettesAvoided ?? 0) > 100
+        let daysItTakes = 100 / (quitDate.smokedDaily ?? 0)
+        return Achievement(title: Achievements.oneHundredCigarettesAvoided.rawValue,
+                           result: success ? "100 not smoked is an insane achievement, and in just \(daysItTakes) days" : "\(Int(quitDate.cigarettesAvoided ?? 0)) so far...",
+                           succeded: success)
     }
 }

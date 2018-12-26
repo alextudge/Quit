@@ -45,6 +45,13 @@ struct QuitData {
         return secondsSmokeFree / 60
     }
     
+    var daysSmokeFree: Double? {
+        guard let minutesSmokeFree = minutesSmokeFree else {
+            return nil
+        }
+        return minutesSmokeFree / 1440
+    }
+    
     var savedSoFar: Double? {
         guard let minutesSmokeFree = minutesSmokeFree,
             let costPerMinute = costPerMinute else {

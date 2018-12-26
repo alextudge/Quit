@@ -75,13 +75,13 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
     }
     
     private func savingsProgressAngle() -> Double {
-        guard let quitData = persistenceManager?.getQuitDataFromUserDefaults(),
+        guard let quitData = persistenceManager?.quitData,
             let quitSavingsToDate = quitData.savedSoFar,
             let goalAmount = savingGoal?.goalAmount else {
             return 0
         }
         var angle = 0.0
-        if self.quitDateIsInPast(quitData: persistenceManager?.getQuitDataFromUserDefaults()) {
+        if self.quitDateIsInPast(quitData: persistenceManager?.quitData) {
             angle = quitSavingsToDate / goalAmount
         }
         if angle < 1 {

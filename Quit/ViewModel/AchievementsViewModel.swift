@@ -19,7 +19,7 @@ class AchievementsViewModel {
     var persistenceManager = PersistenceManager()
     
     func processAchievements() -> [Achievement] {
-        guard let quitDate = persistenceManager.getQuitDataFromUserDefaults() else {
+        guard let quitDate = persistenceManager.quitData else {
             return []
         }
         var achievements = [Achievement]()

@@ -32,7 +32,7 @@ class SectionOneVapingDataCell: UICollectionViewCell {
     }
     
     func setup() {
-        let data = persistenceManager?.getQuitDataFromUserDefaults()
+        let data = persistenceManager?.quitData
         if let amount = data?.vapeSpending {
             let amountString = stringFromCurrencyFormatter(data: NSNumber(value: amount))
             let savingAmountString = stringFromCurrencyFormatter(data: NSNumber(value: data?.vapingSavings ?? 0))
@@ -76,7 +76,7 @@ class SectionOneVapingDataCell: UICollectionViewCell {
     }
     
     private func alterVapeSpending(isIncreasing: Bool, amount: Double) {
-        let quitData = persistenceManager?.getQuitDataFromUserDefaults()
+        let quitData = persistenceManager?.quitData
         var newVapeSpending = 0.0
         if isIncreasing {
             newVapeSpending = (quitData?.vapeSpending ?? 0) + amount

@@ -15,7 +15,7 @@ class HomeVC: UIViewController {
     
     private(set) var viewModel = HomeVCViewModel()
     private var quitData: QuitData? {
-        return viewModel.persistenceManager.getQuitDataFromUserDefaults()
+        return viewModel.persistenceManager.quitData
     }
     
     override func viewDidLoad() {

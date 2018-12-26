@@ -7,53 +7,27 @@
 //
 
 import CoreData
-import Foundation
 
-protocol PersistenceManagerProtocol {
-    func setQuitDataInUserDefaults(object: [String: Any], key: String)
-    func addCraving(catagory: String, smoked: Bool)
-    func deleteCraving(_ craving: Craving)
-    func deleteSavingsGoal(_ goal: SavingGoal)
-    func deleteAllData()
-    func addSavingGoal(title: String, cost: Double)
-    var cravings: [Craving] { get }
-    var savingsGoals: [SavingGoal] { get }
-}
-
-class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, PersistenceManagerProtocol {
+class PersistenceManager: NSObject {
     
     private(set) var cravings = [Craving]() {
         didSet {
-            NotificationCenter.default.post(name: Constants.InternalNotifs.cravingsChanged, object: nil)
+            notifyOfCravingsChanges()
         }
     }
     private(set) var savingsGoals = [SavingGoal]() {
         didSet {
-            NotificationCenter.default.post(name: Constants.InternalNotifs.savingsChanged, object: nil)
+            notifyOfSavingsGoalChanges()
         }
+    }
+    var quitData: QuitData? {
+        return getQuitDataFromUserDefaults()
     }
     private(set) var triggers: [String]?
     private var context: NSManagedObjectContext!
-    private let coreDataObjectNames = ["Craving", "SavingGoal"]
-    private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.group)
-    
+    private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.appGroupId)
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Quit")
-        let appName: String = "Quit"
-        var persistentStoreDescriptions: NSPersistentStoreDescription
-        let storeUrl =  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.AppConfig.group)!.appendingPathComponent("Quit.sqlite")
-        let description = NSPersistentStoreDescription()
-        description.shouldInferMappingModelAutomatically = true
-        description.shouldMigrateStoreAutomatically = true
-        description.url = storeUrl
-        // swiftlint:disable:next line_length
-        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url:  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.AppConfig.group)!.appendingPathComponent("Quit.sqlite"))]
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                print("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
+        generatePersistenceContainer()
     }()
     
     override init() {
@@ -75,40 +49,14 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         }
     }
     
-    private func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                print("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-    
-    //Craving model fucntions
     func addCraving(catagory: String, smoked: Bool) {
         let craving = Craving(context: context)
         craving.cravingCatagory = catagory.capitalized
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         cravings.append(craving)
-        reloadTriggers()
         saveContext()
-    }
-    
-    func fetchCravingData() {
-        let cravingFetch = NSFetchRequest<Craving>(entityName: "Craving")
-        let predicate = NSPredicate(format: "(cravingDate >= %@)", thirtyDaysAgo())
-        let sort = NSSortDescriptor(key: "cravingDate", ascending: false)
-        cravingFetch.predicate = predicate
-        cravingFetch.sortDescriptors = [sort]
-        do {
-            cravings = try context.fetch(cravingFetch)
-        } catch {
-            print("Failed to fetch cravings: \(error)")
-        }
+        reloadTriggers()
     }
     
     func addSavingGoal(title: String, cost: Double) {
@@ -116,18 +64,84 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         saving.goalName = title
         saving.goalAmount = cost
         savingsGoals.append(saving)
-        reloadTriggers()
         saveContext()
     }
     
+    func deleteSavingsGoal(_ goal: SavingGoal) {
+        if let index = savingsGoals.firstIndex(of: goal) {
+            savingsGoals.remove(at: index)
+            context.delete(goal)
+            saveContext()
+        }
+    }
+    
+    func deleteAllData() {
+        for object in Constants.CoreData.coreDataObjects {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: object)
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            do {
+                try context.execute(batchDeleteRequest)
+            } catch {
+                print(error)
+            }
+        }
+        saveContext()
+        savingsGoals.removeAll()
+        cravings.removeAll()
+    }
+    
+    func setQuitDataInUserDefaults(object: [String: Any], key: String) {
+        userDefaults?.set(object, forKey: key)
+        NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
+    }
+}
+
+private extension PersistenceManager {
+    func generatePersistenceContainer() -> NSPersistentContainer {
+        let container = NSPersistentContainer(name: Constants.AppConfig.appName)
+        let storeUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.AppConfig.appGroupId)!.appendingPathComponent(Constants.CoreData.databaseId)
+        let description = NSPersistentStoreDescription()
+        description.shouldInferMappingModelAutomatically = true
+        description.shouldMigrateStoreAutomatically = true
+        description.url = storeUrl
+        // swiftlint:disable:next line_length
+        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url:  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.AppConfig.appGroupId)!.appendingPathComponent(Constants.CoreData.databaseId))]
+        container.loadPersistentStores(completionHandler: { _, error in
+            if let error = error as NSError? {
+                print("\(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }
+    
+    func saveContext () {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print("\(error), \(String(describing: error._userInfo))")
+            }
+        }
+    }
+    
+    func fetchCravingData() {
+        let cravingFetch = NSFetchRequest<Craving>(entityName: Constants.CoreData.craving)
+        cravingFetch.predicate = NSPredicate(format: "(cravingDate >= %@)", thirtyDaysAgo())
+        cravingFetch.sortDescriptors = [NSSortDescriptor(key: "cravingDate", ascending: false)]
+        do {
+            cravings = try context.fetch(cravingFetch)
+        } catch {
+            print("\(error)")
+        }
+    }
+    
     func fetchSavingsGoalsData() {
-        let savingsFetch = NSFetchRequest<SavingGoal>(entityName: "SavingGoal")
-        let sort = NSSortDescriptor(key: "goalAmount", ascending: true)
-        savingsFetch.sortDescriptors = [sort]
+        let savingsFetch = NSFetchRequest<SavingGoal>(entityName: Constants.CoreData.savingGoal)
+        savingsFetch.sortDescriptors = [NSSortDescriptor(key: "goalAmount", ascending: true)]
         do {
             savingsGoals = (try context.fetch(savingsFetch))
         } catch {
-            print("Failed to fetch savings: \(error)")
+            print("\(error)")
         }
     }
     
@@ -138,31 +152,18 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         }
     }
     
-    func deleteSavingsGoal(_ goal: SavingGoal) {
-        if let index = savingsGoals.firstIndex(of: goal) {
-            savingsGoals.remove(at: index)
-            context.delete(goal)
-        }
-    }
-    
-    func deleteAllData() {
-        for object in coreDataObjectNames {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: object)
-            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            do {
-                try context.execute(batchDeleteRequest)
-            } catch {
-                print(error)
+    func deleteOldCravings() {
+        let cravingFetch = NSFetchRequest<Craving>(entityName: Constants.CoreData.craving)
+        cravingFetch.predicate = NSPredicate(format: "(cravingDate < %@)", thirtyDaysAgo())
+        cravingFetch.sortDescriptors = [NSSortDescriptor(key: "cravingDate", ascending: false)]
+        do {
+            let oldCravings = try context.fetch(cravingFetch)
+            oldCravings.forEach {
+                deleteCraving($0)
             }
+        } catch {
+            print("\(error)")
         }
-        savingsGoals.removeAll()
-        cravings.removeAll()
-        saveContext()
-    }
-    
-    func setQuitDataInUserDefaults(object: [String: Any], key: String) {
-        userDefaults?.set(object, forKey: key)
-        NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
     }
     
     func getQuitDataFromUserDefaults() -> QuitData? {
@@ -172,35 +173,26 @@ class PersistenceManager: NSObject, NSFetchedResultsControllerDelegate, Persiste
         return nil
     }
     
-    func reloadTriggers() {
-        let triggersTotal = cravings.compactMap {
-            $0.cravingCatagory
-        }
-        triggers = Array(Set(triggersTotal)).sorted()
+    func notifyOfCravingsChanges() {
+        NotificationCenter.default.post(name: Constants.InternalNotifs.cravingsChanged,
+                                        object: nil)
     }
-}
-
-private extension PersistenceManager {
+    
+    func notifyOfSavingsGoalChanges() {
+        NotificationCenter.default.post(name: Constants.InternalNotifs.savingsChanged,
+                                        object: nil)
+    }
+    
+    func reloadTriggers() {
+        triggers = Array(Set(cravings.compactMap {
+            $0.cravingCatagory
+        })).sorted()
+    }
+    
     func thirtyDaysAgo() -> NSDate {
         let calendar = Calendar.current
         let date = calendar.date(byAdding: .day, value: -30, to: Date())! as NSDate
         return date
-    }
-    
-    func deleteOldCravings() {
-        let cravingFetch = NSFetchRequest<Craving>(entityName: "Craving")
-        let predicate = NSPredicate(format: "(cravingDate < %@)", thirtyDaysAgo())
-        let sort = NSSortDescriptor(key: "cravingDate", ascending: false)
-        cravingFetch.predicate = predicate
-        cravingFetch.sortDescriptors = [sort]
-        do {
-            cravings = try context.fetch(cravingFetch)
-            cravings.forEach {
-                deleteCraving($0)
-            }
-        } catch {
-            print("Failed to fetch cravings: \(error)")
-        }
     }
     
     func generateTestDate() {

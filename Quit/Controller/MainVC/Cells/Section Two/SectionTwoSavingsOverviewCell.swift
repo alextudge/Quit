@@ -21,7 +21,7 @@ class SectionTwoSavingsOverviewCell: UICollectionViewCell {
     weak var delegate: SectionTwoSavingsOverviewCellDelegate?
     
     func setup() {
-        savingsSummaryTextView.attributedText = savingsAttributedText(quitData: persistenceManager?.getQuitDataFromUserDefaults())
+        savingsSummaryTextView.attributedText = savingsAttributedText(quitData: persistenceManager?.quitData)
         savingsSummaryTextView.backgroundColor = .clear
         savingsSummaryTextView.isEditable = false
         savingsSummaryTextView.isSelectable = false
@@ -37,7 +37,7 @@ class SectionTwoSavingsOverviewCell: UICollectionViewCell {
         if let dailyCost = stringFromCurrencyFormatter(data: costPerDay),
             let annualCost = stringFromCurrencyFormatter(data: costPerYear),
             let soFar = stringFromCurrencyFormatter(data: savedSoFar) {
-            if quitDateIsInPast(quitData: persistenceManager?.getQuitDataFromUserDefaults()) {
+            if quitDateIsInPast(quitData: persistenceManager?.quitData) {
                 text = NSAttributedString(
                     string: "\(dailyCost) saved daily, \(annualCost) saved yearly. \(soFar) saved so far.",
                     attributes: Constants.savingsInfoAttributes)

@@ -17,7 +17,7 @@ class QuitInfoVC: UIViewController {
     var persistenceManager: PersistenceManager?
     private let viewModel = QuitInfoVCViewModel()
     private var quitData: QuitData? {
-        return persistenceManager?.getQuitDataFromUserDefaults()
+        return persistenceManager?.quitData
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

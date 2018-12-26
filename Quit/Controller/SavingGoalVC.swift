@@ -15,7 +15,7 @@ class SavingGoalVC: UIViewController {
     @IBOutlet private weak var deleteButton: UIButton!
     
     var savingGoal: SavingGoal?
-    var persistenceManager: PersistenceManagerProtocol?
+    var persistenceManager: PersistenceManager?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

@@ -26,7 +26,7 @@ class SectionFourHealthCell: UICollectionViewCell {
     }
     
     func setupCell(data: String) {
-        guard let quitData = persistenceManager?.getQuitDataFromUserDefaults(),
+        guard let quitData = persistenceManager?.quitData,
             let minuteSmokeFree = quitData.minuteSmokeFree else {
             return
         }

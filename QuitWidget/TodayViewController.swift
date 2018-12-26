@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        if let quitData = getQuitDataFromUserDefaults() {
+        if let quitData = persistenceManager.quitData {
             let savedSoFar = stringFromCurrencyFormatter(data: NSNumber(value: quitData.savedSoFar ?? 0))
             let savedSoFarString = savedSoFar ?? ""
             currentlySavedLabel.text = "You've saved " + savedSoFarString
@@ -31,13 +31,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         } else {
             completionHandler(NCUpdateResult.noData)
         }
-    }
-    
-    private func getQuitDataFromUserDefaults() -> QuitData? {
-        if let returnedData = userDefaults?.object(forKey: "quitData") as? [String: Any] {
-            return QuitData(quitData: returnedData)
-        }
-        return nil
     }
     
     private func stringFromCurrencyFormatter(data: NSNumber) -> String? {

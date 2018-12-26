@@ -14,7 +14,7 @@ class AddCravingVCViewModel {
     var persistenceManager: PersistenceManager?
     
     func appStoreReview() {
-        guard let quitData = persistenceManager?.getQuitDataFromUserDefaults() else {
+        guard let quitData = persistenceManager?.quitData else {
             return
         }
         if quitDataLongerThan4DaysAgo(quitData: quitData) {
@@ -25,7 +25,7 @@ class AddCravingVCViewModel {
     }
     
     func quitDateIsInPast() -> Bool {
-        guard let quitDate = persistenceManager?.getQuitDataFromUserDefaults()?.quitDate else {
+        guard let quitDate = persistenceManager?.quitData?.quitDate else {
             return false
         }
         return quitDate < Date()
@@ -40,7 +40,7 @@ class AddCravingVCViewModel {
     }
     
     func setUserDefaultsQuitDateToCurrent() {
-        guard let quitData = persistenceManager?.getQuitDataFromUserDefaults() else {
+        guard let quitData = persistenceManager?.quitData else {
             return
         }
         let actualQuitData: [String: Any] = ["smokedDaily": quitData.smokedDaily as Any,

@@ -14,12 +14,10 @@ class HomeVCViewModel {
     
     func sizeForCellOf(type: Int) -> CGFloat {
         switch type {
-        case 0, 1, 2:
-            return UIScreen.main.bounds.height / 2.2
         case 3:
             return UIScreen.main.bounds.height / 2
         default:
-            return UIScreen.main.bounds.height
+            return UIScreen.main.bounds.height / 2.2
         }
     }
     
@@ -33,6 +31,8 @@ class HomeVCViewModel {
             return "Your cravings"
         case 3:
             return "Your health"
+        case 4:
+            return "Self help"
         default:
             return ""
         }

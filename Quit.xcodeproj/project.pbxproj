@@ -18,6 +18,8 @@
 		1714FC9E219E359A00CFB203 /* AddCravingVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9D219E359A00CFB203 /* AddCravingVCViewModel.swift */; };
 		1714FCA021ADD63200CFB203 /* WidgetOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */; };
 		171EAFEB21D3E87B0088C90C /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
+		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
+		171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsVC.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
@@ -153,6 +155,8 @@
 		1714FC9B219E306000CFB203 /* AddCravingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingVC.swift; sourceTree = "<group>"; };
 		1714FC9D219E359A00CFB203 /* AddCravingVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingVCViewModel.swift; sourceTree = "<group>"; };
 		1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetOnboardingVC.swift; sourceTree = "<group>"; };
+		171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveCarouselCell.swift; sourceTree = "<group>"; };
+		171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveCarouselCell.xib; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsVC.swift; sourceTree = "<group>"; };
 		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
@@ -291,6 +295,15 @@
 			path = healthStateNotification;
 			sourceTree = "<group>";
 		};
+		171EAFEC21D409230088C90C /* Section Five */ = {
+			isa = PBXGroup;
+			children = (
+				171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */,
+				171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */,
+			);
+			path = "Section Five";
+			sourceTree = "<group>";
+		};
 		1752F0B621C8365C0056642F /* AchievementVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +421,7 @@
 				179FDFC821640494003131C5 /* Section One */,
 				179FDFD92166C3A4003131C5 /* Section Two */,
 				179FDFE82169332C003131C5 /* Section Three */,
+				171EAFEC21D409230088C90C /* Section Five */,
 				17BA708D217513FE00ACA5F6 /* Section Four */,
 			);
 			path = Cells;
@@ -720,6 +734,7 @@
 			files = (
 				179FDFF6216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib in Resources */,
 				179FDFE721681AFE003131C5 /* SectionTwoSavingsGoalCell.xib in Resources */,
+				171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */,
 				179FDFC52164045A003131C5 /* SectionOneCarouselCell.xib in Resources */,
 				179FDFE12168118C003131C5 /* SectionTwoSavingsOverviewCell.xib in Resources */,
 				17BA70912175143A00ACA5F6 /* SectionFourCarouselCell.xib in Resources */,
@@ -901,6 +916,7 @@
 				175D41F121D3E25700FB7588 /* ApplicationExtensions.swift in Sources */,
 				179FDFE621681AFE003131C5 /* SectionTwoSavingsGoalCell.swift in Sources */,
 				175D41F721D3E36600FB7588 /* ChartFormatter.swift in Sources */,
+				171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */,
 				17BA70902175143A00ACA5F6 /* SectionFourCarouselCell.swift in Sources */,
 				17F022002031EA83005EF65C /* SettingsVC.swift in Sources */,
 			);

@@ -40,6 +40,7 @@ struct Constants {
         static let sectionTwoCarouselCell = "SectionTwoCarouselCell"
         static let sectionThreeCarouselCell = "SectionThreeCarouselCell"
         static let sectionFourCarouselCell = "SectionFourCarouselCell"
+        static let sectionFiveCarouselCell = "SectionFiveCarouselCell"
         static let achievementCell = "achievementCell"
     }
     

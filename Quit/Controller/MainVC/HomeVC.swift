@@ -53,6 +53,9 @@ class HomeVC: UIViewController {
         tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell,
                                  bundle: nil),
                            forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
     }
     
     func segueToQuitDataVC() {
@@ -85,7 +88,7 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,16 +109,24 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             }
             cell.delegate = self
             cell.persistenceManager = viewModel.persistenceManager
+            return cell
         } else if indexPath.section == 2 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
                 return UITableViewCell()
             }
             cell.persistenceManager = viewModel.persistenceManager
+            return cell
         } else if indexPath.section == 3 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
                 return UITableViewCell()
             }
             cell.persistenceManager = viewModel.persistenceManager
+            return cell
+        } else if indexPath.section == 4 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {
+                return UITableViewCell()
+            }
+            return cell
         }
         return UITableViewCell()
     }

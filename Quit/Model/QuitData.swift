@@ -22,33 +22,12 @@ struct QuitData {
         self.vapeSpending = vapeSpending
     }
     
-    var costPerCigarette: Double? {
-        guard let costOf20 = costOf20 else {
-            return nil
-        }
-        return Double(costOf20) / 20.0
-    }
-    
     var costPerDay: Double? {
         guard let costPerCigarette = costPerCigarette,
             let smokedDaily = smokedDaily else {
                 return nil
         }
         return costPerCigarette * Double(smokedDaily)
-    }
-    
-    var costPerMinute: Double? {
-        guard let costPerDay = costPerDay else {
-            return nil
-        }
-        return costPerDay / 1440
-    }
-    
-    var costPerWeek: Double? {
-        guard let costPerDay = costPerDay else {
-            return nil
-        }
-        return costPerDay * 7
     }
     
     var costPerYear: Double? {
@@ -64,13 +43,6 @@ struct QuitData {
         }
         let secondsSmokeFree = Date().timeIntervalSince(quitDate)
         return secondsSmokeFree / 60
-    }
-    
-    var secondsSmokeFree: Double? {
-        guard let quitDate = quitDate else {
-            return nil
-        }
-        return Date().timeIntervalSince(quitDate)
     }
     
     var savedSoFar: Double? {
@@ -96,5 +68,28 @@ struct QuitData {
         }
         let smokedPerMinute = Double(smokedPerDay / 1440)
         return smokedPerMinute * minutesSmokeFree
+    }
+}
+
+private extension QuitData {
+    var costPerCigarette: Double? {
+        guard let costOf20 = costOf20 else {
+            return nil
+        }
+        return Double(costOf20) / 20.0
+    }
+    
+    var costPerMinute: Double? {
+        guard let costPerDay = costPerDay else {
+            return nil
+        }
+        return costPerDay / 1440
+    }
+    
+    var costPerWeek: Double? {
+        guard let costPerDay = costPerDay else {
+            return nil
+        }
+        return costPerDay * 7
     }
 }

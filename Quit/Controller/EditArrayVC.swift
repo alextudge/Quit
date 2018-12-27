@@ -18,6 +18,7 @@ class EditArrayVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        editArrayTextView.delegate = self
         setupUI()
     }
     
@@ -45,5 +46,15 @@ private extension EditArrayVC {
     
     func arrayToTextBlock(array: [String]) -> String {
         return array.joined(separator: ", ")
+    }
+}
+
+extension EditArrayVC: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }

@@ -23,6 +23,7 @@ class EditArrayVC: UIViewController {
     }
     
     @IBAction func didTapSaveButton(_ sender: Any) {
+        saveNewEntries(entries: textToArray(text: editArrayTextView.text))
         dismiss(animated: true, completion: nil)
     }
 }
@@ -38,14 +39,33 @@ private extension EditArrayVC {
             editArrayTextView.text = arrayToTextBlock(array: persistenceManager?.additionalUserData?.reasonsNotToSmoke ?? [])
         }
         editArrayTextView.becomeFirstResponder()
+        titleLabel.text = appropriateTitleText()
+    }
+    
+    func appropriateTitleText() -> String {
+        if isReasonsToSmoke {
+            return "List the reasons you smoke here. Most people struggle to thing of many..."
+        } else {
+            return "List the reasons you want to quit here"
+        }
     }
     
     func textToArray(text: String) -> [String] {
-        return text.components(separatedBy: [","])
+        return text.components(separatedBy: [","]).map {
+            $0.trimmingCharacters(in: .whitespaces)
+        }
     }
     
     func arrayToTextBlock(array: [String]) -> String {
         return array.joined(separator: ", ")
+    }
+    
+    func saveNewEntries(entries: [String]) {
+        let reasonsToSmoke: [String]? = isReasonsToSmoke ? (entries ?? []) : (persistenceManager?.additionalUserData?.reasonsToSmoke ?? [])
+        let reasonsNotToSmoke: [String]? = isReasonsToSmoke ? (persistenceManager?.additionalUserData?.reasonsNotToSmoke ?? []) : (entries ?? [])
+        let newData = [Constants.AdditionalUserDataConstants.reasonsNotToSmoke: reasonsNotToSmoke,
+                       Constants.AdditionalUserDataConstants.reasonsToSmoke: reasonsToSmoke]
+        persistenceManager?.setAdditionalParametersInUserDefaults(object: newData as [String: Any])
     }
 }
 

@@ -100,6 +100,8 @@ class PersistenceManager: NSObject {
     
     func setAdditionalParametersInUserDefaults(object: [String: Any]) {
         userDefaults?.set(object, forKey: Constants.UserDefaults.additionalUserData)
+        NotificationCenter.default.post(name: Constants.InternalNotifs.additionalDataUpdated,
+                                        object: nil)
     }
 }
 

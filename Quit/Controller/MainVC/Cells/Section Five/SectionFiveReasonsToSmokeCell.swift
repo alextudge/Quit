@@ -14,6 +14,7 @@ protocol SectionFiveReasonsToSmokeCellDelegate: class {
 
 class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var roundedView: RoundedView!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -37,9 +38,17 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         gradientLayer?.cornerRadius = roundedView.layer.cornerRadius
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        scrollView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+    }
+    
     func setup(data: AdditionalUserData?) {
         let color = Styles.Colours.orangeGradient
         gradientLayer = roundedView.gradient(colors: isReasonsToSmoke ? color : color.reversed())
+        titleLabel.text = isReasonsToSmoke ? "Reasons to smoke" : "Reasons to quit"
         guard let data = data else {
             scrollView.addSubview(generateLabel(text: "Waiting for data"))
             return
@@ -48,6 +57,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         array?.enumerated().forEach {
             scrollView.addSubview(generateLabel(text: $0.element, arrayPosition: $0.offset))
         }
+        scrollView.contentSize = CGSize(width: Int(UIScreen.main.bounds.width - 40), height: (array?.count ?? 0) * 40)
     }
     
     @IBAction func didTapEditButton(_ sender: Any) {
@@ -62,6 +72,7 @@ private extension SectionFiveReasonsToSmokeCell {
                                           width: Int(UIScreen.main.bounds.width) - 40,
                                           height: 30))
         label.text = text
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textColor = .white
         return label
     }

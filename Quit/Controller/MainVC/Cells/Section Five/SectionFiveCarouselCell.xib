@@ -19,20 +19,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="369" height="220.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="x51-5X-SAR">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="x51-5X-SAR">
                         <rect key="frame" x="0.0" y="0.0" width="369" height="220.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uD6-bD-a7h">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="uD6-bD-a7h">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="wi5-K7-y3f">
+                        <rect key="frame" x="173" y="163" width="23" height="37"/>
+                        <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="0.25444135273972601" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </pageControl>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="wi5-K7-y3f" secondAttribute="bottom" constant="10" id="46W-lj-8DS"/>
                     <constraint firstItem="x51-5X-SAR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Hdt-JN-Ccx"/>
                     <constraint firstAttribute="bottom" secondItem="x51-5X-SAR" secondAttribute="bottom" id="TXf-7w-02n"/>
+                    <constraint firstItem="wi5-K7-y3f" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="XWA-bv-tGr"/>
                     <constraint firstAttribute="trailing" secondItem="x51-5X-SAR" secondAttribute="trailing" id="rGg-RI-Nrt"/>
                     <constraint firstItem="x51-5X-SAR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tyW-JU-wLg"/>
                 </constraints>
@@ -40,6 +47,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionView" destination="x51-5X-SAR" id="Ohj-U0-HLR"/>
+                <outlet property="pageController" destination="wi5-K7-y3f" id="JeF-tl-bpk"/>
             </connections>
             <point key="canvasLocation" x="172" y="207.34632683658174"/>
         </tableViewCell>

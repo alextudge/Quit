@@ -56,6 +56,7 @@ struct Constants {
         static let cravingsChanged = NSNotification.Name("cravingsChanged")
         static let savingsChanged = NSNotification.Name("savingsChanged")
         static let quitDateChanged = NSNotification.Name("quitDateChanged")
+        static let additionalDataUpdated = NSNotification.Name("additionalDataUpdated")
     }
     
     struct ExternalNotifCategories {

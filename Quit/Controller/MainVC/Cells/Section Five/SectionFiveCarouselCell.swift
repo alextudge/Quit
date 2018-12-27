@@ -15,6 +15,7 @@ protocol SectionFiveCarouselCellDelegate: class {
 class SectionFiveCarouselCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageController: UIPageControl!
     
     var persistenceManager: PersistenceManager?
     
@@ -23,6 +24,14 @@ class SectionFiveCarouselCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadData(notification:)),
+                                               name: Constants.InternalNotifs.additionalDataUpdated,
+                                               object: nil)
+    }
+    
+    @objc private func reloadData(notification: NSNotification) {
+        collectionView.reloadData()
     }
     
     private func setupCollectionView() {
@@ -57,6 +66,10 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageController.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
 }
 

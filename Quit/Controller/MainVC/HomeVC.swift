@@ -197,7 +197,9 @@ extension HomeVC: SectionTwoCarouselCellDelegate {
 
 extension HomeVC: SectionFiveCarouselCellDelegate {
     func didTapEditButton(isReasonsToSmoke: Bool) {
-        
+        if let viewController = ViewControllerFactory.viewController(for: .editArrayVC) as? EditArrayVC {
+            present(viewController, animated: true, completion: nil)
+        }
     }
 }
 

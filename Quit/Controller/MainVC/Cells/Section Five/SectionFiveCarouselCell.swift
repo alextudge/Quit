@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol SectionFiveCarouselCellDelegate: class {
+    func didTapEditButton(isReasonsToSmoke: Bool)
+}
+
 class SectionFiveCarouselCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var persistenceManager: PersistenceManager?
+    
+    weak var delegate: SectionFiveCarouselCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,15 +46,22 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell, for: indexPath) as? SectionFiveReasonsToSmokeCell else {
-                return UICollectionViewCell()
-            }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell, for: indexPath) as? SectionFiveReasonsToSmokeCell else {
+            return UICollectionViewCell()
+        }
+        cell.delegate = self
         cell.isReasonsToSmoke = indexPath.row == 0
         cell.setup(data: persistenceManager?.additionalUserData)
-            return cell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
+    }
+}
+
+extension SectionFiveCarouselCell: SectionFiveReasonsToSmokeCellDelegate {
+    func didTapEditButton(isReasonsToSmoke: Bool) {
+        delegate?.didTapEditButton(isReasonsToSmoke: isReasonsToSmoke)
     }
 }

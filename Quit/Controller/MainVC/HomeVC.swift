@@ -126,6 +126,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {
                 return UITableViewCell()
             }
+            cell.delegate = self
             cell.persistenceManager = viewModel.persistenceManager
             return cell
         }
@@ -191,6 +192,12 @@ extension HomeVC: SectionTwoCarouselCellDelegate {
                 viewController.savingGoal = sender
             }
         }
+    }
+}
+
+extension HomeVC: SectionFiveCarouselCellDelegate {
+    func didTapEditButton(isReasonsToSmoke: Bool) {
+        
     }
 }
 

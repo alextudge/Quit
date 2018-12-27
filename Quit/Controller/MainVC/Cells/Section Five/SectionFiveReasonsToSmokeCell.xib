@@ -25,12 +25,24 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AqC-KO-S7a">
                                 <rect key="frame" x="0.0" y="0.0" width="246" height="137"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0R-ej-EkA">
+                                <rect key="frame" x="192" y="10" width="44" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapEditButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nZV-ZC-7aL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AqC-KO-S7a" secondAttribute="trailing" id="3HG-Fr-juz"/>
                             <constraint firstItem="AqC-KO-S7a" firstAttribute="top" secondItem="g3e-2F-s6L" secondAttribute="top" id="57a-Ns-1qO"/>
+                            <constraint firstAttribute="trailing" secondItem="W0R-ej-EkA" secondAttribute="trailing" constant="10" id="FsY-46-mdO"/>
                             <constraint firstAttribute="bottom" secondItem="AqC-KO-S7a" secondAttribute="bottom" id="GKp-Lv-9qh"/>
                             <constraint firstItem="AqC-KO-S7a" firstAttribute="leading" secondItem="g3e-2F-s6L" secondAttribute="leading" id="Tqv-PZ-G0a"/>
+                            <constraint firstItem="W0R-ej-EkA" firstAttribute="top" secondItem="g3e-2F-s6L" secondAttribute="top" constant="10" id="XKc-L2-XEw"/>
                         </constraints>
                     </view>
                 </subviews>

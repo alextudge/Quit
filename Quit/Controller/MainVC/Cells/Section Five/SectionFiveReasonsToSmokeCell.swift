@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SectionFiveReasonsToSmokeCellDelegate: class {
+    func didTapEditButton(isReasonsToSmoke: Bool)
+}
+
 class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
 
     @IBOutlet weak var roundedView: RoundedView!
@@ -15,6 +19,8 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
     
     var isReasonsToSmoke = false
     private var gradientLayer: CAGradientLayer?
+    
+    weak var delegate: SectionFiveReasonsToSmokeCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +38,8 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
     }
     
     func setup(data: AdditionalUserData?) {
-        gradientLayer = roundedView.gradient(colors: isReasonsToSmoke ? Styles.Colours.orangeGradient : Styles.Colours.orangeGradient.reversed())
+        let color = Styles.Colours.orangeGradient
+        gradientLayer = roundedView.gradient(colors: isReasonsToSmoke ? color : color.reversed())
         guard let data = data else {
             scrollView.addSubview(generateLabel(text: "Waiting for data"))
             return
@@ -41,6 +48,10 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         array?.enumerated().forEach {
             scrollView.addSubview(generateLabel(text: $0.element, arrayPosition: $0.offset))
         }
+    }
+    
+    @IBAction func didTapEditButton(_ sender: Any) {
+        delegate?.didTapEditButton(isReasonsToSmoke: isReasonsToSmoke)
     }
 }
 

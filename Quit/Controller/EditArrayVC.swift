@@ -10,21 +10,23 @@ import UIKit
 
 class EditArrayVC: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var editArrayTextView: UITextView!
+    
+    var persistenceManager: PersistenceManager?
+    var isReasonsToSmoke = false
+    
+    @IBAction func didTapSaveButton(_ sender: Any) {
+        
+    }
+}
 
-        // Do any additional setup after loading the view.
+private extension EditArrayVC {
+    func textToArray(text: String) -> [String] {
+        return text.components(separatedBy: [","])
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func arrayToTextBlock(array: [String]) -> String {
+        return array.joined(separator: ", ")
     }
-    */
-
 }

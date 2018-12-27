@@ -126,6 +126,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {
                 return UITableViewCell()
             }
+            cell.persistenceManager = viewModel.persistenceManager
             return cell
         }
         return UITableViewCell()

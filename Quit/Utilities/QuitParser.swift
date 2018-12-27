@@ -22,7 +22,7 @@ class QuitParser {
     
     func parseAdditionalUserData(data: [String: Any]) -> AdditionalUserData {
         let reasonsToSmoke = data[Constants.AdditionalUserDataConstants.reasonsToSmoke] as? [String]
-        var reasonsNotToSmoke = data[Constants.AdditionalUserDataConstants.reasonsNotToSmoke] as? [String]
+        let reasonsNotToSmoke = data[Constants.AdditionalUserDataConstants.reasonsNotToSmoke] as? [String]
         return AdditionalUserData(reasonsToSmoke: reasonsToSmoke,
                                   reasonsNotToSmoke: reasonsNotToSmoke)
     }

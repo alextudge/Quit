@@ -46,8 +46,6 @@
 		1791FDDA21D410DF00EDF452 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */; };
 		1791FDDE21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */; };
-		1791FDE121D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791FDDF21D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.swift */; };
-		1791FDE221D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1791FDE021D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.xib */; };
 		179FDFC52164045A003131C5 /* SectionOneCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFC42164045A003131C5 /* SectionOneCarouselCell.xib */; };
 		179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */; };
 		179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */; };
@@ -190,8 +188,6 @@
 		1788CBCB2039B3E000064A86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveReasonsToSmokeCell.swift; sourceTree = "<group>"; };
 		1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveReasonsToSmokeCell.xib; sourceTree = "<group>"; };
-		1791FDDF21D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveReasonsNotToSmokeCell.swift; sourceTree = "<group>"; };
-		1791FDE021D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveReasonsNotToSmokeCell.xib; sourceTree = "<group>"; };
 		179FDFC42164045A003131C5 /* SectionOneCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCarouselCell.xib; sourceTree = "<group>"; };
 		179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCarouselCell.swift; sourceTree = "<group>"; };
 		179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCravingDataCell.swift; sourceTree = "<group>"; };
@@ -313,8 +309,6 @@
 				171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */,
 				1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */,
 				1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */,
-				1791FDDF21D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.swift */,
-				1791FDE021D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.xib */,
 			);
 			path = "Section Five";
 			sourceTree = "<group>";
@@ -759,7 +753,6 @@
 				179FDFD2216419CC003131C5 /* SectionOneVapingDataCell.xib in Resources */,
 				17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */,
 				1791FDDE21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib in Resources */,
-				1791FDE221D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.xib in Resources */,
 				179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */,
 				179FDFEC216933A3003131C5 /* SectionThreeCarouselCell.xib in Resources */,
 				177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */,
@@ -919,7 +912,6 @@
 				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
 				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,
 				17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */,
-				1791FDE121D4138900EDF452 /* SectionFiveReasonsNotToSmokeCell.swift in Sources */,
 				179FDFD1216419CC003131C5 /* SectionOneVapingDataCell.swift in Sources */,
 				179FDFEF216935D1003131C5 /* SectionThreeCravingsChartCell.swift in Sources */,
 				1788CBCC2039B3E000064A86 /* Constants.swift in Sources */,

@@ -116,6 +116,8 @@ struct Styles {
                                    UIColor(red: 0.00, green: 0.75, blue: 1.00, alpha: 1.0).cgColor]
         static let grayGradient = [UIColor(red: 0.40, green: 0.80, blue: 0.00, alpha: 1.0).cgColor,
                                    UIColor(red: 0.71, green: 0.93, blue: 0.32, alpha: 1.0).cgColor]
+        static let orangeGradient = [UIColor(red: 1.00, green: 0.65, blue: 0.00, alpha: 1.0).cgColor,
+                                     UIColor(red: 1.00, green: 0.79, blue: 0.40, alpha: 1.0).cgColor]
     }
     
     static let savingsInfoAttributes =

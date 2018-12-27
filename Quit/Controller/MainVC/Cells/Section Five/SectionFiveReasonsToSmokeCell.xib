@@ -21,6 +21,17 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3e-2F-s6L" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
                         <rect key="frame" x="5" y="5" width="246" height="137"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AqC-KO-S7a">
+                                <rect key="frame" x="0.0" y="0.0" width="246" height="137"/>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AqC-KO-S7a" secondAttribute="trailing" id="3HG-Fr-juz"/>
+                            <constraint firstItem="AqC-KO-S7a" firstAttribute="top" secondItem="g3e-2F-s6L" secondAttribute="top" id="57a-Ns-1qO"/>
+                            <constraint firstAttribute="bottom" secondItem="AqC-KO-S7a" secondAttribute="bottom" id="GKp-Lv-9qh"/>
+                            <constraint firstItem="AqC-KO-S7a" firstAttribute="leading" secondItem="g3e-2F-s6L" secondAttribute="leading" id="Tqv-PZ-G0a"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -34,6 +45,7 @@
             <size key="customSize" width="256" height="147"/>
             <connections>
                 <outlet property="roundedView" destination="g3e-2F-s6L" id="gvr-tz-sFI"/>
+                <outlet property="scrollView" destination="AqC-KO-S7a" id="GR6-Da-r6Z"/>
             </connections>
             <point key="canvasLocation" x="217.59999999999999" y="99.400299850074973"/>
         </collectionViewCell>

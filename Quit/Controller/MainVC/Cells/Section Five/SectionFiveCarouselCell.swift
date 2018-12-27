@@ -40,18 +40,12 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell, for: indexPath) as? SectionFiveReasonsToSmokeCell else {
                 return UICollectionViewCell()
             }
+        cell.isReasonsToSmoke = indexPath.row == 0
+        cell.setup(data: persistenceManager?.additionalUserData)
             return cell
-        } else if indexPath.row == 1 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveReasonsNotToSmokeCell, for: indexPath) as? SectionFiveReasonsNotToSmokeCell else {
-                return UICollectionViewCell()
-            }
-            return cell
-        }
-        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

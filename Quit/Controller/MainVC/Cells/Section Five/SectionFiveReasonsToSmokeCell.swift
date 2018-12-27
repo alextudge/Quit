@@ -72,6 +72,8 @@ private extension SectionFiveReasonsToSmokeCell {
                                           width: Int(UIScreen.main.bounds.width) - 40,
                                           height: 30))
         label.text = text
+        label.numberOfLines = 0
+        label.sizeToFit()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textColor = .white
         return label

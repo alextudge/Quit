@@ -16,10 +16,10 @@ struct Achievement {
 
 class AchievementsViewModel {
     
-    var persistenceManager = PersistenceManager()
+    var persistenceManager: PersistenceManager?
     
     func processAchievements() -> [Achievement] {
-        guard let quitData = persistenceManager.quitData else {
+        guard let quitData = persistenceManager?.quitData else {
             return []
         }
         var achievements = [Achievement]()

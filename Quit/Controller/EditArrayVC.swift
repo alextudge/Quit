@@ -33,6 +33,7 @@ private extension EditArrayVC {
         editArrayTextView.layer.cornerRadius = 10
         editArrayTextView.layer.borderWidth = 2
         editArrayTextView.layer.borderColor = UIColor.white.cgColor
+        editArrayTextView.textColor = .white
         if isReasonsToSmoke {
             editArrayTextView.text = arrayToTextBlock(array: persistenceManager?.additionalUserData?.reasonsToSmoke ?? [])
         } else {
@@ -61,8 +62,8 @@ private extension EditArrayVC {
     }
     
     func saveNewEntries(entries: [String]) {
-        let reasonsToSmoke: [String]? = isReasonsToSmoke ? (entries ?? []) : (persistenceManager?.additionalUserData?.reasonsToSmoke ?? [])
-        let reasonsNotToSmoke: [String]? = isReasonsToSmoke ? (persistenceManager?.additionalUserData?.reasonsNotToSmoke ?? []) : (entries ?? [])
+        let reasonsToSmoke: [String]? = isReasonsToSmoke ? entries : (persistenceManager?.additionalUserData?.reasonsToSmoke ?? [])
+        let reasonsNotToSmoke: [String]? = isReasonsToSmoke ? (persistenceManager?.additionalUserData?.reasonsNotToSmoke ?? []) : entries
         let newData = [Constants.AdditionalUserDataConstants.reasonsNotToSmoke: reasonsNotToSmoke,
                        Constants.AdditionalUserDataConstants.reasonsToSmoke: reasonsToSmoke]
         persistenceManager?.setAdditionalParametersInUserDefaults(object: newData as [String: Any])

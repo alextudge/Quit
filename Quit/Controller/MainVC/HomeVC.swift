@@ -149,6 +149,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
 extension HomeVC: SectionOneCarouselCellDelegate {
     func didPressSegueToAchievements() {
         if let viewController = ViewControllerFactory.viewController(for: .achievementsVc) as? AchievementsVC {
+            viewController.viewModel.persistenceManager = viewModel.persistenceManager
             present(viewController, animated: true, completion: nil)
         }
     }

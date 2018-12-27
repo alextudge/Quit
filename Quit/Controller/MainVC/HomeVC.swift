@@ -83,6 +83,7 @@ class HomeVC: UIViewController {
             let viewController = ViewControllerFactory.viewController(for: .widgetOnboardingVc) as? WidgetOnboardingVC {
             present(viewController, animated: true, completion: nil)
         }
+        //TODO: Show the onboarding for reasons if quitday > 1 and it hasnt already been seen
     }
 }
 
@@ -204,6 +205,12 @@ extension HomeVC: SectionFiveCarouselCellDelegate {
             viewController.persistenceManager = viewModel.persistenceManager
             present(viewController, animated: true, completion: nil)
         }
+    }
+}
+
+extension HomeVC: ReasonsOnboardingVCDelegate {
+    func didTapLetsGoButton() {
+        didTapEditButton(isReasonsToSmoke: true)
     }
 }
 

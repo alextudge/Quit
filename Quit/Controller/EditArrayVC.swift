@@ -53,7 +53,7 @@ private extension EditArrayVC {
     
     func textToArray(text: String) -> [String] {
         return text.components(separatedBy: [","]).map {
-            $0.trimmingCharacters(in: .whitespaces)
+            $0.trimmingCharacters(in: .whitespaces).capitalized
         }
     }
     

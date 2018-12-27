@@ -76,6 +76,7 @@
 		17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA70962175199500ACA5F6 /* WaveAnimationView.swift */; };
 		17C6B5EB2035DFF100AAE086 /* MainVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */; };
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
+		17F1B61B21D576F50021722D /* ReasonsOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */; };
 		17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */; };
 		17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
 		17F8FF83219A08E70095CD6E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F8FF82219A08E70095CD6E /* NotificationCenter.framework */; };
@@ -221,6 +222,7 @@
 		17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUITests.swift; sourceTree = "<group>"; };
 		17C6B5EC2035DFF100AAE086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F021FF2031EA83005EF65C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsOnboardingVC.swift; sourceTree = "<group>"; };
 		17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVCViewModel.swift; sourceTree = "<group>"; };
 		17F4E6F420C14AC600B9A21B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		17F8FF81219A08E70095CD6E /* QuitWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuitWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,6 +403,7 @@
 				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
 				1714FC9B219E306000CFB203 /* AddCravingVC.swift */,
 				1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */,
+				17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */,
 				1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */,
 			);
 			path = Controller;
@@ -898,6 +901,7 @@
 				179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */,
 				1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */,
 				175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */,
+				17F1B61B21D576F50021722D /* ReasonsOnboardingVC.swift in Sources */,
 				175D41F321D3E28600FB7588 /* ViewExtensions.swift in Sources */,
 				1752F0B521C042FE0056642F /* AchievementsViewModel.swift in Sources */,
 				1714FC9C219E306000CFB203 /* AddCravingVC.swift in Sources */,

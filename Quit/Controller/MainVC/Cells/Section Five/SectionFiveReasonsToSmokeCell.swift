@@ -17,6 +17,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var roundedView: RoundedView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackView: UIStackView!
     
     var isReasonsToSmoke = false
     private var gradientLayer: CAGradientLayer?
@@ -55,9 +56,10 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         }
         let array = isReasonsToSmoke ? data.reasonsToSmoke : data.reasonsNotToSmoke
         array?.enumerated().forEach {
-            scrollView.addSubview(generateLabel(text: $0.element, arrayPosition: $0.offset))
+            stackView.addArrangedSubview(generateLabel(text: $0.element))
         }
-        scrollView.contentSize = CGSize(width: Int(UIScreen.main.bounds.width - 40), height: (array?.count ?? 0) * 40)
+        stackView.spacing = 10
+        scrollView.contentSize = stackView.frame.size
     }
     
     @IBAction func didTapEditButton(_ sender: Any) {
@@ -66,14 +68,13 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
 }
 
 private extension SectionFiveReasonsToSmokeCell {
-    func generateLabel(text: String?, arrayPosition: Int = 0) -> UILabel {
-        let label = UILabel(frame: CGRect(x: 20,
-                                          y: arrayPosition * 30 + 10,
+    func generateLabel(text: String?) -> UILabel {
+        let label = UILabel(frame: CGRect(x: 0,
+                                          y: 20,
                                           width: Int(UIScreen.main.bounds.width) - 40,
                                           height: 30))
         label.text = text
         label.numberOfLines = 0
-        label.sizeToFit()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textColor = .white
         return label

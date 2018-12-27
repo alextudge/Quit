@@ -23,6 +23,7 @@ enum TypeOfViewController: String {
     case smokedVc = "SmokedVC"
     case addCravingVc = "AddCravingVC"
     case widgetOnboardingVc = "WidgetOnboardingVC"
+    case reasonsOnboardingVC = "ReasonsOnboardingVC"
     case editArrayVC = "EditArrayVC"
 }
 

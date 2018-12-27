@@ -9,7 +9,6 @@
 import UIKit
 
 class WidgetOnboardingVC: UIViewController {
-    
     @IBAction func didTapCloseButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

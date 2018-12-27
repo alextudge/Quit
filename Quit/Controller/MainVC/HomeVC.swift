@@ -191,6 +191,7 @@ extension HomeVC: SectionTwoCarouselCellDelegate {
             if let sender = sender {
                 viewController.savingGoal = sender
             }
+            present(viewController, animated: true, completion: nil)
         }
     }
 }

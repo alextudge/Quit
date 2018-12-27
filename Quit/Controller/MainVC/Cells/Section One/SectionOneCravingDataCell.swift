@@ -23,6 +23,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     @IBOutlet weak var quitDateLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var addCravingButton: RoundedButton!
+    @IBOutlet weak var achievementsButton: UIButton!
     
     var viewModel = SectionOneCravingDataCellViewModel()
     private var gradientLayer: CAGradientLayer?

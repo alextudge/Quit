@@ -60,9 +60,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjR-81-bD8">
-                                <rect key="frame" x="282" y="10" width="97" height="30"/>
-                                <state key="normal" title="Achievements">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjR-81-bD8">
+                                <rect key="frame" x="329" y="10" width="50" height="50"/>
+                                <state key="normal" image="award">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -95,6 +95,7 @@
             <viewLayoutGuide key="safeArea" id="bKf-NW-ezf"/>
             <size key="customSize" width="399" height="231"/>
             <connections>
+                <outlet property="achievementsButton" destination="SjR-81-bD8" id="Bf3-qf-49t"/>
                 <outlet property="addCravingButton" destination="ZBZ-sB-DqH" id="hA4-86-G6m"/>
                 <outlet property="quitDateLabel" destination="acL-Ea-F7b" id="9th-yk-jzM"/>
                 <outlet property="roundedView" destination="Xd4-ei-MaL" id="b6e-AK-NOe"/>
@@ -106,5 +107,6 @@
     <resources>
         <image name="Plus" width="50" height="50"/>
         <image name="Settings" width="50" height="50"/>
+        <image name="award" width="50" height="50"/>
     </resources>
 </document>

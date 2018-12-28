@@ -101,9 +101,9 @@ private extension AchievementsViewModel {
     }
     
     func treesSaved(quitData: QuitData) -> Achievement {
-        let result = Double(quitData.cigarettesAvoided ?? 0 / 300).rounded()
+        let result = Double((quitData.cigarettesAvoided ?? 0).rounded(toPlaces: 2) / 300).rounded(toPlaces: 2)
         return Achievement(title: Achievements.savedATree.rawValue,
                            result: "One tree is used for every 300 cigarettes produced. You've saved \(result) trees",
-                           succeded: result > 1)
+                           succeded: result > 0)
     }
 }

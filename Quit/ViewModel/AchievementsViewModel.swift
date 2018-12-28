@@ -25,9 +25,12 @@ class AchievementsViewModel {
         var achievements = [Achievement]()
         achievements.append(cigarettesAvoided(quitDate: quitData))
         achievements.append(oneDaySmokeFree(quitDate: quitData))
+        achievements.append(tenCigarettesNotSmoked(quitDate: quitData))
         achievements.append(twoDaysSmokeFree(quitDate: quitData))
+        achievements.append(reducedLitter(quitDate: quitData))
         achievements.append(threeDaysSmokeFree(quitDate: quitData))
         achievements.append(oneHundredCigarettesNotSmoked(quitDate: quitData))
+        achievements.append(treesSaved(quitData: quitData))
         return achievements
     }
 }
@@ -38,7 +41,10 @@ private extension AchievementsViewModel {
         oneDaySmokeFree = "One day smoke free",
         twoDaysSmokeFree = "Two days smoke free",
         threedaysSmokeFree = "Three days smoke free",
-        oneHundredCigarettesAvoided = "100 cigarettes not smoked"
+        oneHundredCigarettesAvoided = "100 cigarettes not smoked",
+        tenCigarettesAvoided = "10 cigarettes not smoked",
+        reducedWaste = "Your most basic environmental impact",
+        savedATree = "Trees saved"
     }
     
     func cigarettesAvoided(quitDate: QuitData) -> Achievement {
@@ -54,6 +60,20 @@ private extension AchievementsViewModel {
         return Achievement(title: Achievements.oneDaySmokeFree.rawValue,
                            result: success ? "Smashed it! You're \(daysSmokeFree) days free" : "Almost...",
                         succeded: success)
+    }
+    
+    func tenCigarettesNotSmoked(quitDate: QuitData) -> Achievement {
+        let success = (quitDate.cigarettesAvoided ?? 0) > 10
+        let daysItTakes = 10 / (quitDate.smokedDaily ?? 0)
+        return Achievement(title: Achievements.tenCigarettesAvoided.rawValue,
+                           result: success ? "10 not smoked is an amazing start, and in just \(daysItTakes) days" : "\(Int(quitDate.cigarettesAvoided ?? 0)) so far...",
+            succeded: success)
+    }
+    
+    func reducedLitter(quitDate: QuitData) -> Achievement {
+        let success = (quitDate.cigarettesAvoided ?? 0) > 0
+        // swiftlint:disable:next line_length
+        return Achievement(title: Achievements.reducedWaste.rawValue, result: "98% of each butt is micro plastic, and they contain environmentally toxic substances such as arsenic and lead. You've prevented \(Int(quitDate.cigarettesAvoided ?? 0)) butts from entering the environment", succeded: success)
     }
     
     func twoDaysSmokeFree(quitDate: QuitData) -> Achievement {
@@ -78,5 +98,12 @@ private extension AchievementsViewModel {
         return Achievement(title: Achievements.oneHundredCigarettesAvoided.rawValue,
                            result: success ? "100 not smoked is an insane achievement, and in just \(daysItTakes) days" : "\(Int(quitDate.cigarettesAvoided ?? 0)) so far...",
                            succeded: success)
+    }
+    
+    func treesSaved(quitData: QuitData) -> Achievement {
+        let result = Double(quitData.cigarettesAvoided ?? 0 / 300).rounded()
+        return Achievement(title: Achievements.savedATree.rawValue,
+                           result: "One tree is used for every 300 cigarettes produced. You've saved \(result) trees",
+                           succeded: result > 1)
     }
 }

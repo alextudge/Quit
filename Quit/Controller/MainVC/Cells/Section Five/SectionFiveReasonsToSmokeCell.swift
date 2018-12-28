@@ -39,14 +39,10 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         gradientLayer?.cornerRadius = roundedView.layer.cornerRadius
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        scrollView.subviews.forEach {
+    func setup(data: AdditionalUserData?) {
+        stackView.subviews.forEach {
             $0.removeFromSuperview()
         }
-    }
-    
-    func setup(data: AdditionalUserData?) {
         let color = Styles.Colours.orangeGradient
         gradientLayer = roundedView.gradient(colors: isReasonsToSmoke ? color : color.reversed())
         titleLabel.text = isReasonsToSmoke ? "Reasons to smoke" : "Reasons to quit"
@@ -58,7 +54,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         array?.enumerated().forEach {
             stackView.addArrangedSubview(generateLabel(text: $0.element))
         }
-        stackView.spacing = 10
+        stackView.spacing = 5
         scrollView.contentSize = stackView.frame.size
     }
     

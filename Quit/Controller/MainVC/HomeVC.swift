@@ -36,55 +36,6 @@ class HomeVC: UIViewController {
         }
         showOnboarding()
     }
-    
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.contentInset.top = view.safeAreaInsets.top
-        tableView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
-    }
-    
-    func segueToQuitDataVC() {
-        if let viewController = ViewControllerFactory.viewController(for: .quitInfoVc) as? QuitInfoVC {
-            viewController.persistenceManager = viewModel.persistenceManager
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    private func headerFor(section: Int) -> UIView {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        header.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-        let label = UILabel(frame: CGRect(x: 15, y: 5, width: UIScreen.main.bounds.width - 40, height: 45))
-        label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        label.text = viewModel.titleForHeaderOf(section: section)
-        header.addSubview(label)
-        header.clipsToBounds = true
-        return header
-    }
-    
-    private func showOnboarding() {
-        let appLoadCount = viewModel.persistenceManager.appLoadCounter()
-        if appLoadCount == 1,
-            let viewController = ViewControllerFactory.viewController(for: .widgetOnboardingVc) as? WidgetOnboardingVC {
-            present(viewController, animated: true, completion: nil)
-        }
-        //TODO: Show the onboarding for reasons if quitday > 1 and it hasnt already been seen
-    }
 }
 
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
@@ -149,40 +100,23 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeVC: SectionOneCarouselCellDelegate {
     func didPressSegueToAchievements() {
-        if let viewController = ViewControllerFactory.viewController(for: .achievementsVc) as? AchievementsVC {
-            viewController.viewModel.persistenceManager = viewModel.persistenceManager
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    func segueToSmokedVC() {
-        if let viewController = ViewControllerFactory.viewController(for: .smokedVc) as? SmokedVC {
-            present(viewController, animated: true, completion: nil)
-        }
+        segueToAchievementsVC()
     }
     
     func didPressSegueToSettings() {
-        if let viewController = ViewControllerFactory.viewController(for: .settingsVc) as? SettingsVC {
-            viewController.delegate = self
-            viewController.persistenceManager = viewModel.persistenceManager
-            present(viewController, animated: true, completion: nil)
-        }
+        segueToSettings()
     }
     
     func didPressChangeQuitDate() {
         segueToQuitDataVC()
     }
     
-    func presentAlert(_ alert: UIAlertController) {
-        present(alert, animated: true, completion: nil)
+    func addCraving() {
+        segueToAddCravingsVC()
     }
     
-    func addCraving() {
-        if let viewController = ViewControllerFactory.viewController(for: .addCravingVc) as? AddCravingVC {
-            viewController.viewModel.persistenceManager = viewModel.persistenceManager
-            viewController.delegate = self
-            present(viewController, animated: true, completion: nil)
-        }
+    func presentAlert(_ alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -214,4 +148,109 @@ extension HomeVC: ReasonsOnboardingVCDelegate {
     }
 }
 
-extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {}
+private extension HomeVC {
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInset.top = view.safeAreaInsets.top
+        tableView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
+    }
+    
+    func headerFor(section: Int) -> UIView {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        header.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        let label = UILabel(frame: CGRect(x: 15, y: 5, width: UIScreen.main.bounds.width - 40, height: 45))
+        label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.text = viewModel.titleForHeaderOf(section: section)
+        header.addSubview(label)
+        header.clipsToBounds = true
+        return header
+    }
+    
+    func showOnboarding() {
+        let appLoadCount = viewModel.persistenceManager.appLoadCounter()
+        if appLoadCount == 1 {
+            showWidgetOnboarding()
+        } else if appLoadCount >= 2,
+            shouldShowReasonsOnboarding() {
+            showReasonsOboarding()
+        }
+    }
+    
+    func shouldShowReasonsOnboarding() -> Bool {
+        if !viewModel.persistenceManager.hasSeenReasonsOnboarding(),
+            viewModel.persistenceManager.additionalUserData?.reasonsToSmoke == nil {
+            return true
+        }
+        return false
+    }
+}
+
+// MARK: Navigation
+extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
+    func segueToQuitDataVC() {
+        if let viewController = ViewControllerFactory.viewController(for: .quitInfoVc) as? QuitInfoVC {
+            viewController.persistenceManager = viewModel.persistenceManager
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    func segueToSmokedVC() {
+        if let viewController = ViewControllerFactory.viewController(for: .smokedVc) as? SmokedVC {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func segueToSettings() {
+        if let viewController = ViewControllerFactory.viewController(for: .settingsVc) as? SettingsVC {
+            viewController.delegate = self
+            viewController.persistenceManager = viewModel.persistenceManager
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func segueToAddCravingsVC() {
+        if let viewController = ViewControllerFactory.viewController(for: .addCravingVc) as? AddCravingVC {
+            viewController.viewModel.persistenceManager = viewModel.persistenceManager
+            viewController.delegate = self
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func segueToAchievementsVC() {
+        if let viewController = ViewControllerFactory.viewController(for: .achievementsVc) as? AchievementsVC {
+            viewController.viewModel.persistenceManager = viewModel.persistenceManager
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    //Onboarding
+    private func showWidgetOnboarding() {
+        if let viewController = ViewControllerFactory.viewController(for: .widgetOnboardingVc) as? WidgetOnboardingVC {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func showReasonsOboarding() {
+        if let viewController = ViewControllerFactory.viewController(for: .reasonsOnboardingVC) as? ReasonsOnboardingVC {
+            viewController.delegate = self
+            present(viewController, animated: true, completion: nil)
+            viewModel.persistenceManager.setHasSeenReasonOnboarding()
+        }
+    }
+}

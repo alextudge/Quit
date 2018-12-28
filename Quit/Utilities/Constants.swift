@@ -20,6 +20,7 @@ struct Constants {
         static let quitData = "quitData"
         static let additionalUserData = "additionalUserData"
         static let appLoadCount = "appLoadCount"
+        static let reasonsOnboardingSeen = "reasonsOnboardingSeen"
     }
     
     struct CoreData {

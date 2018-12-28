@@ -52,6 +52,17 @@ class PersistenceManager: NSObject {
         }
     }
     
+    func hasSeenReasonsOnboarding() -> Bool {
+        if userDefaults?.bool(forKey: Constants.UserDefaults.reasonsOnboardingSeen) == false {
+            return false
+        }
+        return true
+    }
+    
+    func setHasSeenReasonOnboarding() {
+        userDefaults?.set(true, forKey: Constants.UserDefaults.reasonsOnboardingSeen)
+    }
+    
     func addCraving(catagory: String, smoked: Bool) {
         let craving = Craving(context: context)
         craving.cravingCatagory = catagory.capitalized

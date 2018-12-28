@@ -29,6 +29,7 @@ class PersistenceManager: NSObject {
     private var context: NSManagedObjectContext!
     private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.appGroupId)
     private let parser = QuitParser()
+    var interstitialAdCounter = 0
     private lazy var persistentContainer: NSPersistentContainer = {
         generatePersistenceContainer()
     }()

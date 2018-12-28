@@ -14,6 +14,7 @@ struct Constants {
         static let appGroupId = "group.com.Alex.Quit"
         static let adAppId = "ca-app-pub-9559625170509646~1544442423"
         static let adBannerId = "ca-app-pub-9559625170509646/6744087773"
+        static let adInterstitialId = "ca-app-pub-9559625170509646/6049646681"
     }
     
     struct UserDefaults {

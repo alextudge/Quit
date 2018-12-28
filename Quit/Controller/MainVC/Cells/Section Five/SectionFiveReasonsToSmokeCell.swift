@@ -47,7 +47,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         gradientLayer = roundedView.gradient(colors: isReasonsToSmoke ? color : color.reversed())
         titleLabel.text = isReasonsToSmoke ? "Reasons to smoke" : "Reasons to quit"
         guard let data = data else {
-            scrollView.addSubview(generateLabel(text: "Waiting for data"))
+            stackView.addArrangedSubview(generateLabel(text: "Waiting for data"))
             return
         }
         let array = isReasonsToSmoke ? data.reasonsToSmoke : data.reasonsNotToSmoke

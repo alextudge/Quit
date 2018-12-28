@@ -45,7 +45,7 @@ private extension EditArrayVC {
     
     func appropriateTitleText() -> String {
         if isReasonsToSmoke {
-            return "List the reasons you smoke here. Most people struggle to thing of many..."
+            return "List the reasons you smoke here. Most people struggle to think of many..."
         } else {
             return "List the reasons you want to quit here"
         }

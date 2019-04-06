@@ -17,6 +17,7 @@
 		1714FC9C219E306000CFB203 /* AddCravingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9B219E306000CFB203 /* AddCravingVC.swift */; };
 		1714FC9E219E359A00CFB203 /* AddCravingVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9D219E359A00CFB203 /* AddCravingVCViewModel.swift */; };
 		1714FCA021ADD63200CFB203 /* WidgetOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */; };
+		17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17156BE222596B42005EEE69 /* QuitBaseViewController.swift */; };
 		171EAFEB21D3E87B0088C90C /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
 		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
 		171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */; };
@@ -162,6 +163,7 @@
 		1714FC9B219E306000CFB203 /* AddCravingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingVC.swift; sourceTree = "<group>"; };
 		1714FC9D219E359A00CFB203 /* AddCravingVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingVCViewModel.swift; sourceTree = "<group>"; };
 		1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetOnboardingVC.swift; sourceTree = "<group>"; };
+		17156BE222596B42005EEE69 /* QuitBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitBaseViewController.swift; sourceTree = "<group>"; };
 		171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveCarouselCell.swift; sourceTree = "<group>"; };
 		171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveCarouselCell.xib; sourceTree = "<group>"; };
 		171EAFF121D40D200088C90C /* AdditionalUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalUserData.swift; sourceTree = "<group>"; };
@@ -308,6 +310,24 @@
 			path = healthStateNotification;
 			sourceTree = "<group>";
 		};
+		17156BE1225966BF005EEE69 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */,
+				177F03E82025220000CC7CA8 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		17156BE422596C72005EEE69 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */,
+				17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		171EAFEC21D409230088C90C /* Section Five */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,16 +390,15 @@
 		177F03E32025220000CC7CA8 /* Quit */ = {
 			isa = PBXGroup;
 			children = (
-				17F8FF94219A0CF10095CD6E /* Quit.entitlements */,
 				177F04222028A70600CC7CA8 /* Utilities */,
+				17156BE1225966BF005EEE69 /* Storyboards */,
+				177F04212028A6F000CC7CA8 /* Controller */,
 				177F041E2028A6CF00CC7CA8 /* Model */,
 				17F4E6F120C146B200B9A21B /* View */,
-				177F04212028A6F000CC7CA8 /* Controller */,
 				17C8AB50206971310078680A /* ViewModel */,
 				177F03E42025220000CC7CA8 /* AppDelegate.swift */,
-				177F03E82025220000CC7CA8 /* Main.storyboard */,
 				177F03EE2025220900CC7CA8 /* Assets.xcassets */,
-				177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */,
+				17F8FF94219A0CF10095CD6E /* Quit.entitlements */,
 				177F03F32025220900CC7CA8 /* Info.plist */,
 			);
 			path = Quit;
@@ -398,6 +417,9 @@
 		177F04212028A6F000CC7CA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				17156BE422596C72005EEE69 /* Onboarding */,
+				1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */,
+				17156BE222596B42005EEE69 /* QuitBaseViewController.swift */,
 				1752F0B621C8365C0056642F /* AchievementVC */,
 				179FDFC2216403F3003131C5 /* MainVC */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
@@ -405,8 +427,6 @@
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
 				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
 				1714FC9B219E306000CFB203 /* AddCravingVC.swift */,
-				1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */,
-				17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */,
 				1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */,
 			);
 			path = Controller;
@@ -415,12 +435,11 @@
 		177F04222028A70600CC7CA8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				175D41EB21D3E06C00FB7588 /* Extensions */,
 				1788CBB52037853D00064A86 /* PersistenceManager.swift */,
 				1788CBCB2039B3E000064A86 /* Constants.swift */,
-				1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */,
 				175D41F621D3E36600FB7588 /* ChartFormatter.swift */,
 				175D41FA21D3E53A00FB7588 /* QuitParser.swift */,
+				175D41EB21D3E06C00FB7588 /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -428,8 +447,8 @@
 		179FDFC2216403F3003131C5 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
-				179FDFC32164040A003131C5 /* Cells */,
 				179FDFCD216406B3003131C5 /* HomeVC.swift */,
+				179FDFC32164040A003131C5 /* Cells */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -923,6 +942,7 @@
 				171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */,
 				1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */,
 				17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */,
+				17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */,
 				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,
 				175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */,
 				17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */,

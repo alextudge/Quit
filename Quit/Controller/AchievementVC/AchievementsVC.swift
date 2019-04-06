@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-class AchievementsVC: UIViewController {
+class AchievementsVC: QuitBaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     

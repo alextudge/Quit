@@ -13,7 +13,7 @@ protocol AddCravingVCDelegate: class {
     func segueToSmokedVC()
 }
 
-class AddCravingVC: UIViewController {
+class AddCravingVC: QuitBaseViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!

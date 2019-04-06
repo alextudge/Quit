@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WidgetOnboardingVC: UIViewController {
+class WidgetOnboardingVC: QuitBaseViewController {
     @IBAction func didTapCloseButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

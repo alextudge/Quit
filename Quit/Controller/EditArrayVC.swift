@@ -8,12 +8,11 @@
 
 import UIKit
 
-class EditArrayVC: UIViewController {
+class EditArrayVC: QuitBaseViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var editArrayTextView: UITextView!
     
-    var persistenceManager: PersistenceManager?
     var isReasonsToSmoke = false
     
     override func viewDidLoad() {

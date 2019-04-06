@@ -12,12 +12,11 @@ protocol SettingsVCDelegate: class {
     func segueToQuitDataVC()
 }
 
-class SettingsVC: UIViewController {
+class SettingsVC: QuitBaseViewController {
     
     @IBOutlet private weak var deleteAllDataButton: UIButton!
     
     weak var delegate: SettingsVCDelegate?
-    var persistenceManager: PersistenceManager?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

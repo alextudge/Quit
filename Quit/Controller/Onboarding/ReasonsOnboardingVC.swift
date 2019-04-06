@@ -12,7 +12,7 @@ protocol ReasonsOnboardingVCDelegate: class {
     func didTapLetsGoButton()
 }
 
-class ReasonsOnboardingVC: UIViewController {
+class ReasonsOnboardingVC: QuitBaseViewController {
 
     weak var delegate: ReasonsOnboardingVCDelegate?
     

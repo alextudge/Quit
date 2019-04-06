@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: QuitBaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var statusBarViewHeight: NSLayoutConstraint!
@@ -122,7 +122,7 @@ extension HomeVC: SectionOneCarouselCellDelegate {
 
 extension HomeVC: SectionTwoCarouselCellDelegate {
     func didTapSavingGoal(sender: SavingGoal?) {
-        if let viewController = ViewControllerFactory.viewController(for: .savingsGoalVc) as? SavingGoalVC {
+        if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
             viewController.persistenceManager = viewModel.persistenceManager
             if let sender = sender {
                 viewController.savingGoal = sender
@@ -134,7 +134,7 @@ extension HomeVC: SectionTwoCarouselCellDelegate {
 
 extension HomeVC: SectionFiveCarouselCellDelegate {
     func didTapEditButton(isReasonsToSmoke: Bool) {
-        if let viewController = ViewControllerFactory.viewController(for: .editArrayVC) as? EditArrayVC {
+        if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
             viewController.isReasonsToSmoke = isReasonsToSmoke
             viewController.persistenceManager = viewModel.persistenceManager
             present(viewController, animated: true, completion: nil)
@@ -204,20 +204,20 @@ private extension HomeVC {
 // MARK: Navigation
 extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
     func segueToQuitDataVC() {
-        if let viewController = ViewControllerFactory.viewController(for: .quitInfoVc) as? QuitInfoVC {
+        if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
             viewController.persistenceManager = viewModel.persistenceManager
             present(viewController, animated: true, completion: nil)
         }
     }
     
     func segueToSmokedVC() {
-        if let viewController = ViewControllerFactory.viewController(for: .smokedVc) as? SmokedVC {
+        if let viewController = ViewControllerFactory.SmokedVC.viewController() as? SmokedVC {
             present(viewController, animated: true, completion: nil)
         }
     }
     
     private func segueToSettings() {
-        if let viewController = ViewControllerFactory.viewController(for: .settingsVc) as? SettingsVC {
+        if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
             viewController.delegate = self
             viewController.persistenceManager = viewModel.persistenceManager
             present(viewController, animated: true, completion: nil)
@@ -225,7 +225,7 @@ extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
     }
     
     private func segueToAddCravingsVC() {
-        if let viewController = ViewControllerFactory.viewController(for: .addCravingVc) as? AddCravingVC {
+        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
             viewController.viewModel.persistenceManager = viewModel.persistenceManager
             viewController.delegate = self
             present(viewController, animated: true, completion: nil)
@@ -233,7 +233,7 @@ extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
     }
     
     private func segueToAchievementsVC() {
-        if let viewController = ViewControllerFactory.viewController(for: .achievementsVc) as? AchievementsVC {
+        if let viewController = ViewControllerFactory.AchievementsVC.viewController() as? AchievementsVC {
             viewController.viewModel.persistenceManager = viewModel.persistenceManager
             present(viewController, animated: true, completion: nil)
         }
@@ -241,13 +241,13 @@ extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
     
     //Onboarding
     private func showWidgetOnboarding() {
-        if let viewController = ViewControllerFactory.viewController(for: .widgetOnboardingVc) as? WidgetOnboardingVC {
+        if let viewController = ViewControllerFactory.WidgetOnboardingVC.viewController() as? WidgetOnboardingVC {
             present(viewController, animated: true, completion: nil)
         }
     }
     
     private func showReasonsOboarding() {
-        if let viewController = ViewControllerFactory.viewController(for: .reasonsOnboardingVC) as? ReasonsOnboardingVC {
+        if let viewController = ViewControllerFactory.ReasonsOnboardingVC.viewController() as? ReasonsOnboardingVC {
             viewController.delegate = self
             present(viewController, animated: true, completion: nil)
             viewModel.persistenceManager.setHasSeenReasonOnboarding()

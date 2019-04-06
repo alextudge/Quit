@@ -8,14 +8,13 @@
 
 import UIKit
 
-class SavingGoalVC: UIViewController {
+class SavingGoalVC: QuitBaseViewController {
     
     @IBOutlet private weak var goalTitleTextField: UITextField!
     @IBOutlet private weak var goalCostTextField: UITextField!
     @IBOutlet private weak var deleteButton: UIButton!
     
     var savingGoal: SavingGoal?
-    var persistenceManager: PersistenceManager?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

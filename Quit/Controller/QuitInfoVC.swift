@@ -8,13 +8,12 @@
 
 import UIKit
 
-class QuitInfoVC: UIViewController {
+class QuitInfoVC: QuitBaseViewController {
     
     @IBOutlet private weak var smokedDailyTextField: UITextField!
     @IBOutlet private weak var costOf20TextField: UITextField!
     @IBOutlet private weak var quitDatePicker: UIDatePicker!
     
-    var persistenceManager: PersistenceManager?
     private let viewModel = QuitInfoVCViewModel()
     private var quitData: QuitData? {
         return persistenceManager?.quitData

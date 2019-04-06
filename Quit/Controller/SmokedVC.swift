@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SmokedVC: UIViewController {
+class SmokedVC: QuitBaseViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

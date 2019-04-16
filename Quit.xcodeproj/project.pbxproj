@@ -417,11 +417,11 @@
 		177F04212028A6F000CC7CA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				17156BE422596C72005EEE69 /* Onboarding */,
 				1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */,
 				17156BE222596B42005EEE69 /* QuitBaseViewController.swift */,
-				1752F0B621C8365C0056642F /* AchievementVC */,
 				179FDFC2216403F3003131C5 /* MainVC */,
+				1752F0B621C8365C0056642F /* AchievementVC */,
+				17156BE422596C72005EEE69 /* Onboarding */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,

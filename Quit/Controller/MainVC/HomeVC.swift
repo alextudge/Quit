@@ -11,15 +11,13 @@ import UIKit
 class HomeVC: QuitBaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var statusBarViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var statusBarViewHeight: NSLayoutConstraint!
     
     private(set) var viewModel = HomeVCViewModel()
-    private var quitData: QuitData? {
-        return viewModel.persistenceManager.quitData
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        persistenceManager = PersistenceManager()
         setupTableView()
     }
     
@@ -53,33 +51,33 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.persistenceManager = viewModel.persistenceManager
+            cell.persistenceManager = persistenceManager
             return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionTwoCarouselCell, for: indexPath) as? SectionTwoCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.persistenceManager = viewModel.persistenceManager
+            cell.persistenceManager = persistenceManager
             return cell
         } else if indexPath.section == 2 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
                 return UITableViewCell()
             }
-            cell.persistenceManager = viewModel.persistenceManager
+            cell.persistenceManager = persistenceManager
             return cell
         } else if indexPath.section == 3 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
                 return UITableViewCell()
             }
-            cell.persistenceManager = viewModel.persistenceManager
+            cell.persistenceManager = persistenceManager
             return cell
         } else if indexPath.section == 4 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.persistenceManager = viewModel.persistenceManager
+            cell.persistenceManager = persistenceManager
             return cell
         }
         return UITableViewCell()
@@ -123,7 +121,7 @@ extension HomeVC: SectionOneCarouselCellDelegate {
 extension HomeVC: SectionTwoCarouselCellDelegate {
     func didTapSavingGoal(sender: SavingGoal?) {
         if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
-            viewController.persistenceManager = viewModel.persistenceManager
+            viewController.persistenceManager = persistenceManager
             if let sender = sender {
                 viewController.savingGoal = sender
             }
@@ -136,7 +134,7 @@ extension HomeVC: SectionFiveCarouselCellDelegate {
     func didTapEditButton(isReasonsToSmoke: Bool) {
         if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
             viewController.isReasonsToSmoke = isReasonsToSmoke
-            viewController.persistenceManager = viewModel.persistenceManager
+            viewController.persistenceManager = persistenceManager
             present(viewController, animated: true, completion: nil)
         }
     }
@@ -183,18 +181,18 @@ private extension HomeVC {
     }
     
     func showOnboarding() {
-        let appLoadCount = viewModel.persistenceManager.appLoadCounter()
+        let appLoadCount = persistenceManager?.appLoadCounter()
         if appLoadCount == 1 {
             showWidgetOnboarding()
-        } else if appLoadCount >= 2,
+        } else if appLoadCount ?? 0 >= 2,
             shouldShowReasonsOnboarding() {
             showReasonsOboarding()
         }
     }
     
     func shouldShowReasonsOnboarding() -> Bool {
-        if !viewModel.persistenceManager.hasSeenReasonsOnboarding(),
-            viewModel.persistenceManager.additionalUserData?.reasonsToSmoke == nil {
+        if persistenceManager?.hasSeenReasonsOnboarding() == false,
+            persistenceManager?.additionalUserData?.reasonsToSmoke == nil {
             return true
         }
         return false
@@ -205,7 +203,7 @@ private extension HomeVC {
 extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
     func segueToQuitDataVC() {
         if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
-            viewController.persistenceManager = viewModel.persistenceManager
+            viewController.persistenceManager = persistenceManager
             present(viewController, animated: true, completion: nil)
         }
     }
@@ -219,14 +217,14 @@ extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
     private func segueToSettings() {
         if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
             viewController.delegate = self
-            viewController.persistenceManager = viewModel.persistenceManager
+            viewController.persistenceManager = persistenceManager
             present(viewController, animated: true, completion: nil)
         }
     }
     
     private func segueToAddCravingsVC() {
         if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
-            viewController.viewModel.persistenceManager = viewModel.persistenceManager
+            viewController.persistenceManager = persistenceManager
             viewController.delegate = self
             present(viewController, animated: true, completion: nil)
         }
@@ -234,7 +232,7 @@ extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
     
     private func segueToAchievementsVC() {
         if let viewController = ViewControllerFactory.AchievementsVC.viewController() as? AchievementsVC {
-            viewController.viewModel.persistenceManager = viewModel.persistenceManager
+            viewController.persistenceManager = persistenceManager
             present(viewController, animated: true, completion: nil)
         }
     }
@@ -250,7 +248,7 @@ extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
         if let viewController = ViewControllerFactory.ReasonsOnboardingVC.viewController() as? ReasonsOnboardingVC {
             viewController.delegate = self
             present(viewController, animated: true, completion: nil)
-            viewModel.persistenceManager.setHasSeenReasonOnboarding()
+            persistenceManager?.setHasSeenReasonOnboarding()
         }
     }
 }

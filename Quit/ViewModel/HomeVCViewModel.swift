@@ -9,9 +9,7 @@
 import UIKit
 
 class HomeVCViewModel {
-    
-    private(set) var persistenceManager = PersistenceManager()
-    
+        
     func sizeForCellOf(type: Int) -> CGFloat {
         switch type {
         case 3:

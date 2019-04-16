@@ -11,7 +11,7 @@ import StoreKit
 
 class SectionOneCravingDataCellViewModel {
     
-    var persistenceManager: PersistenceManager!
+    var persistenceManager: PersistenceManager?
     
     func stringQuitDate(quitData: QuitData?) -> String? {
         guard let quitDate = quitData?.quitDate else {

@@ -41,7 +41,7 @@ class AddCravingVC: QuitBaseViewController {
     private func setupUI() {
         textField.placeholder = "Add a new trigger here"
         textField.addDoneButtonToKeyboard(action: #selector(textField.resignFirstResponder))
-        guard viewModel.persistenceManager?.triggers?.count ?? 0 > 0 else {
+        guard persistenceManager?.triggers?.count ?? 0 > 0 else {
             pickerView.isHidden = true
             return
         }
@@ -65,7 +65,7 @@ class AddCravingVC: QuitBaseViewController {
     }
     
     private func getPickerTitle() -> String? {
-        guard viewModel.persistenceManager?.triggers?.count ?? 0 > 0 else {
+        guard persistenceManager?.triggers?.count ?? 0 > 0 else {
             return nil
         }
         if let pickerTitle = pickerView(pickerView, attributedTitleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)?.string {
@@ -75,7 +75,7 @@ class AddCravingVC: QuitBaseViewController {
     }
     
     @IBAction func didTapJustCravingButton(_ sender: Any) {
-        viewModel.persistenceManager?.addCraving(
+        persistenceManager?.addCraving(
             catagory: categoryForCraving(),
             smoked: false)
         viewModel.appStoreReview()
@@ -86,7 +86,7 @@ class AddCravingVC: QuitBaseViewController {
         if viewModel.quitDateIsInPast() == true {
             viewModel.setUserDefaultsQuitDateToCurrent()
         }
-        viewModel.persistenceManager?.addCraving(
+        persistenceManager?.addCraving(
             catagory: categoryForCraving(),
             smoked: true)
         dismiss(animated: true) {
@@ -105,11 +105,11 @@ extension AddCravingVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.persistenceManager?.triggers?.count ?? 0
+        return persistenceManager?.triggers?.count ?? 0
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        guard let title = viewModel.persistenceManager?.triggers?[row] else {
+        guard let title = persistenceManager?.triggers?[row] else {
             return nil
         }
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]

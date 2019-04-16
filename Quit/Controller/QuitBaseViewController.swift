@@ -11,6 +11,9 @@ import UIKit
 class QuitBaseViewController: UIViewController {
     
     var persistenceManager: PersistenceManager?
+    var quitData: QuitData? {
+        return persistenceManager?.quitData
+    }
     
     func presentQuitBaseViewController(_ viewController: QuitBaseViewController) {
         viewController.persistenceManager = persistenceManager

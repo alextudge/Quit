@@ -15,9 +15,6 @@ class QuitInfoVC: QuitBaseViewController {
     @IBOutlet private weak var quitDatePicker: UIDatePicker!
     
     private let viewModel = QuitInfoVCViewModel()
-    private var quitData: QuitData? {
-        return persistenceManager?.quitData
-    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

@@ -25,7 +25,7 @@ class AchievementsVC: QuitBaseViewController {
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {
-        if (viewModel.persistenceManager?.interstitialAdCounter ?? 0) % 2 == 0,
+        if (persistenceManager?.interstitialAdCounter ?? 0) % 2 == 0,
             interstitial.isReady {
             interstitial.present(fromRootViewController: self)
         }

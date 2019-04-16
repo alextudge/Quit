@@ -6,10 +6,10 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
+// swiftlint:disable identifier_name
 import UIKit
 
 enum Storyboards: String {
-    // swiftlint:disable identifier_name
     case Main
 }
 

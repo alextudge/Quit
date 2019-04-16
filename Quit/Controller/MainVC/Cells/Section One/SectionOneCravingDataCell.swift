@@ -28,7 +28,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     var viewModel = SectionOneCravingDataCellViewModel()
     private var gradientLayer: CAGradientLayer?
     private var quitData: QuitData? {
-        return viewModel.persistenceManager.quitData
+        return viewModel.persistenceManager?.quitData
     }
     
     weak var delegate: SectionOneCravingDataCellDelegate?

@@ -16,18 +16,197 @@ class HomeViewController: QuitBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        persistenceManager = PersistenceManager()
         setupUI()
+        setupDelegates()
         setupTableView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if quitData == nil {
-            segueToQuitDataViewController()
-            return
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        handleQuitDataUI()
         showOnboarding()
+    }
+    
+    @IBAction private func didTapAddInfoButton(_ sender: Any) {
+        segueToQuitDataViewController()
+    }
+}
+
+private extension HomeViewController {
+    func setupUI() {
+        largeTitlesEnabled = true
+        title = "Quit"
+        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(segueToSettings))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    func setupDelegates() {
+        persistenceManager = PersistenceManager()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func handleQuitDataUI() {
+        let quitDataAdded = quitData != nil
+        tableView.isHidden = !quitDataAdded
+        tableView.reloadData()
+    }
+    
+    func setupTableView() {
+        tableView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell, bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell, bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell, bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell, bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell, bundle: nil),
+                           forCellReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
+    }
+    
+    func headerFor(section: Int) -> UIView {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        header.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        let label = UILabel(frame: CGRect(x: 15, y: 5, width: UIScreen.main.bounds.width - 40, height: 45))
+        label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.text = viewModel.titleForHeaderOf(section: section)
+        header.addSubview(label)
+        header.clipsToBounds = true
+        return header
+    }
+    
+    func showOnboarding() {
+        let appLoadCount = persistenceManager?.appLoadCounter()
+        if appLoadCount == 1 {
+            showWidgetOnboarding()
+        } else if appLoadCount ?? 0 >= 2,
+            shouldShowReasonsOnboarding() {
+            showReasonsOboarding()
+        }
+    }
+    
+    func shouldShowReasonsOnboarding() -> Bool {
+        if persistenceManager?.hasSeenReasonsOnboarding() == false,
+            persistenceManager?.additionalUserData?.reasonsToSmoke == nil {
+            return true
+        }
+        return false
+    }
+}
+
+extension HomeViewController: SectionOneCarouselCellDelegate {
+    func didPressSegueToAchievements() {
+        segueToAchievementsVC()
+    }
+    
+    func didPressChangeQuitDate() {
+        segueToQuitDataViewController()
+    }
+    
+    func addCraving() {
+        segueToAddCravingsVC()
+    }
+    
+    func presentAlert(_ alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension HomeViewController: SectionTwoCarouselCellDelegate {
+    func didTapSavingGoal(sender: SavingGoal?) {
+        if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
+            viewController.persistenceManager = persistenceManager
+            if let sender = sender {
+                viewController.savingGoal = sender
+            }
+            viewController.delegate = self
+            presentQuitBaseViewController(viewController)
+        }
+    }
+}
+
+extension HomeViewController: SectionFiveCarouselCellDelegate {
+    func didTapEditButton(isReasonsToSmoke: Bool) {
+        if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
+            viewController.isReasonsToSmoke = isReasonsToSmoke
+            viewController.persistenceManager = persistenceManager
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension HomeViewController: ReasonsOnboardingVCDelegate {
+    func didTapLetsGoButton() {
+        didTapEditButton(isReasonsToSmoke: true)
+    }
+}
+
+// MARK: Navigation
+extension HomeViewController: AddCravingVCDelegate, SettingsVCDelegate {
+    func segueToQuitDataViewController() {
+        if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
+            viewController.persistenceManager = persistenceManager
+            viewController.delegate = self
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    func segueToSmokedVC() {
+        if let viewController = ViewControllerFactory.SmokedVC.viewController() as? SmokedVC {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    @objc private func segueToSettings() {
+        if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
+            viewController.delegate = self
+            viewController.persistenceManager = persistenceManager
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    private func segueToAddCravingsVC() {
+        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
+            viewController.persistenceManager = persistenceManager
+            viewController.delegate = self
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    private func segueToAchievementsVC() {
+        if let viewController = ViewControllerFactory.AchievementsVC.viewController() as? AchievementsVC {
+            viewController.persistenceManager = persistenceManager
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    //Onboarding
+    private func showWidgetOnboarding() {
+        if let viewController = ViewControllerFactory.WidgetOnboardingVC.viewController() as? WidgetOnboardingVC {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func showReasonsOboarding() {
+        if let viewController = ViewControllerFactory.ReasonsOnboardingVC.viewController() as? ReasonsOnboardingVC {
+            viewController.delegate = self
+            present(viewController, animated: true, completion: nil)
+            persistenceManager?.setHasSeenReasonOnboarding()
+        }
+    }
+}
+
+extension HomeViewController: QuitInfoVCDelegate {
+    func didUpdateQuitData() {
+        handleQuitDataUI()
+    }
+}
+
+extension HomeViewController: SavingGoalVCDelegate {
+    func reloadTableView() {
+        tableView.reloadData()
     }
 }
 
@@ -83,170 +262,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
         return 50
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.sizeForCellOf(type: indexPath.section)
-    }
-}
-
-extension HomeViewController: SectionOneCarouselCellDelegate {
-    func didPressSegueToAchievements() {
-        segueToAchievementsVC()
-    }
-    
-    func didPressChangeQuitDate() {
-        segueToQuitDataViewController()
-    }
-    
-    func addCraving() {
-        segueToAddCravingsVC()
-    }
-    
-    func presentAlert(_ alert: UIAlertController) {
-        present(alert, animated: true, completion: nil)
-    }
-}
-
-extension HomeViewController: SectionTwoCarouselCellDelegate {
-    func didTapSavingGoal(sender: SavingGoal?) {
-        if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
-            viewController.persistenceManager = persistenceManager
-            if let sender = sender {
-                viewController.savingGoal = sender
-            }
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-}
-
-extension HomeViewController: SectionFiveCarouselCellDelegate {
-    func didTapEditButton(isReasonsToSmoke: Bool) {
-        if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
-            viewController.isReasonsToSmoke = isReasonsToSmoke
-            viewController.persistenceManager = persistenceManager
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-}
-
-extension HomeViewController: ReasonsOnboardingVCDelegate {
-    func didTapLetsGoButton() {
-        didTapEditButton(isReasonsToSmoke: true)
-    }
-}
-
-private extension HomeViewController {
-    func setupUI() {
-        largeTitlesEnabled = true
-        title = "Quit"
-        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(segueToSettings))
-        navigationItem.rightBarButtonItem = rightBarButtonItem
-    }
-    
-    func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.contentInset.top = view.safeAreaInsets.top
-        tableView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell,
-                                 bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
-    }
-    
-    func headerFor(section: Int) -> UIView {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        header.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-        let label = UILabel(frame: CGRect(x: 15, y: 5, width: UIScreen.main.bounds.width - 40, height: 45))
-        label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        label.text = viewModel.titleForHeaderOf(section: section)
-        header.addSubview(label)
-        header.clipsToBounds = true
-        return header
-    }
-    
-    func showOnboarding() {
-        let appLoadCount = persistenceManager?.appLoadCounter()
-        if appLoadCount == 1 {
-            showWidgetOnboarding()
-        } else if appLoadCount ?? 0 >= 2,
-            shouldShowReasonsOnboarding() {
-            showReasonsOboarding()
-        }
-    }
-    
-    func shouldShowReasonsOnboarding() -> Bool {
-        if persistenceManager?.hasSeenReasonsOnboarding() == false,
-            persistenceManager?.additionalUserData?.reasonsToSmoke == nil {
-            return true
-        }
-        return false
-    }
-}
-
-// MARK: Navigation
-extension HomeViewController: AddCravingVCDelegate, SettingsVCDelegate {
-    func segueToQuitDataViewController() {
-        if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
-            viewController.persistenceManager = persistenceManager
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    func segueToSmokedVC() {
-        if let viewController = ViewControllerFactory.SmokedVC.viewController() as? SmokedVC {
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    @objc private func segueToSettings() {
-        if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
-            viewController.delegate = self
-            viewController.persistenceManager = persistenceManager
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    private func segueToAddCravingsVC() {
-        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
-            viewController.persistenceManager = persistenceManager
-            viewController.delegate = self
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    private func segueToAchievementsVC() {
-        if let viewController = ViewControllerFactory.AchievementsVC.viewController() as? AchievementsVC {
-            viewController.persistenceManager = persistenceManager
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    //Onboarding
-    private func showWidgetOnboarding() {
-        if let viewController = ViewControllerFactory.WidgetOnboardingVC.viewController() as? WidgetOnboardingVC {
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    private func showReasonsOboarding() {
-        if let viewController = ViewControllerFactory.ReasonsOnboardingVC.viewController() as? ReasonsOnboardingVC {
-            viewController.delegate = self
-            present(viewController, animated: true, completion: nil)
-            persistenceManager?.setHasSeenReasonOnboarding()
-        }
     }
 }

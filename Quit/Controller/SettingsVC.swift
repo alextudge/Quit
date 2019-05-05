@@ -29,10 +29,4 @@ class SettingsVC: QuitBaseViewController {
         persistenceManager?.deleteAllData()
         dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func didTapChangeQuitDate(_ sender: Any) {
-        dismiss(animated: true) {
-            self.delegate?.segueToQuitDataViewController()
-        }
-    }
 }

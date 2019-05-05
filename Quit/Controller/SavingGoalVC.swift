@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SavingGoalVCDelegate: class {
+    func reloadTableView()
+}
+
 class SavingGoalVC: QuitBaseViewController {
     
     @IBOutlet private weak var goalTitleTextField: UITextField!
@@ -15,6 +19,8 @@ class SavingGoalVC: QuitBaseViewController {
     @IBOutlet private weak var deleteButton: UIButton!
     
     var savingGoal: SavingGoal?
+    
+    weak var delegate: SavingGoalVCDelegate?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -54,10 +60,6 @@ class SavingGoalVC: QuitBaseViewController {
         present(alert, animated: true)
     }
     
-    @IBAction private func cancelButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction private func saveButtonPressed(_ sender: Any) {
         if let goalTitle = goalTitleTextField.text?.capitalized,
             let goalCost = goalCostTextField.text,
@@ -65,10 +67,12 @@ class SavingGoalVC: QuitBaseViewController {
             if let savingGoal = savingGoal {
                 savingGoal.goalAmount = cost
                 savingGoal.goalName = goalTitle
+                persistenceManager?.saveContext()
             } else {
                 persistenceManager?.addSavingGoal(title: goalTitle, cost: cost)
             }
-            dismiss(animated: true, completion: nil)
+            delegate?.reloadTableView()
+            navigationController?.popViewController(animated: true)
         } else {
             showDataMissingAlert()
         }
@@ -77,7 +81,8 @@ class SavingGoalVC: QuitBaseViewController {
     @IBAction private func deleteButtonPressed(_ sender: Any) {
         if let savingGoal = savingGoal {
             persistenceManager?.deleteSavingsGoal(savingGoal)
-            dismiss(animated: true, completion: nil)
+            delegate?.reloadTableView()
+            navigationController?.popViewController(animated: true)
         }
     }
 }

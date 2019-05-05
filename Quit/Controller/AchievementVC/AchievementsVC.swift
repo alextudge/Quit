@@ -11,7 +11,7 @@ import GoogleMobileAds
 
 class AchievementsVC: QuitBaseViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private var achievements = [Achievement]()
     private var interstitial: GADInterstitial!
@@ -19,8 +19,10 @@ class AchievementsVC: QuitBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAd()
+        title = "Your achievements"
+        viewModel.persistenceManager = persistenceManager
         achievements = viewModel.processAchievements()
+        setupAd()
         setupTableView()
     }
     

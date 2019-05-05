@@ -115,6 +115,16 @@ class PersistenceManager: NSObject {
         NotificationCenter.default.post(name: Constants.InternalNotifs.additionalDataUpdated,
                                         object: nil)
     }
+    
+    func saveContext () {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print("\(error), \(String(describing: error._userInfo))")
+            }
+        }
+    }
 }
 
 private extension PersistenceManager {
@@ -133,16 +143,6 @@ private extension PersistenceManager {
             }
         })
         return container
-    }
-    
-    func saveContext () {
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                print("\(error), \(String(describing: error._userInfo))")
-            }
-        }
     }
     
     func fetchCravingData() {

@@ -12,6 +12,7 @@ import UIKit
 enum Storyboards: String {
     case Main
     case Settings
+    case Other
 }
 
 enum ViewControllerFactory: String {
@@ -31,6 +32,9 @@ enum ViewControllerFactory: String {
         case .SettingsVC,
              .QuitInfoVC:
             return .Settings
+        case .AddCravingVC,
+             .SavingGoalVC:
+            return .Other
         default:
             return .Main
         }

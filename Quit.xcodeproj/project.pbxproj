@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17012656227EFDE000E416F6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012655227EFDE000E416F6 /* Settings.storyboard */; };
+		17012658227F0F9200E416F6 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012657227F0F9200E416F6 /* Other.storyboard */; };
 		1714FC87219E06C000CFB203 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC86219E06C000CFB203 /* UserNotifications.framework */; };
 		1714FC89219E06C000CFB203 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */; };
 		1714FC8C219E06C000CFB203 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC8B219E06C000CFB203 /* NotificationViewController.swift */; };
@@ -156,6 +157,7 @@
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17012655227EFDE000E416F6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		17012657227F0F9200E416F6 /* Other.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Other.storyboard; sourceTree = "<group>"; };
 		1714FC85219E06C000CFB203 /* healthStateNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = healthStateNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1714FC86219E06C000CFB203 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -318,6 +320,7 @@
 				177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */,
 				177F03E82025220000CC7CA8 /* Main.storyboard */,
 				17012655227EFDE000E416F6 /* Settings.storyboard */,
+				17012657227F0F9200E416F6 /* Other.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				179FDFCC21640536003131C5 /* SectionOneCravingDataCell.xib in Resources */,
 				179FDFD2216419CC003131C5 /* SectionOneVapingDataCell.xib in Resources */,
 				17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */,
+				17012658227F0F9200E416F6 /* Other.storyboard in Resources */,
 				1791FDDE21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib in Resources */,
 				179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */,
 				179FDFEC216933A3003131C5 /* SectionThreeCarouselCell.xib in Resources */,

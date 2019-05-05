@@ -15,9 +15,9 @@ protocol AddCravingVCDelegate: class {
 
 class AddCravingVC: QuitBaseViewController {
     
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var bannerAdView: GADBannerView!
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var pickerView: UIPickerView!
+    @IBOutlet private weak var bannerAdView: GADBannerView!
     
     let viewModel = AddCravingVCViewModel()
     weak var delegate: AddCravingVCDelegate?
@@ -28,6 +28,7 @@ class AddCravingVC: QuitBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.persistenceManager = persistenceManager
         setupDelegates()
         setupUI()
         setupAd()
@@ -39,6 +40,7 @@ class AddCravingVC: QuitBaseViewController {
     }
     
     private func setupUI() {
+        title = "Record a craving"
         textField.placeholder = "Add a new trigger here"
         textField.addDoneButtonToKeyboard(action: #selector(textField.resignFirstResponder))
         guard persistenceManager?.triggers?.count ?? 0 > 0 else {
@@ -68,7 +70,7 @@ class AddCravingVC: QuitBaseViewController {
         guard persistenceManager?.triggers?.count ?? 0 > 0 else {
             return nil
         }
-        if let pickerTitle = pickerView(pickerView, attributedTitleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)?.string {
+        if let pickerTitle = pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0) {
             return pickerTitle
         }
         return nil
@@ -79,7 +81,7 @@ class AddCravingVC: QuitBaseViewController {
             catagory: categoryForCraving(),
             smoked: false)
         viewModel.appStoreReview()
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func didTapISmokedButton(_ sender: Any) {
@@ -89,13 +91,8 @@ class AddCravingVC: QuitBaseViewController {
         persistenceManager?.addCraving(
             catagory: categoryForCraving(),
             smoked: true)
-        dismiss(animated: true) {
-            self.delegate?.segueToSmokedVC()
-        }
-    }
-    
-    @IBAction func didTapCancelButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+        delegate?.segueToSmokedVC()
     }
 }
 
@@ -108,12 +105,11 @@ extension AddCravingVC: UIPickerViewDelegate, UIPickerViewDataSource {
         return persistenceManager?.triggers?.count ?? 0
     }
     
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         guard let title = persistenceManager?.triggers?[row] else {
             return nil
         }
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        return NSAttributedString(string: title, attributes: attributes)
+        return title
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

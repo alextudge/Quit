@@ -8,14 +8,20 @@
 
 import UIKit
 
+protocol QuitInfoVCDelegate: class {
+    func didUpdateQuitData()
+}
+
 class QuitInfoVC: QuitBaseViewController {
-    
+     
     @IBOutlet private weak var smokedDailyTextField: UITextField!
     @IBOutlet private weak var costOf20TextField: UITextField!
     @IBOutlet private weak var quitDatePicker: UIDatePicker!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
     
     private let viewModel = QuitInfoVCViewModel()
+    
+    weak var delegate: QuitInfoVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +51,7 @@ class QuitInfoVC: QuitBaseViewController {
         persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
         setNotifications(quitDate: quitDatePicker.date)
         NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
+        delegate?.didUpdateQuitData()
         navigationController?.popViewController(animated: true)
     }
 }

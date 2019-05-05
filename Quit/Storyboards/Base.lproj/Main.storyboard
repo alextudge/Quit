@@ -13,7 +13,7 @@
         <!--Home View Controller-->
         <scene sceneID="w91-Xs-71h">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="Q6M-9X-UAi" customClass="HomeViewController" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="Q6M-9X-UAi" customClass="HomeViewController" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WKb-pO-LKa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,13 +43,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-L8-fgz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-L8-fgz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ntA-L8-fgz" firstAttribute="top" secondItem="18o-1p-mi4" secondAttribute="top" id="FFN-hO-Ywh"/>
                             <constraint firstItem="18o-1p-mi4" firstAttribute="trailing" secondItem="ntA-L8-fgz" secondAttribute="trailing" id="GKF-in-igI"/>
                             <constraint firstItem="bz5-f5-22D" firstAttribute="centerY" secondItem="WKb-pO-LKa" secondAttribute="centerY" id="PW2-Qd-X2D"/>
                             <constraint firstItem="18o-1p-mi4" firstAttribute="bottom" secondItem="ntA-L8-fgz" secondAttribute="bottom" id="PkG-ug-LrU"/>
@@ -57,7 +58,6 @@
                             <constraint firstItem="ntA-L8-fgz" firstAttribute="leading" secondItem="18o-1p-mi4" secondAttribute="leading" id="fYx-fv-Da5"/>
                             <constraint firstAttribute="trailing" secondItem="bz5-f5-22D" secondAttribute="trailing" constant="20" id="ksh-GL-P3T"/>
                             <constraint firstItem="bz5-f5-22D" firstAttribute="leading" secondItem="WKb-pO-LKa" secondAttribute="leading" constant="20" id="p0A-0C-DtV"/>
-                            <constraint firstItem="ntA-L8-fgz" firstAttribute="top" secondItem="WKb-pO-LKa" secondAttribute="top" id="sW3-hN-vdt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="18o-1p-mi4"/>
                     </view>
@@ -79,14 +79,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3K-tH-AeR" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="10" y="607" width="355" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nWE-tK-63g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <state key="normal" title="Got It">
-                                    <color key="titleColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapGotItButton:" destination="rkx-Ct-qGu" eventType="touchUpInside" id="MSP-ot-AB8"/>
@@ -95,36 +95,36 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We've reset your Quit date." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qba-83-lMH">
                                 <rect key="frame" x="30" y="50" width="315" height="72"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4L9-yC-83k">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4L9-yC-83k">
                                 <rect key="frame" x="30" y="152" width="315" height="149.5"/>
                                 <string key="text">Everything you've achieved so far still counts, and it normally takes loads of hard work and attempts to be successful. Stick with it.</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="0.97950556506849318" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Qba-83-lMH" firstAttribute="top" secondItem="bZL-b4-YAF" secondAttribute="top" constant="30" id="74b-BQ-hCr"/>
                             <constraint firstItem="4L9-yC-83k" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="30" id="A1x-Pi-VL4"/>
                             <constraint firstItem="4L9-yC-83k" firstAttribute="top" secondItem="Qba-83-lMH" secondAttribute="bottom" constant="30" id="BsA-vK-0JO"/>
                             <constraint firstItem="bZL-b4-YAF" firstAttribute="trailing" secondItem="4L9-yC-83k" secondAttribute="trailing" constant="30" id="HeD-wN-ih4"/>
                             <constraint firstItem="Y3K-tH-AeR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4L9-yC-83k" secondAttribute="bottom" id="K4d-no-BeJ"/>
-                            <constraint firstItem="bZL-b4-YAF" firstAttribute="bottom" secondItem="Y3K-tH-AeR" secondAttribute="bottom" constant="10" id="Tco-Nj-awB"/>
+                            <constraint firstItem="bZL-b4-YAF" firstAttribute="bottom" secondItem="Y3K-tH-AeR" secondAttribute="bottom" constant="20" id="Tco-Nj-awB"/>
                             <constraint firstAttribute="trailing" secondItem="Qba-83-lMH" secondAttribute="trailing" constant="30" id="V0E-fh-MlS"/>
-                            <constraint firstItem="Y3K-tH-AeR" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="10" id="b72-Kp-ikY"/>
+                            <constraint firstItem="Y3K-tH-AeR" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="20" id="b72-Kp-ikY"/>
                             <constraint firstItem="Qba-83-lMH" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="30" id="cTm-m6-rPp"/>
-                            <constraint firstItem="bZL-b4-YAF" firstAttribute="trailing" secondItem="Y3K-tH-AeR" secondAttribute="trailing" constant="10" id="wAw-iv-DRy"/>
+                            <constraint firstItem="bZL-b4-YAF" firstAttribute="trailing" secondItem="Y3K-tH-AeR" secondAttribute="trailing" constant="20" id="wAw-iv-DRy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bZL-b4-YAF"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLD-lf-ya5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="-70"/>
+            <point key="canvasLocation" x="-170" y="704"/>
         </scene>
         <!--Widget OnboardingVC-->
         <scene sceneID="L75-sk-add">

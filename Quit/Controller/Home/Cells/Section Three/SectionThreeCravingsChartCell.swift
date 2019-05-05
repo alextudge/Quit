@@ -71,8 +71,7 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         if let minTimeInterval = (cravingDict.map { $0.key.timeIntervalSince1970 }).min() {
             referenceTimeInterval = minTimeInterval
         }
-        barChart.xAxis.valueFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval,
-                                                         dateFormatter: mediumDateFormatter())
+        barChart.xAxis.valueFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: mediumDateFormatter())
         cravingDict.forEach {
             let timeInerval = $0.key.timeIntervalSince1970
             let xValue = (timeInerval - referenceTimeInterval) / (3600 * 24)

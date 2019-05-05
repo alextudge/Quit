@@ -8,17 +8,7 @@
 
 import UIKit
 
-protocol SettingsVCDelegate: class {
-    func segueToQuitDataViewController()
-}
-
 class SettingsVC: QuitBaseViewController {
-        
-    weak var delegate: SettingsVCDelegate?
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,6 +17,6 @@ class SettingsVC: QuitBaseViewController {
     
     @IBAction private func deleteAllDataButtonPressed(_ sender: Any) {
         persistenceManager?.deleteAllData()
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }

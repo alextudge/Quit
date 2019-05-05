@@ -144,7 +144,7 @@ extension HomeViewController: ReasonsOnboardingVCDelegate {
 }
 
 // MARK: Navigation
-extension HomeViewController: AddCravingVCDelegate, SettingsVCDelegate {
+extension HomeViewController: AddCravingVCDelegate {
     func segueToQuitDataViewController() {
         if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
             viewController.persistenceManager = persistenceManager
@@ -161,7 +161,6 @@ extension HomeViewController: AddCravingVCDelegate, SettingsVCDelegate {
     
     @objc private func segueToSettings() {
         if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
-            viewController.delegate = self
             viewController.persistenceManager = persistenceManager
             presentQuitBaseViewController(viewController)
         }
@@ -263,7 +262,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return 0
+            return .leastNonzeroMagnitude
         }
         return 50
     }

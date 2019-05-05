@@ -304,6 +304,16 @@
 			path = QuitTests;
 			sourceTree = "<group>";
 		};
+		17012659227F2CB600E416F6 /* Info Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */,
+				17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */,
+				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
+			);
+			path = "Info Controllers";
+			sourceTree = "<group>";
+		};
 		1714FC8A219E06C000CFB203 /* healthStateNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,15 +335,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		17156BE422596C72005EEE69 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */,
-				17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		171EAFEC21D409230088C90C /* Section Five */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,13 +346,13 @@
 			path = "Section Five";
 			sourceTree = "<group>";
 		};
-		1752F0B621C8365C0056642F /* AchievementVC */ = {
+		1752F0B621C8365C0056642F /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
 				1752F0AE21BF11AE0056642F /* AchievementsVC.swift */,
 				1752F0B221C0414E0056642F /* AchievementCell.swift */,
 			);
-			path = AchievementVC;
+			path = Achievement;
 			sourceTree = "<group>";
 		};
 		175D41EB21D3E06C00FB7588 /* Extensions */ = {
@@ -425,13 +426,12 @@
 			children = (
 				1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */,
 				17156BE222596B42005EEE69 /* QuitBaseViewController.swift */,
-				179FDFC2216403F3003131C5 /* MainVC */,
-				1752F0B621C8365C0056642F /* AchievementVC */,
-				17156BE422596C72005EEE69 /* Onboarding */,
+				179FDFC2216403F3003131C5 /* Home */,
+				17012659227F2CB600E416F6 /* Info Controllers */,
+				1752F0B621C8365C0056642F /* Achievement */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
-				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
 				1714FC9B219E306000CFB203 /* AddCravingVC.swift */,
 				1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */,
 			);
@@ -450,13 +450,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		179FDFC2216403F3003131C5 /* MainVC */ = {
+		179FDFC2216403F3003131C5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				179FDFCD216406B3003131C5 /* HomeViewController.swift */,
 				179FDFC32164040A003131C5 /* Cells */,
 			);
-			path = MainVC;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		179FDFC32164040A003131C5 /* Cells */ = {

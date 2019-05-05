@@ -9,11 +9,6 @@
 import UIKit
 
 class SmokedVC: QuitBaseViewController {
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     @IBAction func didTapGotItButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

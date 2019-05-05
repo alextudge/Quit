@@ -48,7 +48,7 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         trackShapeLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(trackShapeLayer)
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = Styles.Colours.greenColour.cgColor
+        shapeLayer.strokeColor = Styles.Colours.blueColor.cgColor
         shapeLayer.lineWidth = 30
         shapeLayer.strokeEnd = 0
         shapeLayer.lineCap = CAShapeLayerLineCap.round
@@ -92,10 +92,7 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
     }
     
     private func savingsNameLabel(goal: SavingGoal) -> UILabel {
-        label = UILabel(frame: CGRect(x: 0,
-                                      y: 0,
-                                      width: frame.width,
-                                      height: 100))
+        label = UILabel(frame: CGRect(x: 20, y: 0, width: frame.width - 40, height: 100))
         guard let savingGoalName = goal.goalName else { return UILabel() }
         let string = NSAttributedString(string: savingGoalName, attributes: Styles.savingsInfoAttributes)
         label?.attributedText = string

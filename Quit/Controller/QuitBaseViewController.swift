@@ -49,10 +49,10 @@ class QuitBaseViewController: UIViewController {
 private extension QuitBaseViewController {
     func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = largeTitlesEnabled
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.darkText]
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
         navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationController?.navigationBar.tintColor = .darkText
+        navigationController?.navigationBar.tintColor = .darkGray
     }
     
     @objc private func endEditing() {

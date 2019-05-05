@@ -209,6 +209,15 @@ extension HomeViewController: SavingGoalVCDelegate {
     }
 }
 
+extension HomeViewController: SectionThreeCarouselCellDelegate {
+    func didTapCravingDetailsButton() {
+        if let viewController = ViewControllerFactory.CravingsViewController.viewController() as? CravingsViewController {
+            viewController.persistenceManager = persistenceManager
+            presentQuitBaseViewController(viewController)
+        }
+    }
+}
+
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
@@ -237,6 +246,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
                 return UITableViewCell()
             }
+            cell.delegate = self
             cell.persistenceManager = persistenceManager
             return cell
         } else if indexPath.section == 3 {

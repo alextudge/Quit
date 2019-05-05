@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		17012656227EFDE000E416F6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012655227EFDE000E416F6 /* Settings.storyboard */; };
 		17012658227F0F9200E416F6 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012657227F0F9200E416F6 /* Other.storyboard */; };
+		1701265B227F9BB100E416F6 /* CravingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265A227F9BB100E416F6 /* CravingsViewController.swift */; };
+		1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265C227F9D2100E416F6 /* CravingsCell.swift */; };
 		1714FC87219E06C000CFB203 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC86219E06C000CFB203 /* UserNotifications.framework */; };
 		1714FC89219E06C000CFB203 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */; };
 		1714FC8C219E06C000CFB203 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC8B219E06C000CFB203 /* NotificationViewController.swift */; };
@@ -158,6 +160,8 @@
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17012655227EFDE000E416F6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		17012657227F0F9200E416F6 /* Other.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Other.storyboard; sourceTree = "<group>"; };
+		1701265A227F9BB100E416F6 /* CravingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsViewController.swift; sourceTree = "<group>"; };
+		1701265C227F9D2100E416F6 /* CravingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsCell.swift; sourceTree = "<group>"; };
 		1714FC85219E06C000CFB203 /* healthStateNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = healthStateNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1714FC86219E06C000CFB203 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -310,6 +314,8 @@
 				1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */,
 				17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */,
 				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
+				1701265A227F9BB100E416F6 /* CravingsViewController.swift */,
+				1701265C227F9D2100E416F6 /* CravingsCell.swift */,
 			);
 			path = "Info Controllers";
 			sourceTree = "<group>";
@@ -965,6 +971,8 @@
 				175D41EF21D3E23300FB7588 /* TextField.swift in Sources */,
 				179FDFD82166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift in Sources */,
 				177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */,
+				1701265B227F9BB100E416F6 /* CravingsViewController.swift in Sources */,
+				1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */,
 				1714FC9E219E359A00CFB203 /* AddCravingVCViewModel.swift in Sources */,
 				177F04242029104900CC7CA8 /* QuitData.swift in Sources */,
 				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,

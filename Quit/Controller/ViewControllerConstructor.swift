@@ -26,6 +26,7 @@ enum ViewControllerFactory: String {
     case WidgetOnboardingVC
     case ReasonsOnboardingVC
     case EditArrayVC
+    case CravingsViewController
     
     func storyboardForViewController() -> Storyboards {
         switch self {
@@ -33,7 +34,8 @@ enum ViewControllerFactory: String {
              .QuitInfoVC:
             return .Settings
         case .AddCravingVC,
-             .SavingGoalVC:
+             .SavingGoalVC,
+             .CravingsViewController:
             return .Other
         default:
             return .Main

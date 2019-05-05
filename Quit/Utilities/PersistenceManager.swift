@@ -90,6 +90,14 @@ class PersistenceManager: NSObject {
         }
     }
     
+    func deleteCraving(_ craving: Craving) {
+        if let index = cravings.firstIndex(of: craving) {
+            cravings.remove(at: index)
+            context.delete(craving)
+            saveContext()
+        }
+    }
+    
     func deleteAllData() {
         for object in Constants.CoreData.coreDataObjects {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: object)
@@ -163,13 +171,6 @@ private extension PersistenceManager {
             savingsGoals = (try context.fetch(savingsFetch))
         } catch {
             print("\(error)")
-        }
-    }
-    
-    func deleteCraving(_ craving: Craving) {
-        if let index = cravings.firstIndex(of: craving) {
-            cravings.remove(at: index)
-            context.delete(craving)
         }
     }
     

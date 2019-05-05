@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol SectionThreeCarouselCellDelegate: class {
+    func didTapCravingDetailsButton()
+}
+
 class SectionThreeCarouselCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var persistenceManager: PersistenceManager?
+    
+    weak var delegate: SectionThreeCarouselCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,6 +55,7 @@ extension SectionThreeCarouselCell: UICollectionViewDelegate, UICollectionViewDa
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionThreeCravingsChartCell", for: indexPath) as? SectionThreeCravingsChartCell else {
                 return UICollectionViewCell()
             }
+            cell.delegate = self
             cell.persistenceManager = persistenceManager
             cell.reloadBarChart()
             return cell
@@ -64,5 +71,11 @@ extension SectionThreeCarouselCell: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
+    }
+}
+
+extension SectionThreeCarouselCell: SectionThreeCravingsChartCellDelegate {
+    func didTapCravingsDetailButton() {
+        delegate?.didTapCravingDetailsButton()
     }
 }

@@ -11,10 +11,11 @@ import UIKit
 
 enum Storyboards: String {
     case Main
+    case Settings
 }
 
 enum ViewControllerFactory: String {
-    case HomeVC
+    case HomeViewController
     case SettingsVC
     case AchievementsVC
     case QuitInfoVC
@@ -27,6 +28,9 @@ enum ViewControllerFactory: String {
     
     func storyboardForViewController() -> Storyboards {
         switch self {
+        case .SettingsVC,
+             .QuitInfoVC:
+            return .Settings
         default:
             return .Main
         }

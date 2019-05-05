@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17012656227EFDE000E416F6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012655227EFDE000E416F6 /* Settings.storyboard */; };
 		1714FC87219E06C000CFB203 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC86219E06C000CFB203 /* UserNotifications.framework */; };
 		1714FC89219E06C000CFB203 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */; };
 		1714FC8C219E06C000CFB203 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC8B219E06C000CFB203 /* NotificationViewController.swift */; };
@@ -52,7 +53,7 @@
 		179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */; };
 		179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */; };
 		179FDFCC21640536003131C5 /* SectionOneCravingDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */; };
-		179FDFCE216406B3003131C5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFCD216406B3003131C5 /* HomeVC.swift */; };
+		179FDFCE216406B3003131C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFCD216406B3003131C5 /* HomeViewController.swift */; };
 		179FDFD1216419CC003131C5 /* SectionOneVapingDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFCF216419CC003131C5 /* SectionOneVapingDataCell.swift */; };
 		179FDFD2216419CC003131C5 /* SectionOneVapingDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFD0216419CC003131C5 /* SectionOneVapingDataCell.xib */; };
 		179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFD321641B0D003131C5 /* RoundedView.swift */; };
@@ -154,6 +155,7 @@
 /* Begin PBXFileReference section */
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17012655227EFDE000E416F6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		1714FC85219E06C000CFB203 /* healthStateNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = healthStateNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1714FC86219E06C000CFB203 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -198,7 +200,7 @@
 		179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCarouselCell.swift; sourceTree = "<group>"; };
 		179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCravingDataCell.swift; sourceTree = "<group>"; };
 		179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCravingDataCell.xib; sourceTree = "<group>"; };
-		179FDFCD216406B3003131C5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		179FDFCD216406B3003131C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		179FDFCF216419CC003131C5 /* SectionOneVapingDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneVapingDataCell.swift; sourceTree = "<group>"; };
 		179FDFD0216419CC003131C5 /* SectionOneVapingDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneVapingDataCell.xib; sourceTree = "<group>"; };
 		179FDFD321641B0D003131C5 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			children = (
 				177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */,
 				177F03E82025220000CC7CA8 /* Main.storyboard */,
+				17012655227EFDE000E416F6 /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -447,7 +450,7 @@
 		179FDFC2216403F3003131C5 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
-				179FDFCD216406B3003131C5 /* HomeVC.swift */,
+				179FDFCD216406B3003131C5 /* HomeViewController.swift */,
 				179FDFC32164040A003131C5 /* Cells */,
 			);
 			path = MainVC;
@@ -773,6 +776,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				179FDFF6216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib in Resources */,
+				17012656227EFDE000E416F6 /* Settings.storyboard in Resources */,
 				179FDFE721681AFE003131C5 /* SectionTwoSavingsGoalCell.xib in Resources */,
 				171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */,
 				179FDFC52164045A003131C5 /* SectionOneCarouselCell.xib in Resources */,
@@ -925,7 +929,7 @@
 				1791FDE621D55A5A00EDF452 /* EditArrayVC.swift in Sources */,
 				1714FCA021ADD63200CFB203 /* WidgetOnboardingVC.swift in Sources */,
 				17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */,
-				179FDFCE216406B3003131C5 /* HomeVC.swift in Sources */,
+				179FDFCE216406B3003131C5 /* HomeViewController.swift in Sources */,
 				179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */,
 				1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */,
 				175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */,

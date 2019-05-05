@@ -9,13 +9,11 @@
 import UIKit
 
 protocol SettingsVCDelegate: class {
-    func segueToQuitDataVC()
+    func segueToQuitDataViewController()
 }
 
 class SettingsVC: QuitBaseViewController {
-    
-    @IBOutlet private weak var deleteAllDataButton: UIButton!
-    
+        
     weak var delegate: SettingsVCDelegate?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -24,11 +22,7 @@ class SettingsVC: QuitBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.97)
-    }
-    
-    @IBAction private func goBackButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        title = "Settings"
     }
     
     @IBAction private func deleteAllDataButtonPressed(_ sender: Any) {
@@ -38,7 +32,7 @@ class SettingsVC: QuitBaseViewController {
     
     @IBAction func didTapChangeQuitDate(_ sender: Any) {
         dismiss(animated: true) {
-            self.delegate?.segueToQuitDataVC()
+            self.delegate?.segueToQuitDataViewController()
         }
     }
 }

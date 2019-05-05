@@ -10,7 +10,6 @@ import UIKit
 
 protocol SectionOneCarouselCellDelegate: class {
     func didPressChangeQuitDate()
-    func didPressSegueToSettings()
     func didPressSegueToAchievements()
     func addCraving()
     func segueToSmokedVC()
@@ -103,10 +102,6 @@ extension SectionOneCarouselCell: SectionOneCravingDataCellDelegate {
     
     func segueToSmokedVC() {
         delegate?.segueToSmokedVC()
-    }
-    
-    func didPressSegueToSettings() {
-        delegate?.didPressSegueToSettings()
     }
     
     func didPressChangeQuitDate() {

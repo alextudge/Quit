@@ -10,7 +10,6 @@ import UIKit
 
 protocol SectionOneCravingDataCellDelegate: class {
     func didPressChangeQuitDate()
-    func didPressSegueToSettings()
     func didPressSegueToAchievements()
     func addCraving()
     func segueToSmokedVC()
@@ -81,10 +80,6 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     
     @objc func didPressChangeQuitDateButton(_ sender: Any) {
         delegate?.didPressChangeQuitDate()
-    }
-    
-    @IBAction func didPressSettingsButton(_ sender: Any) {
-        delegate?.didPressSegueToSettings()
     }
     
     @IBAction func cravingButton(_ sender: Any) {

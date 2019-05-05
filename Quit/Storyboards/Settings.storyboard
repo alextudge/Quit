@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SettingsVC-->
+        <scene sceneID="cF7-fU-lEt">
+            <objects>
+                <viewController storyboardIdentifier="SettingsVC" id="QzD-5e-57u" customClass="SettingsVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="g3R-M5-fam">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-YQ-f0M" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="20" y="64" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bNW-K1-JLc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Clear Data">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAllDataButtonPressed:" destination="QzD-5e-57u" eventType="touchUpInside" id="ZMN-m1-uZk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQp-PS-LSN">
+                                <rect key="frame" x="10" y="204" width="394" height="658"/>
+                                <string key="text">Clear Data removes your cravings and savings goals. Click on the date in the main screen to change your quit date. Quit stores your data on this device. It's never sent over the interent, we can't see it, and it's only used to display your stats.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjX-Yt-LdB" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="20" y="134" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KKq-60-h1o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Change quit date">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapChangeQuitDate:" destination="QzD-5e-57u" eventType="touchUpInside" id="PjP-a5-Ht7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nh8-YQ-f0M" firstAttribute="top" secondItem="wwd-JD-nwF" secondAttribute="top" constant="20" id="AJE-EO-kn2"/>
+                            <constraint firstItem="nh8-YQ-f0M" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="20" id="BNN-LY-Vy1"/>
+                            <constraint firstItem="cQp-PS-LSN" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="10" id="MQn-U6-7hU"/>
+                            <constraint firstItem="xjX-Yt-LdB" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="20" id="Md3-eu-tR3"/>
+                            <constraint firstItem="cQp-PS-LSN" firstAttribute="top" secondItem="xjX-Yt-LdB" secondAttribute="bottom" constant="20" id="Wjo-us-MUB"/>
+                            <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="xjX-Yt-LdB" secondAttribute="trailing" constant="20" id="Y2D-bS-kdO"/>
+                            <constraint firstItem="xjX-Yt-LdB" firstAttribute="top" secondItem="nh8-YQ-f0M" secondAttribute="bottom" constant="20" id="asY-dJ-Ed1"/>
+                            <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="cQp-PS-LSN" secondAttribute="trailing" constant="10" id="cCm-cB-BY4"/>
+                            <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="nh8-YQ-f0M" secondAttribute="trailing" constant="20" id="enj-M7-CL3"/>
+                            <constraint firstItem="wwd-JD-nwF" firstAttribute="bottom" secondItem="cQp-PS-LSN" secondAttribute="bottom" id="pz7-3C-TGT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wwd-JD-nwF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NO8-cD-lkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2926.0869565217395" y="-833.70535714285711"/>
+        </scene>
+        <!--Quit InfoVC-->
+        <scene sceneID="6uB-gt-Sj0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jm1-WA-yDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="QuitInfoVC" modalPresentationStyle="overCurrentContext" id="onu-ug-DVq" customClass="QuitInfoVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GmK-11-FRj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How much is a pack of 20?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x23-8Z-HMr">
+                                <rect key="frame" x="20" y="296" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4e1-fF-5Lj"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many do you smoke a day?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Zi-eH-cQG">
+                                <rect key="frame" x="20" y="185.5" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Erj-xv-bDm"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="EHx-fy-Bhb">
+                                <rect key="frame" x="0.0" y="407" width="414" height="365"/>
+                                <date key="date" timeIntervalSinceReferenceDate="539477609.28601098">
+                                    <!--2018-02-04 22:53:29 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="pickerViewDidChange:" destination="onu-ug-DVq" eventType="valueChanged" id="421-a1-7UM"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPZ-49-9oy" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lpX-2i-DpA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="onu-ug-DVq" eventType="touchUpInside" id="cj9-32-SCF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="We need this basic information to calculate your progress and personalise your data. You can change it at any time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p53-2m-E9m">
+                                <rect key="frame" x="20" y="64" width="374" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many do you smoke each day?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5F-Nx-fUH">
+                                <rect key="frame" x="20" y="145" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much does a pack of 20 cost you?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-Bm-lSL">
+                                <rect key="frame" x="20" y="255.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When is your quit date?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByF-y0-TER">
+                                <rect key="frame" x="20" y="366" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LW4-mM-rUG" firstAttribute="bottom" secondItem="IPZ-49-9oy" secondAttribute="bottom" constant="20" id="0Oq-DK-2yM"/>
+                            <constraint firstItem="x23-8Z-HMr" firstAttribute="top" secondItem="5gT-Bm-lSL" secondAttribute="bottom" constant="20" id="1l4-nE-9do"/>
+                            <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="x23-8Z-HMr" secondAttribute="trailing" constant="20" id="9sU-5c-Lco"/>
+                            <constraint firstItem="O5F-Nx-fUH" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" constant="20" id="A0L-1K-tZL"/>
+                            <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="5gT-Bm-lSL" secondAttribute="trailing" constant="20" id="AaI-bY-dGS"/>
+                            <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="ByF-y0-TER" secondAttribute="trailing" constant="20" id="EDv-io-kfS"/>
+                            <constraint firstItem="EHx-fy-Bhb" firstAttribute="top" secondItem="ByF-y0-TER" secondAttribute="bottom" constant="20" id="EMf-kL-hnk"/>
+                            <constraint firstItem="IPZ-49-9oy" firstAttribute="top" secondItem="EHx-fy-Bhb" secondAttribute="bottom" constant="20" id="Ezu-uc-T7p"/>
+                            <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="0Zi-eH-cQG" secondAttribute="trailing" constant="20" id="H5q-7c-hM6"/>
+                            <constraint firstItem="IPZ-49-9oy" firstAttribute="trailing" secondItem="LW4-mM-rUG" secondAttribute="trailing" constant="-20" id="HDG-p3-Pcn"/>
+                            <constraint firstItem="p53-2m-E9m" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" constant="20" id="Hkq-b6-5ha"/>
+                            <constraint firstItem="5gT-Bm-lSL" firstAttribute="top" secondItem="0Zi-eH-cQG" secondAttribute="bottom" constant="20" id="LAu-oY-hc2"/>
+                            <constraint firstItem="0Zi-eH-cQG" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" constant="20" id="MGc-DA-z2C"/>
+                            <constraint firstItem="5gT-Bm-lSL" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" constant="20" id="MxC-oI-1MH"/>
+                            <constraint firstItem="x23-8Z-HMr" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" constant="20" id="ORV-le-1Yj"/>
+                            <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="O5F-Nx-fUH" secondAttribute="trailing" constant="20" id="OqQ-ZV-cCC"/>
+                            <constraint firstItem="EHx-fy-Bhb" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" id="SYZ-ys-Qzw"/>
+                            <constraint firstItem="IPZ-49-9oy" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" constant="20" id="aYh-mp-JpO"/>
+                            <constraint firstItem="0Zi-eH-cQG" firstAttribute="top" secondItem="O5F-Nx-fUH" secondAttribute="bottom" constant="20" id="fbV-0N-1MR"/>
+                            <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="EHx-fy-Bhb" secondAttribute="trailing" id="kLg-63-7cP"/>
+                            <constraint firstItem="O5F-Nx-fUH" firstAttribute="top" secondItem="p53-2m-E9m" secondAttribute="bottom" constant="20" id="mlj-dH-0hr"/>
+                            <constraint firstItem="p53-2m-E9m" firstAttribute="top" secondItem="LW4-mM-rUG" secondAttribute="top" constant="20" id="pMR-bV-iNW"/>
+                            <constraint firstItem="ByF-y0-TER" firstAttribute="top" secondItem="x23-8Z-HMr" secondAttribute="bottom" constant="20" id="qzS-Ic-qH4"/>
+                            <constraint firstItem="ByF-y0-TER" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" constant="20" id="txH-Tt-tj3"/>
+                            <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="p53-2m-E9m" secondAttribute="trailing" constant="20" id="w9c-nR-Blk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LW4-mM-rUG"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="0Oq-DK-2yM" id="h6U-fB-oM6"/>
+                        <outlet property="costOf20TextField" destination="x23-8Z-HMr" id="UdB-rs-r7b"/>
+                        <outlet property="quitDatePicker" destination="EHx-fy-Bhb" id="Vp2-PL-hPo"/>
+                        <outlet property="smokedDailyTextField" destination="0Zi-eH-cQG" id="5Fp-EK-5S5"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2212" y="-833.43328335832086"/>
+        </scene>
+    </scenes>
+</document>

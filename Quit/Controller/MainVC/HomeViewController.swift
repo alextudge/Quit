@@ -8,35 +8,30 @@
 
 import UIKit
 
-class HomeVC: QuitBaseViewController {
+class HomeViewController: QuitBaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var statusBarViewHeight: NSLayoutConstraint!
     
     private(set) var viewModel = HomeVCViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         persistenceManager = PersistenceManager()
+        setupUI()
         setupTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        statusBarViewHeight.constant = UIApplication.shared.statusBarFrame.height
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if quitData == nil {
-            segueToQuitDataVC()
+            segueToQuitDataViewController()
             return
         }
         showOnboarding()
     }
 }
 
-extension HomeVC: UITableViewDataSource, UITableViewDelegate {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
@@ -96,17 +91,13 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension HomeVC: SectionOneCarouselCellDelegate {
+extension HomeViewController: SectionOneCarouselCellDelegate {
     func didPressSegueToAchievements() {
         segueToAchievementsVC()
     }
     
-    func didPressSegueToSettings() {
-        segueToSettings()
-    }
-    
     func didPressChangeQuitDate() {
-        segueToQuitDataVC()
+        segueToQuitDataViewController()
     }
     
     func addCraving() {
@@ -118,7 +109,7 @@ extension HomeVC: SectionOneCarouselCellDelegate {
     }
 }
 
-extension HomeVC: SectionTwoCarouselCellDelegate {
+extension HomeViewController: SectionTwoCarouselCellDelegate {
     func didTapSavingGoal(sender: SavingGoal?) {
         if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
             viewController.persistenceManager = persistenceManager
@@ -130,7 +121,7 @@ extension HomeVC: SectionTwoCarouselCellDelegate {
     }
 }
 
-extension HomeVC: SectionFiveCarouselCellDelegate {
+extension HomeViewController: SectionFiveCarouselCellDelegate {
     func didTapEditButton(isReasonsToSmoke: Bool) {
         if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
             viewController.isReasonsToSmoke = isReasonsToSmoke
@@ -140,13 +131,20 @@ extension HomeVC: SectionFiveCarouselCellDelegate {
     }
 }
 
-extension HomeVC: ReasonsOnboardingVCDelegate {
+extension HomeViewController: ReasonsOnboardingVCDelegate {
     func didTapLetsGoButton() {
         didTapEditButton(isReasonsToSmoke: true)
     }
 }
 
-private extension HomeVC {
+private extension HomeViewController {
+    func setupUI() {
+        largeTitlesEnabled = true
+        title = "Quit"
+        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(segueToSettings))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -200,11 +198,11 @@ private extension HomeVC {
 }
 
 // MARK: Navigation
-extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
-    func segueToQuitDataVC() {
+extension HomeViewController: AddCravingVCDelegate, SettingsVCDelegate {
+    func segueToQuitDataViewController() {
         if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
             viewController.persistenceManager = persistenceManager
-            present(viewController, animated: true, completion: nil)
+            presentQuitBaseViewController(viewController)
         }
     }
     
@@ -214,11 +212,11 @@ extension HomeVC: AddCravingVCDelegate, SettingsVCDelegate {
         }
     }
     
-    private func segueToSettings() {
+    @objc private func segueToSettings() {
         if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
             viewController.delegate = self
             viewController.persistenceManager = persistenceManager
-            present(viewController, animated: true, completion: nil)
+            presentQuitBaseViewController(viewController)
         }
     }
     

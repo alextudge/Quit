@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,17 +29,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2R-Oo-gzw">
-                                <rect key="frame" x="10" y="175" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Qes-XX-ypd"/>
-                                    <constraint firstAttribute="width" constant="36" id="mYg-qd-CQY"/>
-                                </constraints>
-                                <state key="normal" image="Settings"/>
-                                <connections>
-                                    <action selector="didPressSettingsButton:" destination="xeY-of-lYy" eventType="touchUpInside" id="zaq-pd-6YE"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBZ-sB-DqH" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
                                 <rect key="frame" x="329" y="137.5" width="50" height="50"/>
                                 <constraints>
@@ -77,8 +66,6 @@
                             <constraint firstAttribute="bottom" secondItem="AJo-jE-TGE" secondAttribute="bottom" constant="10" id="1Tu-BV-o5v"/>
                             <constraint firstItem="SjR-81-bD8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="acL-Ea-F7b" secondAttribute="trailing" constant="10" id="9Li-xj-YNS"/>
                             <constraint firstItem="ZBZ-sB-DqH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="acL-Ea-F7b" secondAttribute="bottom" id="AQR-dj-uan"/>
-                            <constraint firstAttribute="bottom" secondItem="B2R-Oo-gzw" secondAttribute="bottom" constant="10" id="BSN-dg-wAS"/>
-                            <constraint firstItem="B2R-Oo-gzw" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="10" id="QNL-vN-GHN"/>
                             <constraint firstAttribute="trailing" secondItem="SjR-81-bD8" secondAttribute="trailing" constant="10" id="Snw-Ww-2f9"/>
                             <constraint firstItem="acL-Ea-F7b" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="10" id="XV0-oL-Fut"/>
                             <constraint firstItem="AJo-jE-TGE" firstAttribute="top" secondItem="ZBZ-sB-DqH" secondAttribute="bottom" constant="10" id="cqX-Dv-e02"/>
@@ -103,14 +90,12 @@
                 <outlet property="addCravingButton" destination="ZBZ-sB-DqH" id="hA4-86-G6m"/>
                 <outlet property="quitDateLabel" destination="acL-Ea-F7b" id="9th-yk-jzM"/>
                 <outlet property="roundedView" destination="Xd4-ei-MaL" id="b6e-AK-NOe"/>
-                <outlet property="settingsButton" destination="B2R-Oo-gzw" id="17k-mS-nnW"/>
             </connections>
             <point key="canvasLocation" x="348" y="-12.143928035982009"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="Plus" width="50" height="50"/>
-        <image name="Settings" width="50" height="50"/>
         <image name="award" width="50" height="50"/>
     </resources>
 </document>

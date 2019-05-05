@@ -1,103 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q6M-9X-UAi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wda-a8-vs5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SettingsVC-->
-        <scene sceneID="7RW-ah-qTz">
-            <objects>
-                <viewController storyboardIdentifier="SettingsVC" modalPresentationStyle="overCurrentContext" id="jZe-XE-UUn" customClass="SettingsVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dYO-7K-FLy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOi-sa-AAp" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="10" y="20" width="355" height="50"/>
-                                <color key="backgroundColor" red="0.4394648075" green="0.68392395969999997" blue="0.96788817640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="20Z-Q5-pBr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                <state key="normal" title="Go Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBackButtonPressed:" destination="jZe-XE-UUn" eventType="touchUpInside" id="Kei-J7-2Xg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwb-wY-ALk" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="10" y="80" width="355" height="50"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="0E5-f6-ct3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                <state key="normal" title="Clear Data">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteAllDataButtonPressed:" destination="jZe-XE-UUn" eventType="touchUpInside" id="eCg-oE-i2t"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laD-R9-w5G">
-                                <rect key="frame" x="10" y="200" width="355" height="467"/>
-                                <string key="text">Clear Data removes your cravings and savings goals. Click on the date in the main screen to change your quit date. Quit stores your data on this device. It's never sent over the interent, we can't see it, and it's only used to display your stats.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0d-UT-RUZ" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="10" y="140" width="355" height="50"/>
-                                <color key="backgroundColor" red="0.98041182760000001" green="0.33680224419999999" blue="0.42892789840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="xjQ-11-oKY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                <state key="normal" title="Change quit date">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapChangeQuitDate:" destination="jZe-XE-UUn" eventType="touchUpInside" id="Y4C-e9-00T"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="0.96999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="N0d-UT-RUZ" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="D9N-sr-hm2"/>
-                            <constraint firstItem="BOi-sa-AAp" firstAttribute="top" secondItem="8tM-dF-NAA" secondAttribute="top" id="DKO-yr-8I2"/>
-                            <constraint firstItem="Lwb-wY-ALk" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="Dl2-Dt-uBs"/>
-                            <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="Lwb-wY-ALk" secondAttribute="trailing" constant="10" id="IJz-sX-FLf"/>
-                            <constraint firstItem="N0d-UT-RUZ" firstAttribute="top" secondItem="Lwb-wY-ALk" secondAttribute="bottom" constant="10" id="OZ5-6G-jiK"/>
-                            <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="laD-R9-w5G" secondAttribute="trailing" constant="10" id="USr-2m-8wM"/>
-                            <constraint firstItem="Lwb-wY-ALk" firstAttribute="top" secondItem="BOi-sa-AAp" secondAttribute="bottom" constant="10" id="bOB-5J-4cR"/>
-                            <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="N0d-UT-RUZ" secondAttribute="trailing" constant="10" id="eAw-Ad-D4r"/>
-                            <constraint firstItem="8tM-dF-NAA" firstAttribute="bottom" secondItem="laD-R9-w5G" secondAttribute="bottom" id="euU-n8-Bso"/>
-                            <constraint firstItem="BOi-sa-AAp" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="hKl-qt-avu"/>
-                            <constraint firstItem="8tM-dF-NAA" firstAttribute="trailing" secondItem="BOi-sa-AAp" secondAttribute="trailing" constant="10" id="hzt-rL-Fa8"/>
-                            <constraint firstItem="laD-R9-w5G" firstAttribute="leading" secondItem="8tM-dF-NAA" secondAttribute="leading" constant="10" id="s6x-XE-9gh"/>
-                            <constraint firstItem="laD-R9-w5G" firstAttribute="top" secondItem="N0d-UT-RUZ" secondAttribute="bottom" constant="10" id="sGd-dd-5XB"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="8tM-dF-NAA"/>
-                    </view>
-                    <connections>
-                        <outlet property="deleteAllDataButton" destination="Lwb-wY-ALk" id="ltE-IP-Qod"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gyd-TG-wVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1988" y="-833"/>
-        </scene>
-        <!--HomeVC-->
+        <!--Home View Controller-->
         <scene sceneID="w91-Xs-71h">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="Q6M-9X-UAi" customClass="HomeVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="Q6M-9X-UAi" customClass="HomeViewController" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WKb-pO-LKa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,34 +22,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcL-aS-aqe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" priority="500" constant="20" id="ThO-Ad-dsL"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="18o-1p-mi4" firstAttribute="trailing" secondItem="ntA-L8-fgz" secondAttribute="trailing" id="GKF-in-igI"/>
-                            <constraint firstItem="dcL-aS-aqe" firstAttribute="trailing" secondItem="18o-1p-mi4" secondAttribute="trailing" id="KSk-gh-lzs"/>
                             <constraint firstItem="18o-1p-mi4" firstAttribute="bottom" secondItem="ntA-L8-fgz" secondAttribute="bottom" id="PkG-ug-LrU"/>
-                            <constraint firstItem="dcL-aS-aqe" firstAttribute="top" secondItem="WKb-pO-LKa" secondAttribute="top" id="eFd-aN-scz"/>
                             <constraint firstItem="ntA-L8-fgz" firstAttribute="leading" secondItem="18o-1p-mi4" secondAttribute="leading" id="fYx-fv-Da5"/>
                             <constraint firstItem="ntA-L8-fgz" firstAttribute="top" secondItem="WKb-pO-LKa" secondAttribute="top" id="sW3-hN-vdt"/>
-                            <constraint firstItem="dcL-aS-aqe" firstAttribute="leading" secondItem="18o-1p-mi4" secondAttribute="leading" id="wZS-9P-Lx0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="18o-1p-mi4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qYy-Ya-bLX"/>
                     <connections>
-                        <outlet property="statusBarViewHeight" destination="ThO-Ad-dsL" id="O4R-yN-JYJ"/>
                         <outlet property="tableView" destination="ntA-L8-fgz" id="RbX-6h-M1z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s7j-lv-aCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="-833"/>
+            <point key="canvasLocation" x="1479.2" y="-833.43328335832086"/>
         </scene>
         <!--SmokedVC-->
         <scene sceneID="BXc-N5-ysI">
@@ -596,101 +502,6 @@
             </objects>
             <point key="canvasLocation" x="2718" y="-70"/>
         </scene>
-        <!--Quit InfoVC-->
-        <scene sceneID="PA2-Fq-E62">
-            <objects>
-                <viewController storyboardIdentifier="QuitInfoVC" modalPresentationStyle="overCurrentContext" id="8jn-cv-7Ec" customClass="QuitInfoVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="EV8-tE-bpL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How much is a pack of 20?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G2o-oJ-kjv">
-                                <rect key="frame" x="10" y="210" width="355" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="eRT-ak-XeO"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many do you smoke a day?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8CX-zK-nWd">
-                                <rect key="frame" x="10" y="150" width="355" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="GL9-GQ-Rs3"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="qy9-jc-4vh">
-                                <rect key="frame" x="0.0" y="270" width="375" height="397"/>
-                                <date key="date" timeIntervalSinceReferenceDate="539477609.28601098">
-                                    <!--2018-02-04 22:53:29 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="pickerViewDidChange:" destination="8jn-cv-7Ec" eventType="valueChanged" id="V6b-i0-reO"/>
-                                </connections>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS8-zz-o8Y" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="10" y="20" width="355" height="50"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kG0-O4-3mC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="8jn-cv-7Ec" eventType="touchUpInside" id="F0N-0w-7Iv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExK-qi-ABq" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="10" y="80" width="355" height="50"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Lvq-o8-5a9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="8jn-cv-7Ec" eventType="touchUpInside" id="QvC-Mq-SAW"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.33000000000000002" alpha="0.97999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="qy9-jc-4vh" firstAttribute="top" secondItem="G2o-oJ-kjv" secondAttribute="bottom" constant="10" id="1DR-Sh-DO2"/>
-                            <constraint firstItem="fgR-Zp-L8t" firstAttribute="trailing" secondItem="cS8-zz-o8Y" secondAttribute="trailing" constant="10" id="1Sc-Ek-UpC"/>
-                            <constraint firstItem="G2o-oJ-kjv" firstAttribute="top" secondItem="8CX-zK-nWd" secondAttribute="bottom" constant="10" id="1xK-1E-wV4"/>
-                            <constraint firstItem="8CX-zK-nWd" firstAttribute="top" secondItem="ExK-qi-ABq" secondAttribute="bottom" constant="20" id="Kha-u2-4fq"/>
-                            <constraint firstItem="fgR-Zp-L8t" firstAttribute="trailing" secondItem="G2o-oJ-kjv" secondAttribute="trailing" constant="10" id="Kx6-NL-otT"/>
-                            <constraint firstItem="fgR-Zp-L8t" firstAttribute="trailing" secondItem="ExK-qi-ABq" secondAttribute="trailing" constant="10" id="Q14-UM-zPS"/>
-                            <constraint firstItem="8CX-zK-nWd" firstAttribute="leading" secondItem="fgR-Zp-L8t" secondAttribute="leading" constant="10" id="Ttv-lY-fYO"/>
-                            <constraint firstItem="fgR-Zp-L8t" firstAttribute="trailing" secondItem="8CX-zK-nWd" secondAttribute="trailing" constant="10" id="ZLj-04-v0y"/>
-                            <constraint firstItem="fgR-Zp-L8t" firstAttribute="bottom" secondItem="qy9-jc-4vh" secondAttribute="bottom" id="ZnP-E3-Vjd"/>
-                            <constraint firstItem="fgR-Zp-L8t" firstAttribute="trailing" secondItem="qy9-jc-4vh" secondAttribute="trailing" id="eFY-fd-FLP"/>
-                            <constraint firstItem="ExK-qi-ABq" firstAttribute="top" secondItem="cS8-zz-o8Y" secondAttribute="bottom" constant="10" id="jQU-9p-A1k"/>
-                            <constraint firstItem="ExK-qi-ABq" firstAttribute="leading" secondItem="fgR-Zp-L8t" secondAttribute="leading" constant="10" id="kCh-om-HYs"/>
-                            <constraint firstItem="cS8-zz-o8Y" firstAttribute="top" secondItem="fgR-Zp-L8t" secondAttribute="top" id="ncf-4K-yKh"/>
-                            <constraint firstItem="qy9-jc-4vh" firstAttribute="leading" secondItem="fgR-Zp-L8t" secondAttribute="leading" id="sXg-o4-d5K"/>
-                            <constraint firstItem="cS8-zz-o8Y" firstAttribute="leading" secondItem="fgR-Zp-L8t" secondAttribute="leading" constant="10" id="tAJ-SW-a6M"/>
-                            <constraint firstItem="G2o-oJ-kjv" firstAttribute="leading" secondItem="fgR-Zp-L8t" secondAttribute="leading" constant="10" id="v4S-b1-vKx"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fgR-Zp-L8t"/>
-                    </view>
-                    <connections>
-                        <outlet property="costOf20TextField" destination="G2o-oJ-kjv" id="G0j-Kl-cYj"/>
-                        <outlet property="quitDatePicker" destination="qy9-jc-4vh" id="8Qg-jW-H3r"/>
-                        <outlet property="smokedDailyTextField" destination="8CX-zK-nWd" id="dmC-Sn-Fgr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zqx-oy-rmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1273" y="-833"/>
-        </scene>
         <!--Saving GoalVC-->
         <scene sceneID="xIf-A0-Uzd">
             <objects>
@@ -788,7 +599,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QeJ-fU-Qr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2719" y="-833"/>
+            <point key="canvasLocation" x="3656.8000000000002" y="-833.43328335832086"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8lp-fX-sOI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wda-a8-vs5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uSm-so-h42">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Q6M-9X-UAi" kind="relationship" relationship="rootViewController" id="GLf-xS-nY8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BlF-V9-ukZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540" y="-833.43328335832086"/>
         </scene>
     </scenes>
 </document>

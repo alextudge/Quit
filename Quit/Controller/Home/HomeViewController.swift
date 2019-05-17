@@ -14,6 +14,7 @@ class HomeViewController: QuitBaseViewController {
     @IBOutlet private weak var stackView: UIStackView!
     
     private(set) var viewModel = HomeVCViewModel()
+    private let navigationControllerDelegate = QuitNavigationTransitions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,8 @@ class HomeViewController: QuitBaseViewController {
 
 private extension HomeViewController {
     func setupUI() {
+        presentingView = tableView
+        navigationController?.delegate = navigationControllerDelegate
         largeTitlesEnabled = true
         title = "Quit"
         let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(segueToSettings))

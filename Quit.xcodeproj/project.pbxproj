@@ -11,6 +11,9 @@
 		17012658227F0F9200E416F6 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012657227F0F9200E416F6 /* Other.storyboard */; };
 		1701265B227F9BB100E416F6 /* CravingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265A227F9BB100E416F6 /* CravingsViewController.swift */; };
 		1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265C227F9D2100E416F6 /* CravingsCell.swift */; };
+		1705FCB9228F75FB00E577EC /* achievements.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCB8228F75FB00E577EC /* achievements.json */; };
+		1705FCBC228F7CC900E577EC /* QuitTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705FCBB228F7CC900E577EC /* QuitTransitions.swift */; };
+		1705FCBE228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705FCBD228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift */; };
 		1714FC87219E06C000CFB203 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC86219E06C000CFB203 /* UserNotifications.framework */; };
 		1714FC89219E06C000CFB203 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */; };
 		1714FC8C219E06C000CFB203 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC8B219E06C000CFB203 /* NotificationViewController.swift */; };
@@ -162,6 +165,9 @@
 		17012657227F0F9200E416F6 /* Other.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Other.storyboard; sourceTree = "<group>"; };
 		1701265A227F9BB100E416F6 /* CravingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsViewController.swift; sourceTree = "<group>"; };
 		1701265C227F9D2100E416F6 /* CravingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsCell.swift; sourceTree = "<group>"; };
+		1705FCB8228F75FB00E577EC /* achievements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = achievements.json; path = ../../../../../Downloads/achievements.json; sourceTree = "<group>"; };
+		1705FCBB228F7CC900E577EC /* QuitTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTransitions.swift; sourceTree = "<group>"; };
+		1705FCBD228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitAnimatedExpansionTransition.swift; sourceTree = "<group>"; };
 		1714FC85219E06C000CFB203 /* healthStateNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = healthStateNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1714FC86219E06C000CFB203 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -320,6 +326,23 @@
 			path = "Info Controllers";
 			sourceTree = "<group>";
 		};
+		1705FCB7228F75E900E577EC /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				1705FCB8228F75FB00E577EC /* achievements.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		1705FCBA228F7CB400E577EC /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				1705FCBB228F7CC900E577EC /* QuitTransitions.swift */,
+				1705FCBD228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 		1714FC8A219E06C000CFB203 /* healthStateNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +426,7 @@
 		177F03E32025220000CC7CA8 /* Quit */ = {
 			isa = PBXGroup;
 			children = (
+				1705FCB7228F75E900E577EC /* Lottie */,
 				177F04222028A70600CC7CA8 /* Utilities */,
 				17156BE1225966BF005EEE69 /* Storyboards */,
 				177F04212028A6F000CC7CA8 /* Controller */,
@@ -430,6 +454,7 @@
 		177F04212028A6F000CC7CA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1705FCBA228F7CB400E577EC /* Transitions */,
 				1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */,
 				17156BE222596B42005EEE69 /* QuitBaseViewController.swift */,
 				179FDFC2216403F3003131C5 /* Home */,
@@ -800,6 +825,7 @@
 				179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */,
 				179FDFEC216933A3003131C5 /* SectionThreeCarouselCell.xib in Resources */,
 				177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */,
+				1705FCB9228F75FB00E577EC /* achievements.json in Resources */,
 				179FDFDD2166C3FA003131C5 /* SectionTwoCarouselCell.xib in Resources */,
 				177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */,
 			);
@@ -962,6 +988,7 @@
 				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,
 				175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */,
 				17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */,
+				1705FCBC228F7CC900E577EC /* QuitTransitions.swift in Sources */,
 				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
 				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,
 				17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */,
@@ -979,6 +1006,7 @@
 				177F04242029104900CC7CA8 /* QuitData.swift in Sources */,
 				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,
 				177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */,
+				1705FCBE228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift in Sources */,
 				179FDFD62166A2BF003131C5 /* HomeVCViewModel.swift in Sources */,
 				175D41F121D3E25700FB7588 /* ApplicationExtensions.swift in Sources */,
 				17F1B61D21D5B1DF0021722D /* DoubleExtensions.swift in Sources */,

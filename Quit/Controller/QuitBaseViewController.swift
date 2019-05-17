@@ -14,6 +14,7 @@ enum PresentationMode {
 
 class QuitBaseViewController: UIViewController {
     
+    var presentingView: UIView?
     var largeTitlesEnabled = false
     var persistenceManager: PersistenceManager?
     var quitData: QuitData? {

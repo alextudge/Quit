@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import UIKit
+import Lottie
 
 protocol SectionOneCravingDataCellDelegate: class {
     func didPressChangeQuitDate()
@@ -21,8 +21,8 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     @IBOutlet weak var roundedView: RoundedView!
     @IBOutlet weak var quitDateLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet private weak var achievementsLottieView: AnimationView!
     @IBOutlet weak var addCravingButton: RoundedButton!
-    @IBOutlet weak var achievementsButton: UIButton!
     
     var viewModel = SectionOneCravingDataCellViewModel()
     private var gradientLayer: CAGradientLayer?
@@ -35,6 +35,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         gradientLayer = roundedView.gradient(colors: Styles.Colours.blueGradient)
+        achievementsLottieView.play()
     }
     
     override func layoutSubviews() {

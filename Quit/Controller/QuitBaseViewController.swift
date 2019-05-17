@@ -49,6 +49,7 @@ class QuitBaseViewController: UIViewController {
 private extension QuitBaseViewController {
     func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = largeTitlesEnabled
+        navigationItem.largeTitleDisplayMode = .automatic
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
         navigationController?.navigationBar.titleTextAttributes = attributes

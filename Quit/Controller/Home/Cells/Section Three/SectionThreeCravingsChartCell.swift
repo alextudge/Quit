@@ -119,7 +119,7 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         xAxis?.setLabelCount(2, force: true)
         xAxis?.avoidFirstLastClippingEnabled = true
         xAxis?.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
-        xAxis?.axisLineColor = .darkGray
+        xAxis?.axisLineColor = .lightGray
         xAxis?.axisLineWidth = 2.5
         //Setup other UI elements
         leftAxis?.setLabelCount(2, force: false)
@@ -129,7 +129,7 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         rightAxis?.drawLabelsEnabled = false
         leftAxis?.labelTextColor = .darkGray
         rightAxis?.drawGridLinesEnabled = false
-        barChart.backgroundColor = .clear
+        barChart.backgroundColor = .white
         barChart.legend.textColor = .darkGray
         barChart.legend.font = UIFont(name: "AvenirNext-Bold", size: 15)!
         barChart.chartDescription?.text = ""

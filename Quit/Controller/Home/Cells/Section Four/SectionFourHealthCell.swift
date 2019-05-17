@@ -10,17 +10,15 @@ import UIKit
 
 class SectionFourHealthCell: UICollectionViewCell {
 
-    @IBOutlet weak var waveAnimationView: WaveAnimationView!
-    @IBOutlet weak var healthStateLabel: UILabel!
+    @IBOutlet private weak var healthStateLabel: UILabel!
+    @IBOutlet private weak var progressView: UIProgressView!
     
     var persistenceManager: PersistenceManager?
-    private var color = Styles.Colours.greenColour
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        color = randomColor()
-        waveAnimationView.darkColor = color
-        waveAnimationView.lightColor = color.withAlphaComponent(0.4)
+        progressView.trackTintColor = Styles.Colours.blueColor.withAlphaComponent(0.2)
+        progressView.progressTintColor = Styles.Colours.blueColor
     }
     
     func setupCell(data: Constants.HealthStats) {
@@ -29,20 +27,9 @@ class SectionFourHealthCell: UICollectionViewCell {
             return
         }
         let time = data.secondsForHealthState() / 60
-        let progress = minuteSmokeFree / time
-        waveAnimationView.progress = progress < 1 ? progress : 1
+        let progress = Float(minuteSmokeFree / time)
+        progressView.progress = progress < 1 ? progress : Float(1)
         healthStateLabel.text = data.rawValue
-        if progress > 0.2 {
-            healthStateLabel.textColor = .white
-        } else {
-            healthStateLabel.textColor = color
-        }
-    }
-    
-    private func randomColor() -> UIColor {
-        let randomRed: CGFloat = CGFloat(drand48())
-        let randomGreen: CGFloat = CGFloat(drand48())
-        let randomBlue: CGFloat = CGFloat(drand48())
-        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+        healthStateLabel.textColor = .lightGray
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: QuitBaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var stackView: UIStackView!
     
     private(set) var viewModel = HomeVCViewModel()
     
@@ -49,6 +50,7 @@ private extension HomeViewController {
     func handleQuitDataUI() {
         let quitDataAdded = quitData != nil
         tableView.isHidden = !quitDataAdded
+        stackView.isHidden = quitDataAdded
         tableView.reloadData()
     }
     
@@ -67,7 +69,7 @@ private extension HomeViewController {
     
     func headerFor(section: Int) -> UIView {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        header.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        header.backgroundColor = .white
         let label = UILabel(frame: CGRect(x: 15, y: 5, width: UIScreen.main.bounds.width - 40, height: 45))
         label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)

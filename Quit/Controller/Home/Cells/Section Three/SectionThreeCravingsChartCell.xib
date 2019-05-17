@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="303" height="138"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-W7-5lD" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-W7-5lD">
                         <rect key="frame" x="5" y="5" width="293" height="128"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zn-Bz-n45" customClass="LineChartView" customModule="Charts">

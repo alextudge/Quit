@@ -26,10 +26,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        roundedView.frame = CGRect(x: CGFloat(5),
-                                   y: CGFloat(5),
-                                   width: UIScreen.main.bounds.width - 10,
-                                   height: UIScreen.main.bounds.height / 2.3 - 10)
+        roundedView.frame = CGRect(x: CGFloat(5), y: CGFloat(5), width: UIScreen.main.bounds.width - 10, height: UIScreen.main.bounds.height / 2.3 - 10)
         roundedView.layer.cornerRadius = 10
     }
     
@@ -43,7 +40,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         stackView.subviews.forEach {
             $0.removeFromSuperview()
         }
-        let color = Styles.Colours.orangeGradient
+        let color = Styles.Colours.blueGradient
         gradientLayer = roundedView.gradient(colors: isReasonsToSmoke ? color : color.reversed())
         titleLabel.text = isReasonsToSmoke ? "Reasons to smoke" : "Reasons to quit"
         guard let data = data else {

@@ -146,49 +146,51 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rz-BM-PdC" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="20" y="134" width="374" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="eB3-Af-adS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="DjB-yg-B4D" eventType="touchUpInside" id="m4h-g4-cW0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSo-pq-Kad" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="374" height="50"/>
-                                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="HNp-Hu-3zv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteButtonPressed:" destination="DjB-yg-B4D" eventType="touchUpInside" id="Lfn-Pr-te0"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q9O-UM-oOE">
+                                <rect key="frame" x="20" y="64" width="374" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSo-pq-Kad" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="HNp-Hu-3zv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteButtonPressed:" destination="DjB-yg-B4D" eventType="touchUpInside" id="Lfn-Pr-te0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rz-BM-PdC" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="eB3-Af-adS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonPressed:" destination="DjB-yg-B4D" eventType="touchUpInside" id="m4h-g4-cW0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OSo-pq-Kad" firstAttribute="leading" secondItem="45a-TR-dDi" secondAttribute="leading" constant="20" id="ABn-sM-9EG"/>
-                            <constraint firstItem="3rz-BM-PdC" firstAttribute="top" secondItem="OSo-pq-Kad" secondAttribute="bottom" constant="20" id="C6F-ZV-Fzx"/>
-                            <constraint firstItem="3PF-Ee-3Ij" firstAttribute="top" secondItem="3rz-BM-PdC" secondAttribute="bottom" constant="20" id="DmR-jz-Chl"/>
+                            <constraint firstItem="Q9O-UM-oOE" firstAttribute="leading" secondItem="45a-TR-dDi" secondAttribute="leading" constant="20" id="AWE-Da-HQo"/>
                             <constraint firstItem="45a-TR-dDi" firstAttribute="trailing" secondItem="3PF-Ee-3Ij" secondAttribute="trailing" constant="20" id="Oj6-E1-hYS"/>
                             <constraint firstItem="aYC-kb-N9H" firstAttribute="top" secondItem="3PF-Ee-3Ij" secondAttribute="bottom" constant="20" id="RYC-W7-COn"/>
                             <constraint firstItem="3PF-Ee-3Ij" firstAttribute="leading" secondItem="45a-TR-dDi" secondAttribute="leading" constant="20" id="Tb8-ch-zlK"/>
-                            <constraint firstItem="OSo-pq-Kad" firstAttribute="top" secondItem="45a-TR-dDi" secondAttribute="top" constant="20" id="X2N-AI-e7j"/>
-                            <constraint firstItem="45a-TR-dDi" firstAttribute="trailing" secondItem="3rz-BM-PdC" secondAttribute="trailing" constant="20" id="X3s-YM-3QM"/>
-                            <constraint firstItem="3rz-BM-PdC" firstAttribute="leading" secondItem="45a-TR-dDi" secondAttribute="leading" constant="20" id="ZT3-bB-aBd"/>
-                            <constraint firstItem="45a-TR-dDi" firstAttribute="trailing" secondItem="OSo-pq-Kad" secondAttribute="trailing" constant="20" id="dbw-tc-0zE"/>
+                            <constraint firstItem="45a-TR-dDi" firstAttribute="trailing" secondItem="Q9O-UM-oOE" secondAttribute="trailing" constant="20" id="Xcu-C1-YrF"/>
+                            <constraint firstItem="3PF-Ee-3Ij" firstAttribute="top" secondItem="Q9O-UM-oOE" secondAttribute="bottom" constant="20" id="ZNf-Au-6bt"/>
                             <constraint firstItem="aYC-kb-N9H" firstAttribute="leading" secondItem="45a-TR-dDi" secondAttribute="leading" constant="20" id="eei-bU-mIA"/>
                             <constraint firstItem="45a-TR-dDi" firstAttribute="trailing" secondItem="aYC-kb-N9H" secondAttribute="trailing" constant="20" id="p2D-qn-qnc"/>
+                            <constraint firstItem="Q9O-UM-oOE" firstAttribute="top" secondItem="45a-TR-dDi" secondAttribute="top" constant="20" id="wEO-ry-W9N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="45a-TR-dDi"/>
                     </view>

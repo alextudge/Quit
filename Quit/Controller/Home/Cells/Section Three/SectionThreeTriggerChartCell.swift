@@ -6,7 +6,6 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import UIKit
 import Charts
 
 class SectionThreeTriggerChartCell: UICollectionViewCell {

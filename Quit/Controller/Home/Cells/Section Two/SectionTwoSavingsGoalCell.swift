@@ -33,6 +33,7 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         super.prepareForReuse()
         label?.removeFromSuperview()
     }
+    
         
     private func savingsProgress() {
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.width * 0.5,
@@ -103,7 +104,9 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
     }
     
     func quitDateIsInPast(quitData: QuitData?) -> Bool {
-        guard let quitDate = quitData?.quitDate else { return false }
+        guard let quitDate = quitData?.quitDate else {
+            return false
+        }
         return quitDate < Date()
     }
 }

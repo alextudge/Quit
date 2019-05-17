@@ -45,6 +45,7 @@ extension CravingsViewController: UITableViewDelegate, UITableViewDataSource {
             let craving = cravings?[indexPath.row] else {
             return UITableViewCell()
         }
+        cell.selectionStyle = .none
         cell.setup(craving)
         return cell
     }

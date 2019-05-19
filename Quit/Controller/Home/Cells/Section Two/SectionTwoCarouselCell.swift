@@ -14,8 +14,8 @@ protocol SectionTwoCarouselCellDelegate: class {
 
 class SectionTwoCarouselCell: UITableViewCell {
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var pageController: UIPageControl!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var pageController: UIPageControl!
     
     var persistenceManager: PersistenceManager?
     
@@ -23,32 +23,9 @@ class SectionTwoCarouselCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(reloadData(notification:)),
-                                               name: Constants.InternalNotifs.savingsChanged,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(reloadData(notification:)),
-                                               name: Constants.InternalNotifs.quitDateChanged,
-                                               object: nil)
         setupCollectionView()
-    }
-    
-    @objc private func reloadData(notification: NSNotification) {
-        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
-        collectionView.reloadData()
-    }
-    
-    private func setupCollectionView() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UINib(nibName: "SectionTwoSavingsOverviewCell",
-                                      bundle: nil),
-                                forCellWithReuseIdentifier: "SectionTwoSavingsOverviewCell")
-        collectionView.register(UINib(nibName: "SectionTwoSavingsGoalCell",
-                                      bundle: nil),
-                                forCellWithReuseIdentifier: "SectionTwoSavingsGoalCell")
-        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.savingsChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.quitDateChanged, object: nil)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -100,5 +77,20 @@ extension SectionTwoCarouselCell: UICollectionViewDelegate, UICollectionViewData
 extension SectionTwoCarouselCell: SectionTwoSavingsOverviewCellDelegate {
     func didTapAddSavingsGoalButton() {
         delegate?.didTapSavingGoal(sender: nil)
+    }
+}
+
+private extension SectionTwoCarouselCell {
+    @objc func reloadData(notification: NSNotification) {
+        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
+        collectionView.reloadData()
+    }
+    
+    func setupCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName: "SectionTwoSavingsOverviewCell", bundle: nil), forCellWithReuseIdentifier: "SectionTwoSavingsOverviewCell")
+        collectionView.register(UINib(nibName: "SectionTwoSavingsGoalCell", bundle: nil), forCellWithReuseIdentifier: "SectionTwoSavingsGoalCell")
+        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
     }
 }

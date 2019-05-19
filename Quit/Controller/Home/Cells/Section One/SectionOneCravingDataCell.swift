@@ -19,6 +19,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     
     @IBOutlet private weak var quitDateLabel: UILabel!
     @IBOutlet private weak var achievementsLottieView: AnimationView!
+    @IBOutlet private weak var cravingLottieView: AnimationView!
     @IBOutlet private weak var addCravingButton: RoundedButton!
     
     var viewModel = SectionOneCravingDataCellViewModel()
@@ -28,6 +29,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         achievementsLottieView.play()
+        cravingLottieView.play()
     }
     
     func setup() {
@@ -47,9 +49,6 @@ class SectionOneCravingDataCell: UICollectionViewCell {
 
 private extension SectionOneCravingDataCell {
     func setupUI() {
-        let image = UIImage(named: "Plus")?.withRenderingMode(.alwaysTemplate)
-        addCravingButton.setImage(image, for: .normal)
-        addCravingButton.tintColor = .white
         quitDateLabel.isUserInteractionEnabled = true
         quitDateLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didPressChangeQuitDateButton)))
         quitDateLabel.text = "No quit date set!"

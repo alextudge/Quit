@@ -29,13 +29,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ix-g1-zka" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="339" y="147.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="FlP-Yg-fy0"/>
+                                    <constraint firstAttribute="height" constant="40" id="dRF-Ky-dFD"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="addIcon"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBZ-sB-DqH" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
                                 <rect key="frame" x="339" y="147.5" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oay-ql-gs7"/>
                                     <constraint firstAttribute="width" constant="40" id="rZq-by-FIF"/>
                                 </constraints>
-                                <state key="normal" image="Plus"/>
                                 <connections>
                                     <action selector="cravingButton:" destination="xeY-of-lYy" eventType="touchUpInside" id="JIm-Fo-rjA"/>
                                 </connections>
@@ -73,6 +82,8 @@
                         <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AJo-jE-TGE" firstAttribute="top" secondItem="ZBZ-sB-DqH" secondAttribute="bottom" constant="10" id="0Hv-rm-gnq"/>
+                            <constraint firstAttribute="trailing" secondItem="4Ix-g1-zka" secondAttribute="trailing" constant="20" id="3Zv-Ko-kni"/>
+                            <constraint firstItem="AJo-jE-TGE" firstAttribute="top" secondItem="4Ix-g1-zka" secondAttribute="bottom" constant="10" id="63d-Md-reL"/>
                             <constraint firstItem="SjR-81-bD8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="acL-Ea-F7b" secondAttribute="trailing" constant="30" id="9Li-xj-YNS"/>
                             <constraint firstAttribute="trailing" secondItem="6yg-t9-oXz" secondAttribute="trailing" constant="20" id="D3c-Qd-QZf"/>
                             <constraint firstAttribute="bottom" secondItem="AJo-jE-TGE" secondAttribute="bottom" constant="20" id="FIs-Ha-rCU"/>
@@ -98,12 +109,10 @@
             <connections>
                 <outlet property="achievementsLottieView" destination="6yg-t9-oXz" id="d3Q-BO-raz"/>
                 <outlet property="addCravingButton" destination="ZBZ-sB-DqH" id="hA4-86-G6m"/>
+                <outlet property="cravingLottieView" destination="4Ix-g1-zka" id="TeB-nz-4gX"/>
                 <outlet property="quitDateLabel" destination="acL-Ea-F7b" id="9th-yk-jzM"/>
             </connections>
             <point key="canvasLocation" x="348" y="-12.143928035982009"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="Plus" width="50" height="50"/>
-    </resources>
 </document>

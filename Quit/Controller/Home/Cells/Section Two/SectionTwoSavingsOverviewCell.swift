@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import UIKit
+import Lottie
 
 protocol SectionTwoSavingsOverviewCellDelegate: class {
     func didTapAddSavingsGoalButton()
@@ -14,11 +14,17 @@ protocol SectionTwoSavingsOverviewCellDelegate: class {
 
 class SectionTwoSavingsOverviewCell: UICollectionViewCell {
     
-    @IBOutlet weak var savingsSummaryTextView: UITextView!
+    @IBOutlet private weak var savingsSummaryTextView: UITextView!
+    @IBOutlet private weak var plusAnimationView: AnimationView!
     
     var persistenceManager: PersistenceManager?
     
     weak var delegate: SectionTwoSavingsOverviewCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        plusAnimationView.play()
+    }
     
     func setup() {
         savingsSummaryTextView.attributedText = savingsAttributedText(quitData: persistenceManager?.quitData)
@@ -27,12 +33,18 @@ class SectionTwoSavingsOverviewCell: UICollectionViewCell {
         savingsSummaryTextView.isSelectable = false
     }
     
-    private func savingsAttributedText(quitData: QuitData?) -> NSAttributedString? {
+    @IBAction private func addSavingGoalButton(_ sender: Any) {
+        delegate?.didTapAddSavingsGoalButton()
+    }
+}
+
+private extension SectionTwoSavingsOverviewCell {
+    func savingsAttributedText(quitData: QuitData?) -> NSAttributedString? {
         guard let costPerDay = quitData?.costPerDay as NSNumber?,
             let costPerYear = quitData?.costPerYear as NSNumber?,
             let savedSoFar = quitData?.savedSoFar as NSNumber? else {
                 return nil
-        }        
+        }
         var text = NSAttributedString()
         if let dailyCost = stringFromCurrencyFormatter(data: costPerDay.doubleValue),
             let annualCost = stringFromCurrencyFormatter(data: costPerYear.intValue),
@@ -50,27 +62,23 @@ class SectionTwoSavingsOverviewCell: UICollectionViewCell {
         return text
     }
     
-    private func stringFromCurrencyFormatter(data: Double) -> String? {
+    func stringFromCurrencyFormatter(data: Double) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         return formatter.string(from: NSNumber(value: data))
     }
     
-    private func stringFromCurrencyFormatter(data: Int) -> String? {
+    func stringFromCurrencyFormatter(data: Int) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 0
         return formatter.string(from: NSNumber(value: data))
     }
     
-    private func quitDateIsInPast(quitData: QuitData?) -> Bool {
+     func quitDateIsInPast(quitData: QuitData?) -> Bool {
         guard let quitDate = quitData?.quitDate else {
             return false
         }
         return quitDate < Date()
-    }
-    
-    @IBAction func addSavingGoalButton(_ sender: Any) {
-        delegate?.didTapAddSavingsGoalButton()
     }
 }

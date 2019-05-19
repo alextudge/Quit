@@ -11,9 +11,9 @@ import UIKit
 class SectionTwoSavingsGoalCell: UICollectionViewCell {
     
     var persistenceManager: PersistenceManager?
-    var label: UILabel?
-    var shapeLayer = CAShapeLayer()
-    var trackShapeLayer = CAShapeLayer()
+    private var label: UILabel?
+    private var shapeLayer = CAShapeLayer()
+    private var trackShapeLayer = CAShapeLayer()
     var savingGoal: SavingGoal? {
         didSet {
             guard let savingGoal = savingGoal else {
@@ -33,15 +33,11 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         super.prepareForReuse()
         label?.removeFromSuperview()
     }
-    
-        
-    private func savingsProgress() {
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.width * 0.5,
-                                                           y: frame.height),
-                                        radius: frame.height * 0.5,
-                                        startAngle: -CGFloat.pi / 3,
-                                        endAngle: 2 * CGFloat.pi,
-                                        clockwise: true)
+}
+
+private extension SectionTwoSavingsGoalCell {
+    func savingsProgress() {
+        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.width * 0.5, y: frame.height), radius: frame.height * 0.5, startAngle: -CGFloat.pi / 3, endAngle: 2 * CGFloat.pi, clockwise: true)
         trackShapeLayer.path = circularPath.cgPath
         trackShapeLayer.strokeColor = UIColor.lightGray.cgColor
         trackShapeLayer.lineWidth = 27.5
@@ -57,7 +53,7 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         layer.addSublayer(shapeLayer)
     }
     
-    private func animateProgressView() {
+    func animateProgressView() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         let angle = savingsProgressAngle()
         basicAnimation.toValue = angle
@@ -75,11 +71,11 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         trackShapeLayer.add(pulseAnimation, forKey: "animateOpacity")
     }
     
-    private func savingsProgressAngle() -> Double {
+    func savingsProgressAngle() -> Double {
         guard let quitData = persistenceManager?.quitData,
             let quitSavingsToDate = quitData.savedSoFar,
             let goalAmount = savingGoal?.goalAmount else {
-            return 0
+                return 0
         }
         var angle = 0.0
         if self.quitDateIsInPast(quitData: persistenceManager?.quitData) {
@@ -92,7 +88,7 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
         }
     }
     
-    private func savingsNameLabel(goal: SavingGoal) -> UILabel {
+    func savingsNameLabel(goal: SavingGoal) -> UILabel {
         label = UILabel(frame: CGRect(x: 20, y: 0, width: frame.width - 40, height: 100))
         guard let savingGoalName = goal.goalName else { return UILabel() }
         let string = NSAttributedString(string: savingGoalName, attributes: Styles.savingsInfoAttributes)

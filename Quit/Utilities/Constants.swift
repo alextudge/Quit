@@ -113,7 +113,7 @@ struct Constants {
 
 struct Styles {
     struct Colours {
-        static let blueColor = UIColor(red: 0.00, green: 0.75, blue: 1.00, alpha: 1.0)
+        static let blueColor = UIColor(red: 0.00, green: 0.59, blue: 1.00, alpha: 1.0)
         static let greenColour = UIColor(red: 102/255, green: 204/255, blue: 150/255, alpha: 1)
         static let greenGradient = [UIColor(red: 0.71, green: 0.93, blue: 0.32, alpha: 1.0).cgColor,
                                     UIColor(red: 0.26, green: 0.58, blue: 0.13, alpha: 1.0).cgColor]

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,9 +24,22 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQ8-JC-Fq8" customClass="AnimationView" customModule="Lottie">
+                        <rect key="frame" x="253" y="173" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="9yA-dZ-tnJ"/>
+                            <constraint firstAttribute="height" constant="40" id="Jnq-0h-sUp"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="addIconBlue"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlb-Xs-mMr">
-                        <rect key="frame" x="253" y="173" width="50" height="50"/>
-                        <state key="normal" image="Plus"/>
+                        <rect key="frame" x="253" y="173" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="33j-T4-SE3"/>
+                            <constraint firstAttribute="height" constant="40" id="Wa3-Fe-vi4"/>
+                        </constraints>
                         <connections>
                             <action selector="addSavingGoalButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Gfc-R9-9Hs"/>
                         </connections>
@@ -34,22 +47,22 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="mQ8-JC-Fq8" secondAttribute="bottom" constant="20" id="4Of-bR-22J"/>
                 <constraint firstItem="owX-tF-rrC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="8Ov-Kh-2jW"/>
                 <constraint firstAttribute="trailing" secondItem="owX-tF-rrC" secondAttribute="trailing" constant="20" id="SCv-Xm-z9K"/>
                 <constraint firstAttribute="bottom" secondItem="owX-tF-rrC" secondAttribute="bottom" constant="20" id="U4E-Kf-uNn"/>
-                <constraint firstAttribute="trailing" secondItem="rlb-Xs-mMr" secondAttribute="trailing" constant="10" id="UdE-g0-KFH"/>
-                <constraint firstAttribute="bottom" secondItem="rlb-Xs-mMr" secondAttribute="bottom" constant="10" id="fAA-Ya-I7a"/>
+                <constraint firstAttribute="trailing" secondItem="rlb-Xs-mMr" secondAttribute="trailing" constant="20" id="UdE-g0-KFH"/>
+                <constraint firstAttribute="trailing" secondItem="mQ8-JC-Fq8" secondAttribute="trailing" constant="20" id="a8W-Eu-VpT"/>
+                <constraint firstAttribute="bottom" secondItem="rlb-Xs-mMr" secondAttribute="bottom" constant="20" id="fAA-Ya-I7a"/>
                 <constraint firstItem="owX-tF-rrC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="rIT-WO-gBG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="313" height="233"/>
             <connections>
+                <outlet property="plusAnimationView" destination="mQ8-JC-Fq8" id="C7K-2G-6Wm"/>
                 <outlet property="savingsSummaryTextView" destination="owX-tF-rrC" id="iaS-MJ-Vch"/>
             </connections>
             <point key="canvasLocation" x="96.799999999999997" y="79.610194902548727"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="Plus" width="50" height="50"/>
-    </resources>
 </document>

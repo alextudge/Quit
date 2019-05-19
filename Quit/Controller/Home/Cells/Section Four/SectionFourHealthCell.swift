@@ -6,20 +6,14 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import UIKit
+import Lottie
 
 class SectionFourHealthCell: UICollectionViewCell {
 
     @IBOutlet private weak var healthStateLabel: UILabel!
-    @IBOutlet private weak var progressView: UIProgressView!
+    @IBOutlet private weak var progressLottieView: AnimationView!
     
     var persistenceManager: PersistenceManager?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        progressView.trackTintColor = Styles.Colours.blueColor.withAlphaComponent(0.2)
-        progressView.progressTintColor = Styles.Colours.blueColor
-    }
     
     func setupCell(data: Constants.HealthStats) {
         guard let quitData = persistenceManager?.quitData,
@@ -28,7 +22,13 @@ class SectionFourHealthCell: UICollectionViewCell {
         }
         let time = data.secondsForHealthState() / 60
         let progress = Float(minuteSmokeFree / time)
-        progressView.progress = progress < 1 ? progress : Float(1)
+        if progress > 1 {
+            progressLottieView.animation = Animation.named("progressComplete")
+            progressLottieView.play()
+        } else {
+            progressLottieView.animation = Animation.named("progressView")
+            progressLottieView.play()
+        }
         healthStateLabel.text = data.rawValue
         healthStateLabel.textColor = .lightGray
     }

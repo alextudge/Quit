@@ -10,9 +10,9 @@ import UIKit
 
 class SectionOneVapingDataCell: UICollectionViewCell {
     
-    @IBOutlet weak var vapeSpendLabel: UILabel!
-    @IBOutlet weak var vapeSavingsLabel: UILabel!
-    @IBOutlet weak var decreaseSpendingLabel: UIButton!
+    @IBOutlet private weak var vapeSpendLabel: UILabel!
+    @IBOutlet private weak var vapeSavingsLabel: UILabel!
+    @IBOutlet private weak var decreaseSpendingLabel: UIButton!
     
     var persistenceManager: PersistenceManager?
 
@@ -32,18 +32,18 @@ class SectionOneVapingDataCell: UICollectionViewCell {
         }
     }
     
-    @IBAction func didTapIncreaseSpendingButton(_ sender: Any) {
+    @IBAction private func didTapIncreaseSpendingButton(_ sender: Any) {
         enterSpendAmountAlert(isIncreasing: true)
     }
     
-    @IBAction func didTapDecreaseSpendingButton(_ sender: Any) {
+    @IBAction private func didTapDecreaseSpendingButton(_ sender: Any) {
         enterSpendAmountAlert(isIncreasing: false)
     }
-    
-    private func enterSpendAmountAlert(isIncreasing: Bool) {
-        let alertController = UIAlertController(title: "Spend",
-                                                message: "How much did you spend?",
-                                                preferredStyle: .alert)
+}
+
+private extension SectionOneVapingDataCell {
+    func enterSpendAmountAlert(isIncreasing: Bool) {
+        let alertController = UIAlertController(title: "Spend", message: "How much did you spend?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Save", style: .default) { _ in
             let textField = alertController.textFields![0] as UITextField
             guard let textAmount = textField.text,
@@ -62,7 +62,7 @@ class SectionOneVapingDataCell: UICollectionViewCell {
         delegate?.presentAlert(alertController)
     }
     
-    private func alterVapeSpending(isIncreasing: Bool, amount: Double) {
+    func alterVapeSpending(isIncreasing: Bool, amount: Double) {
         let quitData = persistenceManager?.quitData
         var newVapeSpending = 0.0
         if isIncreasing {
@@ -71,15 +71,12 @@ class SectionOneVapingDataCell: UICollectionViewCell {
             newVapeSpending = (quitData?.vapeSpending ?? 0) - amount
         }
         newVapeSpending = newVapeSpending < 0 ? 0 : newVapeSpending
-        let newQuitData: [String: Any] = [Constants.QuitDataConstants.smokedDaily: quitData?.smokedDaily,
-                                          Constants.QuitDataConstants.costOf20: quitData?.costOf20,
-                                          Constants.QuitDataConstants.quitDate: quitData?.quitDate,
-                                          Constants.QuitDataConstants.vapeSpending: newVapeSpending]
+        let newQuitData: [String: Any] = [Constants.QuitDataConstants.smokedDaily: quitData?.smokedDaily, Constants.QuitDataConstants.costOf20: quitData?.costOf20, Constants.QuitDataConstants.quitDate: quitData?.quitDate, Constants.QuitDataConstants.vapeSpending: newVapeSpending]
         persistenceManager?.setQuitDataInUserDefaults(object: newQuitData, key: "quitData")
         setup()
     }
     
-    private func stringFromCurrencyFormatter(data: NSNumber) -> String? {
+    func stringFromCurrencyFormatter(data: NSNumber) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         return formatter.string(from: data)

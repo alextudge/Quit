@@ -21,42 +21,48 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGX-mK-vJt">
                         <rect key="frame" x="0.0" y="0.0" width="265" height="220"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-dy-ULj">
+                                <rect key="frame" x="10" y="80" width="245" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uQ-C1-T7m" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="265" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="A5c-hb-GCh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="progressView"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGY-tl-dch">
-                        <rect key="frame" x="0.0" y="0.0" width="265" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="WHE-fb-ZW0"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Sm-dy-ULj" secondAttribute="bottom" constant="20" id="2Cw-6c-l5V"/>
+                            <constraint firstAttribute="trailing" secondItem="8Sm-dy-ULj" secondAttribute="trailing" constant="10" id="Fw1-2a-Tlt"/>
+                            <constraint firstItem="8Sm-dy-ULj" firstAttribute="leading" secondItem="lGX-mK-vJt" secondAttribute="leading" constant="10" id="Ne5-db-wIj"/>
+                            <constraint firstItem="6uQ-C1-T7m" firstAttribute="leading" secondItem="lGX-mK-vJt" secondAttribute="leading" id="jlf-Qb-Zgg"/>
+                            <constraint firstItem="8Sm-dy-ULj" firstAttribute="top" secondItem="6uQ-C1-T7m" secondAttribute="bottom" constant="20" id="qN8-Mm-rNA"/>
+                            <constraint firstItem="6uQ-C1-T7m" firstAttribute="top" secondItem="lGX-mK-vJt" secondAttribute="top" id="xhM-ga-EeO"/>
+                            <constraint firstAttribute="trailing" secondItem="6uQ-C1-T7m" secondAttribute="trailing" id="xyp-GF-zH4"/>
                         </constraints>
-                        <color key="progressTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="trackTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </progressView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-dy-ULj">
-                        <rect key="frame" x="10" y="40" width="245" height="30"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="8Sm-dy-ULj" secondAttribute="trailing" constant="10" id="1xa-OO-sCh"/>
                 <constraint firstAttribute="trailing" secondItem="lGX-mK-vJt" secondAttribute="trailing" id="AcR-s6-do6"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Sm-dy-ULj" secondAttribute="bottom" constant="20" id="DWG-pJ-MlJ"/>
                 <constraint firstAttribute="bottom" secondItem="lGX-mK-vJt" secondAttribute="bottom" id="QdA-cM-MMs"/>
                 <constraint firstItem="lGX-mK-vJt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Udz-yf-DmW"/>
-                <constraint firstItem="8Sm-dy-ULj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="VBJ-Vr-Ixn"/>
-                <constraint firstItem="bGY-tl-dch" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bdE-9u-SzC"/>
-                <constraint firstAttribute="trailing" secondItem="bGY-tl-dch" secondAttribute="trailing" id="bgW-aj-eRV"/>
-                <constraint firstItem="8Sm-dy-ULj" firstAttribute="top" secondItem="bGY-tl-dch" secondAttribute="bottom" constant="20" id="e4e-1g-fTs"/>
                 <constraint firstItem="lGX-mK-vJt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qIa-Sx-oX0"/>
-                <constraint firstItem="bGY-tl-dch" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sHW-pF-ZcR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="265" height="220"/>
             <connections>
                 <outlet property="healthStateLabel" destination="8Sm-dy-ULj" id="i27-zz-2Wg"/>
-                <outlet property="progressView" destination="bGY-tl-dch" id="c1d-GV-67u"/>
+                <outlet property="progressLottieView" destination="6uQ-C1-T7m" id="cu3-ML-YeO"/>
             </connections>
             <point key="canvasLocation" x="148" y="43.178410794602705"/>
         </collectionViewCell>

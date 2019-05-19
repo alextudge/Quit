@@ -18,7 +18,7 @@ protocol SectionOneCarouselCellDelegate: class {
 
 class SectionOneCarouselCell: UITableViewCell {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageController: UIPageControl!
     
     weak var delegate: SectionOneCarouselCellDelegate?
@@ -73,17 +73,13 @@ extension SectionOneCarouselCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension SectionOneCarouselCell: SectionOneCravingDataCellDelegate {
+extension SectionOneCarouselCell: SectionOneCellsDelegate {
     func didPressSegueToAchievements() {
         delegate?.didPressSegueToAchievements()
     }
     
     func addCraving() {
         delegate?.addCraving()
-    }
-    
-    func segueToSmokedVC() {
-        delegate?.segueToSmokedVC()
     }
     
     func didPressChangeQuitDate() {

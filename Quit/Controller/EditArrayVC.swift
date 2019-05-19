@@ -31,8 +31,8 @@ private extension EditArrayVC {
     func setupUI() {
         editArrayTextView.layer.cornerRadius = 10
         editArrayTextView.layer.borderWidth = 2
-        editArrayTextView.layer.borderColor = UIColor.white.cgColor
-        editArrayTextView.textColor = .white
+        editArrayTextView.layer.borderColor = UIColor.lightGray.cgColor
+        editArrayTextView.textColor = .darkGray
         if isReasonsToSmoke {
             editArrayTextView.text = arrayToTextBlock(array: persistenceManager?.additionalUserData?.reasonsToSmoke ?? [])
         } else {

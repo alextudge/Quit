@@ -107,13 +107,17 @@ private extension HomeViewController {
     }
 }
 
-extension HomeViewController: SectionOneCarouselCellDelegate {
+extension HomeViewController: SectionOneCarouselCellDelegate, AddCravingVCDelegate {
     func didPressSegueToAchievements() {
         segueToAchievementsVC()
     }
     
     func didPressChangeQuitDate() {
         segueToQuitDataViewController()
+    }
+    
+    func segueToSmokedVC() {
+        segueToSmokedViewController()
     }
     
     func addCraving() {
@@ -127,105 +131,19 @@ extension HomeViewController: SectionOneCarouselCellDelegate {
 
 extension HomeViewController: SectionTwoCarouselCellDelegate {
     func didTapSavingGoal(sender: SavingGoal?) {
-        if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            if let sender = sender {
-                viewController.savingGoal = sender
-            }
-            viewController.delegate = self
-            presentQuitBaseViewController(viewController)
-        }
+        segueToSavingsGoalVC(sender: sender)
     }
 }
 
 extension HomeViewController: SectionFiveCarouselCellDelegate {
     func didTapEditButton(isReasonsToSmoke: Bool) {
-        if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 4)) {
-                presentingView = cell
-            }
-            viewController.isReasonsToSmoke = isReasonsToSmoke
-            viewController.persistenceManager = persistenceManager
-            presentQuitBaseViewController(viewController)
-        }
+        segueToReasons(isReasonsToSmoke: isReasonsToSmoke)
     }
 }
 
 extension HomeViewController: ReasonsOnboardingVCDelegate {
     func didTapLetsGoButton() {
         didTapEditButton(isReasonsToSmoke: true)
-    }
-}
-
-// MARK: Navigation
-extension HomeViewController: AddCravingVCDelegate {
-    func segueToQuitDataViewController() {
-        if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            viewController.delegate = self
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    func segueToSmokedVC() {
-        if let viewController = ViewControllerFactory.SmokedVC.viewController() as? SmokedVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    @objc private func segueToSettings() {
-        if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    private func segueToAddCravingsVC() {
-        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            viewController.delegate = self
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    private func segueToAchievementsVC() {
-        if let viewController = ViewControllerFactory.AchievementsVC.viewController() as? AchievementsVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    //Onboarding
-    private func showWidgetOnboarding() {
-        if let viewController = ViewControllerFactory.WidgetOnboardingVC.viewController() as? WidgetOnboardingVC {
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    private func showReasonsOboarding() {
-        if let viewController = ViewControllerFactory.ReasonsOnboardingVC.viewController() as? ReasonsOnboardingVC {
-            viewController.delegate = self
-            present(viewController, animated: true, completion: nil)
-            persistenceManager?.setHasSeenReasonOnboarding()
-        }
     }
 }
 
@@ -243,13 +161,7 @@ extension HomeViewController: SavingGoalVCDelegate {
 
 extension HomeViewController: SectionThreeCarouselCellDelegate {
     func didTapCravingDetailsButton() {
-        if let viewController = ViewControllerFactory.CravingsViewController.viewController() as? CravingsViewController {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 2)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            presentQuitBaseViewController(viewController)
-        }
+        segueToEditCravingsViewController()
     }
 }
 
@@ -314,5 +226,107 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.sizeForCellOf(type: indexPath.section)
+    }
+}
+
+private extension HomeViewController {
+    func segueToQuitDataViewController() {
+        if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
+            viewController.persistenceManager = persistenceManager
+            viewController.delegate = self
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    func segueToSmokedViewController() {
+        if let viewController = ViewControllerFactory.SmokedVC.viewController() as? SmokedVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func segueToSettings() {
+        if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
+            viewController.persistenceManager = persistenceManager
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    func segueToAddCravingsVC() {
+        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
+            viewController.persistenceManager = persistenceManager
+            viewController.delegate = self
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    func segueToAchievementsVC() {
+        if let viewController = ViewControllerFactory.AchievementsVC.viewController() as? AchievementsVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
+            viewController.persistenceManager = persistenceManager
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    func showWidgetOnboarding() {
+        if let viewController = ViewControllerFactory.WidgetOnboardingVC.viewController() as? WidgetOnboardingVC {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    func showReasonsOboarding() {
+        if let viewController = ViewControllerFactory.ReasonsOnboardingVC.viewController() as? ReasonsOnboardingVC {
+            viewController.delegate = self
+            present(viewController, animated: true, completion: nil)
+            persistenceManager?.setHasSeenReasonOnboarding()
+        }
+    }
+    
+    func segueToReasons(isReasonsToSmoke: Bool) {
+        if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 4)) {
+                presentingView = cell
+            }
+            viewController.isReasonsToSmoke = isReasonsToSmoke
+            viewController.persistenceManager = persistenceManager
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    func segueToSavingsGoalVC(sender: SavingGoal?) {
+        if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) {
+                presentingView = cell
+            }
+            viewController.persistenceManager = persistenceManager
+            if let sender = sender {
+                viewController.savingGoal = sender
+            }
+            viewController.delegate = self
+            presentQuitBaseViewController(viewController)
+        }
+    }
+    
+    func segueToEditCravingsViewController() {
+        if let viewController = ViewControllerFactory.CravingsViewController.viewController() as? CravingsViewController {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 2)) {
+                presentingView = cell
+            }
+            viewController.persistenceManager = persistenceManager
+            presentQuitBaseViewController(viewController)
+        }
     }
 }

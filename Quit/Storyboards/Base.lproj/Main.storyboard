@@ -325,56 +325,56 @@
         <scene sceneID="zJW-eR-SAV">
             <objects>
                 <viewController storyboardIdentifier="EditArrayVC" modalPresentationStyle="overCurrentContext" id="Axs-zn-x0Q" customClass="EditArrayVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="S59-1w-Zvf">
+                    <view key="view" contentMode="scaleToFill" id="S59-1w-Zvf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q61-xU-bMI">
-                                <rect key="frame" x="10" y="30" width="355" height="36"/>
+                                <rect key="frame" x="20" y="40" width="335" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seperate each item with a comma" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c89-pr-hgM">
-                                <rect key="frame" x="10" y="76" width="355" height="20.5"/>
+                                <rect key="frame" x="20" y="96" width="335" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EOZ-5i-T8m">
-                                <rect key="frame" x="20" y="116.5" width="335" height="470.5"/>
+                                <rect key="frame" x="20" y="136.5" width="335" height="440.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkN-on-QiO" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="10" y="607" width="355" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="A0W-OB-Ziq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <state key="normal" title="Save">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapSaveButton:" destination="Axs-zn-x0Q" eventType="touchUpInside" id="T0X-Fy-a1o"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.98410744863013699" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rkN-on-QiO" firstAttribute="top" secondItem="EOZ-5i-T8m" secondAttribute="bottom" constant="20" id="93B-OQ-Jbp"/>
-                            <constraint firstItem="t8t-Go-f4f" firstAttribute="trailing" secondItem="q61-xU-bMI" secondAttribute="trailing" constant="10" id="Bks-XC-brC"/>
+                            <constraint firstItem="t8t-Go-f4f" firstAttribute="trailing" secondItem="q61-xU-bMI" secondAttribute="trailing" constant="20" id="Bks-XC-brC"/>
                             <constraint firstItem="EOZ-5i-T8m" firstAttribute="leading" secondItem="t8t-Go-f4f" secondAttribute="leading" constant="20" id="FqK-x2-XEI"/>
-                            <constraint firstItem="q61-xU-bMI" firstAttribute="leading" secondItem="t8t-Go-f4f" secondAttribute="leading" constant="10" id="Ile-xU-PSW"/>
-                            <constraint firstItem="t8t-Go-f4f" firstAttribute="bottom" secondItem="rkN-on-QiO" secondAttribute="bottom" constant="10" id="Lon-Gg-C2Z"/>
-                            <constraint firstItem="q61-xU-bMI" firstAttribute="top" secondItem="t8t-Go-f4f" secondAttribute="top" constant="10" id="MpA-le-aaz"/>
-                            <constraint firstItem="t8t-Go-f4f" firstAttribute="trailing" secondItem="c89-pr-hgM" secondAttribute="trailing" constant="10" id="RPc-Xy-9BK"/>
-                            <constraint firstItem="rkN-on-QiO" firstAttribute="leading" secondItem="t8t-Go-f4f" secondAttribute="leading" constant="10" id="WKP-F1-eG3"/>
-                            <constraint firstItem="c89-pr-hgM" firstAttribute="leading" secondItem="t8t-Go-f4f" secondAttribute="leading" constant="10" id="d5o-51-7Yi"/>
+                            <constraint firstItem="q61-xU-bMI" firstAttribute="leading" secondItem="t8t-Go-f4f" secondAttribute="leading" constant="20" id="Ile-xU-PSW"/>
+                            <constraint firstItem="t8t-Go-f4f" firstAttribute="bottom" secondItem="rkN-on-QiO" secondAttribute="bottom" constant="20" id="Lon-Gg-C2Z"/>
+                            <constraint firstItem="q61-xU-bMI" firstAttribute="top" secondItem="t8t-Go-f4f" secondAttribute="top" constant="20" id="MpA-le-aaz"/>
+                            <constraint firstItem="t8t-Go-f4f" firstAttribute="trailing" secondItem="c89-pr-hgM" secondAttribute="trailing" constant="20" id="RPc-Xy-9BK"/>
+                            <constraint firstItem="rkN-on-QiO" firstAttribute="leading" secondItem="t8t-Go-f4f" secondAttribute="leading" constant="20" id="WKP-F1-eG3"/>
+                            <constraint firstItem="c89-pr-hgM" firstAttribute="leading" secondItem="t8t-Go-f4f" secondAttribute="leading" constant="20" id="d5o-51-7Yi"/>
                             <constraint firstItem="t8t-Go-f4f" firstAttribute="trailing" secondItem="EOZ-5i-T8m" secondAttribute="trailing" constant="20" id="juG-vz-kvi"/>
-                            <constraint firstItem="t8t-Go-f4f" firstAttribute="trailing" secondItem="rkN-on-QiO" secondAttribute="trailing" constant="10" id="lMB-4t-xuJ"/>
-                            <constraint firstItem="c89-pr-hgM" firstAttribute="top" secondItem="q61-xU-bMI" secondAttribute="bottom" constant="10" id="pg4-AX-a2P"/>
+                            <constraint firstItem="t8t-Go-f4f" firstAttribute="trailing" secondItem="rkN-on-QiO" secondAttribute="trailing" constant="20" id="lMB-4t-xuJ"/>
+                            <constraint firstItem="c89-pr-hgM" firstAttribute="top" secondItem="q61-xU-bMI" secondAttribute="bottom" constant="20" id="pg4-AX-a2P"/>
                             <constraint firstItem="EOZ-5i-T8m" firstAttribute="top" secondItem="c89-pr-hgM" secondAttribute="bottom" constant="20" id="rAE-sC-vBg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t8t-Go-f4f"/>

@@ -64,16 +64,11 @@ private extension HomeViewController {
     }
     
     func setupTableView() {
-        tableView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell, bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell, bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell, bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell, bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell, bundle: nil),
-                           forCellReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
+        tableView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
     }
     
     func headerFor(section: Int) -> UIView {

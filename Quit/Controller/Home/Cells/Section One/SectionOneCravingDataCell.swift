@@ -22,9 +22,6 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     @IBOutlet private weak var addCravingButton: RoundedButton!
     
     var viewModel = SectionOneCravingDataCellViewModel()
-    private var quitData: QuitData? {
-        return viewModel.persistenceManager?.quitData
-    }
     
     weak var delegate: SectionOneCellsDelegate?
     
@@ -58,16 +55,16 @@ private extension SectionOneCravingDataCell {
         quitDateLabel.text = "No quit date set!"
     }
     
-    @objc private func didPressChangeQuitDateButton(_ sender: Any) {
+    @objc func didPressChangeQuitDateButton(_ sender: Any) {
         delegate?.didPressChangeQuitDate()
     }
     
     func displayQuitDate() {
-        guard quitData?.quitDate != nil else {
+        guard viewModel.quitData?.quitDate != nil else {
             return
         }
         quitDateLabel.isHidden = false
-        quitDateLabel.text = viewModel.stringQuitDate(quitData: quitData)
+        quitDateLabel.text = viewModel.stringQuitDate()
     }
     
     func setupQuitTimer() {
@@ -75,6 +72,6 @@ private extension SectionOneCravingDataCell {
     }
     
     @objc func updateCountdownLabel() {
-        quitDateLabel.text = viewModel.countdownLabel(quitData: quitData)
+        quitDateLabel.text = viewModel.countdownLabel()
     }
 }

@@ -12,8 +12,11 @@ import StoreKit
 class SectionOneCravingDataCellViewModel {
     
     var persistenceManager: PersistenceManager?
+    var quitData: QuitData? {
+        return persistenceManager?.quitData
+    }
     
-    func stringQuitDate(quitData: QuitData?) -> String? {
+    func stringQuitDate() -> String? {
         guard let quitDate = quitData?.quitDate else {
             return nil
         }
@@ -23,35 +26,10 @@ class SectionOneCravingDataCellViewModel {
         return formatter.string(from: quitDate)
     }
     
-    func countdownLabel(quitData: QuitData?) -> String? {
+    func countdownLabel() -> String? {
         guard let quitDate = quitData?.quitDate else {
             return nil
         }
         return Date().offsetFrom(date: quitDate)
-    }
-    
-    func cravingButtonAlertTitle() -> String {
-        return "Did you smoke?"
-    }
-    
-    func cravingButtonAlertMessage() -> String {
-        let honesty = "Be honest!\n"
-        let triggers = "Add a trigger below to track them."
-        return honesty + triggers
-    }
-    
-    func quitDateIsInPast(quitData: QuitData?) -> Bool {
-        guard let quitDate = quitData?.quitDate else {
-            return false
-        }
-        return quitDate < Date()
-    }
-    
-    func quitDataLongerThan4DaysAgo(quitData: QuitData?) -> Bool {
-        guard let quitDate = quitData?.quitDate else {
-            return false
-        }
-        let sixDaysInSeconds = Double(345600)
-        return Date().timeIntervalSince(quitDate) > sixDaysInSeconds
     }
 }

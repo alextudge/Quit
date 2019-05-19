@@ -22,12 +22,12 @@ class SectionFourHealthCell: UICollectionViewCell {
         }
         let time = data.secondsForHealthState() / 60
         let progress = Float(minuteSmokeFree / time)
-        if progress > 1 {
+        if progress >= 1 {
             progressLottieView.animation = Animation.named("progressComplete")
             progressLottieView.play()
         } else {
             progressLottieView.animation = Animation.named("progressView")
-            progressLottieView.play()
+            progressLottieView.play(toFrame: CGFloat(progress * 100))
         }
         healthStateLabel.text = data.rawValue
         healthStateLabel.textColor = .lightGray

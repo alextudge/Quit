@@ -14,7 +14,10 @@ class HomeViewController: QuitBaseViewController {
     @IBOutlet private weak var stackView: UIStackView!
     
     private(set) var viewModel = HomeVCViewModel()
-    private let navigationControllerDelegate = QuitNavigationTransitions()
+    private let navigationTransitionController = QuitNavigationTransitions()
+    private var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +39,10 @@ class HomeViewController: QuitBaseViewController {
 
 private extension HomeViewController {
     func setupUI() {
-        presentingView = tableView
-        navigationController?.delegate = navigationControllerDelegate
+        navigationController?.delegate = navigationTransitionController
         largeTitlesEnabled = true
         title = "Quit"
-        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(segueToSettings))
-        navigationItem.rightBarButtonItem = rightBarButtonItem
+        setupSettingsNavButton()
     }
     
     func setupDelegates() {
@@ -55,6 +56,11 @@ private extension HomeViewController {
         tableView.isHidden = !quitDataAdded
         stackView.isHidden = quitDataAdded
         tableView.reloadData()
+    }
+    
+    func setupSettingsNavButton() {
+        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(segueToSettings))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
     func setupTableView() {
@@ -71,9 +77,9 @@ private extension HomeViewController {
     }
     
     func headerFor(section: Int) -> UIView {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
+        let label = UILabel(frame: CGRect(x: 15, y: 5, width: screenWidth - 40, height: 45))
         header.backgroundColor = .white
-        let label = UILabel(frame: CGRect(x: 15, y: 5, width: UIScreen.main.bounds.width - 40, height: 45))
         label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.text = viewModel.titleForHeaderOf(section: section)
@@ -122,6 +128,9 @@ extension HomeViewController: SectionOneCarouselCellDelegate {
 extension HomeViewController: SectionTwoCarouselCellDelegate {
     func didTapSavingGoal(sender: SavingGoal?) {
         if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) {
+                presentingView = cell
+            }
             viewController.persistenceManager = persistenceManager
             if let sender = sender {
                 viewController.savingGoal = sender
@@ -135,9 +144,12 @@ extension HomeViewController: SectionTwoCarouselCellDelegate {
 extension HomeViewController: SectionFiveCarouselCellDelegate {
     func didTapEditButton(isReasonsToSmoke: Bool) {
         if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 4)) {
+                presentingView = cell
+            }
             viewController.isReasonsToSmoke = isReasonsToSmoke
             viewController.persistenceManager = persistenceManager
-            present(viewController, animated: true, completion: nil)
+            presentQuitBaseViewController(viewController)
         }
     }
 }
@@ -152,6 +164,9 @@ extension HomeViewController: ReasonsOnboardingVCDelegate {
 extension HomeViewController: AddCravingVCDelegate {
     func segueToQuitDataViewController() {
         if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
             viewController.persistenceManager = persistenceManager
             viewController.delegate = self
             presentQuitBaseViewController(viewController)
@@ -160,12 +175,18 @@ extension HomeViewController: AddCravingVCDelegate {
     
     func segueToSmokedVC() {
         if let viewController = ViewControllerFactory.SmokedVC.viewController() as? SmokedVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
             present(viewController, animated: true, completion: nil)
         }
     }
     
     @objc private func segueToSettings() {
         if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
             viewController.persistenceManager = persistenceManager
             presentQuitBaseViewController(viewController)
         }
@@ -173,6 +194,9 @@ extension HomeViewController: AddCravingVCDelegate {
     
     private func segueToAddCravingsVC() {
         if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
             viewController.persistenceManager = persistenceManager
             viewController.delegate = self
             presentQuitBaseViewController(viewController)
@@ -181,6 +205,9 @@ extension HomeViewController: AddCravingVCDelegate {
     
     private func segueToAchievementsVC() {
         if let viewController = ViewControllerFactory.AchievementsVC.viewController() as? AchievementsVC {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                presentingView = cell
+            }
             viewController.persistenceManager = persistenceManager
             presentQuitBaseViewController(viewController)
         }
@@ -217,6 +244,9 @@ extension HomeViewController: SavingGoalVCDelegate {
 extension HomeViewController: SectionThreeCarouselCellDelegate {
     func didTapCravingDetailsButton() {
         if let viewController = ViewControllerFactory.CravingsViewController.viewController() as? CravingsViewController {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 2)) {
+                presentingView = cell
+            }
             viewController.persistenceManager = persistenceManager
             presentQuitBaseViewController(viewController)
         }

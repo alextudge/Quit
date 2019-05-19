@@ -44,6 +44,8 @@ struct Constants {
     
     struct Cells {
         static let sectionOneCarouselCell = "SectionOneCarouselCell"
+        static let sectionOneCravingDataCell = "SectionOneCravingDataCell"
+        static let sectionOneVapingDataCell = "SectionOneVapingDataCell"
         static let sectionTwoCarouselCell = "SectionTwoCarouselCell"
         static let sectionThreeCarouselCell = "SectionThreeCarouselCell"
         static let sectionFourCarouselCell = "SectionFourCarouselCell"

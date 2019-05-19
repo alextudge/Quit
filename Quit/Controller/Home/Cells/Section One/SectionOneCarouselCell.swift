@@ -27,26 +27,8 @@ class SectionOneCarouselCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(reloadData(notification:)),
-                                               name: Constants.InternalNotifs.quitDateChanged,
-                                               object: nil)
         setupCollectionView()
-    }
-    
-    @objc private func reloadData(notification: NSNotification) {
-        collectionView.reloadData()
-    }
-    
-    private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "SectionOneCravingDataCell",
-                                      bundle: nil),
-                                forCellWithReuseIdentifier: "SectionOneCravingDataCell")
-        collectionView.register(UINib(nibName: "SectionOneVapingDataCell",
-                                      bundle: nil),
-                                forCellWithReuseIdentifier: "SectionOneVapingDataCell")
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.quitDateChanged, object: nil)
     }
 }
 
@@ -61,7 +43,7 @@ extension SectionOneCarouselCell: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionOneCravingDataCell", for: indexPath) as? SectionOneCravingDataCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionOneCravingDataCell, for: indexPath) as? SectionOneCravingDataCell else {
                 return UICollectionViewCell()
             }
             cell.delegate = self
@@ -69,7 +51,7 @@ extension SectionOneCarouselCell: UICollectionViewDelegate, UICollectionViewData
             cell.setup()
             return cell
         } else if indexPath.row == 1 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionOneVapingDataCell", for: indexPath) as? SectionOneVapingDataCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionOneVapingDataCell, for: indexPath) as? SectionOneVapingDataCell else {
                 return UICollectionViewCell()
             }
             cell.delegate = self
@@ -110,5 +92,18 @@ extension SectionOneCarouselCell: SectionOneCravingDataCellDelegate {
     
     func presentAlert(_ alert: UIAlertController) {
         delegate?.presentAlert(alert)
+    }
+}
+
+private extension SectionOneCarouselCell {
+    func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "SectionOneCravingDataCell", bundle: nil), forCellWithReuseIdentifier: "SectionOneCravingDataCell")
+        collectionView.register(UINib(nibName: "SectionOneVapingDataCell", bundle: nil), forCellWithReuseIdentifier: "SectionOneVapingDataCell")
+    }
+    
+    @objc func reloadData(notification: NSNotification) {
+        collectionView.reloadData()
     }
 }

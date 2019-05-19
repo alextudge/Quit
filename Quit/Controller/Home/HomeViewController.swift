@@ -135,6 +135,12 @@ extension HomeViewController: SectionTwoCarouselCellDelegate {
     }
 }
 
+extension HomeViewController: SectionThreeCarouselCellDelegate {
+    func didTapCravingDetailsButton() {
+        segueToEditCravingsViewController()
+    }
+}
+
 extension HomeViewController: SectionFiveCarouselCellDelegate {
     func didTapEditButton(isReasonsToSmoke: Bool) {
         segueToReasons(isReasonsToSmoke: isReasonsToSmoke)
@@ -159,12 +165,6 @@ extension HomeViewController: SavingGoalVCDelegate {
     }
 }
 
-extension HomeViewController: SectionThreeCarouselCellDelegate {
-    func didTapCravingDetailsButton() {
-        segueToEditCravingsViewController()
-    }
-}
-
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
@@ -175,42 +175,44 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        switch indexPath.section {
+        case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionOneCarouselCell, for: indexPath) as? SectionOneCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
             cell.persistenceManager = persistenceManager
             return cell
-        } else if indexPath.section == 1 {
+        case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionTwoCarouselCell, for: indexPath) as? SectionTwoCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
             cell.persistenceManager = persistenceManager
             return cell
-        } else if indexPath.section == 2 {
+        case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
             cell.persistenceManager = persistenceManager
             return cell
-        } else if indexPath.section == 3 {
+        case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
                 return UITableViewCell()
             }
             cell.persistenceManager = persistenceManager
             return cell
-        } else if indexPath.section == 4 {
+        case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
             cell.persistenceManager = persistenceManager
             return cell
+        default:
+            return UITableViewCell()
         }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

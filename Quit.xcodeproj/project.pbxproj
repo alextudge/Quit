@@ -22,7 +22,6 @@
 		1714FC89219E06C000CFB203 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */; };
 		1714FC8C219E06C000CFB203 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC8B219E06C000CFB203 /* NotificationViewController.swift */; };
 		1714FC93219E06C000CFB203 /* healthStateNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1714FC85219E06C000CFB203 /* healthStateNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		1714FC97219E072000CFB203 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA70962175199500ACA5F6 /* WaveAnimationView.swift */; };
 		1714FC98219E072500CFB203 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		1714FC9A219E16FE00CFB203 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1714FC99219E16FE00CFB203 /* MainInterface.storyboard */; };
 		1714FC9C219E306000CFB203 /* AddCravingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9B219E306000CFB203 /* AddCravingVC.swift */; };
@@ -85,7 +84,6 @@
 		17BA70912175143A00ACA5F6 /* SectionFourCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */; };
 		17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */; };
 		17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */; };
-		17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA70962175199500ACA5F6 /* WaveAnimationView.swift */; };
 		17C6B5EB2035DFF100AAE086 /* MainVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */; };
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
 		17F1B61B21D576F50021722D /* ReasonsOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */; };
@@ -242,7 +240,6 @@
 		17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourCarouselCell.xib; sourceTree = "<group>"; };
 		17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFourHealthCell.swift; sourceTree = "<group>"; };
 		17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourHealthCell.xib; sourceTree = "<group>"; };
-		17BA70962175199500ACA5F6 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
 		17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUITests.swift; sourceTree = "<group>"; };
 		17C6B5EC2035DFF100AAE086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -590,7 +587,6 @@
 			children = (
 				17F4E6F420C14AC600B9A21B /* RoundButton.swift */,
 				179FDFD321641B0D003131C5 /* RoundedView.swift */,
-				17BA70962175199500ACA5F6 /* WaveAnimationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -970,7 +966,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1714FC97219E072000CFB203 /* WaveAnimationView.swift in Sources */,
 				1714FC8C219E06C000CFB203 /* NotificationViewController.swift in Sources */,
 				1714FC98219E072500CFB203 /* Constants.swift in Sources */,
 			);
@@ -1003,7 +998,6 @@
 				17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */,
 				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,
 				175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */,
-				17BA70972175199500ACA5F6 /* WaveAnimationView.swift in Sources */,
 				1705FCBC228F7CC900E577EC /* QuitTransitions.swift in Sources */,
 				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
 				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,

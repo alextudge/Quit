@@ -12,10 +12,9 @@ import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
 
-    @IBOutlet weak var waveAnimationView: WaveAnimationView!
+    @IBOutlet weak var waveAnimationView: UIView!
     
     func didReceive(_ notification: UNNotification) {
-        waveAnimationView.progress = 1
+        
     }
-
 }

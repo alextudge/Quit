@@ -24,10 +24,7 @@ class SectionFiveCarouselCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(reloadData(notification:)),
-                                               name: Constants.InternalNotifs.additionalDataUpdated,
-                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.additionalDataUpdated, object: nil)
     }
     
     @objc private func reloadData(notification: NSNotification) {
@@ -37,11 +34,9 @@ class SectionFiveCarouselCell: UITableViewCell {
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: Constants.Cells.sectionFiveReasonsToSmokeCell,
-                                      bundle: nil),
-                                forCellWithReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell)
-        collectionView.register(UINib(nibName: Constants.Cells.sectionFiveReasonsNotToSmokeCell,
-                                      bundle: nil),forCellWithReuseIdentifier: Constants.Cells.sectionFiveReasonsNotToSmokeCell)
+        collectionView.register(UINib(nibName: Constants.Cells.sectionFiveReasonsToSmokeCell, bundle: nil), forCellWithReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell)
+        collectionView.register(UINib(nibName: Constants.Cells.sectionFiveReasonsNotToSmokeCell, bundle: nil),forCellWithReuseIdentifier: Constants.Cells.sectionFiveReasonsNotToSmokeCell)
+        collectionView.register(UINib(nibName: "SectionFiveNotificationsCell", bundle: nil), forCellWithReuseIdentifier: "SectionFiveNotificationsCell")
     }
 }
 
@@ -51,10 +46,16 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == 2 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionFiveNotificationsCell", for: indexPath) as? SectionFiveNotificationsCell else {
+                return UICollectionViewCell()
+            }
+            return  cell
+        }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell, for: indexPath) as? SectionFiveReasonsToSmokeCell else {
             return UICollectionViewCell()
         }

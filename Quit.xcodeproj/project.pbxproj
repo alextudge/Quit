@@ -86,6 +86,9 @@
 		17BA70912175143A00ACA5F6 /* SectionFourCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */; };
 		17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */; };
 		17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */; };
+		17BD352722989DFB004E766B /* ViewPendingNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */; };
+		17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD352922989ED7004E766B /* ViewNotificationCell.swift */; };
+		17BD352C2298ABCE004E766B /* AddNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD352B2298ABCE004E766B /* AddNotificationViewController.swift */; };
 		17C6B5EB2035DFF100AAE086 /* MainVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */; };
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
 		17F1B61B21D576F50021722D /* ReasonsOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */; };
@@ -244,6 +247,9 @@
 		17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourCarouselCell.xib; sourceTree = "<group>"; };
 		17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFourHealthCell.swift; sourceTree = "<group>"; };
 		17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourHealthCell.xib; sourceTree = "<group>"; };
+		17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPendingNotificationsViewController.swift; sourceTree = "<group>"; };
+		17BD352922989ED7004E766B /* ViewNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNotificationCell.swift; sourceTree = "<group>"; };
+		17BD352B2298ABCE004E766B /* AddNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotificationViewController.swift; sourceTree = "<group>"; };
 		17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUITests.swift; sourceTree = "<group>"; };
 		17C6B5EC2035DFF100AAE086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -326,11 +332,10 @@
 		17012659227F2CB600E416F6 /* Info Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				17BD352822989E07004E766B /* Cravings */,
+				17BD352522989DB9004E766B /* Notifications */,
 				1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */,
 				17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */,
-				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
-				1701265A227F9BB100E416F6 /* CravingsViewController.swift */,
-				1701265C227F9D2100E416F6 /* CravingsCell.swift */,
 			);
 			path = "Info Controllers";
 			sourceTree = "<group>";
@@ -566,6 +571,26 @@
 				17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */,
 			);
 			path = "Section Four";
+			sourceTree = "<group>";
+		};
+		17BD352522989DB9004E766B /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */,
+				17BD352B2298ABCE004E766B /* AddNotificationViewController.swift */,
+				17BD352922989ED7004E766B /* ViewNotificationCell.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		17BD352822989E07004E766B /* Cravings */ = {
+			isa = PBXGroup;
+			children = (
+				1701265A227F9BB100E416F6 /* CravingsViewController.swift */,
+				1701265C227F9D2100E416F6 /* CravingsCell.swift */,
+				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
+			);
+			path = Cravings;
 			sourceTree = "<group>";
 		};
 		17C6B5E92035DFF100AAE086 /* QuitUITests */ = {
@@ -985,6 +1010,7 @@
 				1791FDE621D55A5A00EDF452 /* EditArrayVC.swift in Sources */,
 				1714FCA021ADD63200CFB203 /* WidgetOnboardingVC.swift in Sources */,
 				17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */,
+				17BD352722989DFB004E766B /* ViewPendingNotificationsViewController.swift in Sources */,
 				179FDFCE216406B3003131C5 /* HomeViewController.swift in Sources */,
 				179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */,
 				1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */,
@@ -996,11 +1022,13 @@
 				179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */,
 				175D41FB21D3E53A00FB7588 /* QuitParser.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
+				17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */,
 				1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */,
 				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
 				171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */,
 				1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */,
+				17BD352C2298ABCE004E766B /* AddNotificationViewController.swift in Sources */,
 				17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */,
 				17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */,
 				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,

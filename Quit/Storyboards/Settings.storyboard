@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQp-PS-LSN">
-                                <rect key="frame" x="10" y="134" width="394" height="728"/>
+                                <rect key="frame" x="10" y="760.5" width="394" height="101.5"/>
                                 <string key="text">Clear Data removes your cravings and savings goals. Click on the date in the main screen to change your quit date. Quit stores your data on this device. It's never sent over the interent, we can't see it, and it's only used to display your stats.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,7 +45,6 @@
                             <constraint firstItem="nh8-YQ-f0M" firstAttribute="top" secondItem="wwd-JD-nwF" secondAttribute="top" constant="20" id="AJE-EO-kn2"/>
                             <constraint firstItem="nh8-YQ-f0M" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="20" id="BNN-LY-Vy1"/>
                             <constraint firstItem="cQp-PS-LSN" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="10" id="MQn-U6-7hU"/>
-                            <constraint firstItem="cQp-PS-LSN" firstAttribute="top" secondItem="nh8-YQ-f0M" secondAttribute="bottom" constant="20" id="QS0-L9-C81"/>
                             <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="cQp-PS-LSN" secondAttribute="trailing" constant="10" id="cCm-cB-BY4"/>
                             <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="nh8-YQ-f0M" secondAttribute="trailing" constant="20" id="enj-M7-CL3"/>
                             <constraint firstItem="wwd-JD-nwF" firstAttribute="bottom" secondItem="cQp-PS-LSN" secondAttribute="bottom" id="pz7-3C-TGT"/>
@@ -60,7 +59,6 @@
         <!--Quit InfoVC-->
         <scene sceneID="6uB-gt-Sj0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jm1-WA-yDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="QuitInfoVC" modalPresentationStyle="overCurrentContext" id="onu-ug-DVq" customClass="QuitInfoVC" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GmK-11-FRj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -169,6 +167,7 @@
                         <outlet property="smokedDailyTextField" destination="0Zi-eH-cQG" id="5Fp-EK-5S5"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jm1-WA-yDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2212" y="-833.43328335832086"/>
         </scene>

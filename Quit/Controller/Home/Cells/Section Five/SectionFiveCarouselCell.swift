@@ -10,6 +10,7 @@ import UIKit
 
 protocol SectionFiveCarouselCellDelegate: class {
     func didTapEditButton(isReasonsToSmoke: Bool)
+    func showViewController(type: ViewControllerFactory)
 }
 
 class SectionFiveCarouselCell: UITableViewCell {
@@ -54,6 +55,7 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionFiveNotificationsCell", for: indexPath) as? SectionFiveNotificationsCell else {
                 return UICollectionViewCell()
             }
+            cell.delegate = self
             return  cell
         }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveReasonsToSmokeCell, for: indexPath) as? SectionFiveReasonsToSmokeCell else {
@@ -77,5 +79,11 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
 extension SectionFiveCarouselCell: SectionFiveReasonsToSmokeCellDelegate {
     func didTapEditButton(isReasonsToSmoke: Bool) {
         delegate?.didTapEditButton(isReasonsToSmoke: isReasonsToSmoke)
+    }
+}
+
+extension SectionFiveCarouselCell: SectionFiveNotificationsCellDelegate {
+    func showViewController(_ viewController: ViewControllerFactory) {
+        delegate?.showViewController(type: viewController)
     }
 }

@@ -137,6 +137,10 @@ extension HomeViewController: SectionThreeCarouselCellDelegate {
 }
 
 extension HomeViewController: SectionFiveCarouselCellDelegate {
+    func showViewController(type: ViewControllerFactory) {
+        presentQuitBaseViewController(type.viewController()!)
+    }
+    
     func didTapEditButton(isReasonsToSmoke: Bool) {
         segueToReasons(isReasonsToSmoke: isReasonsToSmoke)
     }

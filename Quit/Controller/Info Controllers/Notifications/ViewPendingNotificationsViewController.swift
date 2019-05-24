@@ -70,7 +70,7 @@ extension ViewPendingNotificationsViewContoller: UITableViewDelegate, UITableVie
             return UITableViewCell()
         }
         let notification = notifications[indexPath.row]
-        cell.setupCell(title: notification.content.title, body: notification.content.body, date: (notification.trigger as? UNTimeIntervalNotificationTrigger)?.nextTriggerDate())
+        cell.setupCell(title: notification.content.title, body: notification.content.body, date: (notification.trigger as? UNCalendarNotificationTrigger)?.nextTriggerDate())
         return cell
     }
     

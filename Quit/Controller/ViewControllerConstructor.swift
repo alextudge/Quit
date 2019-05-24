@@ -38,7 +38,8 @@ enum ViewControllerFactory: String {
         case .AddCravingVC,
              .SavingGoalVC,
              .CravingsViewController,
-             .ViewPendingNotificationsViewContoller:
+             .ViewPendingNotificationsViewContoller,
+             .AddNotificationViewController:
             return .Other
         default:
             return .Main

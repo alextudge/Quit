@@ -128,7 +128,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OOn-pa-gzJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OOn-pa-gzJ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -203,9 +203,85 @@
                     <view key="view" contentMode="scaleToFill" id="0Wz-jy-qXP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aUF-sD-lGn">
+                                <rect key="frame" x="20" y="64" width="374" height="135"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set a title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddg-OH-ye2">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G1F-U4-zAr">
+                                        <rect key="frame" x="0.0" y="40.5" width="374" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7D-32-7ks">
+                                        <rect key="frame" x="0.0" y="77.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nxY-fV-Zs9">
+                                        <rect key="frame" x="0.0" y="118" width="374" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UWx-6I-0CI">
+                                <rect key="frame" x="20" y="219" width="374" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Unh-f3-Emp"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Time"/>
+                                    <segment title="Location"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.58823529409999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentedControllerDidChange:" destination="ptr-Bu-Fgd" eventType="valueChanged" id="C9K-I6-jXP"/>
+                                </connections>
+                            </segmentedControl>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="mpw-YZ-jV9">
+                                <rect key="frame" x="20" y="267" width="374" height="575"/>
+                                <date key="date" timeIntervalSinceReferenceDate="580431770.56700599">
+                                    <!--2019-05-24 23:02:50 +0000-->
+                                </date>
+                            </datePicker>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ezj-vB-dH1">
+                                <rect key="frame" x="20" y="267" width="374" height="575"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Ly-vX-gfI" firstAttribute="bottom" secondItem="mpw-YZ-jV9" secondAttribute="bottom" constant="20" id="53z-Kt-ccm"/>
+                            <constraint firstItem="9Ly-vX-gfI" firstAttribute="trailing" secondItem="UWx-6I-0CI" secondAttribute="trailing" constant="20" id="6Aq-Ta-UQF"/>
+                            <constraint firstItem="aUF-sD-lGn" firstAttribute="leading" secondItem="9Ly-vX-gfI" secondAttribute="leading" constant="20" id="9pU-dK-i6z"/>
+                            <constraint firstItem="9Ly-vX-gfI" firstAttribute="trailing" secondItem="Ezj-vB-dH1" secondAttribute="trailing" constant="20" id="Cnj-L0-h6m"/>
+                            <constraint firstItem="UWx-6I-0CI" firstAttribute="leading" secondItem="9Ly-vX-gfI" secondAttribute="leading" constant="20" id="Fdu-qK-1Iq"/>
+                            <constraint firstItem="aUF-sD-lGn" firstAttribute="top" secondItem="9Ly-vX-gfI" secondAttribute="top" constant="20" id="Hqc-dY-Koh"/>
+                            <constraint firstItem="mpw-YZ-jV9" firstAttribute="leading" secondItem="9Ly-vX-gfI" secondAttribute="leading" constant="20" id="MND-ny-sOA"/>
+                            <constraint firstItem="9Ly-vX-gfI" firstAttribute="trailing" secondItem="aUF-sD-lGn" secondAttribute="trailing" constant="20" id="Sqh-MH-rYY"/>
+                            <constraint firstItem="UWx-6I-0CI" firstAttribute="top" secondItem="aUF-sD-lGn" secondAttribute="bottom" constant="20" id="aWv-Py-PYO"/>
+                            <constraint firstItem="Ezj-vB-dH1" firstAttribute="leading" secondItem="9Ly-vX-gfI" secondAttribute="leading" constant="20" id="e8U-IM-DB5"/>
+                            <constraint firstItem="mpw-YZ-jV9" firstAttribute="trailing" secondItem="9Ly-vX-gfI" secondAttribute="trailing" constant="-20" id="hFK-ix-vD3"/>
+                            <constraint firstItem="Ezj-vB-dH1" firstAttribute="top" secondItem="UWx-6I-0CI" secondAttribute="bottom" constant="20" id="j7P-nh-8VM"/>
+                            <constraint firstItem="mpw-YZ-jV9" firstAttribute="top" secondItem="UWx-6I-0CI" secondAttribute="bottom" constant="20" id="ty7-ok-TPc"/>
+                            <constraint firstItem="9Ly-vX-gfI" firstAttribute="bottom" secondItem="Ezj-vB-dH1" secondAttribute="bottom" constant="20" id="yfa-Mf-xjz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9Ly-vX-gfI"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="mpw-YZ-jV9" id="snA-7L-Tc7"/>
+                        <outlet property="mapView" destination="Ezj-vB-dH1" id="wzg-vx-Ob0"/>
+                        <outlet property="messageTextField" destination="nxY-fV-Zs9" id="xwn-CZ-qsY"/>
+                        <outlet property="titleTextField" destination="G1F-U4-zAr" id="NFg-eh-fvN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EkX-1b-gGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

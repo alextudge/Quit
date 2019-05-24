@@ -24,7 +24,7 @@ class ViewNotificationCell: UITableViewCell {
     
     func formatDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM"
+        dateFormatter.dateFormat = "dd/MM/YYYY"
         return dateFormatter.string(from: date)
     }
 }

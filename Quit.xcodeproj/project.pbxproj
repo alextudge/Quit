@@ -54,6 +54,17 @@
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		1788CBCC2039B3E000064A86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		1790143122A6F48200C7D734 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1790143022A6F48200C7D734 /* Colours.xcassets */; };
+		1790149922A703A500C7D734 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790149822A703A500C7D734 /* IntentHandler.swift */; };
+		1790149D22A703A500C7D734 /* AddCravingIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1790149622A703A500C7D734 /* AddCravingIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		179014A422A7042400C7D734 /* AddCravingIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 179014A322A7042400C7D734 /* AddCravingIntent.intentdefinition */; };
+		179014A522A7058000C7D734 /* AddCravingIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 179014A322A7042400C7D734 /* AddCravingIntent.intentdefinition */; };
+		179014A722A70C2900C7D734 /* AddCravingIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179014A622A70C2900C7D734 /* AddCravingIntentHandler.swift */; };
+		179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
+		179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
+		179014AA22A70F3A00C7D734 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
+		179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
+		179014AC22A70F4D00C7D734 /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
+		179014AD22A70F5300C7D734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		1791FDDA21D410DF00EDF452 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */; };
 		1791FDDE21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */; };
@@ -115,6 +126,13 @@
 			remoteGlobalIDString = 177F03E02025220000CC7CA8;
 			remoteInfo = Quit;
 		};
+		1790149B22A703A500C7D734 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 177F03D92025220000CC7CA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1790149522A703A500C7D734;
+			remoteInfo = AddCravingIntent;
+		};
 		17C6B5ED2035DFF100AAE086 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 177F03D92025220000CC7CA8 /* Project object */;
@@ -149,6 +167,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */,
+				1790149D22A703A500C7D734 /* AddCravingIntent.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +227,12 @@
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1788CBCB2039B3E000064A86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1790143022A6F48200C7D734 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
+		1790149622A703A500C7D734 /* AddCravingIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddCravingIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1790149822A703A500C7D734 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		1790149A22A703A500C7D734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		179014A122A703C000C7D734 /* AddCravingIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AddCravingIntent.entitlements; sourceTree = "<group>"; };
+		179014A322A7042400C7D734 /* AddCravingIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = AddCravingIntent.intentdefinition; sourceTree = "<group>"; };
+		179014A622A70C2900C7D734 /* AddCravingIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingIntentHandler.swift; sourceTree = "<group>"; };
 		1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveReasonsToSmokeCell.swift; sourceTree = "<group>"; };
 		1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveReasonsToSmokeCell.xib; sourceTree = "<group>"; };
 		1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArrayVC.swift; sourceTree = "<group>"; };
@@ -280,6 +305,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFCC50839C8F1E441234087D /* Pods_Quit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1790149322A703A500C7D734 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +427,8 @@
 				170006872035D0DC0056F25C /* QuitTests */,
 				17C6B5E92035DFF100AAE086 /* QuitUITests */,
 				17F8FF84219A08E70095CD6E /* QuitWidget */,
+				179014A222A7040100C7D734 /* Siri Intents */,
+				1790149722A703A500C7D734 /* AddCravingIntent */,
 				177F03E22025220000CC7CA8 /* Products */,
 				4F797A7321EFCB28DD35F62E /* Pods */,
 				F794A69D49B54B9AB70B83F4 /* Frameworks */,
@@ -408,6 +442,7 @@
 				170006862035D0DC0056F25C /* QuitTests.xctest */,
 				17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */,
 				17F8FF81219A08E70095CD6E /* QuitWidget.appex */,
+				1790149622A703A500C7D734 /* AddCravingIntent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -470,6 +505,25 @@
 				175D41EB21D3E06C00FB7588 /* Extensions */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1790149722A703A500C7D734 /* AddCravingIntent */ = {
+			isa = PBXGroup;
+			children = (
+				179014A122A703C000C7D734 /* AddCravingIntent.entitlements */,
+				179014A622A70C2900C7D734 /* AddCravingIntentHandler.swift */,
+				1790149822A703A500C7D734 /* IntentHandler.swift */,
+				1790149A22A703A500C7D734 /* Info.plist */,
+			);
+			path = AddCravingIntent;
+			sourceTree = "<group>";
+		};
+		179014A222A7040100C7D734 /* Siri Intents */ = {
+			isa = PBXGroup;
+			children = (
+				179014A322A7042400C7D734 /* AddCravingIntent.intentdefinition */,
+			);
+			path = "Siri Intents";
 			sourceTree = "<group>";
 		};
 		179FDFC2216403F3003131C5 /* Home */ = {
@@ -671,11 +725,29 @@
 			);
 			dependencies = (
 				17F8FF8C219A08E70095CD6E /* PBXTargetDependency */,
+				1790149C22A703A500C7D734 /* PBXTargetDependency */,
 			);
 			name = Quit;
 			productName = Quit;
 			productReference = 177F03E12025220000CC7CA8 /* Quit.app */;
 			productType = "com.apple.product-type.application";
+		};
+		1790149522A703A500C7D734 /* AddCravingIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1790149E22A703A500C7D734 /* Build configuration list for PBXNativeTarget "AddCravingIntent" */;
+			buildPhases = (
+				1790149222A703A500C7D734 /* Sources */,
+				1790149322A703A500C7D734 /* Frameworks */,
+				1790149422A703A500C7D734 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AddCravingIntent;
+			productName = AddCravingIntent;
+			productReference = 1790149622A703A500C7D734 /* AddCravingIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		17C6B5E72035DFF100AAE086 /* QuitUITests */ = {
 			isa = PBXNativeTarget;
@@ -719,7 +791,7 @@
 		177F03D92025220000CC7CA8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Alex Tudge";
 				TargetAttributes = {
@@ -731,6 +803,18 @@
 					177F03E02025220000CC7CA8 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1020;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
+					};
+					1790149522A703A500C7D734 = {
+						CreatedOnToolsVersion = 10.2.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -773,6 +857,7 @@
 				170006852035D0DC0056F25C /* QuitTests */,
 				17C6B5E72035DFF100AAE086 /* QuitUITests */,
 				17F8FF80219A08E70095CD6E /* QuitWidget */,
+				1790149522A703A500C7D734 /* AddCravingIntent */,
 			);
 		};
 /* End PBXProject section */
@@ -814,6 +899,13 @@
 				1705FCB9228F75FB00E577EC /* achievements.json in Resources */,
 				179FDFDD2166C3FA003131C5 /* SectionTwoCarouselCell.xib in Resources */,
 				177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1790149422A703A500C7D734 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,7 +1089,24 @@
 				175D41F721D3E36600FB7588 /* ChartFormatter.swift in Sources */,
 				171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */,
 				17BA70902175143A00ACA5F6 /* SectionFourCarouselCell.swift in Sources */,
+				179014A422A7042400C7D734 /* AddCravingIntent.intentdefinition in Sources */,
 				17F022002031EA83005EF65C /* SettingsVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1790149222A703A500C7D734 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179014A722A70C2900C7D734 /* AddCravingIntentHandler.swift in Sources */,
+				1790149922A703A500C7D734 /* IntentHandler.swift in Sources */,
+				179014A522A7058000C7D734 /* AddCravingIntent.intentdefinition in Sources */,
+				179014AC22A70F4D00C7D734 /* QuitParser.swift in Sources */,
+				179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */,
+				179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */,
+				179014AA22A70F3A00C7D734 /* QuitData.swift in Sources */,
+				179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */,
+				179014AD22A70F5300C7D734 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,6 +1140,11 @@
 			isa = PBXTargetDependency;
 			target = 177F03E02025220000CC7CA8 /* Quit */;
 			targetProxy = 1700068B2035D0DC0056F25C /* PBXContainerItemProxy */;
+		};
+		1790149C22A703A500C7D734 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1790149522A703A500C7D734 /* AddCravingIntent */;
+			targetProxy = 1790149B22A703A500C7D734 /* PBXContainerItemProxy */;
 		};
 		17C6B5EE2035DFF100AAE086 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1159,7 +1273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1215,7 +1329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1239,7 +1353,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Quit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1262,10 +1376,47 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Quit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1790149F22A703A500C7D734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AddCravingIntent/AddCravingIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8E3HCRWG9;
+				INFOPLIST_FILE = AddCravingIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.AddCravingIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		179014A022A703A500C7D734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AddCravingIntent/AddCravingIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8E3HCRWG9;
+				INFOPLIST_FILE = AddCravingIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.AddCravingIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1368,6 +1519,15 @@
 			buildConfigurations = (
 				177F03F72025220900CC7CA8 /* Debug */,
 				177F03F82025220900CC7CA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1790149E22A703A500C7D734 /* Build configuration list for PBXNativeTarget "AddCravingIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1790149F22A703A500C7D734 /* Debug */,
+				179014A022A703A500C7D734 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

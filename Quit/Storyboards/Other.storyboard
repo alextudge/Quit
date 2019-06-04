@@ -247,12 +247,6 @@
                                     <action selector="segmentedControllerDidChange:" destination="ptr-Bu-Fgd" eventType="valueChanged" id="C9K-I6-jXP"/>
                                 </connections>
                             </segmentedControl>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="mpw-YZ-jV9">
-                                <rect key="frame" x="20" y="267" width="374" height="505"/>
-                                <date key="date" timeIntervalSinceReferenceDate="580431770.56700599">
-                                    <!--2019-05-24 23:02:50 +0000-->
-                                </date>
-                            </datePicker>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ezj-vB-dH1">
                                 <rect key="frame" x="20" y="267" width="374" height="505"/>
                             </mapView>
@@ -270,6 +264,13 @@
                                     <constraint firstAttribute="width" constant="1" id="brC-7N-xcA"/>
                                 </constraints>
                             </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="mpw-YZ-jV9">
+                                <rect key="frame" x="20" y="267" width="374" height="505"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <date key="date" timeIntervalSinceReferenceDate="580431770.56700599">
+                                    <!--2019-05-24 23:02:50 +0000-->
+                                </date>
+                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-eF-w23" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
                                 <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

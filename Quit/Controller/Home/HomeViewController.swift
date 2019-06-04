@@ -87,9 +87,11 @@ private extension HomeViewController {
         let appLoadCount = persistenceManager?.appLoadCounter()
         if appLoadCount == 1 {
             showWidgetOnboarding()
-        } else if appLoadCount ?? 0 >= 2,
+        } else if appLoadCount == 2,
             shouldShowReasonsOnboarding() {
             showReasonsOboarding()
+        } else {
+            
         }
     }
     

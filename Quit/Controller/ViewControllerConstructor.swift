@@ -29,6 +29,7 @@ enum ViewControllerFactory: String {
     case CravingsViewController
     case ViewPendingNotificationsViewContoller
     case AddNotificationViewController
+    case AnimationViewController
     
     func storyboardForViewController() -> Storyboards {
         switch self {

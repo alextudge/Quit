@@ -252,6 +252,40 @@
             </objects>
             <point key="canvasLocation" x="1273" y="704"/>
         </scene>
+        <!--Animation View Controller-->
+        <scene sceneID="cMO-yb-Abh">
+            <objects>
+                <viewController storyboardIdentifier="AnimationViewController" id="dsG-cC-di6" customClass="AnimationViewController" customModule="Quit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6dA-nz-jfM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybC-X0-OUq">
+                                <rect key="frame" x="187.5" y="333.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ybC-X0-OUq" firstAttribute="centerY" secondItem="6dA-nz-jfM" secondAttribute="centerY" id="HrT-43-3Ey"/>
+                            <constraint firstItem="ybC-X0-OUq" firstAttribute="centerX" secondItem="6dA-nz-jfM" secondAttribute="centerX" id="oKq-tu-niF"/>
+                            <constraint firstItem="ybC-X0-OUq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OhJ-el-sE4" secondAttribute="top" constant="20" id="qHa-49-OAf"/>
+                            <constraint firstItem="ybC-X0-OUq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OhJ-el-sE4" secondAttribute="leading" constant="20" id="uCT-86-KSt"/>
+                            <constraint firstItem="OhJ-el-sE4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ybC-X0-OUq" secondAttribute="trailing" constant="20" id="yv8-gi-cEG"/>
+                            <constraint firstItem="OhJ-el-sE4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ybC-X0-OUq" secondAttribute="bottom" constant="20" id="z8P-eI-puG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OhJ-el-sE4"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="ybC-X0-OUq" id="yQV-Ye-bqF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MPW-1R-Baf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2752" y="1004"/>
+        </scene>
         <!--AchievementsVC-->
         <scene sceneID="5bT-1P-aCQ">
             <objects>

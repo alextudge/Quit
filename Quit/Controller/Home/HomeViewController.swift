@@ -74,7 +74,7 @@ private extension HomeViewController {
     func headerFor(section: Int) -> UIView {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
         let label = UILabel(frame: CGRect(x: 15, y: 5, width: screenWidth - 40, height: 45))
-        header.backgroundColor = .white
+        header.backgroundColor = UIColor(named: "whiteColor")
         label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.text = viewModel.titleForHeaderOf(section: section)

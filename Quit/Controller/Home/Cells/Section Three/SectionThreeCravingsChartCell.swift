@@ -129,7 +129,6 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         rightAxis?.drawLabelsEnabled = false
         leftAxis?.labelTextColor = .darkGray
         rightAxis?.drawGridLinesEnabled = false
-        barChart.backgroundColor = .white
         barChart.legend.textColor = .darkGray
         barChart.legend.font = UIFont(name: "AvenirNext-Bold", size: 15)!
         barChart.chartDescription?.text = ""

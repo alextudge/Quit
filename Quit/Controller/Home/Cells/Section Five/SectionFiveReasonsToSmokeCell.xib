@@ -4,8 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="quitWhite"/>
                         <constraints>
                             <constraint firstItem="Qve-XJ-VxS" firstAttribute="top" secondItem="g3e-2F-s6L" secondAttribute="top" constant="20" id="305-pz-K3i"/>
                             <constraint firstAttribute="trailing" secondItem="AqC-KO-S7a" secondAttribute="trailing" constant="20" id="3HG-Fr-juz"/>
@@ -89,4 +89,9 @@
             <point key="canvasLocation" x="468" y="252.77361319340332"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="quitWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

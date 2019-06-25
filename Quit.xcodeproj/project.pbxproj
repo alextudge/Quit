@@ -20,7 +20,6 @@
 		170B0A95229486C800217358 /* SectionFiveNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 170B0A93229486C800217358 /* SectionFiveNotificationsCell.xib */; };
 		1714FC9C219E306000CFB203 /* AddCravingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9B219E306000CFB203 /* AddCravingVC.swift */; };
 		1714FC9E219E359A00CFB203 /* AddCravingVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9D219E359A00CFB203 /* AddCravingVCViewModel.swift */; };
-		1714FCA021ADD63200CFB203 /* WidgetOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */; };
 		17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17156BE222596B42005EEE69 /* QuitBaseViewController.swift */; };
 		171EAFEB21D3E87B0088C90C /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
 		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
@@ -40,7 +39,6 @@
 		175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */; };
 		175D41FB21D3E53A00FB7588 /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
 		176635B122A1DA9800C8D96F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176635B022A1DA9800C8D96F /* GradientView.swift */; };
-		176635B322A1DB3700C8D96F /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176635B222A1DB3700C8D96F /* AnimationViewController.swift */; };
 		176635B522A1DC9100C8D96F /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176635B422A1DC9100C8D96F /* ParticleView.swift */; };
 		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
@@ -99,7 +97,6 @@
 		17BD352C2298ABCE004E766B /* AddNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD352B2298ABCE004E766B /* AddNotificationViewController.swift */; };
 		17C6B5EB2035DFF100AAE086 /* MainVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */; };
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
-		17F1B61B21D576F50021722D /* ReasonsOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */; };
 		17F1B61D21D5B1DF0021722D /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1B61C21D5B1DF0021722D /* DoubleExtensions.swift */; };
 		17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */; };
 		17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
@@ -191,7 +188,6 @@
 		1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		1714FC9B219E306000CFB203 /* AddCravingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingVC.swift; sourceTree = "<group>"; };
 		1714FC9D219E359A00CFB203 /* AddCravingVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingVCViewModel.swift; sourceTree = "<group>"; };
-		1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetOnboardingVC.swift; sourceTree = "<group>"; };
 		17156BE222596B42005EEE69 /* QuitBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitBaseViewController.swift; sourceTree = "<group>"; };
 		171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveCarouselCell.swift; sourceTree = "<group>"; };
 		171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveCarouselCell.xib; sourceTree = "<group>"; };
@@ -210,7 +206,6 @@
 		175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitFormatters.swift; sourceTree = "<group>"; };
 		175D41FA21D3E53A00FB7588 /* QuitParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitParser.swift; sourceTree = "<group>"; };
 		176635B022A1DA9800C8D96F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		176635B222A1DB3700C8D96F /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		176635B422A1DC9100C8D96F /* ParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
 		1767D300219C417F007E4DE9 /* SmokedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokedVC.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,7 +262,6 @@
 		17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUITests.swift; sourceTree = "<group>"; };
 		17C6B5EC2035DFF100AAE086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F021FF2031EA83005EF65C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsOnboardingVC.swift; sourceTree = "<group>"; };
 		17F1B61C21D5B1DF0021722D /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVCViewModel.swift; sourceTree = "<group>"; };
 		17F4E6F420C14AC600B9A21B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -345,8 +339,6 @@
 			children = (
 				17BD352822989E07004E766B /* Cravings */,
 				17BD352522989DB9004E766B /* Notifications */,
-				1714FC9F21ADD63200CFB203 /* WidgetOnboardingVC.swift */,
-				17F1B61A21D576F50021722D /* ReasonsOnboardingVC.swift */,
 			);
 			path = "Info Controllers";
 			sourceTree = "<group>";
@@ -479,7 +471,6 @@
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
 				1714FC9B219E306000CFB203 /* AddCravingVC.swift */,
 				1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */,
-				176635B222A1DB3700C8D96F /* AnimationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1022,7 +1013,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1791FDE621D55A5A00EDF452 /* EditArrayVC.swift in Sources */,
-				1714FCA021ADD63200CFB203 /* WidgetOnboardingVC.swift in Sources */,
 				17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */,
 				17BD352722989DFB004E766B /* ViewPendingNotificationsViewController.swift in Sources */,
 				179FDFCE216406B3003131C5 /* HomeViewController.swift in Sources */,
@@ -1030,11 +1020,9 @@
 				1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */,
 				175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */,
 				1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */,
-				17F1B61B21D576F50021722D /* ReasonsOnboardingVC.swift in Sources */,
 				175D41F321D3E28600FB7588 /* ViewExtensions.swift in Sources */,
 				1752F0B521C042FE0056642F /* AchievementsViewModel.swift in Sources */,
 				1714FC9C219E306000CFB203 /* AddCravingVC.swift in Sources */,
-				176635B322A1DB3700C8D96F /* AnimationViewController.swift in Sources */,
 				179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */,
 				175D41FB21D3E53A00FB7588 /* QuitParser.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,

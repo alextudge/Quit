@@ -73,7 +73,7 @@ private extension HomeViewController {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
         let label = UILabel(frame: CGRect(x: 15, y: 5, width: screenWidth - 40, height: 45))
         header.backgroundColor = .systemBackground
-        label.textColor = UIColor.darkGray.withAlphaComponent(0.9)
+        label.textColor = .secondaryLabel
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.text = viewModel.titleForHeaderOf(section: section)
         header.addSubview(label)
@@ -83,14 +83,7 @@ private extension HomeViewController {
     
     func showOnboarding() {
         let appLoadCount = persistenceManager?.appLoadCounter()
-        if appLoadCount == 1 {
-            showWidgetOnboarding()
-        } else if appLoadCount == 2,
-            shouldShowReasonsOnboarding() {
-            showReasonsOboarding()
-        } else {
-            
-        }
+        // TODO
     }
     
     func shouldShowReasonsOnboarding() -> Bool {
@@ -146,12 +139,6 @@ extension HomeViewController: SectionFiveCarouselCellDelegate {
     
     func didTapEditButton(isReasonsToSmoke: Bool) {
         segueToReasons(isReasonsToSmoke: isReasonsToSmoke)
-    }
-}
-
-extension HomeViewController: ReasonsOnboardingVCDelegate {
-    func didTapLetsGoButton() {
-        didTapEditButton(isReasonsToSmoke: true)
     }
 }
 
@@ -282,20 +269,6 @@ private extension HomeViewController {
             }
             viewController.persistenceManager = persistenceManager
             presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    func showWidgetOnboarding() {
-        if let viewController = ViewControllerFactory.WidgetOnboardingVC.viewController() as? WidgetOnboardingVC {
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-    
-    func showReasonsOboarding() {
-        if let viewController = ViewControllerFactory.ReasonsOnboardingVC.viewController() as? ReasonsOnboardingVC {
-            viewController.delegate = self
-            present(viewController, animated: true, completion: nil)
-            persistenceManager?.setHasSeenReasonOnboarding()
         }
     }
     

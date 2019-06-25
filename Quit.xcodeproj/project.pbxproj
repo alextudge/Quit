@@ -29,6 +29,7 @@
 		171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */; };
 		171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
+		1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */; };
 		1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsVC.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
 		1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B221C0414E0056642F /* AchievementCell.swift */; };
@@ -200,6 +201,7 @@
 		171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveCarouselCell.xib; sourceTree = "<group>"; };
 		171EAFF121D40D200088C90C /* AdditionalUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalUserData.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
+		1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsVC.swift; sourceTree = "<group>"; };
 		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
 		1752F0B221C0414E0056642F /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				175D41F221D3E28600FB7588 /* ViewExtensions.swift */,
 				175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */,
 				17F1B61C21D5B1DF0021722D /* DoubleExtensions.swift */,
+				1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */,
 				1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */,
 				175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */,
+				1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */,
 				17F1B61B21D576F50021722D /* ReasonsOnboardingVC.swift in Sources */,
 				175D41F321D3E28600FB7588 /* ViewExtensions.swift in Sources */,
 				1752F0B521C042FE0056642F /* AchievementsViewModel.swift in Sources */,
@@ -1273,7 +1277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1329,7 +1333,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1353,7 +1357,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Quit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1376,7 +1380,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Quit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

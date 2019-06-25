@@ -37,27 +37,36 @@ class QuitBaseViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    func presentQuitBaseViewController(_ viewController: QuitBaseViewController, mode: PresentationMode = .push) {
+    func presentQuitBaseViewController(_ viewController: QuitBaseViewController) {
         viewController.persistenceManager = persistenceManager
-        if mode == .modal {
-            present(viewController, animated: true, completion: nil)
-        } else {
-            navigationController?.pushViewController(viewController, animated: true)
-        }
+        viewController.modalPresentationStyle = .automatic
+        present(viewController, animated: true, completion: nil)
     }
 }
 
 private extension QuitBaseViewController {
     func setupUI() {
+        view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = largeTitlesEnabled
         navigationItem.largeTitleDisplayMode = .automatic
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationController?.navigationBar.tintColor = .darkGray
+        if isModal {
+            addSwipeView()
+        }
     }
     
     @objc private func endEditing() {
         view.endEditing(true)
+    }
+    
+    func addSwipeView() {
+        let screenDivider = UIScreen.main.bounds.width / 3
+        let swipeView = UIView(frame: CGRect(x: screenDivider, y: 5, width: screenDivider, height: 5))
+        swipeView.layer.cornerRadius = 2.5
+        swipeView.backgroundColor = UIColor(named: "blueColour")
+        view.addSubview(swipeView)
     }
 }

@@ -49,10 +49,10 @@ private extension QuitBaseViewController {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = largeTitlesEnabled
         navigationItem.largeTitleDisplayMode = .automatic
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
         navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationController?.navigationBar.tintColor = .darkGray
+        navigationController?.navigationBar.tintColor = .secondarySystemBackground
         if isModal {
             addSwipeView()
         }

@@ -17,5 +17,6 @@ class RoundedButton: UIButton {
         layer.shadowRadius = 1
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         clipsToBounds = false
+        titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
     }
 }

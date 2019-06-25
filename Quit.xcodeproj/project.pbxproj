@@ -12,8 +12,6 @@
 		1701265B227F9BB100E416F6 /* CravingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265A227F9BB100E416F6 /* CravingsViewController.swift */; };
 		1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265C227F9D2100E416F6 /* CravingsCell.swift */; };
 		1705FCB9228F75FB00E577EC /* achievements.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCB8228F75FB00E577EC /* achievements.json */; };
-		1705FCBC228F7CC900E577EC /* QuitTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705FCBB228F7CC900E577EC /* QuitTransitions.swift */; };
-		1705FCBE228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705FCBD228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift */; };
 		1705FCC02291954000E577EC /* addIcon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCBF2291954000E577EC /* addIcon.json */; };
 		1705FCC222919A8C00E577EC /* addIconBlue.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCC122919A8C00E577EC /* addIconBlue.json */; };
 		1705FCC82291A53700E577EC /* progressComplete.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCC72291A53700E577EC /* progressComplete.json */; };
@@ -183,8 +181,6 @@
 		1701265A227F9BB100E416F6 /* CravingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsViewController.swift; sourceTree = "<group>"; };
 		1701265C227F9D2100E416F6 /* CravingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsCell.swift; sourceTree = "<group>"; };
 		1705FCB8228F75FB00E577EC /* achievements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievements.json; sourceTree = "<group>"; };
-		1705FCBB228F7CC900E577EC /* QuitTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitTransitions.swift; sourceTree = "<group>"; };
-		1705FCBD228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitAnimatedExpansionTransition.swift; sourceTree = "<group>"; };
 		1705FCBF2291954000E577EC /* addIcon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addIcon.json; sourceTree = "<group>"; };
 		1705FCC122919A8C00E577EC /* addIconBlue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addIconBlue.json; sourceTree = "<group>"; };
 		1705FCC72291A53700E577EC /* progressComplete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressComplete.json; sourceTree = "<group>"; };
@@ -367,15 +363,6 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
-		1705FCBA228F7CB400E577EC /* Transitions */ = {
-			isa = PBXGroup;
-			children = (
-				1705FCBB228F7CC900E577EC /* QuitTransitions.swift */,
-				1705FCBD228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift */,
-			);
-			path = Transitions;
-			sourceTree = "<group>";
-		};
 		17156BE1225966BF005EEE69 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,7 +469,6 @@
 		177F04212028A6F000CC7CA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1705FCBA228F7CB400E577EC /* Transitions */,
 				1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */,
 				17156BE222596B42005EEE69 /* QuitBaseViewController.swift */,
 				179FDFC2216403F3003131C5 /* Home */,
@@ -1063,7 +1049,6 @@
 				17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */,
 				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,
 				175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */,
-				1705FCBC228F7CC900E577EC /* QuitTransitions.swift in Sources */,
 				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
 				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,
 				17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */,
@@ -1083,7 +1068,6 @@
 				177F04242029104900CC7CA8 /* QuitData.swift in Sources */,
 				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,
 				177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */,
-				1705FCBE228F7D2200E577EC /* QuitAnimatedExpansionTransition.swift in Sources */,
 				176635B122A1DA9800C8D96F /* GradientView.swift in Sources */,
 				179FDFD62166A2BF003131C5 /* HomeVCViewModel.swift in Sources */,
 				175D41F121D3E25700FB7588 /* ApplicationExtensions.swift in Sources */,

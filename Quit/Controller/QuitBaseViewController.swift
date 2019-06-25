@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum PresentationMode {
-    case modal, push
-}
-
 class QuitBaseViewController: UIViewController {
     
     var presentingView: UIView?

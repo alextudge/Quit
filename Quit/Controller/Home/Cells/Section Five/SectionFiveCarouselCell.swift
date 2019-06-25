@@ -51,7 +51,7 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 2 {
+        if indexPath.row == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionFiveNotificationsCell", for: indexPath) as? SectionFiveNotificationsCell else {
                 return UICollectionViewCell()
             }

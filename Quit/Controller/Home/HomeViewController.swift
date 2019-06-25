@@ -14,7 +14,6 @@ class HomeViewController: QuitBaseViewController {
     @IBOutlet private weak var stackView: UIStackView!
     
     private(set) var viewModel = HomeVCViewModel()
-    private let navigationTransitionController = QuitNavigationTransitions()
     private var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -39,7 +38,6 @@ class HomeViewController: QuitBaseViewController {
 
 private extension HomeViewController {
     func setupUI() {
-        navigationController?.delegate = navigationTransitionController
         largeTitlesEnabled = true
         title = "Quit"
         setupSettingsNavButton()

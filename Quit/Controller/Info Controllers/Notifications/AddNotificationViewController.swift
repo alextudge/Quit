@@ -17,6 +17,7 @@ class AddNotificationViewController: QuitBaseViewController {
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet var mapIndicatorViews: [UIView]!
     
     private var locationManager = CLLocationManager()
     
@@ -29,7 +30,10 @@ class AddNotificationViewController: QuitBaseViewController {
     
     @IBAction private func segmentedControllerDidChange(_ sender: UISegmentedControl) {
         mapView.isHidden = sender.selectedSegmentIndex == 0
-        datePicker.isHidden = sender .selectedSegmentIndex == 1
+        datePicker.isHidden = sender.selectedSegmentIndex == 1
+        mapIndicatorViews.forEach {
+            $0.isHidden = sender.selectedSegmentIndex == 0
+        }
         if sender.selectedSegmentIndex == 1 {
             locationManager.requestAlwaysAuthorization()
         }

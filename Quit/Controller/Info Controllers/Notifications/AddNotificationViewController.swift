@@ -17,7 +17,7 @@ class AddNotificationViewController: QuitBaseViewController {
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet var mapIndicatorViews: [UIView]!
+    @IBOutlet private var mapIndicatorViews: [UIView]!
     
     private var locationManager = CLLocationManager()
     
@@ -40,6 +40,11 @@ class AddNotificationViewController: QuitBaseViewController {
     }
     
     @IBAction private func didTapSaveButton(_ sender: Any) {
+        guard titleTextField.text?.isEmpty == false,
+            messageTextField.text?.isEmpty == false else {
+                presentAlert(title: "🤷‍♀️", message: "You need to add a title and message!")
+                return
+        }
         if segmentedControl.selectedSegmentIndex == 0 {
             setTimeNotification()
         } else {

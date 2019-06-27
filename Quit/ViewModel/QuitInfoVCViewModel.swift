@@ -18,14 +18,14 @@ class QuitInfoVCViewModel {
                     return
                 }
             }
-            let minutes = 1//Int($0.secondsForHealthState() / 60)
+            let minutes = Int($0.secondsForHealthState() / 60)
             let content = UNMutableNotificationContent()
             content.categoryIdentifier = Constants.ExternalNotifCategories.healthProgress
             content.title = "New health improvement"
             content.subtitle = $0.rawValue
             content.body = "\(minutes) minutes smoke free!"
             content.sound = UNNotificationSound.default
-            let date = Date(timeInterval: TimeInterval(minutes * 60), since: Date())
+            let date = Date(timeInterval: TimeInterval(minutes * 60), since: quitDate)
             let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)

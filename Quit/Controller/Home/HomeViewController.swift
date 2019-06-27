@@ -57,7 +57,8 @@ private extension HomeViewController {
     }
     
     func setupSettingsNavButton() {
-        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(segueToSettings))
+        let image = UIImage(named: "Settings")?.withRenderingMode(.alwaysTemplate)
+        let rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(segueToSettings))
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     

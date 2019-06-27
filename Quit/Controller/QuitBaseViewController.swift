@@ -60,7 +60,7 @@ private extension QuitBaseViewController {
     
     func addSwipeView() {
         let screenDivider = UIScreen.main.bounds.width / 3
-        let swipeView = UIView(frame: CGRect(x: screenDivider, y: 5, width: screenDivider, height: 5))
+        let swipeView = UIView(frame: CGRect(x: screenDivider, y: 17.5, width: screenDivider, height: 5))
         swipeView.layer.cornerRadius = 2.5
         swipeView.backgroundColor = UIColor(named: "blueColour")
         view.addSubview(swipeView)

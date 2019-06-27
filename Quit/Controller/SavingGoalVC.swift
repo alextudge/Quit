@@ -72,7 +72,7 @@ class SavingGoalVC: QuitBaseViewController {
                 persistenceManager?.addSavingGoal(title: goalTitle, cost: cost)
             }
             delegate?.reloadTableView()
-            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         } else {
             showDataMissingAlert()
         }
@@ -82,7 +82,7 @@ class SavingGoalVC: QuitBaseViewController {
         if let savingGoal = savingGoal {
             persistenceManager?.deleteSavingsGoal(savingGoal)
             delegate?.reloadTableView()
-            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         }
     }
 }

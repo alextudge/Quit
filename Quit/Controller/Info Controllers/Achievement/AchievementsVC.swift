@@ -37,6 +37,7 @@ class AchievementsVC: QuitBaseViewController {
 
 private extension AchievementsVC {
     func setupTableView() {
+        tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self

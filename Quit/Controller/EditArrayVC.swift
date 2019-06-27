@@ -23,7 +23,7 @@ class EditArrayVC: QuitBaseViewController {
     
     @IBAction func didTapSaveButton(_ sender: Any) {
         saveNewEntries(entries: textToArray(text: editArrayTextView.text))
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }
 

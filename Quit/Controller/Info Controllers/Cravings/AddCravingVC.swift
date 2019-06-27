@@ -24,10 +24,6 @@ class AddCravingVC: QuitBaseViewController {
     let viewModel = AddCravingVCViewModel()
     weak var delegate: AddCravingVCDelegate?
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.persistenceManager = persistenceManager
@@ -114,7 +110,7 @@ class AddCravingVC: QuitBaseViewController {
             smoked: false)
         viewModel.appStoreReview()
         donateInteraction()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didTapISmokedButton(_ sender: Any) {
@@ -124,7 +120,7 @@ class AddCravingVC: QuitBaseViewController {
         persistenceManager?.addCraving(
             catagory: categoryForCraving(),
             smoked: true)
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
         delegate?.segueToSmokedVC()
     }
 }

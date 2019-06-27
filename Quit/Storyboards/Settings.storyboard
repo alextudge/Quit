@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-YQ-f0M" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="374" height="50"/>
+                                <rect key="frame" x="20" y="84" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bNW-K1-JLc"/>
@@ -40,7 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="nh8-YQ-f0M" firstAttribute="top" secondItem="wwd-JD-nwF" secondAttribute="top" constant="20" id="AJE-EO-kn2"/>
+                            <constraint firstItem="nh8-YQ-f0M" firstAttribute="top" secondItem="wwd-JD-nwF" secondAttribute="top" constant="40" id="AJE-EO-kn2"/>
                             <constraint firstItem="nh8-YQ-f0M" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="20" id="BNN-LY-Vy1"/>
                             <constraint firstItem="cQp-PS-LSN" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="10" id="MQn-U6-7hU"/>
                             <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="cQp-PS-LSN" secondAttribute="trailing" constant="10" id="cCm-cB-BY4"/>
@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How much is a pack of 20?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x23-8Z-HMr">
-                                <rect key="frame" x="20" y="296" width="374" height="50"/>
+                                <rect key="frame" x="20" y="316" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4e1-fF-5Lj"/>
                                 </constraints>
@@ -72,7 +72,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many do you smoke a day?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Zi-eH-cQG">
-                                <rect key="frame" x="20" y="185.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="205.5" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Erj-xv-bDm"/>
                                 </constraints>
@@ -81,7 +81,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="EHx-fy-Bhb">
-                                <rect key="frame" x="0.0" y="407" width="414" height="365"/>
+                                <rect key="frame" x="0.0" y="427" width="414" height="345"/>
                                 <connections>
                                     <action selector="pickerViewDidChange:" destination="onu-ug-DVq" eventType="valueChanged" id="421-a1-7UM"/>
                                 </connections>
@@ -101,25 +101,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="We need this basic information to calculate your progress and personalise your data. You can change it at any time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p53-2m-E9m">
-                                <rect key="frame" x="20" y="64" width="374" height="61"/>
+                                <rect key="frame" x="20" y="84" width="374" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many do you smoke each day?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5F-Nx-fUH">
-                                <rect key="frame" x="20" y="145" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="165" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much does a pack of 20 cost you?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-Bm-lSL">
-                                <rect key="frame" x="20" y="255.5" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="275.5" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When is your quit date?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByF-y0-TER">
-                                <rect key="frame" x="20" y="366" width="374" height="21"/>
+                                <rect key="frame" x="20" y="386" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="tertiaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -148,7 +148,7 @@
                             <constraint firstItem="0Zi-eH-cQG" firstAttribute="top" secondItem="O5F-Nx-fUH" secondAttribute="bottom" constant="20" id="fbV-0N-1MR"/>
                             <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="EHx-fy-Bhb" secondAttribute="trailing" id="kLg-63-7cP"/>
                             <constraint firstItem="O5F-Nx-fUH" firstAttribute="top" secondItem="p53-2m-E9m" secondAttribute="bottom" constant="20" id="mlj-dH-0hr"/>
-                            <constraint firstItem="p53-2m-E9m" firstAttribute="top" secondItem="LW4-mM-rUG" secondAttribute="top" constant="20" id="pMR-bV-iNW"/>
+                            <constraint firstItem="p53-2m-E9m" firstAttribute="top" secondItem="LW4-mM-rUG" secondAttribute="top" constant="40" id="pMR-bV-iNW"/>
                             <constraint firstItem="ByF-y0-TER" firstAttribute="top" secondItem="x23-8Z-HMr" secondAttribute="bottom" constant="20" id="qzS-Ic-qH4"/>
                             <constraint firstItem="ByF-y0-TER" firstAttribute="leading" secondItem="LW4-mM-rUG" secondAttribute="leading" constant="20" id="txH-Tt-tj3"/>
                             <constraint firstItem="LW4-mM-rUG" firstAttribute="trailing" secondItem="p53-2m-E9m" secondAttribute="trailing" constant="20" id="w9c-nR-Blk"/>

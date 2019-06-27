@@ -64,7 +64,9 @@ private extension AddNotificationViewController {
     }
     
     func popController() {
-        navigationController?.popViewController(animated: true)
+        DispatchQueue.main.async { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
     }
     
     func setTimeNotification() {

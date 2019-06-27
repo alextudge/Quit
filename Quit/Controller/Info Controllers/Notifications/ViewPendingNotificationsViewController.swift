@@ -33,6 +33,7 @@ private extension ViewPendingNotificationsViewContoller {
     func setupUI() {
         title = "Pending notifications"
         navigationItem.rightBarButtonItem = editButtonItem
+        tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
     }

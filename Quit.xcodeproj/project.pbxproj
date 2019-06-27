@@ -337,6 +337,7 @@
 		17012659227F2CB600E416F6 /* Info Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1752F0B621C8365C0056642F /* Achievement */,
 				17BD352822989E07004E766B /* Cravings */,
 				17BD352522989DB9004E766B /* Notifications */,
 			);
@@ -465,11 +466,9 @@
 				17156BE222596B42005EEE69 /* QuitBaseViewController.swift */,
 				179FDFC2216403F3003131C5 /* Home */,
 				17012659227F2CB600E416F6 /* Info Controllers */,
-				1752F0B621C8365C0056642F /* Achievement */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
-				1714FC9B219E306000CFB203 /* AddCravingVC.swift */,
 				1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */,
 			);
 			path = Controller;
@@ -591,6 +590,7 @@
 		17BD352822989E07004E766B /* Cravings */ = {
 			isa = PBXGroup;
 			children = (
+				1714FC9B219E306000CFB203 /* AddCravingVC.swift */,
 				1701265A227F9BB100E416F6 /* CravingsViewController.swift */,
 				1701265C227F9D2100E416F6 /* CravingsCell.swift */,
 				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
@@ -1368,7 +1368,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				INFOPLIST_FILE = AddCravingIntent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1387,7 +1387,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				INFOPLIST_FILE = AddCravingIntent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.AddCravingIntent;
@@ -1439,7 +1439,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				INFOPLIST_FILE = QuitWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1458,7 +1458,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				INFOPLIST_FILE = QuitWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.QuitWidget;

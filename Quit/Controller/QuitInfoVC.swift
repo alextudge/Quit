@@ -52,7 +52,7 @@ class QuitInfoVC: QuitBaseViewController {
         setNotifications(quitDate: quitDatePicker.date)
         NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
         delegate?.didUpdateQuitData()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }
 

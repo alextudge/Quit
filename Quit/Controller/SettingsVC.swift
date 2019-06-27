@@ -17,6 +17,6 @@ class SettingsVC: QuitBaseViewController {
     
     @IBAction private func deleteAllDataButtonPressed(_ sender: Any) {
         persistenceManager?.deleteAllData()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -7,6 +7,10 @@ target 'Quit' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'lottie-ios'
   
+  target 'HealthAchievementNotification' do
+     inherit! :search_paths
+  end
+  
   target 'QuitTests' do
     inherit! :search_paths
   end

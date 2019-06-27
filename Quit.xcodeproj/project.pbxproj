@@ -27,6 +27,12 @@
 		171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */; };
+		17449BFC22C555C400849AC8 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC86219E06C000CFB203 /* UserNotifications.framework */; };
+		17449BFD22C555C400849AC8 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */; };
+		17449C0022C555C400849AC8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17449BFF22C555C400849AC8 /* NotificationViewController.swift */; };
+		17449C0322C555C400849AC8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17449C0122C555C400849AC8 /* MainInterface.storyboard */; };
+		17449C0722C555C400849AC8 /* HealthAchievementNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17449BFB22C555C400849AC8 /* HealthAchievementNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17449C0B22C55D3100849AC8 /* progressComplete.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCC72291A53700E577EC /* progressComplete.json */; };
 		1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsVC.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
 		1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B221C0414E0056642F /* AchievementCell.swift */; };
@@ -110,6 +116,7 @@
 		17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		45EB774CEFB204A24B2152A7 /* Pods_QuitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */; };
+		521AB734E22BD6AE55668027 /* Pods_HealthAchievementNotification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EED35FB330219C4014CB75 /* Pods_HealthAchievementNotification.framework */; };
 		AFCC50839C8F1E441234087D /* Pods_Quit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212F2A76F0721C15EF160C14 /* Pods_Quit.framework */; };
 		E5A7377D6A8742637F6D358E /* Pods_QuitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */; };
 /* End PBXBuildFile section */
@@ -121,6 +128,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 177F03E02025220000CC7CA8;
 			remoteInfo = Quit;
+		};
+		17449C0522C555C400849AC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 177F03D92025220000CC7CA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17449BFA22C555C400849AC8;
+			remoteInfo = HealthAchievementNotification;
 		};
 		1790149B22A703A500C7D734 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -163,6 +177,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */,
+				17449C0722C555C400849AC8 /* HealthAchievementNotification.appex in Embed App Extensions */,
 				1790149D22A703A500C7D734 /* AddCravingIntent.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -171,6 +186,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00BCB9F2E2560144BC571FA0 /* Pods-HealthAchievementNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthAchievementNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthAchievementNotification/Pods-HealthAchievementNotification.debug.xcconfig"; sourceTree = "<group>"; };
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17012655227EFDE000E416F6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -194,6 +210,10 @@
 		171EAFF121D40D200088C90C /* AdditionalUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalUserData.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		17449BFB22C555C400849AC8 /* HealthAchievementNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HealthAchievementNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		17449BFF22C555C400849AC8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		17449C0222C555C400849AC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		17449C0422C555C400849AC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsVC.swift; sourceTree = "<group>"; };
 		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
 		1752F0B221C0414E0056642F /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
@@ -276,10 +296,12 @@
 		27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E50A3FB87BCE92EA0607FF /* Pods-QuitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F18F136E5C9193A811664E7 /* Pods-QuitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuitUITests/Pods-QuitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		50872ED9CE4C9CA05543A04E /* Pods-HealthAchievementNotification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthAchievementNotification.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthAchievementNotification/Pods-HealthAchievementNotification.release.xcconfig"; sourceTree = "<group>"; };
 		84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CCB7662D338FC2FE059F1C /* Pods-QuitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuitUITests/Pods-QuitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B5C239CD5BADF3C631C765B5 /* Pods-Quit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quit/Pods-Quit.debug.xcconfig"; sourceTree = "<group>"; };
 		D039548F57393006A5A67202 /* Pods-QuitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests.release.xcconfig"; sourceTree = "<group>"; };
+		F1EED35FB330219C4014CB75 /* Pods_HealthAchievementNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthAchievementNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC2389381F77A9523A4AF8C /* Pods-Quit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quit/Pods-Quit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,6 +311,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				45EB774CEFB204A24B2152A7 /* Pods_QuitTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17449BF822C555C400849AC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17449BFD22C555C400849AC8 /* UserNotificationsUI.framework in Frameworks */,
+				17449BFC22C555C400849AC8 /* UserNotifications.framework in Frameworks */,
+				521AB734E22BD6AE55668027 /* Pods_HealthAchievementNotification.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +412,16 @@
 			path = "Section Five";
 			sourceTree = "<group>";
 		};
+		17449BFE22C555C400849AC8 /* HealthAchievementNotification */ = {
+			isa = PBXGroup;
+			children = (
+				17449BFF22C555C400849AC8 /* NotificationViewController.swift */,
+				17449C0122C555C400849AC8 /* MainInterface.storyboard */,
+				17449C0422C555C400849AC8 /* Info.plist */,
+			);
+			path = HealthAchievementNotification;
+			sourceTree = "<group>";
+		};
 		1752F0B621C8365C0056642F /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +454,7 @@
 				17F8FF84219A08E70095CD6E /* QuitWidget */,
 				179014A222A7040100C7D734 /* Siri Intents */,
 				1790149722A703A500C7D734 /* AddCravingIntent */,
+				17449BFE22C555C400849AC8 /* HealthAchievementNotification */,
 				177F03E22025220000CC7CA8 /* Products */,
 				4F797A7321EFCB28DD35F62E /* Pods */,
 				F794A69D49B54B9AB70B83F4 /* Frameworks */,
@@ -426,6 +469,7 @@
 				17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */,
 				17F8FF81219A08E70095CD6E /* QuitWidget.appex */,
 				1790149622A703A500C7D734 /* AddCravingIntent.appex */,
+				17449BFB22C555C400849AC8 /* HealthAchievementNotification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -649,6 +693,8 @@
 				D039548F57393006A5A67202 /* Pods-QuitTests.release.xcconfig */,
 				4F18F136E5C9193A811664E7 /* Pods-QuitUITests.debug.xcconfig */,
 				B3CCB7662D338FC2FE059F1C /* Pods-QuitUITests.release.xcconfig */,
+				00BCB9F2E2560144BC571FA0 /* Pods-HealthAchievementNotification.debug.xcconfig */,
+				50872ED9CE4C9CA05543A04E /* Pods-HealthAchievementNotification.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -662,6 +708,7 @@
 				17F8FF82219A08E70095CD6E /* NotificationCenter.framework */,
 				1714FC86219E06C000CFB203 /* UserNotifications.framework */,
 				1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */,
+				F1EED35FB330219C4014CB75 /* Pods_HealthAchievementNotification.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -688,6 +735,24 @@
 			productReference = 170006862035D0DC0056F25C /* QuitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		17449BFA22C555C400849AC8 /* HealthAchievementNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17449C0A22C555C400849AC8 /* Build configuration list for PBXNativeTarget "HealthAchievementNotification" */;
+			buildPhases = (
+				B89FA4B86435A1489028D874 /* [CP] Check Pods Manifest.lock */,
+				17449BF722C555C400849AC8 /* Sources */,
+				17449BF822C555C400849AC8 /* Frameworks */,
+				17449BF922C555C400849AC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HealthAchievementNotification;
+			productName = HealthAchievementNotification;
+			productReference = 17449BFB22C555C400849AC8 /* HealthAchievementNotification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		177F03E02025220000CC7CA8 /* Quit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 177F03F62025220900CC7CA8 /* Build configuration list for PBXNativeTarget "Quit" */;
@@ -706,6 +771,7 @@
 			dependencies = (
 				17F8FF8C219A08E70095CD6E /* PBXTargetDependency */,
 				1790149C22A703A500C7D734 /* PBXTargetDependency */,
+				17449C0622C555C400849AC8 /* PBXTargetDependency */,
 			);
 			name = Quit;
 			productName = Quit;
@@ -771,7 +837,7 @@
 		177F03D92025220000CC7CA8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Alex Tudge";
 				TargetAttributes = {
@@ -779,6 +845,10 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 177F03E02025220000CC7CA8;
+					};
+					17449BFA22C555C400849AC8 = {
+						CreatedOnToolsVersion = 11.0;
+						ProvisioningStyle = Automatic;
 					};
 					177F03E02025220000CC7CA8 = {
 						CreatedOnToolsVersion = 9.3;
@@ -838,6 +908,7 @@
 				17C6B5E72035DFF100AAE086 /* QuitUITests */,
 				17F8FF80219A08E70095CD6E /* QuitWidget */,
 				1790149522A703A500C7D734 /* AddCravingIntent */,
+				17449BFA22C555C400849AC8 /* HealthAchievementNotification */,
 			);
 		};
 /* End PBXProject section */
@@ -847,6 +918,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17449BF922C555C400849AC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17449C0322C555C400849AC8 /* MainInterface.storyboard in Resources */,
+				17449C0B22C55D3100849AC8 /* progressComplete.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -998,6 +1078,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B89FA4B86435A1489028D874 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HealthAchievementNotification-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1005,6 +1107,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17449BF722C555C400849AC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17449C0022C555C400849AC8 /* NotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,6 +1227,11 @@
 			target = 177F03E02025220000CC7CA8 /* Quit */;
 			targetProxy = 1700068B2035D0DC0056F25C /* PBXContainerItemProxy */;
 		};
+		17449C0622C555C400849AC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17449BFA22C555C400849AC8 /* HealthAchievementNotification */;
+			targetProxy = 17449C0522C555C400849AC8 /* PBXContainerItemProxy */;
+		};
 		1790149C22A703A500C7D734 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1790149522A703A500C7D734 /* AddCravingIntent */;
@@ -1135,6 +1250,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		17449C0122C555C400849AC8 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17449C0222C555C400849AC8 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		177F03E82025220000CC7CA8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1195,6 +1318,41 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quit.app/Quit";
+			};
+			name = Release;
+		};
+		17449C0822C555C400849AC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00BCB9F2E2560144BC571FA0 /* Pods-HealthAchievementNotification.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8E3HCRWG9;
+				INFOPLIST_FILE = HealthAchievementNotification/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.HealthAchievementNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17449C0922C555C400849AC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50872ED9CE4C9CA05543A04E /* Pods-HealthAchievementNotification.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8E3HCRWG9;
+				INFOPLIST_FILE = HealthAchievementNotification/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.HealthAchievementNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1477,6 +1635,15 @@
 			buildConfigurations = (
 				1700068D2035D0DC0056F25C /* Debug */,
 				1700068E2035D0DC0056F25C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17449C0A22C555C400849AC8 /* Build configuration list for PBXNativeTarget "HealthAchievementNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17449C0822C555C400849AC8 /* Debug */,
+				17449C0922C555C400849AC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

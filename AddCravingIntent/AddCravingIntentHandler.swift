@@ -18,7 +18,6 @@ class AddCravingIntentHandler: NSObject, AddCravingIntentHandling {
     }
     
     func handle(intent: AddCravingIntent, completion: @escaping (AddCravingIntentResponse) -> Void) {
-        persistenceManager.addCraving(catagory: "", smoked: false)
         completion(AddCravingIntentResponse(code: .success, userActivity: nil))
     }
 }

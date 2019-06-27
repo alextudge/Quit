@@ -63,7 +63,7 @@ struct Constants {
     }
     
     struct ExternalNotifCategories {
-        static let healthProgress = "healthProgressNotification"
+        static let healthProgress = "HealthAchievementNotification"
     }
     
     enum HealthStats: String, CaseIterable {

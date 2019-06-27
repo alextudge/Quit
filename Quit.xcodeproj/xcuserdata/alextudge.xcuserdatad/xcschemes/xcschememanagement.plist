@@ -7,7 +7,12 @@
 		<key>AddCravingIntent.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>11</integer>
+		</dict>
+		<key>HealthAchievementNotification.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 		<key>Quit.xcscheme</key>
 		<dict>
@@ -17,7 +22,7 @@
 		<key>Quit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>12</integer>
 		</dict>
 		<key>QuitWidget.xcscheme</key>
 		<dict>
@@ -27,7 +32,7 @@
 		<key>QuitWidget.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>13</integer>
 		</dict>
 		<key>healthStateNotification.xcscheme</key>
 		<dict>

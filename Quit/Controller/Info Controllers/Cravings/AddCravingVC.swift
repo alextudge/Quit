@@ -85,11 +85,11 @@ class AddCravingVC: QuitBaseViewController {
     }
     
     func addSiriButton() {
-        let button = INUIAddVoiceShortcutButton(style: .whiteOutline)
+        let button = INUIAddVoiceShortcutButton(style: .automaticOutline)
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
-        view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
-        view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: button.topAnchor, constant: -40).isActive = true
+        view.rightAnchor.constraint(equalTo: button.rightAnchor, constant: 10).isActive = true
         button.addTarget(self, action: #selector(addToSiri(_:)), for: .touchUpInside)
     }
     

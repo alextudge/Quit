@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "535F130E9F345522364E648FCFABD0C2"
-               BuildableName = "Pods_Quit.framework"
-               BlueprintName = "Pods-Quit"
+               BlueprintIdentifier = "8FDF063460A116BCA853C2CEDA6BE83F"
+               BuildableName = "Pods_HealthAchievementNotification.framework"
+               BlueprintName = "Pods-HealthAchievementNotification"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

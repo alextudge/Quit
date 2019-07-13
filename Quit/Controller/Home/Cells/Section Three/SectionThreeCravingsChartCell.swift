@@ -74,8 +74,8 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         }
         cravingEntries.sort(by: {$0.x < $1.x})
         smokedEntries.sort(by: {$0.x < $1.x})
-        let cravingLine = LineChartDataSet(values: cravingEntries, label: "Cravings")
-        let smokedLine = LineChartDataSet(values: smokedEntries, label: "Smoked")
+        let cravingLine = LineChartDataSet(entries: cravingEntries, label: "Cravings")
+        let smokedLine = LineChartDataSet(entries: smokedEntries, label: "Smoked")
         cravingLine.colors = [Styles.Colours.blueColor]
         cravingLine.drawCirclesEnabled = false
         cravingLine.drawValuesEnabled = false
@@ -108,7 +108,7 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         let rightAxis = barChart?.rightAxis
         //No data formatting
         barChart.noDataText = "Recorded cravings will appear here"
-        barChart.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
+        barChart.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)!
         barChart.noDataTextColor = .lightGray
         //Formatting the x (date) axis
         xAxis?.labelPosition = .bottom

@@ -53,6 +53,18 @@ class PersistenceManager: NSObject {
         }
     }
     
+    func isAdFree() -> Bool {
+        if userDefaults?.bool(forKey: Constants.UserDefaults.adFreeExpirationDate) == true {
+            return true
+        }
+        return false
+        
+    }
+    
+    func updateAdFreeDate(_ purchased: Bool) {
+        userDefaults?.set(purchased, forKey: Constants.UserDefaults.adFreeExpirationDate)
+    }
+    
     func hasSeenReasonsOnboarding() -> Bool {
         if userDefaults?.bool(forKey: Constants.UserDefaults.reasonsOnboardingSeen) == false {
             return false

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class HomeViewController: QuitBaseViewController {
     
@@ -14,6 +15,7 @@ class HomeViewController: QuitBaseViewController {
     @IBOutlet private weak var stackView: UIStackView!
     
     private(set) var viewModel = HomeVCViewModel()
+    private var interstitial = GADInterstitial(adUnitID: Constants.AppConfig.adInterstitialId)
     private var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -23,12 +25,12 @@ class HomeViewController: QuitBaseViewController {
         setupUI()
         setupDelegates()
         setupTableView()
+        showOnboarding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handleQuitDataUI()
-        showOnboarding()
     }
     
     @IBAction private func didTapAddInfoButton(_ sender: Any) {
@@ -38,7 +40,6 @@ class HomeViewController: QuitBaseViewController {
 
 private extension HomeViewController {
     func setupUI() {
-        largeTitlesEnabled = true
         title = "Quit"
         setupSettingsNavButton()
     }
@@ -83,8 +84,16 @@ private extension HomeViewController {
     }
     
     func showOnboarding() {
-        let appLoadCount = persistenceManager?.appLoadCounter()
-        // TODO
+        let appLoadCount = persistenceManager?.appLoadCounter() ?? 1
+        if appLoadCount % 2 != 0, persistenceManager?.isAdFree() == false {
+            setupAd()
+        }
+    }
+    
+    func setupAd() {
+        interstitial.delegate = self
+        let request = GADRequest()
+        interstitial.load(request)
     }
     
     func shouldShowReasonsOnboarding() -> Bool {
@@ -93,6 +102,12 @@ private extension HomeViewController {
             return true
         }
         return false
+    }
+}
+
+extension HomeViewController: GADInterstitialDelegate {
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        interstitial.present(fromRootViewController: self)
     }
 }
 

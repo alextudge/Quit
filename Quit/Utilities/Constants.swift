@@ -21,6 +21,7 @@ struct Constants {
         static let additionalUserData = "additionalUserData"
         static let appLoadCount = "appLoadCount"
         static let reasonsOnboardingSeen = "reasonsOnboardingSeen"
+        static let adFreeExpirationDate = "AdFreeExpirationDate"
     }
     
     struct CoreData {

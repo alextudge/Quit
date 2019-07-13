@@ -11,7 +11,6 @@ import UIKit
 class QuitBaseViewController: UIViewController {
     
     var presentingView: UIView?
-    var largeTitlesEnabled = false
     var persistenceManager: PersistenceManager?
     var quitData: QuitData? {
         return persistenceManager?.quitData
@@ -43,10 +42,7 @@ class QuitBaseViewController: UIViewController {
 private extension QuitBaseViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = largeTitlesEnabled
-        navigationItem.largeTitleDisplayMode = .automatic
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
-        navigationController?.navigationBar.largeTitleTextAttributes = attributes
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationController?.navigationBar.tintColor = .label
         if isModal {

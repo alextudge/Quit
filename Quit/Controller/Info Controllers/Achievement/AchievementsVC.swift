@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 class AchievementsVC: QuitBaseViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
     private var achievements = [Achievement]()
-    private var interstitial: GADInterstitial!
     let viewModel = AchievementsViewModel()
     
     override func viewDidLoad() {
@@ -22,15 +20,10 @@ class AchievementsVC: QuitBaseViewController {
         title = "Your achievements"
         viewModel.persistenceManager = persistenceManager
         achievements = viewModel.processAchievements()
-        setupAd()
         setupTableView()
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {
-        if (persistenceManager?.interstitialAdCounter ?? 0) % 2 == 0,
-            interstitial.isReady {
-            interstitial.present(fromRootViewController: self)
-        }
         dismiss(animated: true, completion: nil)
     }
 }
@@ -42,12 +35,6 @@ private extension AchievementsVC {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-    func setupAd() {
-        interstitial = GADInterstitial(adUnitID: Constants.AppConfig.adInterstitialId)
-        let request = GADRequest()
-        interstitial.load(request)
     }
 }
 

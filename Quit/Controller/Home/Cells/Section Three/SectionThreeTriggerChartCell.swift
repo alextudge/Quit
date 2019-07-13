@@ -38,7 +38,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
         let rightAxis = lineChartView?.rightAxis
         //No data formatting
         lineChartView.noDataText = "Your craving triggers will appear here"
-        lineChartView.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)
+        lineChartView.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)!
         lineChartView.noDataTextColor = .darkGray
         //Formatting the x (date) axis
         xAxis?.labelPosition = .bottom
@@ -131,7 +131,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
                 entries.append(entry)
             }
             entries.sort(by: {$0.x < $1.x})
-            let chartSet = LineChartDataSet(values: entries, label: $0.category)
+            let chartSet = LineChartDataSet(entries: entries, label: $0.category)
             chartSet.drawValuesEnabled = false
             chartSet.drawCirclesEnabled = false
             chartSet.setColor(randomColor(), alpha: 1)

@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import GoogleMobileAds
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         configureNotifications()
+        configurePurchases()
         return true
     }
 }
@@ -29,6 +31,23 @@ private extension AppDelegate {
             if granted {
                 let healthNotificationCategory = UNNotificationCategory(identifier: Constants.ExternalNotifCategories.healthProgress, actions: [], intentIdentifiers: [], options: [])
                 UNUserNotificationCenter.current().setNotificationCategories([healthNotificationCategory])
+            }
+        }
+    }
+    
+    func configurePurchases() {
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                // Unlock content
+                case .failed, .purchasing, .deferred:
+                    break // do nothing
+                }
             }
         }
     }

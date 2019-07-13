@@ -49,6 +49,10 @@ class AddCravingVC: QuitBaseViewController {
     }
     
     private func setupAd() {
+        guard persistenceManager?.isAdFree() == false else {
+            bannerAdView.isHidden = true
+            return
+        }
         bannerAdView.adUnitID = Constants.AppConfig.adBannerId
         bannerAdView.rootViewController = self
         bannerAdView.load(GADRequest())

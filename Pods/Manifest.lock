@@ -4,7 +4,7 @@ PODS:
   - Charts/Core (3.3.0)
   - Google-Mobile-Ads-SDK (7.47.0):
     - GoogleAppMeasurement (~> 6.0)
-  - GoogleAppMeasurement (6.0.3):
+  - GoogleAppMeasurement (6.0.4):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
@@ -26,13 +26,13 @@ PODS:
   - "GoogleUtilities/NSData+zlib (6.2.3)"
   - GoogleUtilities/Reachability (6.2.3):
     - GoogleUtilities/Logger
-  - lottie-ios (3.1.1)
+  - lottie-ios (3.1.2)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - SwiftLint (0.33.1)
+  - SwiftLint (0.34.0)
 
 DEPENDENCIES:
   - Charts
@@ -53,11 +53,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
   Google-Mobile-Ads-SDK: a10b30f4a51a3283df7df3c9ea7e84553b508e4b
-  GoogleAppMeasurement: 1e45fa601e6280c180880d57010390f6679cd971
+  GoogleAppMeasurement: 183bd916af7f80deb67c01888368f1108d641832
   GoogleUtilities: d2b0e277a95962e09bb27f5cd42f5f0b6a506c7d
-  lottie-ios: 43a472d22b2dd2bed292cc4010c0b4d2e66d3ba8
+  lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  SwiftLint: 9fc1143bbacec37f94994a7d0d2a85b2154b6294
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
 PODFILE CHECKSUM: 6c773e7d5e25a7f2b44e6c64d33fd33b12e2d8f3
 

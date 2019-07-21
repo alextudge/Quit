@@ -14,7 +14,7 @@ protocol SectionThreeCarouselCellDelegate: class {
 
 class SectionThreeCarouselCell: UITableViewCell {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     var persistenceManager: PersistenceManager?
     
@@ -22,10 +22,7 @@ class SectionThreeCarouselCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(reloadData(notification:)),
-                                               name: Constants.InternalNotifs.cravingsChanged,
-                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.cravingsChanged, object: nil)
         setupCollectionView()
     }
     

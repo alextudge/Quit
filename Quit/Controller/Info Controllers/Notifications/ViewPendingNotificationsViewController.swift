@@ -44,12 +44,14 @@ private extension ViewPendingNotificationsViewContoller {
     }
     
     func setupNotifData() {
-        center.getPendingNotificationRequests(completionHandler: { requests in
+        center.getPendingNotificationRequests(completionHandler: { [weak self] requests in
             requests.forEach {
-                self.notifications.append($0)
+                self?.notifications.append($0)
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
             }
         })
-        tableView.reloadData()
     }
     
     func cancelNotification(_ notification: UNNotificationRequest) {

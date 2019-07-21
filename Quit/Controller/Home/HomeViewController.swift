@@ -16,9 +16,6 @@ class HomeViewController: QuitBaseViewController {
     
     private(set) var viewModel = HomeVCViewModel()
     private var interstitial = GADInterstitial(adUnitID: Constants.AppConfig.adInterstitialId)
-    private var screenWidth: CGFloat {
-        return UIScreen.main.bounds.width
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +82,7 @@ private extension HomeViewController {
     
     func showOnboarding() {
         let appLoadCount = persistenceManager?.appLoadCounter() ?? 1
-        if appLoadCount % 2 != 0, persistenceManager?.isAdFree() == false {
+        if appLoadCount % 3 != 0, persistenceManager?.isAdFree() == false {
             setupAd()
         }
     }
@@ -94,14 +91,6 @@ private extension HomeViewController {
         interstitial.delegate = self
         let request = GADRequest()
         interstitial.load(request)
-    }
-    
-    func shouldShowReasonsOnboarding() -> Bool {
-        if persistenceManager?.hasSeenReasonsOnboarding() == false,
-            persistenceManager?.additionalUserData?.reasonsToSmoke == nil {
-            return true
-        }
-        return false
     }
 }
 
@@ -113,7 +102,7 @@ extension HomeViewController: GADInterstitialDelegate {
 
 extension HomeViewController: SectionOneCarouselCellDelegate, AddCravingVCDelegate {
     func didPressSegueToAchievements() {
-        segueToAchievementsVC()
+        showViewController(type: .AchievementsVC)
     }
     
     func didPressChangeQuitDate() {
@@ -121,11 +110,14 @@ extension HomeViewController: SectionOneCarouselCellDelegate, AddCravingVCDelega
     }
     
     func segueToSmokedVC() {
-        segueToSmokedViewController()
+        showViewController(type: .SmokedVC)
     }
     
     func addCraving() {
-        segueToAddCravingsVC()
+        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
+            viewController.delegate = self
+            presentQuitBaseViewController(viewController)
+        }
     }
     
     func presentAlert(_ alert: UIAlertController) {
@@ -141,20 +133,20 @@ extension HomeViewController: SectionTwoCarouselCellDelegate {
 
 extension HomeViewController: SectionThreeCarouselCellDelegate {
     func didTapCravingDetailsButton() {
-        segueToEditCravingsViewController()
+        showViewController(type: .CravingsViewController)
     }
 }
 
 extension HomeViewController: SectionFiveCarouselCellDelegate {
     func showViewController(type: ViewControllerFactory) {
-        //        if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 4)) {
-        //            presentingView = cell
-        //        }
         presentQuitBaseViewController(type.viewController()!)
     }
     
     func didTapEditButton(isReasonsToSmoke: Bool) {
-        segueToReasons(isReasonsToSmoke: isReasonsToSmoke)
+        if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
+            viewController.isReasonsToSmoke = isReasonsToSmoke
+            presentQuitBaseViewController(viewController)
+        }
     }
 }
 
@@ -239,86 +231,24 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 private extension HomeViewController {
     func segueToQuitDataViewController() {
         if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
             viewController.delegate = self
             presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    func segueToSmokedViewController() {
-        if let viewController = ViewControllerFactory.SmokedVC.viewController() as? SmokedVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            present(viewController, animated: true, completion: nil)
         }
     }
     
     @objc func segueToSettings() {
         if let viewController = ViewControllerFactory.SettingsVC.viewController() as? SettingsVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    func segueToAddCravingsVC() {
-        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            viewController.delegate = self
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    func segueToAchievementsVC() {
-        if let viewController = ViewControllerFactory.AchievementsVC.viewController() as? AchievementsVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    func segueToReasons(isReasonsToSmoke: Bool) {
-        if let viewController = ViewControllerFactory.EditArrayVC.viewController() as? EditArrayVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 4)) {
-                presentingView = cell
-            }
-            viewController.isReasonsToSmoke = isReasonsToSmoke
-            viewController.persistenceManager = persistenceManager
             presentQuitBaseViewController(viewController)
         }
     }
     
     func segueToSavingsGoalVC(sender: SavingGoal?) {
         if let viewController = ViewControllerFactory.SavingGoalVC.viewController() as? SavingGoalVC {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) {
-                presentingView = cell
-            }
             viewController.persistenceManager = persistenceManager
             if let sender = sender {
                 viewController.savingGoal = sender
             }
             viewController.delegate = self
-            presentQuitBaseViewController(viewController)
-        }
-    }
-    
-    func segueToEditCravingsViewController() {
-        if let viewController = ViewControllerFactory.CravingsViewController.viewController() as? CravingsViewController {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 2)) {
-                presentingView = cell
-            }
-            viewController.persistenceManager = persistenceManager
             presentQuitBaseViewController(viewController)
         }
     }

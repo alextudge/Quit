@@ -9,6 +9,15 @@
 import CoreData
 
 class PersistenceManager: NSObject {
+    
+    private(set) var triggers: [String]?
+    private var context: NSManagedObjectContext!
+    private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.appGroupId)
+    private let parser = QuitParser()
+    var interstitialAdCounter = 0
+    private lazy var persistentContainer: NSPersistentContainer = {
+        generatePersistenceContainer()
+    }()
     private(set) var cravings = [Craving]() {
         didSet {
             notifyOfCravingsChanges()
@@ -25,14 +34,6 @@ class PersistenceManager: NSObject {
     var additionalUserData: AdditionalUserData? {
         return getAdditionalUserDataFromUserDefaults()
     }
-    private(set) var triggers: [String]?
-    private var context: NSManagedObjectContext!
-    private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.appGroupId)
-    private let parser = QuitParser()
-    var interstitialAdCounter = 0
-    private lazy var persistentContainer: NSPersistentContainer = {
-        generatePersistenceContainer()
-    }()
     
     override init() {
         super.init()
@@ -215,8 +216,7 @@ private extension PersistenceManager {
     }
     
     func notifyOfCravingsChanges() {
-        NotificationCenter.default.post(name: Constants.InternalNotifs.cravingsChanged,
-                                        object: nil)
+        NotificationCenter.default.post(name: Constants.InternalNotifs.cravingsChanged, object: nil)
     }
     
     func notifyOfSavingsGoalChanges() {

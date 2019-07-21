@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bNW-K1-JLc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Clear Data">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-ML-Xrk" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="20" y="154" width="374" height="50"/>
+                                <rect key="frame" x="20" y="195" width="374" height="50"/>
                                 <color key="backgroundColor" name="blueColour"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zp1-Y9-rmN"/>
@@ -52,18 +52,44 @@
                                     <action selector="didTapAdFreeButton:" destination="QzD-5e-57u" eventType="touchUpInside" id="ugx-5N-laf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wml-It-yJd" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="20" y="265" width="374" height="50"/>
+                                <color key="backgroundColor" name="greenColour"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PAh-wE-ojM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Restore purchases">
+                                    <color key="titleColor" name="quitWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapRestorePurchases:" destination="QzD-5e-57u" eventType="touchUpInside" id="Qj7-XD-abg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omC-Hj-YSZ">
+                                <rect key="frame" x="20" y="154" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="2z4-ML-Xrk" firstAttribute="top" secondItem="omC-Hj-YSZ" secondAttribute="bottom" constant="20" id="3PH-G2-DSO"/>
+                            <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="omC-Hj-YSZ" secondAttribute="trailing" constant="20" id="9e7-IX-U3v"/>
                             <constraint firstItem="nh8-YQ-f0M" firstAttribute="top" secondItem="wwd-JD-nwF" secondAttribute="top" constant="40" id="AJE-EO-kn2"/>
-                            <constraint firstItem="2z4-ML-Xrk" firstAttribute="top" secondItem="nh8-YQ-f0M" secondAttribute="bottom" constant="20" id="ANE-vL-1Fl"/>
                             <constraint firstItem="nh8-YQ-f0M" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="20" id="BNN-LY-Vy1"/>
                             <constraint firstItem="2z4-ML-Xrk" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="20" id="Dgd-cr-7jx"/>
                             <constraint firstItem="cQp-PS-LSN" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="10" id="MQn-U6-7hU"/>
+                            <constraint firstItem="wml-It-yJd" firstAttribute="top" secondItem="2z4-ML-Xrk" secondAttribute="bottom" constant="20" id="T4c-CH-e8O"/>
+                            <constraint firstItem="wml-It-yJd" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="20" id="UdK-BN-tEO"/>
+                            <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="wml-It-yJd" secondAttribute="trailing" constant="20" id="VNp-Ym-p7H"/>
+                            <constraint firstItem="omC-Hj-YSZ" firstAttribute="top" secondItem="nh8-YQ-f0M" secondAttribute="bottom" constant="20" id="bah-nJ-dkv"/>
                             <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="cQp-PS-LSN" secondAttribute="trailing" constant="10" id="cCm-cB-BY4"/>
                             <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="2z4-ML-Xrk" secondAttribute="trailing" constant="20" id="cEX-ZF-hE3"/>
                             <constraint firstItem="wwd-JD-nwF" firstAttribute="trailing" secondItem="nh8-YQ-f0M" secondAttribute="trailing" constant="20" id="enj-M7-CL3"/>
                             <constraint firstItem="wwd-JD-nwF" firstAttribute="bottom" secondItem="cQp-PS-LSN" secondAttribute="bottom" id="pz7-3C-TGT"/>
+                            <constraint firstItem="omC-Hj-YSZ" firstAttribute="leading" secondItem="wwd-JD-nwF" secondAttribute="leading" constant="20" id="ww8-pX-WdA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wwd-JD-nwF"/>
                     </view>
@@ -191,6 +217,9 @@
     <resources>
         <namedColor name="blueColour">
             <color red="0.0" green="0.5899999737739563" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="greenColour">
+            <color red="0.40000000000000002" green="0.80000000000000004" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="quitWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

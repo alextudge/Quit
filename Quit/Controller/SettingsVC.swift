@@ -32,6 +32,19 @@ class SettingsVC: QuitBaseViewController {
     @IBAction private func didTapAdFreeButton(_ sender: Any) {
         purchaseAdFree()
     }
+    
+    @IBAction private func didTapRestorePurchases(_ sender: Any) {
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+            if results.restoreFailedPurchases.count > 0 {
+                self.presentAlert(title: "Restore Failed", message: "\(results.restoreFailedPurchases)")
+            } else if results.restoredPurchases.count > 0 {
+                self.persistenceManager?.updateAdFreeDate(true)
+                self.presentAlert(title: "💁‍♀️", message: "Restored!")
+            } else {
+                self.presentAlert(title: "🙆‍♀️", message: "Nothing to restore!")
+            }
+        }
+    }
 }
 
 private extension SettingsVC {

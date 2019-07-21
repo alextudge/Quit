@@ -16,4 +16,8 @@ extension UIViewController {
         
         return presentingIsModal || presentingIsNavigation || presentingIsTabBar
     }
+    
+    var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
 }

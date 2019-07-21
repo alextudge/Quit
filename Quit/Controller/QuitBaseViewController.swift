@@ -10,7 +10,6 @@ import UIKit
 
 class QuitBaseViewController: UIViewController {
     
-    var presentingView: UIView?
     var persistenceManager: PersistenceManager?
     var quitData: QuitData? {
         return persistenceManager?.quitData

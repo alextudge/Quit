@@ -31,7 +31,7 @@
 		17449BFD22C555C400849AC8 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */; };
 		17449C0022C555C400849AC8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17449BFF22C555C400849AC8 /* NotificationViewController.swift */; };
 		17449C0322C555C400849AC8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17449C0122C555C400849AC8 /* MainInterface.storyboard */; };
-		17449C0722C555C400849AC8 /* HealthAchievementNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17449BFB22C555C400849AC8 /* HealthAchievementNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17449C0722C555C400849AC8 /* HealthAchievementNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17449BFB22C555C400849AC8 /* HealthAchievementNotification.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		17449C0B22C55D3100849AC8 /* progressComplete.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCC72291A53700E577EC /* progressComplete.json */; };
 		1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsVC.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
@@ -41,8 +41,6 @@
 		175871DD22DA107F00DB9E75 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175871DC22DA107F00DB9E75 /* StoreKit.framework */; };
 		175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41EC21D3E0A500FB7588 /* DateExtensions.swift */; };
 		175D41EF21D3E23300FB7588 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41EE21D3E23300FB7588 /* TextField.swift */; };
-		175D41F121D3E25700FB7588 /* ApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F021D3E25700FB7588 /* ApplicationExtensions.swift */; };
-		175D41F321D3E28600FB7588 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F221D3E28600FB7588 /* ViewExtensions.swift */; };
 		175D41F721D3E36600FB7588 /* ChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F621D3E36600FB7588 /* ChartFormatter.swift */; };
 		175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */; };
 		175D41FB21D3E53A00FB7588 /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
@@ -60,7 +58,7 @@
 		1788CBCC2039B3E000064A86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		1790143122A6F48200C7D734 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1790143022A6F48200C7D734 /* Colours.xcassets */; };
 		1790149922A703A500C7D734 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790149822A703A500C7D734 /* IntentHandler.swift */; };
-		1790149D22A703A500C7D734 /* AddCravingIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1790149622A703A500C7D734 /* AddCravingIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1790149D22A703A500C7D734 /* AddCravingIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1790149622A703A500C7D734 /* AddCravingIntent.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		179014A422A7042400C7D734 /* AddCravingIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 179014A322A7042400C7D734 /* AddCravingIntent.intentdefinition */; };
 		179014A522A7058000C7D734 /* AddCravingIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 179014A322A7042400C7D734 /* AddCravingIntent.intentdefinition */; };
 		179014A722A70C2900C7D734 /* AddCravingIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179014A622A70C2900C7D734 /* AddCravingIntentHandler.swift */; };
@@ -111,7 +109,7 @@
 		17F8FF83219A08E70095CD6E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F8FF82219A08E70095CD6E /* NotificationCenter.framework */; };
 		17F8FF86219A08E70095CD6E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8FF85219A08E70095CD6E /* TodayViewController.swift */; };
 		17F8FF89219A08E70095CD6E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F8FF87219A08E70095CD6E /* MainInterface.storyboard */; };
-		17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17F8FF81219A08E70095CD6E /* QuitWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17F8FF81219A08E70095CD6E /* QuitWidget.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		17F8FF92219A0B320095CD6E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
 		17F8FF95219A0F050095CD6E /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
 		17F8FF96219A10060095CD6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
@@ -223,8 +221,6 @@
 		175871DC22DA107F00DB9E75 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		175D41EC21D3E0A500FB7588 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		175D41EE21D3E23300FB7588 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		175D41F021D3E25700FB7588 /* ApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationExtensions.swift; sourceTree = "<group>"; };
-		175D41F221D3E28600FB7588 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		175D41F621D3E36600FB7588 /* ChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFormatter.swift; sourceTree = "<group>"; };
 		175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitFormatters.swift; sourceTree = "<group>"; };
 		175D41FA21D3E53A00FB7588 /* QuitParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitParser.swift; sourceTree = "<group>"; };
@@ -441,8 +437,6 @@
 			children = (
 				175D41EC21D3E0A500FB7588 /* DateExtensions.swift */,
 				175D41EE21D3E23300FB7588 /* TextField.swift */,
-				175D41F021D3E25700FB7588 /* ApplicationExtensions.swift */,
-				175D41F221D3E28600FB7588 /* ViewExtensions.swift */,
 				175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */,
 				17F1B61C21D5B1DF0021722D /* DoubleExtensions.swift */,
 				1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */,
@@ -629,8 +623,8 @@
 		17BD352522989DB9004E766B /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */,
 				17BD352B2298ABCE004E766B /* AddNotificationViewController.swift */,
+				17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */,
 				17BD352922989ED7004E766B /* ViewNotificationCell.swift */,
 			);
 			path = Notifications;
@@ -1053,19 +1047,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Quit/Pods-Quit-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Quit/Pods-Quit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Quit/Pods-Quit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1142,7 +1129,6 @@
 				1752F0AF21BF11AF0056642F /* AchievementsVC.swift in Sources */,
 				175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */,
 				1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */,
-				175D41F321D3E28600FB7588 /* ViewExtensions.swift in Sources */,
 				1752F0B521C042FE0056642F /* AchievementsViewModel.swift in Sources */,
 				1714FC9C219E306000CFB203 /* AddCravingVC.swift in Sources */,
 				179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */,
@@ -1180,7 +1166,6 @@
 				177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */,
 				176635B122A1DA9800C8D96F /* GradientView.swift in Sources */,
 				179FDFD62166A2BF003131C5 /* HomeVCViewModel.swift in Sources */,
-				175D41F121D3E25700FB7588 /* ApplicationExtensions.swift in Sources */,
 				17F1B61D21D5B1DF0021722D /* DoubleExtensions.swift in Sources */,
 				1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */,
 				179FDFE621681AFE003131C5 /* SectionTwoSavingsGoalCell.swift in Sources */,
@@ -1358,6 +1343,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.HealthAchievementNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1379,6 +1365,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.HealthAchievementNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1523,6 +1510,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1549,6 +1537,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1572,6 +1561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.AddCravingIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1594,6 +1584,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.AddCravingIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1659,6 +1650,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.QuitWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1681,6 +1673,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.QuitWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

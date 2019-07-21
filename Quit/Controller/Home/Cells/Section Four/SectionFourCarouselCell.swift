@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SectionFourCarouselCell: UITableViewCell {
+class SectionFourCarouselCell: UITableViewCell, HomeBaseCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     

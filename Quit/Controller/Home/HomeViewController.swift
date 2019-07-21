@@ -172,44 +172,42 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var baseCell: HomeBaseCell?
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionOneCarouselCell, for: indexPath) as? SectionOneCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.persistenceManager = persistenceManager
-            return cell
+            baseCell = cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionTwoCarouselCell, for: indexPath) as? SectionTwoCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.persistenceManager = persistenceManager
-            return cell
+            baseCell = cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.persistenceManager = persistenceManager
-            return cell
+            baseCell = cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
                 return UITableViewCell()
             }
-            cell.persistenceManager = persistenceManager
-            return cell
+            baseCell = cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.persistenceManager = persistenceManager
-            return cell
+            baseCell = cell
         default:
             return UITableViewCell()
         }
+        baseCell?.persistenceManager = persistenceManager
+        return baseCell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

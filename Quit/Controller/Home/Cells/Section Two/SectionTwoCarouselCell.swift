@@ -12,7 +12,7 @@ protocol SectionTwoCarouselCellDelegate: class {
     func didTapSavingGoal(sender: SavingGoal?)
 }
 
-class SectionTwoCarouselCell: UITableViewCell {
+class SectionTwoCarouselCell: UITableViewCell, HomeBaseCell {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageController: UIPageControl!

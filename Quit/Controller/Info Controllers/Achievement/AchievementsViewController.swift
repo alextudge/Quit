@@ -8,27 +8,25 @@
 
 import UIKit
 
-class AchievementsVC: QuitBaseViewController {
+class AchievementsViewController: QuitBaseViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private var achievements = [Achievement]()
-    let viewModel = AchievementsViewModel()
+    private var viewModel: AchievementsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Your achievements"
-        viewModel.persistenceManager = persistenceManager
-        achievements = viewModel.processAchievements()
+        viewModel = AchievementsViewModel(persistenceManager: persistenceManager)
+        setupUI()
         setupTableView()
-    }
-    
-    @IBAction func didTapCloseButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
 }
 
-private extension AchievementsVC {
+private extension AchievementsViewController {
+    func setupUI() {
+        title = "Achievements"
+    }
+    
     func setupTableView() {
         tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         tableView.estimatedRowHeight = 50
@@ -38,20 +36,20 @@ private extension AchievementsVC {
     }
 }
 
-extension AchievementsVC: UITableViewDataSource, UITableViewDelegate {
+extension AchievementsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return achievements.count
+        return viewModel.achievements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.achievementCell, for: indexPath) as? AchievementCell else {
             return UITableViewCell()
         }
-        cell.setupCell(data: achievements[indexPath.row])
+        cell.setupCell(data: viewModel.achievements[indexPath.row])
         return cell
     }
 }

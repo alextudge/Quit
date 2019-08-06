@@ -45,19 +45,19 @@ private extension QuitBaseViewController {
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationController?.navigationBar.tintColor = .label
         if isModal {
-            addSwipeView()
+            view.addSubview(swipeView())
         }
     }
     
-    @objc private func endEditing() {
+    @objc func endEditing() {
         view.endEditing(true)
     }
     
-    func addSwipeView() {
+    func swipeView() -> UIView {
         let screenDivider = UIScreen.main.bounds.width / 3
         let swipeView = UIView(frame: CGRect(x: screenDivider, y: 17.5, width: screenDivider, height: 5))
         swipeView.layer.cornerRadius = 2.5
         swipeView.backgroundColor = UIColor(named: "blueColour")
-        view.addSubview(swipeView)
+        return swipeView
     }
 }

@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol HomeBaseCell where Self: UITableViewCell {
+protocol HomeBaseCellProtocol where Self: UITableViewCell {
     var persistenceManager: PersistenceManager? {get set}
 }

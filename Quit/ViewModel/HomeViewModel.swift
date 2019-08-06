@@ -8,8 +8,7 @@
 
 import UIKit
 
-class HomeVCViewModel {
-        
+class HomeViewModel {
     func sizeForCellOf(type: Int) -> CGFloat {
         switch type {
         case 3:

@@ -12,11 +12,10 @@ protocol SectionOneCarouselCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToAchievements()
     func addCraving()
-    func segueToSmokedVC()
     func presentAlert(_ alert: UIAlertController)
 }
 
-class SectionOneCarouselCell: UITableViewCell, HomeBaseCell {
+class SectionOneCarouselCell: UITableViewCell, HomeBaseCellProtocol {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageController: UIPageControl!

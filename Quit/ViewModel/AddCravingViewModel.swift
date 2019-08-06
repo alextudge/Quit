@@ -9,9 +9,13 @@
 import Foundation
 import StoreKit
 
-class AddCravingVCViewModel {
+class AddCravingViewModel {
     
-    var persistenceManager: PersistenceManager?
+    private var persistenceManager: PersistenceManager?
+    
+    init(persistenceManager: PersistenceManager?) {
+        self.persistenceManager = persistenceManager
+    }
     
     func appStoreReview() {
         guard let quitData = persistenceManager?.quitData else {

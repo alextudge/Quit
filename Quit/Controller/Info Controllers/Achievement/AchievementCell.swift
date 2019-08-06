@@ -10,8 +10,8 @@ import UIKit
 
 class AchievementCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var resultLabel: UILabel!
     
     func setupCell(data: Achievement) {
         if let title = data.title {
@@ -20,6 +20,6 @@ class AchievementCell: UITableViewCell {
         if let result = data.result {
             resultLabel.text = "\(result)"
         }
-        resultLabel.textColor = data.succeded ? .lightGray : UIColor.lightGray.withAlphaComponent(0.5)
+        resultLabel.textColor = data.succeded ? UIColor.systemGray : UIColor.systemGray.withAlphaComponent(0.5)
     }
 }

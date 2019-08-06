@@ -16,13 +16,18 @@ struct Achievement {
 
 class AchievementsViewModel {
     
-    var persistenceManager: PersistenceManager?
+    private var persistenceManager: PersistenceManager?
+    private(set) var achievements = [Achievement]()
     
-    func processAchievements() -> [Achievement] {
+    init(persistenceManager: PersistenceManager?) {
+        self.persistenceManager = persistenceManager
+        processAchievements()
+    }
+    
+    func processAchievements() {
         guard let quitData = persistenceManager?.quitData else {
-            return []
+            return
         }
-        var achievements = [Achievement]()
         achievements.append(cigarettesAvoided(quitDate: quitData))
         achievements.append(oneDaySmokeFree(quitDate: quitData))
         achievements.append(tenCigarettesNotSmoked(quitDate: quitData))
@@ -31,7 +36,6 @@ class AchievementsViewModel {
         achievements.append(threeDaysSmokeFree(quitDate: quitData))
         achievements.append(oneHundredCigarettesNotSmoked(quitDate: quitData))
         achievements.append(treesSaved(quitData: quitData))
-        return achievements
     }
 }
 

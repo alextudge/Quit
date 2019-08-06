@@ -6,16 +6,14 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import UIKit
 import GoogleMobileAds
 
 class HomeViewController: QuitBaseViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var stackView: UIStackView!
     
-    private(set) var viewModel = HomeVCViewModel()
-    private var interstitial = GADInterstitial(adUnitID: Constants.AppConfig.adInterstitialId)
+    private let viewModel = HomeViewModel()
+    private let interstitial = GADInterstitial(adUnitID: Constants.AppConfig.adInterstitialId)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +21,6 @@ class HomeViewController: QuitBaseViewController {
         setupDelegates()
         setupTableView()
         showOnboarding()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        handleQuitDataUI()
     }
     
     @IBAction private func didTapAddInfoButton(_ sender: Any) {
@@ -38,6 +31,8 @@ class HomeViewController: QuitBaseViewController {
 private extension HomeViewController {
     func setupUI() {
         title = "Quit"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
         setupSettingsNavButton()
     }
     
@@ -45,13 +40,6 @@ private extension HomeViewController {
         persistenceManager = PersistenceManager()
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    func handleQuitDataUI() {
-        let quitDataAdded = quitData != nil
-        tableView.isHidden = !quitDataAdded
-        stackView.isHidden = quitDataAdded
-        tableView.reloadData()
     }
     
     func setupSettingsNavButton() {
@@ -100,7 +88,7 @@ extension HomeViewController: GADInterstitialDelegate {
     }
 }
 
-extension HomeViewController: SectionOneCarouselCellDelegate, AddCravingVCDelegate {
+extension HomeViewController: SectionOneCarouselCellDelegate, AddCravingViewControllerDelegate {
     func didPressSegueToAchievements() {
         showViewController(type: .AchievementsVC)
     }
@@ -109,12 +97,12 @@ extension HomeViewController: SectionOneCarouselCellDelegate, AddCravingVCDelega
         segueToQuitDataViewController()
     }
     
-    func segueToSmokedVC() {
+    func segueToSmokedViewController() {
         showViewController(type: .SmokedVC)
     }
     
     func addCraving() {
-        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingVC {
+        if let viewController = ViewControllerFactory.AddCravingVC.viewController() as? AddCravingViewController {
             viewController.delegate = self
             presentQuitBaseViewController(viewController)
         }
@@ -152,7 +140,7 @@ extension HomeViewController: SectionFiveCarouselCellDelegate {
 
 extension HomeViewController: QuitInfoVCDelegate {
     func didUpdateQuitData() {
-        handleQuitDataUI()
+        tableView.reloadData()
     }
 }
 
@@ -172,7 +160,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var baseCell: HomeBaseCell?
+        var baseCell: HomeBaseCellProtocol?
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionOneCarouselCell, for: indexPath) as? SectionOneCarouselCell else {

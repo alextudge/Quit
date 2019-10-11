@@ -27,7 +27,7 @@ class SectionTwoSavingsOverviewCell: UICollectionViewCell {
     }
     
     func setup() {
-        savingsSummaryTextView.attributedText = savingsAttributedText(quitData: persistenceManager?.quitData)
+        savingsSummaryTextView.attributedText = savingsAttributedText(profile: persistenceManager?.getProfile())
         savingsSummaryTextView.backgroundColor = .clear
         savingsSummaryTextView.isEditable = false
         savingsSummaryTextView.isSelectable = false
@@ -39,10 +39,10 @@ class SectionTwoSavingsOverviewCell: UICollectionViewCell {
 }
 
 private extension SectionTwoSavingsOverviewCell {
-    func savingsAttributedText(quitData: QuitData?) -> NSAttributedString? {
-        guard let costPerDay = quitData?.costPerDay as NSNumber?,
-            let costPerYear = quitData?.costPerYear as NSNumber?,
-            let savedSoFar = quitData?.savedSoFar as NSNumber? else {
+    func savingsAttributedText(profile: Profile?) -> NSAttributedString? {
+        guard let costPerDay = profile?.costPerDay as NSNumber?,
+            let costPerYear = profile?.costPerYear as NSNumber?,
+            let savedSoFar = profile?.savedSoFar as NSNumber? else {
                 return nil
         }
         var text = NSAttributedString()
@@ -50,7 +50,7 @@ private extension SectionTwoSavingsOverviewCell {
             let annualCost = stringFromCurrencyFormatter(data: costPerYear.intValue),
             let soFar = stringFromCurrencyFormatter(data: savedSoFar.intValue),
             let lifetime = stringFromCurrencyFormatter(data: costPerYear.intValue * 70) {
-            if quitDateIsInPast(quitData: persistenceManager?.quitData) {
+            if quitDateIsInPast(profile: persistenceManager?.getProfile()) {
                 text = NSAttributedString(
                     string: "\(soFar) so far\n\(dailyCost) daily\n\(annualCost) yearly\n\(lifetime) over a lifetime",
                     attributes: Styles.savingsInfoAttributes)
@@ -75,8 +75,8 @@ private extension SectionTwoSavingsOverviewCell {
         return formatter.string(from: NSNumber(value: data))
     }
     
-     func quitDateIsInPast(quitData: QuitData?) -> Bool {
-        guard let quitDate = quitData?.quitDate else {
+     func quitDateIsInPast(profile: Profile?) -> Bool {
+        guard let quitDate = profile?.quitDate else {
             return false
         }
         return quitDate < Date()

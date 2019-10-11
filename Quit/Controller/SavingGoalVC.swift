@@ -80,7 +80,7 @@ class SavingGoalVC: QuitBaseViewController {
     
     @IBAction private func deleteButtonPressed(_ sender: Any) {
         if let savingGoal = savingGoal {
-            persistenceManager?.deleteSavingsGoal(savingGoal)
+            persistenceManager?.deleteObject(savingGoal)
             delegate?.reloadTableView()
             dismiss(animated: true, completion: nil)
         }

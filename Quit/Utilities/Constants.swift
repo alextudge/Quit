@@ -27,11 +27,12 @@ struct Constants {
     struct CoreData {
         static let craving = "Craving"
         static let savingGoal = "SavingGoal"
+        static let profile = "Profile"
         static let coreDataObjects = [craving, savingGoal]
         static let databaseId = "Quit.sqlite"
     }
     
-    struct QuitDataConstants {
+    struct ProfileConstants {
         static let smokedDaily = "smokedDaily"
         static let costOf20 = "costOf20"
         static let quitDate = "quitDate"

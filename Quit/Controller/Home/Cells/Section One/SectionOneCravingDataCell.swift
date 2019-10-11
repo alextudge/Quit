@@ -59,7 +59,7 @@ private extension SectionOneCravingDataCell {
     }
     
     func displayQuitDate() {
-        guard viewModel.quitData?.quitDate != nil else {
+        guard viewModel.profile?.quitDate != nil else {
             return
         }
         quitDateLabel.isHidden = false

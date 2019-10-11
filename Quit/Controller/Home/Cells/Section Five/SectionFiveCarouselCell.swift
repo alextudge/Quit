@@ -63,7 +63,7 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
         }
         cell.delegate = self
         cell.isReasonsToSmoke = indexPath.row == 0
-        cell.setup(data: persistenceManager?.additionalUserData)
+        cell.setup(data: persistenceManager?.getProfile())
         return cell
     }
     

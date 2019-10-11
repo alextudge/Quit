@@ -41,7 +41,8 @@ class AddCravingViewController: QuitBaseViewController {
     
     @IBAction private func didTapISmokedButton(_ sender: Any) {
         if viewModel.quitDateIsInPast() == true {
-            viewModel.setUserDefaultsQuitDateToCurrent()
+            persistenceManager?.getProfile()?.quitDate = Date()
+            persistenceManager?.saveContext()
         }
         persistenceManager?.addCraving(catagory: categoryForCraving(), smoked: true)
         dismiss(animated: true, completion: nil)
@@ -55,7 +56,7 @@ private extension AddCravingViewController {
         addSiriButton()
         textField.placeholder = "Type a new trigger here"
         textField.addDoneButtonToKeyboard(action: #selector(textField.resignFirstResponder))
-        if persistenceManager?.triggers?.isEmpty == true {
+        if persistenceManager?.getTriggers().isEmpty == true {
             pickerView.isHidden = true
         }
     }
@@ -112,7 +113,7 @@ private extension AddCravingViewController {
     }
     
     func getPickerTitle() -> String? {
-        guard persistenceManager?.triggers?.count ?? 0 > 0 else {
+        guard persistenceManager?.getTriggers().count ?? 0 > 0 else {
             return nil
         }
         if let pickerTitle = pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0) {
@@ -128,11 +129,11 @@ extension AddCravingViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return persistenceManager?.triggers?.count ?? 0
+        return persistenceManager?.getTriggers().count ?? 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        guard let title = persistenceManager?.triggers?[row] else {
+        guard let title = persistenceManager?.getTriggers()[row] else {
             return nil
         }
         return title

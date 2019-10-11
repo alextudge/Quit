@@ -31,7 +31,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
         roundedView.layer.borderWidth = 1
     }
     
-    func setup(data: AdditionalUserData?) {
+    func setup(data: Profile?) {
         stackView.subviews.forEach {
             $0.removeFromSuperview()
         }
@@ -40,7 +40,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
             stackView.addArrangedSubview(generateLabel(text: "Waiting for data"))
             return
         }
-        let array = isReasonsToSmoke ? data.reasonsToSmoke : data.reasonsNotToSmoke
+        let array = (isReasonsToSmoke ? data.reasonsToSmoke : data.reasonsToQuit) as? [String]
         array?.enumerated().forEach {
             stackView.addArrangedSubview(generateLabel(text: $0.element))
         }

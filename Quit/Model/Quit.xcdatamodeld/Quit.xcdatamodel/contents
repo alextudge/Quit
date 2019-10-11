@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14094.4" systemVersion="17E139j" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A573a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Craving" representedClassName="Craving" syncable="YES" codeGenerationType="class">
-        <attribute name="cravingCatagory" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="cravingDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="cravingSmoked" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cravingCatagory" optional="YES" attributeType="String"/>
+        <attribute name="cravingDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="cravingSmoked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
+        <attribute name="costOf20" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="quitDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="reasonsToQuit" optional="YES" attributeType="Transformable"/>
+        <attribute name="reasonsToSmoke" optional="YES" attributeType="Transformable"/>
+        <attribute name="smokedDaily" optional="YES" attributeType="Integer 16" usesScalarValueType="NO"/>
+        <attribute name="vapeSpending" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
     </entity>
     <entity name="SavingGoal" representedClassName="SavingGoal" syncable="YES" codeGenerationType="class">
-        <attribute name="goalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="goalName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="goalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="goalName" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Craving" positionX="99" positionY="9" width="128" height="90"/>
+        <element name="Profile" positionX="90" positionY="45" width="128" height="133"/>
         <element name="SavingGoal" positionX="72" positionY="54" width="128" height="75"/>
     </elements>
 </model>

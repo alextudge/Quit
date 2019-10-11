@@ -13,7 +13,7 @@ class CravingsViewController: QuitBaseViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var cravings: [Craving]? {
-        return persistenceManager?.cravings
+        return persistenceManager?.getCravings()
     }
     
     override func viewDidLoad() {
@@ -54,7 +54,7 @@ extension CravingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete,
             let craving = cravings?[indexPath.row] {
-            persistenceManager?.deleteCraving(craving)
+            persistenceManager?.deleteObject(craving)
         }
         tableView.endEditing(true)
         tableView.reloadData()

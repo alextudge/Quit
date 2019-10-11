@@ -23,8 +23,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        if let quitData = persistenceManager.quitData {
-            let savedSoFar = stringFromCurrencyFormatter(data: NSNumber(value: quitData.savedSoFar ?? 0))
+        if let profile = persistenceManager.getProfile() {
+            let savedSoFar = stringFromCurrencyFormatter(data: NSNumber(value: profile.savedSoFar ?? 0))
             let savedSoFarString = savedSoFar ?? ""
             currentlySavedLabel.text = "You've saved " + savedSoFarString
             completionHandler(NCUpdateResult.newData)

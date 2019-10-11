@@ -11,8 +11,8 @@ import UIKit
 class QuitBaseViewController: UIViewController {
     
     var persistenceManager: PersistenceManager?
-    var quitData: QuitData? {
-        return persistenceManager?.quitData
+    var profile: Profile? {
+        return persistenceManager?.getProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -19,12 +19,12 @@ class SectionOneVapingDataCell: UICollectionViewCell {
     weak var delegate: SectionOneCellsDelegate?
     
     func setup() {
-        let data = persistenceManager?.quitData
+        let data = persistenceManager?.getProfile()
         if let amount = data?.vapeSpending {
-            let amountString = stringFromCurrencyFormatter(data: NSNumber(value: amount))
+            let amountString = stringFromCurrencyFormatter(data: amount)
             let savingAmountString = stringFromCurrencyFormatter(data: NSNumber(value: data?.vapingSavings ?? 0))
             vapeSpendLabel.text = "Your vape spend is \(amountString ?? "£0")"
-            vapeSavingsLabel.text = amount > 0 ? "Compared to smoking, you've saved \(savingAmountString ?? "£0")" : ""
+            vapeSavingsLabel.text = amount.doubleValue > 0 ? "Compared to smoking, you've saved \(savingAmountString ?? "£0")" : ""
         } else {
             decreaseSpendingLabel.isHidden = true
             vapeSpendLabel.text = "You haven't registered any spending on vaping"
@@ -63,16 +63,16 @@ private extension SectionOneVapingDataCell {
     }
     
     func alterVapeSpending(isIncreasing: Bool, amount: Double) {
-        let quitData = persistenceManager?.quitData
+        let profile = persistenceManager?.getProfile()
         var newVapeSpending = 0.0
         if isIncreasing {
-            newVapeSpending = (quitData?.vapeSpending ?? 0) + amount
+            newVapeSpending = (profile?.vapeSpending?.doubleValue ?? 0) + amount
         } else {
-            newVapeSpending = (quitData?.vapeSpending ?? 0) - amount
+            newVapeSpending = (profile?.vapeSpending?.doubleValue ?? 0) - amount
         }
         newVapeSpending = newVapeSpending < 0 ? 0 : newVapeSpending
-        let newQuitData: [String: Any] = [Constants.QuitDataConstants.smokedDaily: quitData?.smokedDaily, Constants.QuitDataConstants.costOf20: quitData?.costOf20, Constants.QuitDataConstants.quitDate: quitData?.quitDate, Constants.QuitDataConstants.vapeSpending: newVapeSpending]
-        persistenceManager?.setQuitDataInUserDefaults(object: newQuitData, key: "quitData")
+        persistenceManager?.getProfile()?.vapeSpending = NSNumber(value: newVapeSpending)
+        persistenceManager?.saveContext()
         setup()
     }
     

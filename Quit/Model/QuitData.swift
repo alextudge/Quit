@@ -1,5 +1,5 @@
 //
-//  QuitData.swift
+//  Profile.swift
 //  Quit
 //
 //  Created by Alex Tudge on 05/02/2018.
@@ -8,20 +8,7 @@
 
 import Foundation
 
-struct QuitData {
-    
-    var smokedDaily: Int?
-    var costOf20: Double?
-    var quitDate: Date?
-    var vapeSpending: Double?
-    
-    init(smokedDaily: Int?, costOf20: Double?, quitDate: Date?, vapeSpending: Double?) {
-        self.smokedDaily = smokedDaily
-        self.costOf20 = costOf20
-        self.quitDate = quitDate
-        self.vapeSpending = vapeSpending
-    }
-    
+extension Profile {
     var costPerDay: Double? {
         guard let costPerCigarette = costPerCigarette,
             let smokedDaily = smokedDaily else {
@@ -65,7 +52,7 @@ struct QuitData {
             let vapeSpend = vapeSpending else {
                 return nil
         }
-        return savedSoFar - vapeSpend
+        return savedSoFar - vapeSpend.doubleValue
     }
     
     var cigarettesAvoided: Double? {
@@ -77,7 +64,7 @@ struct QuitData {
     }
 }
 
-private extension QuitData {
+private extension Profile {
     var costPerCigarette: Double? {
         guard let costOf20 = costOf20 else {
             return nil

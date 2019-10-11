@@ -39,7 +39,7 @@ extension SectionTwoCarouselCell: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1 + (persistenceManager?.savingsGoals.count ?? 0)
+        return 1 + (persistenceManager?.getGoals().count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,7 +56,7 @@ extension SectionTwoCarouselCell: UICollectionViewDelegate, UICollectionViewData
                 return UICollectionViewCell()
             }
             cell.persistenceManager = persistenceManager
-            cell.savingGoal = persistenceManager?.savingsGoals[indexPath.row - 1]
+            cell.savingGoal = persistenceManager?.getGoals()[indexPath.row - 1]
             return cell
         }
     }
@@ -67,7 +67,7 @@ extension SectionTwoCarouselCell: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.row != 0,
-            let data = persistenceManager?.savingsGoals[indexPath.row - 1] else {
+            let data = persistenceManager?.getGoals()[indexPath.row - 1] else {
                 return
         }
         delegate?.didTapSavingGoal(sender: data)
@@ -82,7 +82,7 @@ extension SectionTwoCarouselCell: SectionTwoSavingsOverviewCellDelegate {
 
 private extension SectionTwoCarouselCell {
     @objc func reloadData(notification: NSNotification) {
-        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
+        pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
         collectionView.reloadData()
     }
     
@@ -91,6 +91,6 @@ private extension SectionTwoCarouselCell {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "SectionTwoSavingsOverviewCell", bundle: nil), forCellWithReuseIdentifier: "SectionTwoSavingsOverviewCell")
         collectionView.register(UINib(nibName: "SectionTwoSavingsGoalCell", bundle: nil), forCellWithReuseIdentifier: "SectionTwoSavingsGoalCell")
-        pageController.numberOfPages = persistenceManager?.savingsGoals.count ?? 0 + 1
+        pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
     }
 }

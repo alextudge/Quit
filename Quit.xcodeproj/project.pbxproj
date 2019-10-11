@@ -21,7 +21,6 @@
 		1714FC9C219E306000CFB203 /* AddCravingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9B219E306000CFB203 /* AddCravingViewController.swift */; };
 		1714FC9E219E359A00CFB203 /* AddCravingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9D219E359A00CFB203 /* AddCravingViewModel.swift */; };
 		17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17156BE222596B42005EEE69 /* QuitBaseViewController.swift */; };
-		171EAFEB21D3E87B0088C90C /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
 		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
 		171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */; };
 		171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
@@ -44,7 +43,6 @@
 		175D41EF21D3E23300FB7588 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41EE21D3E23300FB7588 /* TextField.swift */; };
 		175D41F721D3E36600FB7588 /* ChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F621D3E36600FB7588 /* ChartFormatter.swift */; };
 		175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */; };
-		175D41FB21D3E53A00FB7588 /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
 		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Main.storyboard */; };
@@ -65,7 +63,6 @@
 		179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		179014AA22A70F3A00C7D734 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
 		179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
-		179014AC22A70F4D00C7D734 /* QuitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41FA21D3E53A00FB7588 /* QuitParser.swift */; };
 		179014AD22A70F5300C7D734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		1791FDDA21D410DF00EDF452 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */; };
@@ -223,7 +220,6 @@
 		175D41EE21D3E23300FB7588 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		175D41F621D3E36600FB7588 /* ChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFormatter.swift; sourceTree = "<group>"; };
 		175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitFormatters.swift; sourceTree = "<group>"; };
-		175D41FA21D3E53A00FB7588 /* QuitParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitParser.swift; sourceTree = "<group>"; };
 		1767D300219C417F007E4DE9 /* SmokedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokedVC.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -521,7 +517,6 @@
 				1788CBB52037853D00064A86 /* PersistenceManager.swift */,
 				1788CBCB2039B3E000064A86 /* Constants.swift */,
 				175D41F621D3E36600FB7588 /* ChartFormatter.swift */,
-				175D41FA21D3E53A00FB7588 /* QuitParser.swift */,
 				175D41EB21D3E06C00FB7588 /* Extensions */,
 			);
 			path = Utilities;
@@ -1129,7 +1124,6 @@
 				1752F0B521C042FE0056642F /* AchievementsViewModel.swift in Sources */,
 				1714FC9C219E306000CFB203 /* AddCravingViewController.swift in Sources */,
 				179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */,
-				175D41FB21D3E53A00FB7588 /* QuitParser.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */,
 				1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */,
@@ -1180,7 +1174,6 @@
 				179014A722A70C2900C7D734 /* AddCravingIntentHandler.swift in Sources */,
 				1790149922A703A500C7D734 /* IntentHandler.swift in Sources */,
 				179014A522A7058000C7D734 /* AddCravingIntent.intentdefinition in Sources */,
-				179014AC22A70F4D00C7D734 /* QuitParser.swift in Sources */,
 				179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */,
 				179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */,
 				179014AA22A70F3A00C7D734 /* QuitData.swift in Sources */,
@@ -1207,7 +1200,6 @@
 				17F8FF86219A08E70095CD6E /* TodayViewController.swift in Sources */,
 				17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */,
 				1791FDDA21D410DF00EDF452 /* AdditionalUserData.swift in Sources */,
-				171EAFEB21D3E87B0088C90C /* QuitParser.swift in Sources */,
 				17F8FF96219A10060095CD6E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

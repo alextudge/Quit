@@ -24,7 +24,7 @@ class HomeViewController: QuitBaseViewController {
     }
     
     @IBAction private func didTapAddInfoButton(_ sender: Any) {
-        segueToQuitDataViewController()
+        segueToProfileViewController()
     }
 }
 
@@ -94,7 +94,7 @@ extension HomeViewController: SectionOneCarouselCellDelegate, AddCravingViewCont
     }
     
     func didPressChangeQuitDate() {
-        segueToQuitDataViewController()
+        segueToProfileViewController()
     }
     
     func segueToSmokedViewController() {
@@ -139,7 +139,7 @@ extension HomeViewController: SectionFiveCarouselCellDelegate {
 }
 
 extension HomeViewController: QuitInfoVCDelegate {
-    func didUpdateQuitData() {
+    func didUpdateProfile() {
         tableView.reloadData()
     }
 }
@@ -215,7 +215,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 private extension HomeViewController {
-    func segueToQuitDataViewController() {
+    func segueToProfileViewController() {
         if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
             viewController.delegate = self
             presentQuitBaseViewController(viewController)

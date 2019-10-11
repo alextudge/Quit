@@ -9,7 +9,7 @@
 import UIKit
 
 protocol QuitInfoVCDelegate: class {
-    func didUpdateQuitData()
+    func didUpdateProfile()
 }
 
 class QuitInfoVC: QuitBaseViewController {
@@ -25,7 +25,7 @@ class QuitInfoVC: QuitBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupInitialValues(quitData)
+        setupInitialValues(profile)
         setupDelegates()
         setupObservers()
         setupUI()
@@ -45,13 +45,13 @@ class QuitInfoVC: QuitBaseViewController {
                 showDataMissingAlert()
                 return
         }
-        let quitData: [String: Any] = [Constants.QuitDataConstants.smokedDaily: amount,
-                                       Constants.QuitDataConstants.costOf20: cost,
-                                       Constants.QuitDataConstants.quitDate: quitDatePicker.date]
-        persistenceManager?.setQuitDataInUserDefaults(object: quitData, key: "quitData")
+        persistenceManager?.getProfile()?.smokedDaily = NSNumber(value: amount)
+        persistenceManager?.getProfile()?.costOf20 = NSNumber(value: cost)
+        persistenceManager?.getProfile()?.quitDate = quitDatePicker.date
+        persistenceManager?.saveContext()
         setNotifications(quitDate: quitDatePicker.date)
         NotificationCenter.default.post(name: Constants.InternalNotifs.quitDateChanged, object: nil)
-        delegate?.didUpdateQuitData()
+        delegate?.didUpdateProfile()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -68,14 +68,14 @@ private extension QuitInfoVC {
         costOf20TextField.addDoneButtonToKeyboard(action: #selector(costOf20TextField.resignFirstResponder))
     }
     
-    func setupInitialValues(_ quitData: QuitData?) {
-        if let costOf20 = quitData?.costOf20 {
+    func setupInitialValues(_ profile: Profile?) {
+        if let costOf20 = profile?.costOf20 {
             costOf20TextField.text = "\(costOf20)"
         }
-        if let smokedDaily = quitData?.smokedDaily {
+        if let smokedDaily = profile?.smokedDaily {
             smokedDailyTextField.text = "\(smokedDaily)"
         }
-        quitDatePicker.date = quitData?.quitDate ?? Date()
+        quitDatePicker.date = profile?.quitDate ?? Date()
     }
     
     func setNotifications(quitDate: Date) {

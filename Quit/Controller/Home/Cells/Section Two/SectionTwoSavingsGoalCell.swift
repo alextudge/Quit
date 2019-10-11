@@ -72,13 +72,13 @@ private extension SectionTwoSavingsGoalCell {
     }
     
     func savingsProgressAngle() -> Double {
-        guard let quitData = persistenceManager?.quitData,
-            let quitSavingsToDate = quitData.savedSoFar,
+        guard let profile = persistenceManager?.getProfile(),
+            let quitSavingsToDate = profile.savedSoFar,
             let goalAmount = savingGoal?.goalAmount else {
                 return 0
         }
         var angle = 0.0
-        if self.quitDateIsInPast(quitData: persistenceManager?.quitData) {
+        if self.quitDateIsInPast(profile: persistenceManager?.getProfile()) {
             angle = quitSavingsToDate / goalAmount
         }
         if angle < 1 {
@@ -99,8 +99,8 @@ private extension SectionTwoSavingsGoalCell {
         return label ?? UILabel()
     }
     
-    func quitDateIsInPast(quitData: QuitData?) -> Bool {
-        guard let quitDate = quitData?.quitDate else {
+    func quitDateIsInPast(profile: Profile?) -> Bool {
+        guard let quitDate = profile?.quitDate else {
             return false
         }
         return quitDate < Date()

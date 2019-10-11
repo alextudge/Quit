@@ -18,10 +18,10 @@ class AddCravingViewModel {
     }
     
     func appStoreReview() {
-        guard let quitData = persistenceManager?.quitData else {
+        guard let profile = persistenceManager?.getProfile() else {
             return
         }
-        if quitDataLongerThan4DaysAgo(quitData: quitData) {
+        if profileLongerThan4DaysAgo(profile: profile) {
             if #available(iOS 10.3, *) {
                 SKStoreReviewController.requestReview()
             }
@@ -29,27 +29,17 @@ class AddCravingViewModel {
     }
     
     func quitDateIsInPast() -> Bool {
-        guard let quitDate = persistenceManager?.quitData?.quitDate else {
+        guard let quitDate = persistenceManager?.getProfile()?.quitDate else {
             return false
         }
         return quitDate < Date()
     }
     
-    private func quitDataLongerThan4DaysAgo(quitData: QuitData?) -> Bool {
-        guard let quitDate = quitData?.quitDate else {
+    private func profileLongerThan4DaysAgo(profile: Profile?) -> Bool {
+        guard let quitDate = profile?.quitDate else {
             return false
         }
         let sixDaysInSeconds = Double(345600)
         return Date().timeIntervalSince(quitDate) > sixDaysInSeconds
-    }
-    
-    func setUserDefaultsQuitDateToCurrent() {
-        guard let quitData = persistenceManager?.quitData else {
-            return
-        }
-        let actualQuitData: [String: Any] = ["smokedDaily": quitData.smokedDaily as Any,
-                                       "costOf20": quitData.costOf20 as Any,
-                                       "quitDate": Date()]
-        persistenceManager?.setQuitDataInUserDefaults(object: actualQuitData, key: "quitData")
     }
 }

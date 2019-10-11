@@ -34,9 +34,9 @@ private extension EditArrayVC {
         editArrayTextView.layer.borderColor = UIColor.lightGray.cgColor
         editArrayTextView.textColor = .darkGray
         if isReasonsToSmoke {
-            editArrayTextView.text = arrayToTextBlock(array: persistenceManager?.additionalUserData?.reasonsToSmoke ?? [])
+            editArrayTextView.text = arrayToTextBlock(array: persistenceManager?.getProfile()?.reasonsToSmoke as? [String] ?? [])
         } else {
-            editArrayTextView.text = arrayToTextBlock(array: persistenceManager?.additionalUserData?.reasonsNotToSmoke ?? [])
+            editArrayTextView.text = arrayToTextBlock(array: persistenceManager?.getProfile()?.reasonsToQuit as? [String] ?? [])
         }
         editArrayTextView.becomeFirstResponder()
         titleLabel.text = appropriateTitleText()
@@ -61,11 +61,14 @@ private extension EditArrayVC {
     }
     
     func saveNewEntries(entries: [String]) {
-        let reasonsToSmoke: [String]? = isReasonsToSmoke ? entries : (persistenceManager?.additionalUserData?.reasonsToSmoke ?? [])
-        let reasonsNotToSmoke: [String]? = isReasonsToSmoke ? (persistenceManager?.additionalUserData?.reasonsNotToSmoke ?? []) : entries
-        let newData = [Constants.AdditionalUserDataConstants.reasonsNotToSmoke: reasonsNotToSmoke,
-                       Constants.AdditionalUserDataConstants.reasonsToSmoke: reasonsToSmoke]
-        persistenceManager?.setAdditionalParametersInUserDefaults(object: newData as [String: Any])
+        let reasonsToSmoke: [String]? = isReasonsToSmoke ? entries : (persistenceManager?.getProfile()?.reasonsToSmoke as? [String] ?? [])
+        let reasonsNotToSmoke: [String]? = isReasonsToSmoke ? (persistenceManager?.getProfile()?.reasonsToQuit as? [String] ?? []) : entries
+        if isReasonsToSmoke {
+            persistenceManager?.getProfile()?.reasonsToSmoke = reasonsToSmoke as NSObject?
+        } else {
+            persistenceManager?.getProfile()?.reasonsToQuit = reasonsNotToSmoke as NSObject?
+        }
+        persistenceManager?.saveContext()
     }
 }
 

@@ -39,7 +39,7 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
     }
     
     private func loadBarChartData() {
-        guard let cravingData = persistenceManager?.cravings,
+        guard let cravingData = persistenceManager?.getCravings(),
             cravingData.count > 0 else {
             return
         }

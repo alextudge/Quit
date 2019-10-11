@@ -72,7 +72,7 @@ class SectionThreeTriggerChartCell: UICollectionViewCell {
     }
     
     func loadChartData() {
-        guard let cravingData = persistenceManager?.cravings else {
+        guard let cravingData = persistenceManager?.getCravings() else {
             return
         }
         var categories = [String]()

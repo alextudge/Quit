@@ -44,6 +44,9 @@
 		175D41F721D3E36600FB7588 /* ChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F621D3E36600FB7588 /* ChartFormatter.swift */; };
 		175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */; };
 		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
+		1769EF8C23527E7300AAAFE5 /* QuitInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769EF8B23527E7300AAAFE5 /* QuitInfoPageViewController.swift */; };
+		1769EF8E23527F6500AAAFE5 /* QuitCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769EF8D23527F6500AAAFE5 /* QuitCostViewController.swift */; };
+		1769EF90235282CF00AAAFE5 /* QuitDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769EF8F235282CF00AAAFE5 /* QuitDateViewController.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Main.storyboard */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
@@ -221,6 +224,9 @@
 		175D41F621D3E36600FB7588 /* ChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFormatter.swift; sourceTree = "<group>"; };
 		175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitFormatters.swift; sourceTree = "<group>"; };
 		1767D300219C417F007E4DE9 /* SmokedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokedVC.swift; sourceTree = "<group>"; };
+		1769EF8B23527E7300AAAFE5 /* QuitInfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoPageViewController.swift; sourceTree = "<group>"; };
+		1769EF8D23527F6500AAAFE5 /* QuitCostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitCostViewController.swift; sourceTree = "<group>"; };
+		1769EF8F235282CF00AAAFE5 /* QuitDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitDateViewController.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F03E92025220000CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -438,6 +444,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		1769EF8A23527E3100AAAFE5 /* Quit Info */ = {
+			isa = PBXGroup;
+			children = (
+				1769EF8B23527E7300AAAFE5 /* QuitInfoPageViewController.swift */,
+				1769EF8D23527F6500AAAFE5 /* QuitCostViewController.swift */,
+				1769EF8F235282CF00AAAFE5 /* QuitDateViewController.swift */,
+			);
+			path = "Quit Info";
+			sourceTree = "<group>";
+		};
 		177F03D82025220000CC7CA8 = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +518,7 @@
 				1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */,
 				17156BE222596B42005EEE69 /* QuitBaseViewController.swift */,
 				179FDFC2216403F3003131C5 /* Home */,
+				1769EF8A23527E3100AAAFE5 /* Quit Info */,
 				17012659227F2CB600E416F6 /* Info Controllers */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
 				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
@@ -1113,6 +1130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1769EF8C23527E7300AAAFE5 /* QuitInfoPageViewController.swift in Sources */,
 				1791FDE621D55A5A00EDF452 /* EditArrayVC.swift in Sources */,
 				17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */,
 				17BD352722989DFB004E766B /* ViewPendingNotificationsViewController.swift in Sources */,
@@ -1146,12 +1164,14 @@
 				179FDFDC2166C3FA003131C5 /* SectionTwoCarouselCell.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,
 				175D41EF21D3E23300FB7588 /* TextField.swift in Sources */,
+				1769EF8E23527F6500AAAFE5 /* QuitCostViewController.swift in Sources */,
 				179FDFD82166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift in Sources */,
 				177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */,
 				1701265B227F9BB100E416F6 /* CravingsViewController.swift in Sources */,
 				1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */,
 				1714FC9E219E359A00CFB203 /* AddCravingViewModel.swift in Sources */,
 				170B0A94229486C800217358 /* SectionFiveNotificationsCell.swift in Sources */,
+				1769EF90235282CF00AAAFE5 /* QuitDateViewController.swift in Sources */,
 				177F04242029104900CC7CA8 /* QuitData.swift in Sources */,
 				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,
 				177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */,

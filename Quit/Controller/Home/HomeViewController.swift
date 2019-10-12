@@ -21,6 +21,10 @@ class HomeViewController: QuitBaseViewController {
         setupDelegates()
         setupTableView()
         showOnboarding()
+        if let vc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "QuitInfoPageViewController") as? QuitInfoPageViewController {
+            vc.persistenceManager = persistenceManager
+            present(vc, animated: true, completion: nil)
+        }
     }
     
     @IBAction private func didTapAddInfoButton(_ sender: Any) {

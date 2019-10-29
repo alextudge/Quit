@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionThreeCarouselCell" id="6zF-dr-R9w" customClass="SectionThreeCarouselCell" customModule="Quit" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="295" height="178"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6zF-dr-R9w" id="O2v-f4-QGa">
-                <rect key="frame" x="0.0" y="0.0" width="295" height="178"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionThreeCarouselCell" id="tLp-OR-zlk" customClass="SectionThreeCarouselCell" customModule="Quit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="286" height="129"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="shN-Os-DYZ">
+                <rect key="frame" x="0.0" y="0.0" width="286" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-Bv-7dx">
-                        <rect key="frame" x="0.0" y="0.0" width="295" height="178"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="a0J-Uf-Xzz">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-ub-F39">
+                        <rect key="frame" x="0.0" y="0.0" width="286" height="129"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W60-Hb-5T5">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -27,16 +28,17 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="OJ3-Bv-7dx" secondAttribute="bottom" id="5B9-Xj-gU1"/>
-                    <constraint firstAttribute="trailing" secondItem="OJ3-Bv-7dx" secondAttribute="trailing" id="MDh-Q9-lh7"/>
-                    <constraint firstItem="OJ3-Bv-7dx" firstAttribute="top" secondItem="O2v-f4-QGa" secondAttribute="top" id="Nmb-aY-GUm"/>
-                    <constraint firstItem="OJ3-Bv-7dx" firstAttribute="leading" secondItem="O2v-f4-QGa" secondAttribute="leading" id="uQp-YP-4wq"/>
+                    <constraint firstAttribute="bottom" secondItem="d5G-ub-F39" secondAttribute="bottom" id="aYO-0o-3m9"/>
+                    <constraint firstAttribute="trailing" secondItem="d5G-ub-F39" secondAttribute="trailing" id="bpL-I1-ZpA"/>
+                    <constraint firstItem="d5G-ub-F39" firstAttribute="top" secondItem="shN-Os-DYZ" secondAttribute="top" id="hkk-lr-5mb"/>
+                    <constraint firstItem="d5G-ub-F39" firstAttribute="leading" secondItem="shN-Os-DYZ" secondAttribute="leading" id="vcv-FD-9YK"/>
                 </constraints>
-            </tableViewCellContentView>
+            </collectionViewCellContentView>
+            <size key="customSize" width="286" height="129"/>
             <connections>
-                <outlet property="collectionView" destination="OJ3-Bv-7dx" id="Aj6-9a-xLU"/>
+                <outlet property="collectionView" destination="d5G-ub-F39" id="T4G-tg-thP"/>
             </connections>
-            <point key="canvasLocation" x="16.800000000000001" y="96.251874062968525"/>
-        </tableViewCell>
+            <point key="canvasLocation" x="227.536231884058" y="43.191964285714285"/>
+        </collectionViewCell>
     </objects>
 </document>

@@ -22,7 +22,6 @@
 		1714FC9E219E359A00CFB203 /* AddCravingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9D219E359A00CFB203 /* AddCravingViewModel.swift */; };
 		17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17156BE222596B42005EEE69 /* QuitBaseViewController.swift */; };
 		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
-		171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */; };
 		171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */; };
@@ -52,8 +51,12 @@
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
 		177F03F22025220900CC7CA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */; };
-		177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04162027C49600CC7CA8 /* QuitInfoVC.swift */; };
 		177F04242029104900CC7CA8 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
+		178500E32368DF5600C64DCF /* SectionOneCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */; };
+		178500E52368E04F00C64DCF /* SectionTwoCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E42368E04F00C64DCF /* SectionTwoCarouselCell.xib */; };
+		178500E72368E10C00C64DCF /* SectionThreeCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */; };
+		178500E92368E16800C64DCF /* SectionFourCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E82368E16800C64DCF /* SectionFourCarouselCell.xib */; };
+		178500EB2368E1BA00C64DCF /* SectionFiveCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500EA2368E1BA00C64DCF /* SectionFiveCarouselCell.xib */; };
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		1788CBCC2039B3E000064A86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		1790143122A6F48200C7D734 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1790143022A6F48200C7D734 /* Colours.xcassets */; };
@@ -71,7 +74,6 @@
 		1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */; };
 		1791FDDE21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */; };
 		1791FDE621D55A5A00EDF452 /* EditArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */; };
-		179FDFC52164045A003131C5 /* SectionOneCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFC42164045A003131C5 /* SectionOneCarouselCell.xib */; };
 		179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */; };
 		179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */; };
 		179FDFCC21640536003131C5 /* SectionOneCravingDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */; };
@@ -82,19 +84,16 @@
 		179FDFD62166A2BF003131C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFD52166A2BF003131C5 /* HomeViewModel.swift */; };
 		179FDFD82166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFD72166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift */; };
 		179FDFDC2166C3FA003131C5 /* SectionTwoCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFDA2166C3FA003131C5 /* SectionTwoCarouselCell.swift */; };
-		179FDFDD2166C3FA003131C5 /* SectionTwoCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFDB2166C3FA003131C5 /* SectionTwoCarouselCell.xib */; };
 		179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFDE2168118C003131C5 /* SectionTwoSavingsOverviewCell.swift */; };
 		179FDFE12168118C003131C5 /* SectionTwoSavingsOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFDF2168118C003131C5 /* SectionTwoSavingsOverviewCell.xib */; };
 		179FDFE621681AFE003131C5 /* SectionTwoSavingsGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFE421681AFE003131C5 /* SectionTwoSavingsGoalCell.swift */; };
 		179FDFE721681AFE003131C5 /* SectionTwoSavingsGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFE521681AFE003131C5 /* SectionTwoSavingsGoalCell.xib */; };
 		179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFE921693389003131C5 /* SectionThreeCarouselCell.swift */; };
-		179FDFEC216933A3003131C5 /* SectionThreeCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFEB216933A3003131C5 /* SectionThreeCarouselCell.xib */; };
 		179FDFEF216935D1003131C5 /* SectionThreeCravingsChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFED216935D1003131C5 /* SectionThreeCravingsChartCell.swift */; };
 		179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFEE216935D1003131C5 /* SectionThreeCravingsChartCell.xib */; };
 		179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FDFF3216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift */; };
 		179FDFF6216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179FDFF4216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib */; };
 		17BA70902175143A00ACA5F6 /* SectionFourCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA708E2175143A00ACA5F6 /* SectionFourCarouselCell.swift */; };
-		17BA70912175143A00ACA5F6 /* SectionFourCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */; };
 		17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */; };
 		17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */; };
 		17BD352722989DFB004E766B /* ViewPendingNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */; };
@@ -205,7 +204,6 @@
 		1714FC9D219E359A00CFB203 /* AddCravingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCravingViewModel.swift; sourceTree = "<group>"; };
 		17156BE222596B42005EEE69 /* QuitBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitBaseViewController.swift; sourceTree = "<group>"; };
 		171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveCarouselCell.swift; sourceTree = "<group>"; };
-		171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveCarouselCell.xib; sourceTree = "<group>"; };
 		171EAFF121D40D200088C90C /* AdditionalUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalUserData.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -234,8 +232,12 @@
 		177F03EE2025220900CC7CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		177F03F12025220900CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		177F03F32025220900CC7CA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		177F04162027C49600CC7CA8 /* QuitInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVC.swift; sourceTree = "<group>"; };
 		177F04232029104900CC7CA8 /* QuitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitData.swift; sourceTree = "<group>"; };
+		178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCarouselCell.xib; sourceTree = "<group>"; };
+		178500E42368E04F00C64DCF /* SectionTwoCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoCarouselCell.xib; sourceTree = "<group>"; };
+		178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeCarouselCell.xib; sourceTree = "<group>"; };
+		178500E82368E16800C64DCF /* SectionFourCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourCarouselCell.xib; sourceTree = "<group>"; };
+		178500EA2368E1BA00C64DCF /* SectionFiveCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveCarouselCell.xib; sourceTree = "<group>"; };
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1788CBCB2039B3E000064A86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1790143022A6F48200C7D734 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
@@ -248,7 +250,6 @@
 		1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveReasonsToSmokeCell.swift; sourceTree = "<group>"; };
 		1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveReasonsToSmokeCell.xib; sourceTree = "<group>"; };
 		1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArrayVC.swift; sourceTree = "<group>"; };
-		179FDFC42164045A003131C5 /* SectionOneCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCarouselCell.xib; sourceTree = "<group>"; };
 		179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCarouselCell.swift; sourceTree = "<group>"; };
 		179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCravingDataCell.swift; sourceTree = "<group>"; };
 		179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCravingDataCell.xib; sourceTree = "<group>"; };
@@ -259,19 +260,16 @@
 		179FDFD52166A2BF003131C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		179FDFD72166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneCravingDataCellViewModel.swift; sourceTree = "<group>"; };
 		179FDFDA2166C3FA003131C5 /* SectionTwoCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTwoCarouselCell.swift; sourceTree = "<group>"; };
-		179FDFDB2166C3FA003131C5 /* SectionTwoCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoCarouselCell.xib; sourceTree = "<group>"; };
 		179FDFDE2168118C003131C5 /* SectionTwoSavingsOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTwoSavingsOverviewCell.swift; sourceTree = "<group>"; };
 		179FDFDF2168118C003131C5 /* SectionTwoSavingsOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoSavingsOverviewCell.xib; sourceTree = "<group>"; };
 		179FDFE421681AFE003131C5 /* SectionTwoSavingsGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTwoSavingsGoalCell.swift; sourceTree = "<group>"; };
 		179FDFE521681AFE003131C5 /* SectionTwoSavingsGoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoSavingsGoalCell.xib; sourceTree = "<group>"; };
 		179FDFE921693389003131C5 /* SectionThreeCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThreeCarouselCell.swift; sourceTree = "<group>"; };
-		179FDFEB216933A3003131C5 /* SectionThreeCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeCarouselCell.xib; sourceTree = "<group>"; };
 		179FDFED216935D1003131C5 /* SectionThreeCravingsChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThreeCravingsChartCell.swift; sourceTree = "<group>"; };
 		179FDFEE216935D1003131C5 /* SectionThreeCravingsChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeCravingsChartCell.xib; sourceTree = "<group>"; };
 		179FDFF3216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThreeTriggerChartCell.swift; sourceTree = "<group>"; };
 		179FDFF4216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeTriggerChartCell.xib; sourceTree = "<group>"; };
 		17BA708E2175143A00ACA5F6 /* SectionFourCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFourCarouselCell.swift; sourceTree = "<group>"; };
-		17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourCarouselCell.xib; sourceTree = "<group>"; };
 		17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFourHealthCell.swift; sourceTree = "<group>"; };
 		17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourHealthCell.xib; sourceTree = "<group>"; };
 		17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPendingNotificationsViewController.swift; sourceTree = "<group>"; };
@@ -404,11 +402,11 @@
 			isa = PBXGroup;
 			children = (
 				171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */,
-				171EAFEE21D409A60088C90C /* SectionFiveCarouselCell.xib */,
 				1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */,
 				1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */,
 				170B0A92229486C800217358 /* SectionFiveNotificationsCell.swift */,
 				170B0A93229486C800217358 /* SectionFiveNotificationsCell.xib */,
+				178500EA2368E1BA00C64DCF /* SectionFiveCarouselCell.xib */,
 			);
 			path = "Section Five";
 			sourceTree = "<group>";
@@ -521,7 +519,6 @@
 				1769EF8A23527E3100AAAFE5 /* Quit Info */,
 				17012659227F2CB600E416F6 /* Info Controllers */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
-				177F04162027C49600CC7CA8 /* QuitInfoVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
 				1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */,
 			);
@@ -584,12 +581,12 @@
 			isa = PBXGroup;
 			children = (
 				179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */,
-				179FDFC42164045A003131C5 /* SectionOneCarouselCell.xib */,
 				179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */,
 				179FDFD72166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift */,
 				179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */,
 				179FDFCF216419CC003131C5 /* SectionOneVapingDataCell.swift */,
 				179FDFD0216419CC003131C5 /* SectionOneVapingDataCell.xib */,
+				178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */,
 			);
 			path = "Section One";
 			sourceTree = "<group>";
@@ -598,11 +595,11 @@
 			isa = PBXGroup;
 			children = (
 				179FDFDA2166C3FA003131C5 /* SectionTwoCarouselCell.swift */,
-				179FDFDB2166C3FA003131C5 /* SectionTwoCarouselCell.xib */,
 				179FDFDE2168118C003131C5 /* SectionTwoSavingsOverviewCell.swift */,
 				179FDFDF2168118C003131C5 /* SectionTwoSavingsOverviewCell.xib */,
 				179FDFE421681AFE003131C5 /* SectionTwoSavingsGoalCell.swift */,
 				179FDFE521681AFE003131C5 /* SectionTwoSavingsGoalCell.xib */,
+				178500E42368E04F00C64DCF /* SectionTwoCarouselCell.xib */,
 			);
 			path = "Section Two";
 			sourceTree = "<group>";
@@ -611,11 +608,11 @@
 			isa = PBXGroup;
 			children = (
 				179FDFE921693389003131C5 /* SectionThreeCarouselCell.swift */,
-				179FDFEB216933A3003131C5 /* SectionThreeCarouselCell.xib */,
 				179FDFED216935D1003131C5 /* SectionThreeCravingsChartCell.swift */,
 				179FDFEE216935D1003131C5 /* SectionThreeCravingsChartCell.xib */,
 				179FDFF3216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift */,
 				179FDFF4216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib */,
+				178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */,
 			);
 			path = "Section Three";
 			sourceTree = "<group>";
@@ -624,9 +621,9 @@
 			isa = PBXGroup;
 			children = (
 				17BA708E2175143A00ACA5F6 /* SectionFourCarouselCell.swift */,
-				17BA708F2175143A00ACA5F6 /* SectionFourCarouselCell.xib */,
 				17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */,
 				17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */,
+				178500E82368E16800C64DCF /* SectionFourCarouselCell.xib */,
 			);
 			path = "Section Four";
 			sourceTree = "<group>";
@@ -952,11 +949,8 @@
 				179FDFF6216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib in Resources */,
 				17012656227EFDE000E416F6 /* Settings.storyboard in Resources */,
 				179FDFE721681AFE003131C5 /* SectionTwoSavingsGoalCell.xib in Resources */,
-				171EAFF021D409A60088C90C /* SectionFiveCarouselCell.xib in Resources */,
-				179FDFC52164045A003131C5 /* SectionOneCarouselCell.xib in Resources */,
 				179FDFE12168118C003131C5 /* SectionTwoSavingsOverviewCell.xib in Resources */,
 				1705FCC82291A53700E577EC /* progressComplete.json in Resources */,
-				17BA70912175143A00ACA5F6 /* SectionFourCarouselCell.xib in Resources */,
 				177F03F22025220900CC7CA8 /* LaunchScreen.storyboard in Resources */,
 				179FDFCC21640536003131C5 /* SectionOneCravingDataCell.xib in Resources */,
 				1705FCC02291954000E577EC /* addIcon.json in Resources */,
@@ -965,14 +959,17 @@
 				17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */,
 				17012658227F0F9200E416F6 /* Other.storyboard in Resources */,
 				1791FDDE21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib in Resources */,
+				178500E32368DF5600C64DCF /* SectionOneCarouselCell.xib in Resources */,
+				178500E52368E04F00C64DCF /* SectionTwoCarouselCell.xib in Resources */,
+				178500E92368E16800C64DCF /* SectionFourCarouselCell.xib in Resources */,
 				1790143122A6F48200C7D734 /* Colours.xcassets in Resources */,
 				1705FCD02291A72E00E577EC /* progressView.json in Resources */,
 				179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */,
-				179FDFEC216933A3003131C5 /* SectionThreeCarouselCell.xib in Resources */,
+				178500E72368E10C00C64DCF /* SectionThreeCarouselCell.xib in Resources */,
+				178500EB2368E1BA00C64DCF /* SectionFiveCarouselCell.xib in Resources */,
 				1705FCC222919A8C00E577EC /* addIconBlue.json in Resources */,
 				177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */,
 				1705FCB9228F75FB00E577EC /* achievements.json in Resources */,
-				179FDFDD2166C3FA003131C5 /* SectionTwoCarouselCell.xib in Resources */,
 				177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1174,7 +1171,6 @@
 				1769EF90235282CF00AAAFE5 /* QuitDateViewController.swift in Sources */,
 				177F04242029104900CC7CA8 /* QuitData.swift in Sources */,
 				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,
-				177F04172027C49600CC7CA8 /* QuitInfoVC.swift in Sources */,
 				179FDFD62166A2BF003131C5 /* HomeViewModel.swift in Sources */,
 				17F1B61D21D5B1DF0021722D /* DoubleExtensions.swift in Sources */,
 				1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */,

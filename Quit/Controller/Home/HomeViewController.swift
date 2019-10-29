@@ -10,7 +10,7 @@ import GoogleMobileAds
 
 class HomeViewController: QuitBaseViewController {
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private let viewModel = HomeViewModel()
     private let interstitial = GADInterstitial(adUnitID: Constants.AppConfig.adInterstitialId)
@@ -21,10 +21,6 @@ class HomeViewController: QuitBaseViewController {
         setupDelegates()
         setupTableView()
         showOnboarding()
-        if let vc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "QuitInfoPageViewController") as? QuitInfoPageViewController {
-            vc.persistenceManager = persistenceManager
-            present(vc, animated: true, completion: nil)
-        }
     }
     
     @IBAction private func didTapAddInfoButton(_ sender: Any) {
@@ -42,8 +38,8 @@ private extension HomeViewController {
     
     func setupDelegates() {
         persistenceManager = PersistenceManager()
-        tableView.delegate = self
-        tableView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     func setupSettingsNavButton() {
@@ -53,11 +49,11 @@ private extension HomeViewController {
     }
     
     func setupTableView() {
-        tableView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
-        tableView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell, bundle: nil), forCellReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
+        collectionView.register(UINib(nibName: Constants.Cells.sectionOneCarouselCell, bundle: nil), forCellWithReuseIdentifier: Constants.Cells.sectionOneCarouselCell)
+        collectionView.register(UINib(nibName: Constants.Cells.sectionTwoCarouselCell, bundle: nil), forCellWithReuseIdentifier: Constants.Cells.sectionTwoCarouselCell)
+        collectionView.register(UINib(nibName: Constants.Cells.sectionThreeCarouselCell, bundle: nil), forCellWithReuseIdentifier: Constants.Cells.sectionThreeCarouselCell)
+        collectionView.register(UINib(nibName: Constants.Cells.sectionFourCarouselCell, bundle: nil), forCellWithReuseIdentifier: Constants.Cells.sectionFourCarouselCell)
+        collectionView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell, bundle: nil), forCellWithReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
     }
     
     func headerFor(section: Int) -> UIView {
@@ -142,87 +138,70 @@ extension HomeViewController: SectionFiveCarouselCellDelegate {
     }
 }
 
-extension HomeViewController: QuitInfoVCDelegate {
-    func didUpdateProfile() {
-        tableView.reloadData()
-    }
-}
-
 extension HomeViewController: SavingGoalVCDelegate {
     func reloadTableView() {
-        tableView.reloadData()
+        collectionView.reloadData()
     }
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 5
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var baseCell: HomeBaseCellProtocol?
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionOneCarouselCell, for: indexPath) as? SectionOneCarouselCell else {
-                return UITableViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionOneCarouselCell, for: indexPath) as? SectionOneCarouselCell else {
+                return UICollectionViewCell()
             }
             cell.delegate = self
             baseCell = cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionTwoCarouselCell, for: indexPath) as? SectionTwoCarouselCell else {
-                return UITableViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionTwoCarouselCell, for: indexPath) as? SectionTwoCarouselCell else {
+                return UICollectionViewCell()
             }
             cell.delegate = self
             baseCell = cell
         case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
-                return UITableViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionThreeCarouselCell, for: indexPath) as? SectionThreeCarouselCell else {
+                return UICollectionViewCell()
             }
             cell.delegate = self
             baseCell = cell
         case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
-                return UITableViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
+                return UICollectionViewCell()
             }
             baseCell = cell
         case 4:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {
-                return UITableViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {
+                return UICollectionViewCell()
             }
             cell.delegate = self
             baseCell = cell
         default:
-            return UITableViewCell()
+            return UICollectionViewCell()
         }
         baseCell?.persistenceManager = persistenceManager
-        return baseCell ?? UITableViewCell()
+        return baseCell ?? UICollectionViewCell()
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return headerFor(section: section)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return .leastNonzeroMagnitude
-        }
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.sizeForCellOf(type: indexPath.section)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 2)
     }
 }
 
 private extension HomeViewController {
     func segueToProfileViewController() {
-        if let viewController = ViewControllerFactory.QuitInfoVC.viewController() as? QuitInfoVC {
-            viewController.delegate = self
-            presentQuitBaseViewController(viewController)
+        if let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "QuitInfoPageViewController") as? QuitInfoPageViewController {
+            viewController.persistenceManager = persistenceManager
+            present(viewController, animated: true, completion: nil)
         }
     }
     

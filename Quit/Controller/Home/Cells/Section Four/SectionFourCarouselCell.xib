@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionFourCarouselCell" id="KGk-i7-Jjw" customClass="SectionFourCarouselCell" customModule="Quit" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="364" height="277"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionFourCarouselCell" id="eBo-7x-JN5" customClass="SectionFourCarouselCell" customModule="Quit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="364" height="277"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qt7-mC-EtS">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Mkx-Bm-PwT">
-                        <rect key="frame" x="0.0" y="0.0" width="364" height="151.5"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fr4-xz-jbP">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dWz-go-ROy">
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="65"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CLn-4K-Gpt">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Mkx-Bm-PwT" secondAttribute="bottom" id="GCz-nc-SA7"/>
-                    <constraint firstItem="Mkx-Bm-PwT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="TYF-6k-L4C"/>
-                    <constraint firstItem="Mkx-Bm-PwT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eMn-fI-19H"/>
-                    <constraint firstAttribute="trailing" secondItem="Mkx-Bm-PwT" secondAttribute="trailing" id="n40-Lb-ZJx"/>
+                    <constraint firstAttribute="trailing" secondItem="dWz-go-ROy" secondAttribute="trailing" id="E5i-cy-TsJ"/>
+                    <constraint firstAttribute="bottom" secondItem="dWz-go-ROy" secondAttribute="bottom" id="VzT-3S-64G"/>
+                    <constraint firstItem="dWz-go-ROy" firstAttribute="top" secondItem="qt7-mC-EtS" secondAttribute="top" id="ksR-Dv-CYo"/>
+                    <constraint firstItem="dWz-go-ROy" firstAttribute="leading" secondItem="qt7-mC-EtS" secondAttribute="leading" id="sxm-2E-9E0"/>
                 </constraints>
-            </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            </collectionViewCellContentView>
+            <size key="customSize" width="370" height="65"/>
             <connections>
-                <outlet property="collectionView" destination="Mkx-Bm-PwT" id="Aor-Id-gs0"/>
+                <outlet property="collectionView" destination="dWz-go-ROy" id="OFp-LC-9Y3"/>
             </connections>
-            <point key="canvasLocation" x="20.800000000000001" y="173.16341829085459"/>
-        </tableViewCell>
+            <point key="canvasLocation" x="314.49275362318843" y="76.004464285714278"/>
+        </collectionViewCell>
     </objects>
 </document>

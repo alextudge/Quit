@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wda-a8-vs5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wda-a8-vs5">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,23 +15,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-L8-fgz">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YXE-D1-vD9">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iNj-DI-3fV">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ntA-L8-fgz" firstAttribute="top" secondItem="18o-1p-mi4" secondAttribute="top" id="FFN-hO-Ywh"/>
-                            <constraint firstItem="18o-1p-mi4" firstAttribute="trailing" secondItem="ntA-L8-fgz" secondAttribute="trailing" id="GKF-in-igI"/>
-                            <constraint firstItem="18o-1p-mi4" firstAttribute="bottom" secondItem="ntA-L8-fgz" secondAttribute="bottom" id="PkG-ug-LrU"/>
-                            <constraint firstItem="ntA-L8-fgz" firstAttribute="leading" secondItem="18o-1p-mi4" secondAttribute="leading" id="fYx-fv-Da5"/>
+                            <constraint firstItem="18o-1p-mi4" firstAttribute="bottom" secondItem="YXE-D1-vD9" secondAttribute="bottom" id="Q9Z-tc-qH1"/>
+                            <constraint firstItem="YXE-D1-vD9" firstAttribute="top" secondItem="18o-1p-mi4" secondAttribute="top" id="UVf-QB-Ck9"/>
+                            <constraint firstItem="18o-1p-mi4" firstAttribute="trailing" secondItem="YXE-D1-vD9" secondAttribute="trailing" id="ifv-JL-nIZ"/>
+                            <constraint firstItem="YXE-D1-vD9" firstAttribute="leading" secondItem="18o-1p-mi4" secondAttribute="leading" id="kxt-eU-Jqc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="18o-1p-mi4"/>
                     </view>
                     <navigationItem key="navigationItem" id="qYy-Ya-bLX"/>
                     <connections>
-                        <outlet property="tableView" destination="ntA-L8-fgz" id="RbX-6h-M1z"/>
+                        <outlet property="collectionView" destination="YXE-D1-vD9" id="OFR-y6-4AZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s7j-lv-aCY" userLabel="First Responder" sceneMemberID="firstResponder"/>

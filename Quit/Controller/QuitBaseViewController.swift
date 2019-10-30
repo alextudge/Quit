@@ -40,7 +40,7 @@ class QuitBaseViewController: UIViewController {
 
 private extension QuitBaseViewController {
     func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .quitBackgroundColour
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationController?.navigationBar.tintColor = .label
@@ -57,7 +57,7 @@ private extension QuitBaseViewController {
         let screenDivider = UIScreen.main.bounds.width / 3
         let swipeView = UIView(frame: CGRect(x: screenDivider, y: 17.5, width: screenDivider, height: 5))
         swipeView.layer.cornerRadius = 2.5
-        swipeView.backgroundColor = UIColor(named: "blueColour")
+        swipeView.backgroundColor = .quitPrimaryColour
         return swipeView
     }
 }

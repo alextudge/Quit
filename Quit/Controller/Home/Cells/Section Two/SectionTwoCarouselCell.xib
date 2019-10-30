@@ -18,7 +18,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6GN-0F-b22">
                         <rect key="frame" x="0.0" y="0.0" width="247" height="134"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FkC-f7-86O">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -27,18 +27,22 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="BpH-lu-l9j">
-                        <rect key="frame" x="104" y="89" width="39" height="37"/>
+                        <rect key="frame" x="104" y="82" width="39" height="37"/>
+                        <color key="pageIndicatorTintColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="currentPageIndicatorTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </pageControl>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="6GN-0F-b22" firstAttribute="top" secondItem="T5i-Qq-Laf" secondAttribute="top" id="12f-qq-39s"/>
                     <constraint firstAttribute="bottom" secondItem="6GN-0F-b22" secondAttribute="bottom" id="3yF-Q4-YxU"/>
                     <constraint firstItem="6GN-0F-b22" firstAttribute="leading" secondItem="T5i-Qq-Laf" secondAttribute="leading" id="8g8-Q9-Ym3"/>
                     <constraint firstItem="BpH-lu-l9j" firstAttribute="centerX" secondItem="T5i-Qq-Laf" secondAttribute="centerX" id="Hqm-c1-a25"/>
                     <constraint firstAttribute="trailing" secondItem="6GN-0F-b22" secondAttribute="trailing" id="MvJ-tS-sE6"/>
-                    <constraint firstAttribute="bottom" secondItem="BpH-lu-l9j" secondAttribute="bottom" constant="8" id="aBQ-Fh-nIi"/>
+                    <constraint firstAttribute="bottom" secondItem="BpH-lu-l9j" secondAttribute="bottom" constant="15" id="aBQ-Fh-nIi"/>
                 </constraints>
             </collectionViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="247" height="134"/>
             <connections>
                 <outlet property="collectionView" destination="6GN-0F-b22" id="6rT-ex-hUC"/>

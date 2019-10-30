@@ -31,6 +31,7 @@ class SectionTwoSavingsOverviewCell: UICollectionViewCell {
         savingsSummaryTextView.backgroundColor = .clear
         savingsSummaryTextView.isEditable = false
         savingsSummaryTextView.isSelectable = false
+        savingsSummaryTextView.layoutIfNeeded()
     }
     
     @IBAction private func addSavingGoalButton(_ sender: Any) {

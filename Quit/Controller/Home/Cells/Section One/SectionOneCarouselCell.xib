@@ -18,27 +18,31 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fqo-wV-bPZ">
                         <rect key="frame" x="0.0" y="0.0" width="288" height="154"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vYl-ge-3co">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="vYl-ge-3co">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="iUU-Qm-i3D">
-                        <rect key="frame" x="124.5" y="109" width="39" height="37"/>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="iUU-Qm-i3D">
+                        <rect key="frame" x="132.5" y="102" width="23" height="37"/>
+                        <color key="pageIndicatorTintColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="currentPageIndicatorTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </pageControl>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="fqo-wV-bPZ" firstAttribute="leading" secondItem="WO1-Dd-QJI" secondAttribute="leading" id="Lxo-k9-Ft7"/>
                     <constraint firstAttribute="trailing" secondItem="fqo-wV-bPZ" secondAttribute="trailing" id="Of0-vV-r9I"/>
                     <constraint firstItem="iUU-Qm-i3D" firstAttribute="centerX" secondItem="WO1-Dd-QJI" secondAttribute="centerX" id="Y1Y-2g-Gme"/>
-                    <constraint firstAttribute="bottom" secondItem="iUU-Qm-i3D" secondAttribute="bottom" constant="8" id="eTn-UK-gTI"/>
+                    <constraint firstAttribute="bottom" secondItem="iUU-Qm-i3D" secondAttribute="bottom" constant="15" id="eTn-UK-gTI"/>
                     <constraint firstItem="fqo-wV-bPZ" firstAttribute="top" secondItem="WO1-Dd-QJI" secondAttribute="top" id="eZm-do-C3Y"/>
                     <constraint firstAttribute="bottom" secondItem="fqo-wV-bPZ" secondAttribute="bottom" id="q2B-56-O8q"/>
                 </constraints>
             </collectionViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="288" height="154"/>
             <connections>
                 <outlet property="collectionView" destination="fqo-wV-bPZ" id="GZQ-3e-O4Z"/>

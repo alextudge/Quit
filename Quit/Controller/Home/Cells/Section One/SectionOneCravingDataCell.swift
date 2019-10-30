@@ -6,44 +6,25 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import Lottie
+import UIKit
 
 protocol SectionOneCellsDelegate: class {
     func didPressChangeQuitDate()
-    func didPressSegueToAchievements()
-    func addCraving()
     func presentAlert(_ alert: UIAlertController)
 }
 
 class SectionOneCravingDataCell: UICollectionViewCell {
     
     @IBOutlet private weak var quitDateLabel: UILabel!
-    @IBOutlet private weak var achievementsLottieView: AnimationView!
-    @IBOutlet private weak var cravingLottieView: AnimationView!
-    @IBOutlet private weak var addCravingButton: RoundedButton!
     
     var viewModel = SectionOneCravingDataCellViewModel()
     
     weak var delegate: SectionOneCellsDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        achievementsLottieView.play()
-        cravingLottieView.play()
-    }
-    
     func setup() {
         setupUI()
         setupQuitTimer()
         displayQuitDate()
-    }
-    
-    @IBAction private func cravingButton(_ sender: Any) {
-        delegate?.addCraving()
-    }
-    
-    @IBAction private func achievementsButtonPressed(_ sender: Any) {
-        delegate?.didPressSegueToAchievements()
     }
 }
 

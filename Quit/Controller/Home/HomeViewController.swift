@@ -23,16 +23,15 @@ class HomeViewController: QuitBaseViewController {
         showOnboarding()
     }
     
-    @IBAction private func didTapAddInfoButton(_ sender: Any) {
-        segueToProfileViewController()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        requestProfileDataIfNeeded()
     }
 }
 
 private extension HomeViewController {
     func setupUI() {
-        title = "Quit"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.isHidden = true
         setupSettingsNavButton()
     }
     
@@ -78,7 +77,17 @@ private extension HomeViewController {
     func setupAd() {
         interstitial.delegate = self
         let request = GADRequest()
-        interstitial.load(request)
+//        interstitial.load(request)
+    }
+    
+    func requestProfileDataIfNeeded() {
+        guard let profile = persistenceManager?.getProfile(),
+            profile.quitDate != nil,
+            profile.smokedDaily != nil,
+            profile.costOf20 != nil else {
+            segueToProfileViewController()
+            return
+        }
     }
 }
 
@@ -201,6 +210,7 @@ private extension HomeViewController {
     func segueToProfileViewController() {
         if let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "QuitInfoPageViewController") as? QuitInfoPageViewController {
             viewController.persistenceManager = persistenceManager
+            viewController.modalPresentationStyle = .overFullScreen
             present(viewController, animated: true, completion: nil)
         }
     }

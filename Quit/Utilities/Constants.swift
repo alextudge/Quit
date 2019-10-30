@@ -120,6 +120,6 @@ struct Styles {
     }
     
     static let savingsInfoAttributes =
-        [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel,
-         NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 30)!]
+        [NSAttributedString.Key.foregroundColor: UIColor.label,
+         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)]
 }

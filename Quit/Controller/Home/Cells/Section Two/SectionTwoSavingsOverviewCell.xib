@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -17,12 +16,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="313" height="233"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="owX-tF-rrC">
-                        <rect key="frame" x="5" y="20" width="288" height="193"/>
-                        <color key="textColor" cocoaTouchSystemColor="secondaryLabelColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMZ-Cl-917" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
+                        <rect key="frame" x="10" y="10" width="293" height="213"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="da2-Fs-ks7">
+                                <rect key="frame" x="20" y="20" width="253" height="173"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your money" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDo-3T-ely" customClass="QuitLabel" customModule="Quit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="253" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="owX-tF-rrC">
+                                        <rect key="frame" x="0.0" y="40.5" width="253" height="132.5"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="da2-Fs-ks7" firstAttribute="top" secondItem="pMZ-Cl-917" secondAttribute="top" constant="20" id="5qa-9A-hb2"/>
+                            <constraint firstAttribute="trailing" secondItem="da2-Fs-ks7" secondAttribute="trailing" constant="20" id="SJ8-cG-ued"/>
+                            <constraint firstItem="da2-Fs-ks7" firstAttribute="leading" secondItem="pMZ-Cl-917" secondAttribute="leading" constant="20" id="YoF-Zb-e6a"/>
+                            <constraint firstAttribute="bottom" secondItem="da2-Fs-ks7" secondAttribute="bottom" constant="20" id="quF-tJ-cie"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQ8-JC-Fq8" customClass="AnimationView" customModule="Lottie">
                         <rect key="frame" x="253" y="173" width="40" height="40"/>
                         <constraints>
@@ -45,16 +67,16 @@
                     </button>
                 </subviews>
             </view>
-            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="mQ8-JC-Fq8" secondAttribute="bottom" constant="20" id="4Of-bR-22J"/>
-                <constraint firstItem="owX-tF-rrC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="8Ov-Kh-2jW"/>
-                <constraint firstAttribute="trailing" secondItem="owX-tF-rrC" secondAttribute="trailing" constant="20" id="SCv-Xm-z9K"/>
-                <constraint firstAttribute="bottom" secondItem="owX-tF-rrC" secondAttribute="bottom" constant="20" id="U4E-Kf-uNn"/>
+                <constraint firstItem="pMZ-Cl-917" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="4yp-vT-tBF"/>
                 <constraint firstAttribute="trailing" secondItem="rlb-Xs-mMr" secondAttribute="trailing" constant="20" id="UdE-g0-KFH"/>
                 <constraint firstAttribute="trailing" secondItem="mQ8-JC-Fq8" secondAttribute="trailing" constant="20" id="a8W-Eu-VpT"/>
                 <constraint firstAttribute="bottom" secondItem="rlb-Xs-mMr" secondAttribute="bottom" constant="20" id="fAA-Ya-I7a"/>
-                <constraint firstItem="owX-tF-rrC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="rIT-WO-gBG"/>
+                <constraint firstItem="pMZ-Cl-917" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="s8K-Jx-qPM"/>
+                <constraint firstAttribute="bottom" secondItem="pMZ-Cl-917" secondAttribute="bottom" constant="10" id="ujg-50-1SB"/>
+                <constraint firstAttribute="trailing" secondItem="pMZ-Cl-917" secondAttribute="trailing" constant="10" id="xSf-QZ-l9K"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="313" height="233"/>

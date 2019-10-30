@@ -30,6 +30,7 @@ class SectionOneVapingDataCell: UICollectionViewCell {
             vapeSpendLabel.text = "You haven't registered any spending on vaping"
             vapeSavingsLabel.text = ""
         }
+        layoutIfNeeded()
     }
     
     @IBAction private func didTapIncreaseSpendingButton(_ sender: Any) {

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,97 +16,47 @@
                 <rect key="frame" x="0.0" y="0.0" width="399" height="231"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd4-ei-MaL">
-                        <rect key="frame" x="0.0" y="0.0" width="399" height="231"/>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd4-ei-MaL" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
+                        <rect key="frame" x="10" y="10" width="379" height="211"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acL-Ea-F7b">
-                                <rect key="frame" x="10" y="10" width="0.0" height="0.0"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ix-g1-zka" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="339" y="147.5" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="FlP-Yg-fy0"/>
-                                    <constraint firstAttribute="height" constant="40" id="dRF-Ky-dFD"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="addIcon"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBZ-sB-DqH" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="339" y="147.5" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="oay-ql-gs7"/>
-                                    <constraint firstAttribute="width" constant="40" id="rZq-by-FIF"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="cravingButton:" destination="xeY-of-lYy" eventType="touchUpInside" id="JIm-Fo-rjA"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yg-t9-oXz" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="339" y="20" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Xdc-GY-djd"/>
-                                    <constraint firstAttribute="width" constant="40" id="jEz-PF-Gs4"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="achievements"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjR-81-bD8">
-                                <rect key="frame" x="339" y="20" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="OQJ-IT-rB6"/>
-                                    <constraint firstAttribute="width" constant="40" id="hUJ-7B-JBY"/>
-                                </constraints>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="achievementsButtonPressed:" destination="xeY-of-lYy" eventType="touchUpInside" id="lN9-M9-UIj"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Craving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJo-jE-TGE">
-                                <rect key="frame" x="338.5" y="197.5" width="41.5" height="13.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EcX-qr-226">
+                                <rect key="frame" x="20" y="20" width="71" height="40.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Quit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D63-5g-TXO" customClass="QuitLabel" customModule="Quit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acL-Ea-F7b" customClass="QuitLabel" customModule="Quit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="40.5" width="0.0" height="0.0"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AJo-jE-TGE" firstAttribute="top" secondItem="ZBZ-sB-DqH" secondAttribute="bottom" constant="10" id="0Hv-rm-gnq"/>
-                            <constraint firstAttribute="trailing" secondItem="4Ix-g1-zka" secondAttribute="trailing" constant="20" id="3Zv-Ko-kni"/>
-                            <constraint firstItem="AJo-jE-TGE" firstAttribute="top" secondItem="4Ix-g1-zka" secondAttribute="bottom" constant="10" id="63d-Md-reL"/>
-                            <constraint firstItem="SjR-81-bD8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="acL-Ea-F7b" secondAttribute="trailing" constant="30" id="9Li-xj-YNS"/>
-                            <constraint firstAttribute="trailing" secondItem="6yg-t9-oXz" secondAttribute="trailing" constant="20" id="D3c-Qd-QZf"/>
-                            <constraint firstAttribute="bottom" secondItem="AJo-jE-TGE" secondAttribute="bottom" constant="20" id="FIs-Ha-rCU"/>
-                            <constraint firstAttribute="trailing" secondItem="ZBZ-sB-DqH" secondAttribute="trailing" constant="20" id="LHR-fm-ffZ"/>
-                            <constraint firstItem="6yg-t9-oXz" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="20" id="QxP-Wu-bfG"/>
-                            <constraint firstAttribute="trailing" secondItem="SjR-81-bD8" secondAttribute="trailing" constant="20" id="Snw-Ww-2f9"/>
-                            <constraint firstItem="acL-Ea-F7b" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="10" id="XV0-oL-Fut"/>
-                            <constraint firstItem="acL-Ea-F7b" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="10" id="gJ1-TU-GtF"/>
-                            <constraint firstItem="SjR-81-bD8" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="20" id="moo-y3-e0d"/>
-                            <constraint firstItem="AJo-jE-TGE" firstAttribute="centerX" secondItem="ZBZ-sB-DqH" secondAttribute="centerX" id="ygd-3q-YIT"/>
+                            <constraint firstItem="EcX-qr-226" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="20" id="Uv8-nd-uLq"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EcX-qr-226" secondAttribute="bottom" constant="20" id="VI7-wW-7ar"/>
+                            <constraint firstItem="EcX-qr-226" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="20" id="q6w-Ib-C5a"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Xd4-ei-MaL" firstAttribute="leading" secondItem="xeY-of-lYy" secondAttribute="leading" id="FpK-wq-rQ8"/>
-                <constraint firstAttribute="bottom" secondItem="Xd4-ei-MaL" secondAttribute="bottom" id="QYm-Of-VIF"/>
-                <constraint firstItem="Xd4-ei-MaL" firstAttribute="top" secondItem="xeY-of-lYy" secondAttribute="top" id="mqr-mW-ccA"/>
-                <constraint firstAttribute="trailing" secondItem="Xd4-ei-MaL" secondAttribute="trailing" id="oxI-U8-5sd"/>
+                <constraint firstItem="Xd4-ei-MaL" firstAttribute="leading" secondItem="xeY-of-lYy" secondAttribute="leading" constant="10" id="FpK-wq-rQ8"/>
+                <constraint firstAttribute="bottom" secondItem="Xd4-ei-MaL" secondAttribute="bottom" constant="10" id="QYm-Of-VIF"/>
+                <constraint firstItem="Xd4-ei-MaL" firstAttribute="top" secondItem="xeY-of-lYy" secondAttribute="top" constant="10" id="mqr-mW-ccA"/>
+                <constraint firstAttribute="trailing" secondItem="Xd4-ei-MaL" secondAttribute="trailing" constant="10" id="oxI-U8-5sd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="bKf-NW-ezf"/>
             <size key="customSize" width="399" height="231"/>
             <connections>
-                <outlet property="achievementsLottieView" destination="6yg-t9-oXz" id="d3Q-BO-raz"/>
-                <outlet property="addCravingButton" destination="ZBZ-sB-DqH" id="hA4-86-G6m"/>
-                <outlet property="cravingLottieView" destination="4Ix-g1-zka" id="TeB-nz-4gX"/>
                 <outlet property="quitDateLabel" destination="acL-Ea-F7b" id="9th-yk-jzM"/>
             </connections>
             <point key="canvasLocation" x="348" y="-12.143928035982009"/>

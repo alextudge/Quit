@@ -117,24 +117,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current habits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vP-g5-GRs">
-                                <rect key="frame" x="20" y="64" width="374" height="36"/>
+                                <rect key="frame" x="20" y="74" width="374" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wCQ-Nl-Ocr">
-                                <rect key="frame" x="20" y="161" width="374" height="34"/>
+                                <rect key="frame" x="20" y="171" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much is a pack of 20?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qke-LN-nyA">
-                                <rect key="frame" x="20" y="120" width="374" height="21"/>
+                                <rect key="frame" x="20" y="130" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many do you smoke each day?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP8-QJ-YWv">
-                                <rect key="frame" x="20" y="215" width="374" height="21"/>
+                                <rect key="frame" x="20" y="225" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="5" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uZD-kf-o8y">
-                                <rect key="frame" x="20" y="256" width="374" height="34"/>
+                                <rect key="frame" x="20" y="266" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
@@ -173,7 +173,7 @@
                             <constraint firstItem="dP8-QJ-YWv" firstAttribute="leading" secondItem="Jdt-mv-avq" secondAttribute="leading" constant="20" id="fFY-Zg-6Dv"/>
                             <constraint firstItem="dP8-QJ-YWv" firstAttribute="top" secondItem="wCQ-Nl-Ocr" secondAttribute="bottom" constant="20" id="imj-52-JHm"/>
                             <constraint firstItem="wCQ-Nl-Ocr" firstAttribute="leading" secondItem="Jdt-mv-avq" secondAttribute="leading" constant="20" id="k2E-HU-CBS"/>
-                            <constraint firstItem="1vP-g5-GRs" firstAttribute="top" secondItem="Jdt-mv-avq" secondAttribute="top" constant="20" id="knv-Bm-jMZ"/>
+                            <constraint firstItem="1vP-g5-GRs" firstAttribute="top" secondItem="Jdt-mv-avq" secondAttribute="top" constant="30" id="knv-Bm-jMZ"/>
                             <constraint firstItem="wCQ-Nl-Ocr" firstAttribute="top" secondItem="qke-LN-nyA" secondAttribute="bottom" constant="20" id="m8d-G6-a9C"/>
                             <constraint firstItem="qke-LN-nyA" firstAttribute="top" secondItem="1vP-g5-GRs" secondAttribute="bottom" constant="20" id="pVQ-fQ-EDl"/>
                             <constraint firstItem="Jdt-mv-avq" firstAttribute="trailing" secondItem="1vP-g5-GRs" secondAttribute="trailing" constant="20" id="qHb-nP-YQP"/>
@@ -200,16 +200,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhu-7Q-Sr5">
-                                <rect key="frame" x="20" y="64" width="414" height="36"/>
+                                <rect key="frame" x="20" y="74" width="414" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="fdT-qZ-GTz">
-                                <rect key="frame" x="20" y="161" width="374" height="216"/>
+                                <rect key="frame" x="20" y="171" width="374" height="216"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When will you quit?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnK-70-6Po">
-                                <rect key="frame" x="20" y="120" width="374" height="21"/>
+                                <rect key="frame" x="20" y="130" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -237,7 +237,7 @@
                             <constraint firstItem="fdT-qZ-GTz" firstAttribute="leading" secondItem="QKC-ZE-CHK" secondAttribute="leading" constant="20" id="Ig9-dP-Z3N"/>
                             <constraint firstItem="fdT-qZ-GTz" firstAttribute="top" secondItem="cnK-70-6Po" secondAttribute="bottom" constant="20" id="NrA-wA-D8F"/>
                             <constraint firstItem="cnK-70-6Po" firstAttribute="leading" secondItem="QKC-ZE-CHK" secondAttribute="leading" constant="20" id="XWh-Bq-NYf"/>
-                            <constraint firstItem="fhu-7Q-Sr5" firstAttribute="top" secondItem="QKC-ZE-CHK" secondAttribute="top" constant="20" id="cWG-WK-Oqr"/>
+                            <constraint firstItem="fhu-7Q-Sr5" firstAttribute="top" secondItem="QKC-ZE-CHK" secondAttribute="top" constant="30" id="cWG-WK-Oqr"/>
                             <constraint firstItem="V06-id-byP" firstAttribute="leading" secondItem="QKC-ZE-CHK" secondAttribute="leading" constant="20" id="dtz-Y2-q00"/>
                             <constraint firstItem="fdT-qZ-GTz" firstAttribute="trailing" secondItem="QKC-ZE-CHK" secondAttribute="trailing" constant="-20" id="iQ6-ij-scx"/>
                             <constraint firstItem="QKC-ZE-CHK" firstAttribute="bottom" secondItem="V06-id-byP" secondAttribute="bottom" constant="20" id="itR-ni-qvH"/>

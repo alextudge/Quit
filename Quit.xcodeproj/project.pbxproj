@@ -57,6 +57,8 @@
 		178500E72368E10C00C64DCF /* SectionThreeCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */; };
 		178500E92368E16800C64DCF /* SectionFourCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E82368E16800C64DCF /* SectionFourCarouselCell.xib */; };
 		178500EB2368E1BA00C64DCF /* SectionFiveCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500EA2368E1BA00C64DCF /* SectionFiveCarouselCell.xib */; };
+		178500ED2368E74E00C64DCF /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178500EC2368E74E00C64DCF /* UIColorExtensions.swift */; };
+		178500EF2368F43700C64DCF /* QuitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178500EE2368F43700C64DCF /* QuitLabel.swift */; };
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		1788CBCC2039B3E000064A86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		1790143122A6F48200C7D734 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1790143022A6F48200C7D734 /* Colours.xcassets */; };
@@ -238,6 +240,8 @@
 		178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeCarouselCell.xib; sourceTree = "<group>"; };
 		178500E82368E16800C64DCF /* SectionFourCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFourCarouselCell.xib; sourceTree = "<group>"; };
 		178500EA2368E1BA00C64DCF /* SectionFiveCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveCarouselCell.xib; sourceTree = "<group>"; };
+		178500EC2368E74E00C64DCF /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		178500EE2368F43700C64DCF /* QuitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitLabel.swift; sourceTree = "<group>"; };
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1788CBCB2039B3E000064A86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1790143022A6F48200C7D734 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
@@ -438,6 +442,7 @@
 				175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */,
 				17F1B61C21D5B1DF0021722D /* DoubleExtensions.swift */,
 				1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */,
+				178500EC2368E74E00C64DCF /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -580,13 +585,13 @@
 		179FDFC821640494003131C5 /* Section One */ = {
 			isa = PBXGroup;
 			children = (
+				178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */,
 				179FDFC621640479003131C5 /* SectionOneCarouselCell.swift */,
 				179FDFC92164052D003131C5 /* SectionOneCravingDataCell.swift */,
 				179FDFD72166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift */,
 				179FDFCB21640536003131C5 /* SectionOneCravingDataCell.xib */,
 				179FDFCF216419CC003131C5 /* SectionOneVapingDataCell.swift */,
 				179FDFD0216419CC003131C5 /* SectionOneVapingDataCell.xib */,
-				178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */,
 			);
 			path = "Section One";
 			sourceTree = "<group>";
@@ -594,12 +599,12 @@
 		179FDFD92166C3A4003131C5 /* Section Two */ = {
 			isa = PBXGroup;
 			children = (
+				178500E42368E04F00C64DCF /* SectionTwoCarouselCell.xib */,
 				179FDFDA2166C3FA003131C5 /* SectionTwoCarouselCell.swift */,
 				179FDFDE2168118C003131C5 /* SectionTwoSavingsOverviewCell.swift */,
 				179FDFDF2168118C003131C5 /* SectionTwoSavingsOverviewCell.xib */,
 				179FDFE421681AFE003131C5 /* SectionTwoSavingsGoalCell.swift */,
 				179FDFE521681AFE003131C5 /* SectionTwoSavingsGoalCell.xib */,
-				178500E42368E04F00C64DCF /* SectionTwoCarouselCell.xib */,
 			);
 			path = "Section Two";
 			sourceTree = "<group>";
@@ -674,6 +679,7 @@
 			children = (
 				17F4E6F420C14AC600B9A21B /* RoundButton.swift */,
 				179FDFD321641B0D003131C5 /* RoundedView.swift */,
+				178500EE2368F43700C64DCF /* QuitLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1154,6 +1160,8 @@
 				175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */,
 				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
 				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,
+				178500ED2368E74E00C64DCF /* UIColorExtensions.swift in Sources */,
+				178500EF2368F43700C64DCF /* QuitLabel.swift in Sources */,
 				17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */,
 				179FDFD1216419CC003131C5 /* SectionOneVapingDataCell.swift in Sources */,
 				179FDFEF216935D1003131C5 /* SectionThreeCravingsChartCell.swift in Sources */,

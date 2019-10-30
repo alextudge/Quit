@@ -37,16 +37,16 @@ class SectionTwoSavingsGoalCell: UICollectionViewCell {
 
 private extension SectionTwoSavingsGoalCell {
     func savingsProgress() {
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.width * 0.5, y: frame.height), radius: frame.height * 0.5, startAngle: -CGFloat.pi / 3, endAngle: 2 * CGFloat.pi, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: CGPoint(x: 41 + (bounds.height * 0.5), y: bounds.height * 1.25), radius: bounds.height * 0.5, startAngle: -CGFloat.pi / 3, endAngle: 2 * CGFloat.pi, clockwise: true)
         trackShapeLayer.path = circularPath.cgPath
         trackShapeLayer.strokeColor = UIColor.lightGray.cgColor
-        trackShapeLayer.lineWidth = 27.5
+        trackShapeLayer.lineWidth = 22
         trackShapeLayer.strokeEnd = 1
         trackShapeLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(trackShapeLayer)
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = Styles.Colours.blueColor.cgColor
-        shapeLayer.lineWidth = 30
+        shapeLayer.strokeColor = UIColor.quitPrimaryColour.cgColor
+        shapeLayer.lineWidth = 25
         shapeLayer.strokeEnd = 0
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -89,12 +89,15 @@ private extension SectionTwoSavingsGoalCell {
     }
     
     func savingsNameLabel(goal: SavingGoal) -> UILabel {
-        label = UILabel(frame: CGRect(x: 20, y: 0, width: frame.width - 40, height: 100))
-        guard let savingGoalName = goal.goalName else { return UILabel() }
+        guard let savingGoalName = goal.goalName else {
+            return UILabel()
+        }
+        label = QuitLabel(frame: CGRect(x: 30, y: 30, width: frame.width - 40, height: 20))
         let string = NSAttributedString(string: savingGoalName, attributes: Styles.savingsInfoAttributes)
         label?.attributedText = string
         label?.lineBreakMode = .byWordWrapping
         label?.numberOfLines = 0
+        label?.sizeToFit()
         label?.minimumScaleFactor = 0.5
         return label ?? UILabel()
     }

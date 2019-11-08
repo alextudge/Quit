@@ -1,20 +1,29 @@
 //
-//  QuitCostViewController.swift
+//  QuitInfoCostCell.swift
 //  Quit
 //
-//  Created by Alex Tudge on 12/10/2019.
+//  Created by Alex Tudge on 08/11/2019.
 //  Copyright © 2019 Alex Tudge. All rights reserved.
 //
 
 import UIKit
 
-class QuitCostViewController: QuitBaseViewController {
+protocol QuitInfoCostCellDelegate: class {
+    func goToNextPage()
+    func presentAlert(title: String, message: String)
+}
 
+class QuitInfoCostCell: UICollectionViewCell, QuitBaseCellProtocol {
+        
     @IBOutlet private weak var costOf20TextField: UITextField!
     @IBOutlet private weak var smokedDailyTextField: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var persistenceManager: PersistenceManager?
+    
+    weak var delegate: QuitInfoCostCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupDelegates()
         populateTextFields()
     }
@@ -22,14 +31,14 @@ class QuitCostViewController: QuitBaseViewController {
     @IBAction private func didTapNextButton(_ sender: Any) {
         if isDataValid() {
             persistValues()
-            (parent as? QuitInfoPageViewController)?.goToNextPage()
+            delegate?.goToNextPage()
         } else {
-            presentAlert(title: "😅", message: "We need this information to set up the app for you!")
+            delegate?.presentAlert(title: "😅", message: "We need this information to set up the app for you!")
         }
     }
 }
 
-extension QuitCostViewController: UITextFieldDelegate {
+extension QuitInfoCostCell: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string.isEmpty {
             return true
@@ -38,7 +47,7 @@ extension QuitCostViewController: UITextFieldDelegate {
     }
 }
 
-private extension QuitCostViewController {
+private extension QuitInfoCostCell {
     func setupDelegates() {
         costOf20TextField.delegate = self
         smokedDailyTextField.delegate = self
@@ -62,7 +71,7 @@ private extension QuitCostViewController {
             let profile = persistenceManager.getProfile(),
             let smokedDaily = Int(smokedDailyTextField.text ?? "0"),
             let costOf20 = Int(costOf20TextField.text ?? "0") else {
-            return
+                return
         }
         profile.costOf20 = NSNumber(value: costOf20)
         profile.smokedDaily = NSNumber(value: smokedDaily)

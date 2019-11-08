@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SectionFourCarouselCell: UICollectionViewCell, HomeBaseCellProtocol {
+class SectionFourCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
 
     @IBOutlet weak var collectionView: UICollectionView!
     

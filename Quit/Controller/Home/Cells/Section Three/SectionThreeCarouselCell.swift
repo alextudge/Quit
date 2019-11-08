@@ -12,7 +12,7 @@ protocol SectionThreeCarouselCellDelegate: class {
     func didTapCravingDetailsButton()
 }
 
-class SectionThreeCarouselCell: UICollectionViewCell, HomeBaseCellProtocol {
+class SectionThreeCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     

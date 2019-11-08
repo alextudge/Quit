@@ -163,7 +163,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var baseCell: HomeBaseCellProtocol?
+        var baseCell: QuitBaseCellProtocol?
         switch indexPath.section {
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionOneCarouselCell, for: indexPath) as? SectionOneCarouselCell else {
@@ -208,10 +208,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 private extension HomeViewController {
     func segueToProfileViewController() {
-        if let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "QuitInfoPageViewController") as? QuitInfoPageViewController {
+        if let viewController = ViewControllerFactory.QuitInfoViewController.viewController() as? QuitInfoViewController {
             viewController.persistenceManager = persistenceManager
-            viewController.modalPresentationStyle = .overFullScreen
-            present(viewController, animated: true, completion: nil)
+            presentQuitBaseViewController(viewController, presentationStyle: .overFullScreen)
         }
     }
     

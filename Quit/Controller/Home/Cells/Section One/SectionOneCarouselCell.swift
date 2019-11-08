@@ -15,7 +15,7 @@ protocol SectionOneCarouselCellDelegate: class {
     func presentAlert(_ alert: UIAlertController)
 }
 
-class SectionOneCarouselCell: UICollectionViewCell, HomeBaseCellProtocol {
+class SectionOneCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageController: UIPageControl!

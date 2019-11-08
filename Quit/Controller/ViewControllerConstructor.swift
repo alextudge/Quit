@@ -19,7 +19,7 @@ enum ViewControllerFactory: String {
     case HomeViewController
     case SettingsVC
     case AchievementsVC
-    case QuitInfoVC
+    case QuitInfoViewController
     case SavingGoalVC
     case SmokedVC
     case AddCravingVC
@@ -29,17 +29,11 @@ enum ViewControllerFactory: String {
     case CravingsViewController
     case ViewPendingNotificationsViewContoller
     case AddNotificationViewController
-    case QuitInfoPageViewController
-    case QuitCostViewController
-    case QuitDateViewController
     
     func storyboardForViewController() -> Storyboards {
         switch self {
         case .SettingsVC,
-             .QuitInfoVC,
-             .QuitInfoPageViewController,
-             .QuitCostViewController,
-             .QuitDateViewController:
+             .QuitInfoViewController:
             return .Settings
         case .AddCravingVC,
              .SavingGoalVC,

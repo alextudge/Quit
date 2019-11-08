@@ -21,6 +21,7 @@ class QuitBaseViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         endEditing()
     }
     
@@ -31,9 +32,9 @@ class QuitBaseViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    func presentQuitBaseViewController(_ viewController: QuitBaseViewController) {
+    func presentQuitBaseViewController(_ viewController: QuitBaseViewController, presentationStyle: UIModalPresentationStyle = .automatic) {
         viewController.persistenceManager = persistenceManager
-        viewController.modalPresentationStyle = .automatic
+        viewController.modalPresentationStyle = presentationStyle
         present(viewController, animated: true, completion: nil)
     }
 }

@@ -13,7 +13,7 @@ protocol SectionFiveCarouselCellDelegate: class {
     func showViewController(type: ViewControllerFactory)
 }
 
-class SectionFiveCarouselCell: UICollectionViewCell, HomeBaseCellProtocol {
+class SectionFiveCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageController: UIPageControl!

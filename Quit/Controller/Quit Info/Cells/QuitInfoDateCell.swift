@@ -1,29 +1,38 @@
 //
-//  QuitDateViewController.swift
+//  QuitInfoDateCell.swift
 //  Quit
 //
-//  Created by Alex Tudge on 12/10/2019.
+//  Created by Alex Tudge on 08/11/2019.
 //  Copyright © 2019 Alex Tudge. All rights reserved.
 //
 
 import UIKit
 
-class QuitDateViewController: QuitBaseViewController {
+protocol QuitInfoDateCellDelegate: class {
+    func didFinishEnteringData()
+}
 
+class QuitInfoDateCell: UICollectionViewCell, QuitBaseCellProtocol {
+    
     @IBOutlet private weak var datePicker: UIDatePicker!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var persistenceManager: PersistenceManager?
+    
+    weak var delegate: QuitInfoDateCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
         populatePicker()
     }
     
     @IBAction private func didTapSaveButton(_ sender: Any) {
         persistValues()
-        (parent as? QuitInfoPageViewController)?.dismiss(animated: true, completion: nil)
+        delegate?.didFinishEnteringData()
     }
 }
 
-private extension QuitDateViewController {
+private extension QuitInfoDateCell {
     func populatePicker() {
         if let currentDate = persistenceManager?.getProfile()?.quitDate {
             datePicker.date = currentDate

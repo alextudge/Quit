@@ -25,6 +25,10 @@ class QuitInfoCostCell: UICollectionViewCell, QuitBaseCellProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDelegates()
+    }
+    
+    func setup(persistenceManager: PersistenceManager?) {
+        self.persistenceManager = persistenceManager
         populateTextFields()
     }
     

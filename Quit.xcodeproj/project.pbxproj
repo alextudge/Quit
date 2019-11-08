@@ -31,7 +31,6 @@
 		17449C0322C555C400849AC8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17449C0122C555C400849AC8 /* MainInterface.storyboard */; };
 		17449C0722C555C400849AC8 /* HealthAchievementNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17449BFB22C555C400849AC8 /* HealthAchievementNotification.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		17449C0B22C55D3100849AC8 /* progressComplete.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCC72291A53700E577EC /* progressComplete.json */; };
-		174F488022E4AAB300CB8654 /* QuitBaseCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174F487F22E4AAB300CB8654 /* QuitBaseCellProtocol.swift */; };
 		1752F0AF21BF11AF0056642F /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
 		1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B221C0414E0056642F /* AchievementCell.swift */; };
@@ -214,7 +213,6 @@
 		17449BFF22C555C400849AC8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		17449C0222C555C400849AC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		17449C0422C555C400849AC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		174F487F22E4AAB300CB8654 /* QuitBaseCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuitBaseCellProtocol.swift; path = ../../../../../../../../../System/Volumes/Data/Users/alextudge/Documents/GitHub/Quit/Quit/Controller/Home/Cells/QuitBaseCellProtocol.swift; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
 		1752F0B221C0414E0056642F /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
@@ -574,7 +572,6 @@
 		179FDFC32164040A003131C5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				174F487F22E4AAB300CB8654 /* QuitBaseCellProtocol.swift */,
 				179FDFC821640494003131C5 /* Section One */,
 				179FDFD92166C3A4003131C5 /* Section Two */,
 				179FDFE82169332C003131C5 /* Section Three */,
@@ -1167,7 +1164,6 @@
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */,
 				1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */,
-				174F488022E4AAB300CB8654 /* QuitBaseCellProtocol.swift in Sources */,
 				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
 				17F3BA50237627CE00B01083 /* QuitInfoCostCell.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,

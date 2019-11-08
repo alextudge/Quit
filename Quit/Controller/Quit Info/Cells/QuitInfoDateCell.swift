@@ -20,9 +20,8 @@ class QuitInfoDateCell: UICollectionViewCell, QuitBaseCellProtocol {
     
     weak var delegate: QuitInfoDateCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    func setup(persistenceManager: PersistenceManager?) {
+        self.persistenceManager = persistenceManager
         populatePicker()
     }
     
@@ -45,5 +44,6 @@ private extension QuitInfoDateCell {
                 return
         }
         profile.quitDate = datePicker.date
+        persistenceManager.saveContext()
     }
 }

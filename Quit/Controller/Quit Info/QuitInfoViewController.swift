@@ -44,14 +44,13 @@ extension QuitInfoViewController: UICollectionViewDelegate, UICollectionViewData
         case 0:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuitInfoCostCell", for: indexPath) as? QuitInfoCostCell {
                 cell.delegate = self
-                cell.persistenceManager = persistenceManager
+                cell.setup(persistenceManager: persistenceManager)
                 return cell
             }
         case 1:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuitInfoDateCell", for: indexPath) as? QuitInfoDateCell {
                 cell.delegate = self
-                cell.persistenceManager = persistenceManager
-
+                cell.setup(persistenceManager: persistenceManager)
                 return cell
             }
         default:

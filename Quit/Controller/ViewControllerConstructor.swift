@@ -10,7 +10,7 @@
 import UIKit
 
 enum Storyboards: String {
-    case Main
+    case Home
     case Settings
     case Other
 }
@@ -42,7 +42,7 @@ enum ViewControllerFactory: String {
              .AddNotificationViewController:
             return .Other
         default:
-            return .Main
+            return .Home
         }
     }
     

@@ -11,6 +11,8 @@ import UIKit
 protocol SectionOneCellsDelegate: class {
     func didPressChangeQuitDate()
     func presentAlert(_ alert: UIAlertController)
+    func addCraving()
+    func didPressSegueToAchievements()
 }
 
 class SectionOneCravingDataCell: UICollectionViewCell {
@@ -25,6 +27,14 @@ class SectionOneCravingDataCell: UICollectionViewCell {
         setupUI()
         setupQuitTimer()
         displayQuitDate()
+    }
+    
+    @IBAction private func didTapAchievementsButton(_ sender: Any) {
+        delegate?.didPressSegueToAchievements()
+    }
+    
+    @IBAction private  func didTapAddCravingButton(_ sender: Any) {
+         delegate?.addCraving()
     }
 }
 

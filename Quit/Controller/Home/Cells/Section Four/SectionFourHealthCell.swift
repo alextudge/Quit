@@ -8,22 +8,26 @@
 
 import Lottie
 
-class SectionFourHealthCell: UICollectionViewCell {
-
+class SectionFourHealthCell: UICollectionViewCell, QuitBaseCellProtocol {
+    
     @IBOutlet private weak var healthStateLabel: UILabel!
     @IBOutlet private weak var progressLottieView: AnimationView!
     
     private var shapeLayer = CAShapeLayer()
     private var trackShapeLayer = CAShapeLayer()
-    
     var persistenceManager: PersistenceManager?
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         setupSavingProgress()
     }
     
-    func setupCell(data: Constants.HealthStats) {
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        reshapeProgressLayers()
+    }
+    
+    func setupCell(data: HealthStats) {
         guard let profile = persistenceManager?.getProfile(),
             let minuteSmokeFree = profile.minutesSmokeFree else {
             return
@@ -40,9 +44,8 @@ class SectionFourHealthCell: UICollectionViewCell {
             animateProgressView(progress: progress)
         }
         healthStateLabel.text = data.rawValue
-        healthStateLabel.textColor = .lightGray
-        layoutIfNeeded()
         reshapeProgressLayers()
+        layoutIfNeeded()
     }
 }
 
@@ -53,7 +56,7 @@ private extension SectionFourHealthCell {
         trackShapeLayer.strokeEnd = 1
         trackShapeLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(trackShapeLayer)
-        shapeLayer.strokeColor = Styles.Colours.blueColor.cgColor
+        shapeLayer.strokeColor = UIColor.quitPrimaryColour.cgColor
         shapeLayer.lineWidth = 15
         shapeLayer.strokeEnd = 0
         shapeLayer.lineCap = CAShapeLayerLineCap.round

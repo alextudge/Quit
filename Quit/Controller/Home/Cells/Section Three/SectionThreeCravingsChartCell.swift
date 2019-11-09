@@ -88,7 +88,7 @@ private extension SectionThreeCravingsChartCell {
         smokedLine.colors = [.systemOrange]
         smokedLine.drawCirclesEnabled = false
         smokedLine.drawValuesEnabled = false
-        let smokedGradientColors = [Styles.Colours.greenColour.cgColor, UIColor.clear.cgColor] as CFArray
+        let smokedGradientColors = [UIColor.systemOrange.cgColor, UIColor.clear.cgColor] as CFArray
         let smokedColorLocations: [CGFloat] = [1.0, 0.0]
         let smokedGradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: smokedGradientColors, locations: smokedColorLocations)
         smokedLine.fill = Fill.fillWithLinearGradient(smokedGradient!, angle: 90.0)

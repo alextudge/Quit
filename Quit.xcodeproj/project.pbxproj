@@ -44,11 +44,11 @@
 		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
 		1769EF8C23527E7300AAAFE5 /* QuitInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769EF8B23527E7300AAAFE5 /* QuitInfoViewController.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
-		177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Main.storyboard */; };
+		177F03EA2025220000CC7CA8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Home.storyboard */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
 		177F03F22025220900CC7CA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */; };
-		177F04242029104900CC7CA8 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
+		177F04242029104900CC7CA8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* Profile.swift */; };
 		178500E32368DF5600C64DCF /* SectionOneCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */; };
 		178500E52368E04F00C64DCF /* SectionTwoCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E42368E04F00C64DCF /* SectionTwoCarouselCell.xib */; };
 		178500E72368E10C00C64DCF /* SectionThreeCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */; };
@@ -58,6 +58,7 @@
 		178500EF2368F43700C64DCF /* QuitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178500EE2368F43700C64DCF /* QuitLabel.swift */; };
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		1788CBCC2039B3E000064A86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
+		178E014A23777E2400C800C0 /* QuitHealthStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E014923777E2400C800C0 /* QuitHealthStats.swift */; };
 		1790143122A6F48200C7D734 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1790143022A6F48200C7D734 /* Colours.xcassets */; };
 		1790149922A703A500C7D734 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790149822A703A500C7D734 /* IntentHandler.swift */; };
 		1790149D22A703A500C7D734 /* AddCravingIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1790149622A703A500C7D734 /* AddCravingIntent.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -66,7 +67,7 @@
 		179014A722A70C2900C7D734 /* AddCravingIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179014A622A70C2900C7D734 /* AddCravingIntentHandler.swift */; };
 		179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
-		179014AA22A70F3A00C7D734 /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
+		179014AA22A70F3A00C7D734 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* Profile.swift */; };
 		179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		179014AD22A70F5300C7D734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		1791FDDA21D410DF00EDF452 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
@@ -111,7 +112,7 @@
 		17F8FF89219A08E70095CD6E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F8FF87219A08E70095CD6E /* MainInterface.storyboard */; };
 		17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17F8FF81219A08E70095CD6E /* QuitWidget.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		17F8FF92219A0B320095CD6E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
-		17F8FF95219A0F050095CD6E /* QuitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* QuitData.swift */; };
+		17F8FF95219A0F050095CD6E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* Profile.swift */; };
 		17F8FF96219A10060095CD6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
@@ -226,12 +227,12 @@
 		1769EF8B23527E7300AAAFE5 /* QuitInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoViewController.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		177F03E92025220000CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		177F03E92025220000CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		177F03EC2025220000CC7CA8 /* Quit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quit.xcdatamodel; sourceTree = "<group>"; };
 		177F03EE2025220900CC7CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		177F03F12025220900CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		177F03F32025220900CC7CA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		177F04232029104900CC7CA8 /* QuitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitData.swift; sourceTree = "<group>"; };
+		177F04232029104900CC7CA8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCarouselCell.xib; sourceTree = "<group>"; };
 		178500E42368E04F00C64DCF /* SectionTwoCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoCarouselCell.xib; sourceTree = "<group>"; };
 		178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeCarouselCell.xib; sourceTree = "<group>"; };
@@ -241,6 +242,7 @@
 		178500EE2368F43700C64DCF /* QuitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitLabel.swift; sourceTree = "<group>"; };
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1788CBCB2039B3E000064A86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		178E014923777E2400C800C0 /* QuitHealthStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitHealthStats.swift; sourceTree = "<group>"; };
 		1790143022A6F48200C7D734 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
 		1790149622A703A500C7D734 /* AddCravingIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddCravingIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1790149822A703A500C7D734 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -395,7 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */,
-				177F03E82025220000CC7CA8 /* Main.storyboard */,
+				177F03E82025220000CC7CA8 /* Home.storyboard */,
 				17012655227EFDE000E416F6 /* Settings.storyboard */,
 				17012657227F0F9200E416F6 /* Other.storyboard */,
 			);
@@ -405,12 +407,12 @@
 		171EAFEC21D409230088C90C /* Section Five */ = {
 			isa = PBXGroup;
 			children = (
+				178500EA2368E1BA00C64DCF /* SectionFiveCarouselCell.xib */,
 				171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */,
 				1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */,
 				1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */,
 				170B0A92229486C800217358 /* SectionFiveNotificationsCell.swift */,
 				170B0A93229486C800217358 /* SectionFiveNotificationsCell.xib */,
-				178500EA2368E1BA00C64DCF /* SectionFiveCarouselCell.xib */,
 			);
 			path = "Section Five";
 			sourceTree = "<group>";
@@ -508,8 +510,9 @@
 			isa = PBXGroup;
 			children = (
 				177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */,
-				177F04232029104900CC7CA8 /* QuitData.swift */,
+				177F04232029104900CC7CA8 /* Profile.swift */,
 				171EAFF121D40D200088C90C /* AdditionalUserData.swift */,
+				178E014923777E2400C800C0 /* QuitHealthStats.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,10 +627,10 @@
 		17BA708D217513FE00ACA5F6 /* Section Four */ = {
 			isa = PBXGroup;
 			children = (
+				178500E82368E16800C64DCF /* SectionFourCarouselCell.xib */,
 				17BA708E2175143A00ACA5F6 /* SectionFourCarouselCell.swift */,
 				17BA7092217515E800ACA5F6 /* SectionFourHealthCell.swift */,
 				17BA7093217515E900ACA5F6 /* SectionFourHealthCell.xib */,
-				178500E82368E16800C64DCF /* SectionFourCarouselCell.xib */,
 			);
 			path = "Section Four";
 			sourceTree = "<group>";
@@ -992,7 +995,7 @@
 				1705FCC222919A8C00E577EC /* addIconBlue.json in Resources */,
 				177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */,
 				1705FCB9228F75FB00E577EC /* achievements.json in Resources */,
-				177F03EA2025220000CC7CA8 /* Main.storyboard in Resources */,
+				177F03EA2025220000CC7CA8 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,6 +1184,7 @@
 				17F3BA5423762EA900B01083 /* QuitBaseCellProtocol.swift in Sources */,
 				178500EF2368F43700C64DCF /* QuitLabel.swift in Sources */,
 				17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */,
+				178E014A23777E2400C800C0 /* QuitHealthStats.swift in Sources */,
 				179FDFD1216419CC003131C5 /* SectionOneVapingDataCell.swift in Sources */,
 				179FDFEF216935D1003131C5 /* SectionThreeCravingsChartCell.swift in Sources */,
 				1788CBCC2039B3E000064A86 /* Constants.swift in Sources */,
@@ -1193,7 +1197,7 @@
 				1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */,
 				1714FC9E219E359A00CFB203 /* AddCravingViewModel.swift in Sources */,
 				170B0A94229486C800217358 /* SectionFiveNotificationsCell.swift in Sources */,
-				177F04242029104900CC7CA8 /* QuitData.swift in Sources */,
+				177F04242029104900CC7CA8 /* Profile.swift in Sources */,
 				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,
 				179FDFD62166A2BF003131C5 /* HomeViewModel.swift in Sources */,
 				17F1B61D21D5B1DF0021722D /* DoubleExtensions.swift in Sources */,
@@ -1216,7 +1220,7 @@
 				179014A522A7058000C7D734 /* AddCravingIntent.intentdefinition in Sources */,
 				179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */,
 				179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */,
-				179014AA22A70F3A00C7D734 /* QuitData.swift in Sources */,
+				179014AA22A70F3A00C7D734 /* Profile.swift in Sources */,
 				179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */,
 				179014AD22A70F5300C7D734 /* Constants.swift in Sources */,
 			);
@@ -1236,7 +1240,7 @@
 			files = (
 				17F8FF92219A0B320095CD6E /* RoundButton.swift in Sources */,
 				17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */,
-				17F8FF95219A0F050095CD6E /* QuitData.swift in Sources */,
+				17F8FF95219A0F050095CD6E /* Profile.swift in Sources */,
 				17F8FF86219A08E70095CD6E /* TodayViewController.swift in Sources */,
 				17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */,
 				1791FDDA21D410DF00EDF452 /* AdditionalUserData.swift in Sources */,
@@ -1283,12 +1287,12 @@
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
-		177F03E82025220000CC7CA8 /* Main.storyboard */ = {
+		177F03E82025220000CC7CA8 /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				177F03E92025220000CC7CA8 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */ = {

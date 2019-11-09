@@ -27,6 +27,7 @@ class SectionOneCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        pageController.isHidden = UIDevice.current.userInterfaceIdiom == .pad
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.quitDateChanged, object: nil)
     }
 }
@@ -68,7 +69,11 @@ extension SectionOneCarouselCell: UICollectionViewDelegate, UICollectionViewData
 
 extension SectionOneCarouselCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return CGSize(width: collectionView.bounds.width / 2, height: collectionView.bounds.height)
+        } else {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+        }
     }
 }
 

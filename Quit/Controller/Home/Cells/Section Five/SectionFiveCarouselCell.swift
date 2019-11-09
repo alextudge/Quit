@@ -68,7 +68,11 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return CGSize(width: collectionView.bounds.width / 2, height: collectionView.bounds.height)
+        } else {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

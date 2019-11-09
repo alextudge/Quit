@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,17 +33,49 @@
                                         <rect key="frame" x="0.0" y="40.5" width="0.0" height="0.0"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V70-VJ-oGf">
+                                <rect key="frame" x="309" y="20" width="50" height="171"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tE8-ge-Wku">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="75.5"/>
+                                        <color key="tintColor" name="quitPrimaryColor"/>
+                                        <state key="normal" image="rosette" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapAchievementsButton:" destination="xeY-of-lYy" eventType="touchUpInside" id="guT-mW-8o4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peD-Lr-kyT">
+                                        <rect key="frame" x="0.0" y="95.5" width="50" height="75.5"/>
+                                        <color key="tintColor" name="quitPrimaryColor"/>
+                                        <state key="normal" image="plus" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapAddCravingButton:" destination="xeY-of-lYy" eventType="touchUpInside" id="WcX-E3-2jD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="VfB-Ae-wUO"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="V70-VJ-oGf" secondAttribute="trailing" constant="20" id="CvQ-vc-wyu"/>
                             <constraint firstItem="EcX-qr-226" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="20" id="Uv8-nd-uLq"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EcX-qr-226" secondAttribute="bottom" constant="20" id="VI7-wW-7ar"/>
                             <constraint firstItem="EcX-qr-226" firstAttribute="leading" secondItem="Xd4-ei-MaL" secondAttribute="leading" constant="20" id="q6w-Ib-C5a"/>
+                            <constraint firstItem="V70-VJ-oGf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EcX-qr-226" secondAttribute="trailing" constant="10" id="q85-r1-M7f"/>
+                            <constraint firstItem="V70-VJ-oGf" firstAttribute="top" secondItem="Xd4-ei-MaL" secondAttribute="top" constant="20" id="tRn-e2-tc2"/>
+                            <constraint firstAttribute="bottom" secondItem="V70-VJ-oGf" secondAttribute="bottom" constant="20" id="tmY-Sj-8YM"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -62,4 +95,11 @@
             <point key="canvasLocation" x="348" y="-12.143928035982009"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="rosette" catalog="system" width="50" height="64"/>
+        <namedColor name="quitPrimaryColor">
+            <color red="0.0" green="0.5899999737739563" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -25,7 +25,6 @@ class AddNotificationViewController: QuitBaseViewController {
         super.viewDidLoad()
         setupUI()
         setupDelegates()
-        requestCurrentLocation()
     }
     
     @IBAction private func segmentedControllerDidChange(_ sender: UISegmentedControl) {
@@ -35,6 +34,7 @@ class AddNotificationViewController: QuitBaseViewController {
             $0.isHidden = sender.selectedSegmentIndex == 0
         }
         if sender.selectedSegmentIndex == 1 {
+            locationManager.requestLocation()
             locationManager.requestAlwaysAuthorization()
         }
     }
@@ -62,10 +62,6 @@ private extension AddNotificationViewController {
     func setupDelegates() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-    }
-    
-    func requestCurrentLocation() {
-        locationManager.requestLocation()
     }
     
     func popController() {
@@ -104,8 +100,9 @@ private extension AddNotificationViewController {
 
 extension AddNotificationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            requestCurrentLocation()
+        locationManager.requestLocation()
+        if status != .authorizedAlways {
+            presentAlert(title: "😱", message: "You'll need to enable always location permissions in your phone's settings if you'd like receive location based notifications.")
         }
     }
     

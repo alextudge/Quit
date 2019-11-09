@@ -55,7 +55,7 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
 
 private extension SectionFiveReasonsToSmokeCell {
     func generateLabel(text: String?) -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0,y: 20, width: Int(UIScreen.main.bounds.width) - 40, height: 30))
+        let label = UILabel(frame: CGRect(x: 0, y: 20, width: Int(UIScreen.main.bounds.width) - 40, height: 30))
         label.text = text
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)

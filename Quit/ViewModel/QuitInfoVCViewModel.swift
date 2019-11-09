@@ -11,7 +11,7 @@ import UserNotifications
 
 class QuitInfoVCViewModel {
     func generateLocalNotif(quitDate: Date) {
-        Constants.HealthStats.allCases.forEach {
+        HealthStats.allCases.forEach {
             let center = UNUserNotificationCenter.current()
             center.getNotificationSettings { settings in
                 guard settings.authorizationStatus == .authorized else {

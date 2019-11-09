@@ -23,8 +23,4 @@ class SectionFiveNotificationsCell: UICollectionViewCell {
     @IBAction private func didTapSetCustomNotifButton(_ sender: Any) {
         delegate?.showViewController(.AddNotificationViewController)
     }
-    
-    @IBAction private func didTapCancelNotifsButton(_ sender: Any) {
-        
-    }
 }

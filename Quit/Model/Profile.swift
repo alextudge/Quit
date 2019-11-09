@@ -14,7 +14,7 @@ extension Profile {
             let smokedDaily = smokedDaily else {
                 return nil
         }
-        return costPerCigarette * Double(smokedDaily)
+        return costPerCigarette * Double(truncating: smokedDaily)
     }
     
     var costPerYear: Double? {
@@ -69,7 +69,7 @@ private extension Profile {
         guard let costOf20 = costOf20 else {
             return nil
         }
-        return Double(costOf20) / 20.0
+        return Double(truncating: costOf20) / 20.0
     }
     
     var costPerMinute: Double? {
@@ -90,6 +90,6 @@ private extension Profile {
         guard let smokedDaily = smokedDaily else {
             return nil
         }
-        return Double(smokedDaily) / 1440
+        return Double(truncating: smokedDaily) / 1440
     }
 }

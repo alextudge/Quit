@@ -14,31 +14,32 @@ protocol SectionThreeCravingsChartCellDelegate: class {
 
 class SectionThreeCravingsChartCell: UICollectionViewCell {
     
-    @IBOutlet weak var roundedView: RoundedView!
-    @IBOutlet weak var barChart: LineChartView!
+    @IBOutlet private weak var roundedView: RoundedView!
+    @IBOutlet private weak var barChart: LineChartView!
     
     weak var delegate: SectionThreeCravingsChartCellDelegate?
     
-    var persistenceManager: PersistenceManager? {
-        didSet {
-            guard persistenceManager != nil else {
-                return
-            }
-            loadBarChartData()
-        }
-    }
+    private var persistenceManager: PersistenceManager?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         formatBarChart()
     }
     
-    func reloadBarChart() {
+    func setup(persistenceManager: PersistenceManager?) {
+        self.persistenceManager = persistenceManager
+        loadBarChartData()
         barChart.notifyDataSetChanged()
         barChart.data?.notifyDataChanged()
     }
     
-    private func loadBarChartData() {
+    @IBAction private func didTapCravingsDetailButton(_ sender: Any) {
+        delegate?.didTapCravingsDetailButton()
+    }
+}
+
+private extension SectionThreeCravingsChartCell {
+    func loadBarChartData() {
         guard let cravingData = persistenceManager?.getCravings(),
             cravingData.count > 0 else {
             return
@@ -76,15 +77,15 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         smokedEntries.sort(by: {$0.x < $1.x})
         let cravingLine = LineChartDataSet(entries: cravingEntries, label: "Cravings")
         let smokedLine = LineChartDataSet(entries: smokedEntries, label: "Smoked")
-        cravingLine.colors = [Styles.Colours.blueColor]
+        cravingLine.colors = [.label]
         cravingLine.drawCirclesEnabled = false
         cravingLine.drawValuesEnabled = false
-        let gradientColors = [Styles.Colours.blueColor.cgColor, UIColor.clear.cgColor] as CFArray
+        let gradientColors = [UIColor.label.cgColor, UIColor.clear.cgColor] as CFArray
         let colorLocations: [CGFloat] = [1.0, 0.0]
         let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
         cravingLine.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
         cravingLine.drawFilledEnabled = true
-        smokedLine.colors = [Styles.Colours.greenColour]
+        smokedLine.colors = [.systemOrange]
         smokedLine.drawCirclesEnabled = false
         smokedLine.drawValuesEnabled = false
         let smokedGradientColors = [Styles.Colours.greenColour.cgColor, UIColor.clear.cgColor] as CFArray
@@ -108,18 +109,18 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         let rightAxis = barChart?.rightAxis
         //No data formatting
         barChart.noDataText = "Recorded cravings will appear here"
-        barChart.noDataFont = UIFont(name: "AvenirNext-Bold", size: 20)!
-        barChart.noDataTextColor = .lightGray
+        barChart.noDataFont = UIFont.systemFont(ofSize: 17)
+        barChart.noDataTextColor = .label
         //Formatting the x (date) axis
         xAxis?.labelPosition = .bottom
         xAxis?.drawLabelsEnabled = true
         xAxis?.avoidFirstLastClippingEnabled = true
         xAxis?.drawGridLinesEnabled = false
-        xAxis?.labelTextColor = .darkGray
+        xAxis?.labelTextColor = .label
         xAxis?.setLabelCount(2, force: true)
         xAxis?.avoidFirstLastClippingEnabled = true
-        xAxis?.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
-        xAxis?.axisLineColor = .lightGray
+        xAxis?.labelFont = UIFont.systemFont(ofSize: 17)
+        xAxis?.axisLineColor = .clear
         xAxis?.axisLineWidth = 2.5
         //Setup other UI elements
         leftAxis?.setLabelCount(2, force: false)
@@ -127,13 +128,12 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         rightAxis?.drawAxisLineEnabled = false
         leftAxis?.drawAxisLineEnabled = false
         rightAxis?.drawLabelsEnabled = false
-        leftAxis?.labelTextColor = .darkGray
+        leftAxis?.labelTextColor = .label
         rightAxis?.drawGridLinesEnabled = false
-        barChart.legend.textColor = .darkGray
-        barChart.legend.font = UIFont(name: "AvenirNext-Bold", size: 15)!
+        barChart.legend.enabled = false
         barChart.chartDescription?.text = ""
         barChart.highlightPerTapEnabled = false
-        leftAxis?.labelFont = UIFont(name: "AvenirNext-Bold", size: 15)!
+        leftAxis?.labelFont = UIFont.systemFont(ofSize: 17)
         barChart.frame = frame
     }
     
@@ -150,9 +150,5 @@ class SectionThreeCravingsChartCell: UICollectionViewCell {
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         return formatter
-    }
-    
-    @IBAction private func didTapCravingsDetailButton(_ sender: Any) {
-        delegate?.didTapCravingsDetailButton()
     }
 }

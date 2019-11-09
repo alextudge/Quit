@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,8 +19,8 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PB1-iX-Z5W" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
                         <rect key="frame" x="5" y="5" width="339" height="128"/>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyU-zB-Qpm" customClass="LineChartView" customModule="Charts">
-                        <rect key="frame" x="10" y="10" width="329" height="118"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyU-zB-Qpm" customClass="PieChartView" customModule="Charts">
+                        <rect key="frame" x="20" y="20" width="309" height="98"/>
                     </view>
                 </subviews>
             </view>
@@ -31,16 +28,16 @@
                 <constraint firstItem="PB1-iX-Z5W" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="66Q-tL-QaT"/>
                 <constraint firstAttribute="trailing" secondItem="PB1-iX-Z5W" secondAttribute="trailing" constant="5" id="8Sq-L5-7bc"/>
                 <constraint firstItem="PB1-iX-Z5W" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Cpm-uO-Ud1"/>
-                <constraint firstItem="uyU-zB-Qpm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="F04-w2-rAW"/>
-                <constraint firstItem="uyU-zB-Qpm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="eBc-gD-5Tn"/>
-                <constraint firstAttribute="bottom" secondItem="uyU-zB-Qpm" secondAttribute="bottom" constant="10" id="fSK-22-Yu9"/>
-                <constraint firstAttribute="trailing" secondItem="uyU-zB-Qpm" secondAttribute="trailing" constant="10" id="s5J-Qq-QVH"/>
+                <constraint firstItem="uyU-zB-Qpm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="F04-w2-rAW"/>
+                <constraint firstItem="uyU-zB-Qpm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="eBc-gD-5Tn"/>
+                <constraint firstAttribute="bottom" secondItem="uyU-zB-Qpm" secondAttribute="bottom" constant="20" id="fSK-22-Yu9"/>
+                <constraint firstAttribute="trailing" secondItem="uyU-zB-Qpm" secondAttribute="trailing" constant="20" id="s5J-Qq-QVH"/>
                 <constraint firstAttribute="bottom" secondItem="PB1-iX-Z5W" secondAttribute="bottom" constant="5" id="v3m-Jx-ckT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="349" height="138"/>
             <connections>
-                <outlet property="lineChartView" destination="uyU-zB-Qpm" id="rbp-ON-n93"/>
+                <outlet property="pieChartView" destination="uyU-zB-Qpm" id="rbp-ON-n93"/>
                 <outlet property="roundedView" destination="PB1-iX-Z5W" id="7Pj-iO-XD1"/>
             </connections>
             <point key="canvasLocation" x="52" y="87.256371814092958"/>

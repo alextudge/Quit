@@ -29,6 +29,7 @@ class SectionTwoCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
         pageController.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
 }

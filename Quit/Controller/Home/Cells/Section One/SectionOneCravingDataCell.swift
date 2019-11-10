@@ -23,6 +23,11 @@ class SectionOneCravingDataCell: UICollectionViewCell {
     
     weak var delegate: SectionOneCellsDelegate?
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        layoutIfNeeded()
+    }
+    
     func setup() {
         setupUI()
         setupQuitTimer()

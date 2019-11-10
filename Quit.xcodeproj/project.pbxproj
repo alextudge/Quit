@@ -59,6 +59,8 @@
 		1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		1788CBCC2039B3E000064A86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		178E014A23777E2400C800C0 /* QuitHealthStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E014923777E2400C800C0 /* QuitHealthStats.swift */; };
+		178E014C2377876600C800C0 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E014B2377876600C800C0 /* UIDeviceExtensions.swift */; };
+		178E0150237889FE00C800C0 /* QuitBaseCarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E014F237889FE00C800C0 /* QuitBaseCarouselCollectionViewCell.swift */; };
 		1790143122A6F48200C7D734 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1790143022A6F48200C7D734 /* Colours.xcassets */; };
 		1790149922A703A500C7D734 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790149822A703A500C7D734 /* IntentHandler.swift */; };
 		1790149D22A703A500C7D734 /* AddCravingIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1790149622A703A500C7D734 /* AddCravingIntent.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -243,6 +245,8 @@
 		1788CBB52037853D00064A86 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1788CBCB2039B3E000064A86 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		178E014923777E2400C800C0 /* QuitHealthStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitHealthStats.swift; sourceTree = "<group>"; };
+		178E014B2377876600C800C0 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
+		178E014F237889FE00C800C0 /* QuitBaseCarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitBaseCarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		1790143022A6F48200C7D734 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
 		1790149622A703A500C7D734 /* AddCravingIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddCravingIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1790149822A703A500C7D734 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -445,6 +449,7 @@
 				17F1B61C21D5B1DF0021722D /* DoubleExtensions.swift */,
 				1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */,
 				178500EC2368E74E00C64DCF /* UIColorExtensions.swift */,
+				178E014B2377876600C800C0 /* UIDeviceExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 		179FDFC32164040A003131C5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				178E014F237889FE00C800C0 /* QuitBaseCarouselCollectionViewCell.swift */,
 				179FDFC821640494003131C5 /* Section One */,
 				179FDFD92166C3A4003131C5 /* Section Two */,
 				179FDFE82169332C003131C5 /* Section Three */,
@@ -1153,6 +1159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1769EF8C23527E7300AAAFE5 /* QuitInfoViewController.swift in Sources */,
+				178E014C2377876600C800C0 /* UIDeviceExtensions.swift in Sources */,
 				1791FDE621D55A5A00EDF452 /* EditArrayVC.swift in Sources */,
 				17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */,
 				17BD352722989DFB004E766B /* ViewPendingNotificationsViewController.swift in Sources */,
@@ -1199,6 +1206,7 @@
 				170B0A94229486C800217358 /* SectionFiveNotificationsCell.swift in Sources */,
 				177F04242029104900CC7CA8 /* Profile.swift in Sources */,
 				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,
+				178E0150237889FE00C800C0 /* QuitBaseCarouselCollectionViewCell.swift in Sources */,
 				179FDFD62166A2BF003131C5 /* HomeViewModel.swift in Sources */,
 				17F1B61D21D5B1DF0021722D /* DoubleExtensions.swift in Sources */,
 				1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */,

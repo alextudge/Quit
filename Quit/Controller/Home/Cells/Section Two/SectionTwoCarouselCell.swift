@@ -12,7 +12,7 @@ protocol SectionTwoCarouselCellDelegate: class {
     func didTapSavingGoal(sender: SavingGoal?)
 }
 
-class SectionTwoCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
+class SectionTwoCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageController: UIPageControl!
@@ -26,6 +26,11 @@ class SectionTwoCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
         setupCollectionView()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.savingsChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.quitDateChanged, object: nil)
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -63,11 +68,7 @@ extension SectionTwoCarouselCell: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if UIDevice.current.userInterfaceIdiom == .pad && persistenceManager?.getGoals().isEmpty == false {
-            return CGSize(width: collectionView.bounds.width / 2, height: collectionView.bounds.height)
-        } else {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
-        }
+        return cellSize(collectionView: collectionView)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

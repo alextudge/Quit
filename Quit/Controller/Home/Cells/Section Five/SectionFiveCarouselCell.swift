@@ -13,7 +13,7 @@ protocol SectionFiveCarouselCellDelegate: class {
     func showViewController(type: ViewControllerFactory)
 }
 
-class SectionFiveCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
+class SectionFiveCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageController: UIPageControl!
@@ -26,6 +26,11 @@ class SectionFiveCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
         super.awakeFromNib()
         setupCollectionView()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.additionalDataUpdated, object: nil)
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     @objc private func reloadData(notification: NSNotification) {
@@ -68,11 +73,7 @@ extension SectionFiveCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return CGSize(width: collectionView.bounds.width / 2, height: collectionView.bounds.height)
-        } else {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
-        }
+        return cellSize(collectionView: collectionView)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

@@ -23,6 +23,11 @@ class SectionFourCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
         setupCollectionView()
     }
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     @objc private func reloadData(notification: NSNotification) {
         collectionView.reloadData()
     }

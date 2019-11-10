@@ -12,7 +12,7 @@ protocol SectionThreeCarouselCellDelegate: class {
     func didTapCravingDetailsButton()
 }
 
-class SectionThreeCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
+class SectionThreeCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
@@ -24,6 +24,11 @@ class SectionThreeCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
         super.awakeFromNib()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.cravingsChanged, object: nil)
         setupCollectionView()
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     @objc private func reloadData(notification: NSNotification) {
@@ -66,7 +71,7 @@ extension SectionThreeCarouselCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.3)
+        return cellSize(collectionView: collectionView)
     }
 }
 

@@ -27,6 +27,13 @@ class HomeViewController: QuitBaseViewController {
         super.viewDidAppear(animated)
         requestProfileDataIfNeeded()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.frame = view.bounds
+        collectionView.reloadData()
+    }
 }
 
 private extension HomeViewController {
@@ -77,7 +84,7 @@ private extension HomeViewController {
     func setupAd() {
         interstitial.delegate = self
         let request = GADRequest()
-//        interstitial.load(request)
+        //        interstitial.load(request)
     }
     
     func requestProfileDataIfNeeded() {
@@ -85,8 +92,8 @@ private extension HomeViewController {
             profile.quitDate != nil,
             profile.smokedDaily != nil,
             profile.costOf20 != nil else {
-            segueToProfileViewController()
-            return
+                segueToProfileViewController()
+                return
         }
     }
 }
@@ -202,10 +209,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 3 {
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 1.5)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            let heightDivisionalFactor: CGFloat = UIDevice.current.isPortait ? 2 : 1
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / heightDivisionalFactor)
+        case .pad:
+            let heightDivisionalFactor: CGFloat = UIDevice.current.isPortait ? 3 : 2
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / heightDivisionalFactor)
+        @unknown default:
+            return .zero
         }
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 2.1)
     }
 }
 

@@ -15,7 +15,7 @@ protocol SectionOneCarouselCellDelegate: class {
     func presentAlert(_ alert: UIAlertController)
 }
 
-class SectionOneCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
+class SectionOneCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageController: UIPageControl!
@@ -29,6 +29,12 @@ class SectionOneCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
         setupCollectionView()
         pageController.isHidden = UIDevice.current.userInterfaceIdiom == .pad
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.quitDateChanged, object: nil)
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.reloadData()
     }
 }
 
@@ -69,11 +75,7 @@ extension SectionOneCarouselCell: UICollectionViewDelegate, UICollectionViewData
 
 extension SectionOneCarouselCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return CGSize(width: collectionView.bounds.width / 2, height: collectionView.bounds.height)
-        } else {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
-        }
+        return cellSize(collectionView: collectionView)
     }
 }
 

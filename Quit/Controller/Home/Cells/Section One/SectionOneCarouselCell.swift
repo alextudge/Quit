@@ -27,7 +27,6 @@ class SectionOneCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellPr
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        pageController.isHidden = UIDevice.current.userInterfaceIdiom == .pad
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.quitDateChanged, object: nil)
     }
     

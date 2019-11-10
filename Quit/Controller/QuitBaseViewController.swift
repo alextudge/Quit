@@ -55,10 +55,23 @@ private extension QuitBaseViewController {
     }
     
     func swipeView() -> UIView {
-        let screenDivider = UIScreen.main.bounds.width / 3
-        let swipeView = UIView(frame: CGRect(x: screenDivider, y: 17.5, width: screenDivider, height: 5))
-        swipeView.layer.cornerRadius = 2.5
-        swipeView.backgroundColor = .quitPrimaryColour
-        return swipeView
+        let preferSwipe = UIDevice.current.isPortait && UIDevice.current.userInterfaceIdiom == .phone
+        if preferSwipe {
+            let screenDivider = UIScreen.main.bounds.width / 3
+            let swipeView = UIView(frame: CGRect(x: screenDivider, y: 17.5, width: screenDivider, height: 5))
+            swipeView.layer.cornerRadius = 2.5
+            swipeView.backgroundColor = .quitPrimaryColour
+            return swipeView
+        } else {
+            let closeButton = UIButton(type: .close)
+            closeButton.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 10, width: 30, height: 30)
+            closeButton.tintColor = .quitPrimaryColour
+            closeButton.addTarget(self, action: #selector(didTapClose), for: .touchUpInside)
+            return closeButton
+        }
+    }
+    
+    @objc func didTapClose() {
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -11,12 +11,9 @@ import UIKit
 class AchievementsViewController: QuitBaseViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    
-    private var viewModel: AchievementsViewModel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = AchievementsViewModel(persistenceManager: persistenceManager)
         setupUI()
         setupTableView()
     }
@@ -42,14 +39,14 @@ extension AchievementsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.achievements.count
+        return QuitAchievements.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.achievementCell, for: indexPath) as? AchievementCell else {
             return UITableViewCell()
         }
-        cell.setupCell(data: viewModel.achievements[indexPath.row])
+        cell.setupCell(data: QuitAchievements.allCases[indexPath.row], profile: persistenceManager?.getProfile())
         return cell
     }
 }

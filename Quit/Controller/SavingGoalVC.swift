@@ -81,7 +81,7 @@ class SavingGoalVC: QuitBaseViewController {
     @IBAction private func deleteButtonPressed(_ sender: Any) {
         if let savingGoal = savingGoal {
             persistenceManager?.deleteObject(savingGoal)
-            delegate?.reloadTableView()
+            NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.savingsChanged))
             dismiss(animated: true, completion: nil)
         }
     }

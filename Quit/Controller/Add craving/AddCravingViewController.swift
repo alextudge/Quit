@@ -70,8 +70,8 @@ private extension AddCravingViewController {
         let button = INUIAddVoiceShortcutButton(style: .automaticOutline)
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
-        view.topAnchor.constraint(equalTo: button.topAnchor, constant: -40).isActive = true
-        view.rightAnchor.constraint(equalTo: button.rightAnchor, constant: 10).isActive = true
+        pickerView.topAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
+        pickerView.rightAnchor.constraint(equalTo: button.rightAnchor, constant: 0).isActive = true
         button.addTarget(self, action: #selector(addToSiri(_:)), for: .touchUpInside)
     }
     

@@ -28,7 +28,7 @@ struct Constants {
         static let craving = "Craving"
         static let savingGoal = "SavingGoal"
         static let profile = "Profile"
-        static let coreDataObjects = [craving, savingGoal]
+        static let coreDataObjects = [craving, savingGoal, profile]
         static let databaseId = "Quit.sqlite"
     }
     

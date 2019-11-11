@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import Lottie
+import UIKit
 
 protocol SectionTwoSavingsOverviewCellDelegate: class {
     func didTapAddSavingsGoalButton()
@@ -15,16 +15,10 @@ protocol SectionTwoSavingsOverviewCellDelegate: class {
 class SectionTwoSavingsOverviewCell: UICollectionViewCell {
     
     @IBOutlet private weak var savingsSummaryTextView: UITextView!
-    @IBOutlet private weak var plusAnimationView: AnimationView!
     
     var persistenceManager: PersistenceManager?
     
     weak var delegate: SectionTwoSavingsOverviewCellDelegate?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        plusAnimationView.play()
-    }
     
     func setup() {
         savingsSummaryTextView.attributedText = savingsAttributedText(profile: persistenceManager?.getProfile())

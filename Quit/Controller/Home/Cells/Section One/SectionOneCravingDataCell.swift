@@ -13,6 +13,7 @@ protocol SectionOneCellsDelegate: class {
     func presentAlert(_ alert: UIAlertController)
     func addCraving()
     func didPressSegueToAchievements()
+    func didTapSettings()
 }
 
 class SectionOneCravingDataCell: UICollectionViewCell {
@@ -32,6 +33,9 @@ class SectionOneCravingDataCell: UICollectionViewCell {
         setupUI()
         setupQuitTimer()
         displayQuitDate()
+    }
+    @IBAction private func didTapSettingsViewController(_ sender: Any) {
+        delegate?.didTapSettings()
     }
     
     @IBAction private func didTapAchievementsButton(_ sender: Any) {

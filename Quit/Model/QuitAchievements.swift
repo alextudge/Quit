@@ -16,7 +16,7 @@ enum QuitAchievements: CaseIterable {
         case .avoided:
             return "Cigarettes Avoided"
         case .oneDay:
-            return "One day smok free"
+            return "One day smoke free"
         case .tenCigarettes:
             return "10 cigarettes avoided"
         case .litter:
@@ -38,13 +38,16 @@ enum QuitAchievements: CaseIterable {
         switch self {
         case .avoided:
             value = profile.cigarettesAvoided ?? 0
-            passed = value > 0.0
+            passed = value > 0
         case .oneDay:
             value = profile.daysSmokeFree ?? 0
             passed = value >= 1.0
         case .tenCigarettes:
             value  = profile.cigarettesAvoided ?? 0
             passed = value >= 10
+        case .litter:
+            value  = profile.cigarettesAvoided ?? 0
+            passed = true
         case .twoDays:
             value = profile.daysSmokeFree ?? 0
             passed = value >= 2
@@ -54,8 +57,9 @@ enum QuitAchievements: CaseIterable {
         case .oneHundredCigarettes:
             value = profile.cigarettesAvoided ?? 0
             passed = value >= 100
-        default:
-            return ("", false)
+        case .trees:
+            value  = Double((profile.cigarettesAvoided ?? 0).rounded(toPlaces: 2) / 300).rounded(toPlaces: 2)
+            passed = value >= 1
         }
         let text = passed ? successText(value: value) : failureText()
         return (text, passed)
@@ -64,6 +68,7 @@ enum QuitAchievements: CaseIterable {
 
 private extension QuitAchievements {
     func successText(value: Double) -> String {
+        let value = Int(value)
         switch self {
         case .avoided:
             return "You've avoided \(value) cigarettes"

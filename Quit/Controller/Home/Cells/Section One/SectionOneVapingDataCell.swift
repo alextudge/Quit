@@ -24,7 +24,11 @@ class SectionOneVapingDataCell: UICollectionViewCell {
             let amountString = stringFromCurrencyFormatter(data: amount)
             let savingAmountString = stringFromCurrencyFormatter(data: NSNumber(value: data?.vapingSavings ?? 0))
             vapeSpendLabel.text = "Your vape spend is \(amountString ?? "£0")"
-            vapeSavingsLabel.text = amount.doubleValue > 0 ? "Compared to smoking, you've saved \(savingAmountString ?? "£0")" : ""
+            if amount.doubleValue > 0 {
+                vapeSavingsLabel.text = "Compared to smoking, you've saved \(savingAmountString ?? "£0")"
+            } else {
+                vapeSavingsLabel.isHidden = true
+            }
         } else {
             decreaseSpendingLabel.isHidden = true
             vapeSpendLabel.text = "You haven't registered any spending on vaping"

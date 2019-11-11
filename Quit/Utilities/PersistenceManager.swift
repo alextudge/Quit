@@ -103,6 +103,7 @@ extension PersistenceManager {
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         saveContext()
+        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.cravingsChanged))
     }
     
     func addSavingGoal(title: String, cost: Double) {
@@ -110,6 +111,7 @@ extension PersistenceManager {
         saving.goalName = title
         saving.goalAmount = cost
         saveContext()
+        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.savingsChanged))
     }
 }
 
@@ -131,6 +133,9 @@ extension PersistenceManager {
             }
         }
         saveContext()
+        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.cravingsChanged))
+        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.savingsChanged))
+        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.quitDateChanged))
     }
 }
 
@@ -189,15 +194,6 @@ private extension PersistenceManager {
         } catch {
             print("\(error)")
         }
-    }
-    
-    func notifyOfCravingsChanges() {
-        NotificationCenter.default.post(name: Constants.InternalNotifs.cravingsChanged, object: nil)
-    }
-    
-    func notifyOfSavingsGoalChanges() {
-        NotificationCenter.default.post(name: Constants.InternalNotifs.savingsChanged,
-                                        object: nil)
     }
     
     func thirtyDaysAgo() -> NSDate {

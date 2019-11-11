@@ -55,6 +55,7 @@ extension CravingsViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete,
             let craving = cravings?[indexPath.row] {
             persistenceManager?.deleteObject(craving)
+            NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.cravingsChanged))
         }
         tableView.endEditing(true)
         tableView.reloadData()

@@ -453,6 +453,15 @@
 			path = "Quit Info";
 			sourceTree = "<group>";
 		};
+		177D8D932379F28B00ACAFE5 /* Add craving */ = {
+			isa = PBXGroup;
+			children = (
+				1714FC9B219E306000CFB203 /* AddCravingViewController.swift */,
+				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
+			);
+			path = "Add craving";
+			sourceTree = "<group>";
+		};
 		177F03D82025220000CC7CA8 = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +530,7 @@
 				179FDFC2216403F3003131C5 /* Home */,
 				1769EF8A23527E3100AAAFE5 /* Quit Info */,
 				178B32F42378912F007034C2 /* Achievements */,
+				177D8D932379F28B00ACAFE5 /* Add craving */,
 				17012659227F2CB600E416F6 /* Info Controllers */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
 				1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */,
@@ -655,10 +665,8 @@
 		17BD352822989E07004E766B /* Cravings */ = {
 			isa = PBXGroup;
 			children = (
-				1714FC9B219E306000CFB203 /* AddCravingViewController.swift */,
 				1701265A227F9BB100E416F6 /* CravingsViewController.swift */,
 				1701265C227F9D2100E416F6 /* CravingsCell.swift */,
-				1767D300219C417F007E4DE9 /* SmokedVC.swift */,
 			);
 			path = Cravings;
 			sourceTree = "<group>";

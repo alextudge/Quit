@@ -41,8 +41,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V70-VJ-oGf">
                                 <rect key="frame" x="309" y="20" width="50" height="171"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEo-Hz-m0v">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="43.5"/>
+                                        <color key="tintColor" name="quitPrimaryColor"/>
+                                        <state key="normal" image="dial" catalog="system"/>
+                                        <connections>
+                                            <action selector="didTapSettingsViewController:" destination="xeY-of-lYy" eventType="touchUpInside" id="bmi-fB-ays"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tE8-ge-Wku">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="75.5"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="50" height="44"/>
                                         <color key="tintColor" name="quitPrimaryColor"/>
                                         <state key="normal" image="rosette" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
@@ -52,7 +60,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peD-Lr-kyT">
-                                        <rect key="frame" x="0.0" y="95.5" width="50" height="75.5"/>
+                                        <rect key="frame" x="0.0" y="127.5" width="50" height="43.5"/>
                                         <color key="tintColor" name="quitPrimaryColor"/>
                                         <state key="normal" image="plus" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
@@ -96,6 +104,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="dial" catalog="system" width="64" height="52"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="rosette" catalog="system" width="50" height="64"/>
         <namedColor name="quitPrimaryColor">

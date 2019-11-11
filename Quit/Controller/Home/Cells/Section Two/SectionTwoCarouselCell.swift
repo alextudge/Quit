@@ -33,6 +33,11 @@ class SectionTwoCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellPr
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
+    func setup(peersistenceManager: PersistenceManager?) {
+        self.persistenceManager = peersistenceManager
+        pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
         pageController.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)

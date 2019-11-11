@@ -12,6 +12,7 @@ protocol SectionOneCarouselCellDelegate: class {
     func didPressChangeQuitDate()
     func didPressSegueToAchievements()
     func addCraving()
+    func didTapSettings()
     func presentAlert(_ alert: UIAlertController)
 }
 
@@ -79,6 +80,10 @@ extension SectionOneCarouselCell: UICollectionViewDelegateFlowLayout {
 }
 
 extension SectionOneCarouselCell: SectionOneCellsDelegate {
+    func didTapSettings() {
+        delegate?.didTapSettings()
+    }
+    
     func didPressSegueToAchievements() {
         delegate?.didPressSegueToAchievements()
     }

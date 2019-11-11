@@ -105,6 +105,10 @@ extension HomeViewController: GADInterstitialDelegate {
 }
 
 extension HomeViewController: SectionOneCarouselCellDelegate, AddCravingViewControllerDelegate {
+    func didTapSettings() {
+        segueToSettings()
+    }
+    
     func didPressSegueToAchievements() {
         showViewController(type: .AchievementsVC)
     }
@@ -182,6 +186,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionTwoCarouselCell, for: indexPath) as? SectionTwoCarouselCell else {
                 return UICollectionViewCell()
             }
+            cell.setup(peersistenceManager: persistenceManager)
             cell.delegate = self
             baseCell = cell
         case 2:

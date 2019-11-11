@@ -72,6 +72,7 @@ extension QuitInfoViewController: QuitInfoCostCellDelegate {
 
 extension QuitInfoViewController: QuitInfoDateCellDelegate {
     func didFinishEnteringData() {
+        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.quitDateChanged))
         dismiss(animated: true, completion: nil)
     }
 }

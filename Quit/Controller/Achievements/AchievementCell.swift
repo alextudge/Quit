@@ -25,7 +25,7 @@ class AchievementCell: UITableViewCell {
         titleLabel.text = data.titleForAchievement()
         resultLabel.text = data.resultsText(profile: profile).resultstext
         UIView.animate(withDuration: 0.25, animations: { [weak self] in
-            self?.resultLabel.alpha = data.resultsText(profile: profile).passed ? 1 : 0
+            self?.resultLabel.alpha = data.resultsText(profile: profile).passed ? 1 : 0.5
         })
     }
 }

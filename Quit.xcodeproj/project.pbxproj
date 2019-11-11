@@ -11,9 +11,6 @@
 		17012658227F0F9200E416F6 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012657227F0F9200E416F6 /* Other.storyboard */; };
 		1701265B227F9BB100E416F6 /* CravingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265A227F9BB100E416F6 /* CravingsViewController.swift */; };
 		1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265C227F9D2100E416F6 /* CravingsCell.swift */; };
-		1705FCB9228F75FB00E577EC /* achievements.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCB8228F75FB00E577EC /* achievements.json */; };
-		1705FCC02291954000E577EC /* addIcon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCBF2291954000E577EC /* addIcon.json */; };
-		1705FCC222919A8C00E577EC /* addIconBlue.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCC122919A8C00E577EC /* addIconBlue.json */; };
 		1705FCC82291A53700E577EC /* progressComplete.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCC72291A53700E577EC /* progressComplete.json */; };
 		1705FCD02291A72E00E577EC /* progressView.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCCF2291A72E00E577EC /* progressView.json */; };
 		170B0A94229486C800217358 /* SectionFiveNotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B0A92229486C800217358 /* SectionFiveNotificationsCell.swift */; };
@@ -196,9 +193,6 @@
 		17012657227F0F9200E416F6 /* Other.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Other.storyboard; sourceTree = "<group>"; };
 		1701265A227F9BB100E416F6 /* CravingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsViewController.swift; sourceTree = "<group>"; };
 		1701265C227F9D2100E416F6 /* CravingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsCell.swift; sourceTree = "<group>"; };
-		1705FCB8228F75FB00E577EC /* achievements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievements.json; sourceTree = "<group>"; };
-		1705FCBF2291954000E577EC /* addIcon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addIcon.json; sourceTree = "<group>"; };
-		1705FCC122919A8C00E577EC /* addIconBlue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addIconBlue.json; sourceTree = "<group>"; };
 		1705FCC72291A53700E577EC /* progressComplete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressComplete.json; sourceTree = "<group>"; };
 		1705FCCF2291A72E00E577EC /* progressView.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressView.json; sourceTree = "<group>"; };
 		170B0A92229486C800217358 /* SectionFiveNotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveNotificationsCell.swift; sourceTree = "<group>"; };
@@ -387,9 +381,6 @@
 		1705FCB7228F75E900E577EC /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				1705FCB8228F75FB00E577EC /* achievements.json */,
-				1705FCBF2291954000E577EC /* addIcon.json */,
-				1705FCC122919A8C00E577EC /* addIconBlue.json */,
 				1705FCCF2291A72E00E577EC /* progressView.json */,
 				1705FCC72291A53700E577EC /* progressComplete.json */,
 			);
@@ -992,7 +983,6 @@
 				1705FCC82291A53700E577EC /* progressComplete.json in Resources */,
 				177F03F22025220900CC7CA8 /* LaunchScreen.storyboard in Resources */,
 				179FDFCC21640536003131C5 /* SectionOneCravingDataCell.xib in Resources */,
-				1705FCC02291954000E577EC /* addIcon.json in Resources */,
 				179FDFD2216419CC003131C5 /* SectionOneVapingDataCell.xib in Resources */,
 				170B0A95229486C800217358 /* SectionFiveNotificationsCell.xib in Resources */,
 				17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */,
@@ -1006,9 +996,7 @@
 				179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */,
 				178500E72368E10C00C64DCF /* SectionThreeCarouselCell.xib in Resources */,
 				178500EB2368E1BA00C64DCF /* SectionFiveCarouselCell.xib in Resources */,
-				1705FCC222919A8C00E577EC /* addIconBlue.json in Resources */,
 				177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */,
-				1705FCB9228F75FB00E577EC /* achievements.json in Resources */,
 				177F03EA2025220000CC7CA8 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

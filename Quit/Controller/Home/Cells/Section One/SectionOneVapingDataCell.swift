@@ -21,10 +21,12 @@ class SectionOneVapingDataCell: UICollectionViewCell {
     func setup() {
         let data = persistenceManager?.getProfile()
         if let amount = data?.vapeSpending {
+            decreaseSpendingLabel.isHidden = false
             let amountString = stringFromCurrencyFormatter(data: amount)
             let savingAmountString = stringFromCurrencyFormatter(data: NSNumber(value: data?.vapingSavings ?? 0))
             vapeSpendLabel.text = "Your vape spend is \(amountString ?? "£0")"
             if amount.doubleValue > 0 {
+                vapeSavingsLabel.isHidden = false
                 vapeSavingsLabel.text = "Compared to smoking, you've saved \(savingAmountString ?? "£0")"
             } else {
                 vapeSavingsLabel.isHidden = true

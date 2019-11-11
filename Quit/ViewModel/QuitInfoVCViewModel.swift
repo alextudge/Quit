@@ -10,31 +10,5 @@ import UIKit
 import UserNotifications
 
 class QuitInfoVCViewModel {
-    func generateLocalNotif(quitDate: Date) {
-        HealthStats.allCases.forEach {
-            let center = UNUserNotificationCenter.current()
-            center.getNotificationSettings { settings in
-                guard settings.authorizationStatus == .authorized else {
-                    return
-                }
-            }
-            let minutes = Int($0.secondsForHealthState() / 60)
-            let content = UNMutableNotificationContent()
-            content.categoryIdentifier = Constants.ExternalNotifCategories.healthProgress
-            content.title = "New health improvement"
-            content.subtitle = $0.rawValue
-            content.body = "\(minutes) minutes smoke free!"
-            content.sound = UNNotificationSound.default
-            let date = Date(timeInterval: TimeInterval(minutes * 60), since: quitDate)
-            let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-    }
-    
-    func cancelAppleLocalNotifs() {
-        let center = UNUserNotificationCenter.current()
-        center.removeAllPendingNotificationRequests()
-    }
+
 }

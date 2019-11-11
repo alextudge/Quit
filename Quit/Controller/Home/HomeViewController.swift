@@ -34,6 +34,16 @@ class HomeViewController: QuitBaseViewController {
         collectionView.frame = view.bounds
         collectionView.reloadData()
     }
+    
+    func requestProfileDataIfNeeded() {
+        guard let profile = persistenceManager?.getProfile(),
+            profile.quitDate != nil,
+            profile.smokedDaily != nil,
+            profile.costOf20 != nil else {
+                segueToProfileViewController()
+                return
+        }
+    }
 }
 
 private extension HomeViewController {
@@ -85,16 +95,6 @@ private extension HomeViewController {
         interstitial.delegate = self
         let request = GADRequest()
         //        interstitial.load(request)
-    }
-    
-    func requestProfileDataIfNeeded() {
-        guard let profile = persistenceManager?.getProfile(),
-            profile.quitDate != nil,
-            profile.smokedDaily != nil,
-            profile.costOf20 != nil else {
-                segueToProfileViewController()
-                return
-        }
     }
 }
 
@@ -230,7 +230,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 private extension HomeViewController {
     func segueToProfileViewController() {
         if let viewController = ViewControllerFactory.QuitInfoViewController.viewController() as? QuitInfoViewController {
-            viewController.persistenceManager = persistenceManager
             presentQuitBaseViewController(viewController, presentationStyle: .overFullScreen)
         }
     }

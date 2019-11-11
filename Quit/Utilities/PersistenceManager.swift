@@ -128,14 +128,14 @@ extension PersistenceManager {
             let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             do {
                 try context.execute(batchDeleteRequest)
+                NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.cravingsChanged))
+                NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.savingsChanged))
+                NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.quitDateChanged))
             } catch {
                 print(error)
             }
         }
         saveContext()
-        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.cravingsChanged))
-        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.savingsChanged))
-        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.quitDateChanged))
     }
 }
 
@@ -173,10 +173,12 @@ private extension PersistenceManager {
             if let vapeSpending = oldProfile[Constants.ProfileConstants.vapeSpending] as? Double {
                 createdProfile.vapeSpending = NSNumber(value: vapeSpending)
             }
+            userDefaults?.removeObject(forKey: Constants.UserDefaults.quitData)
         }
         if let returnedData = userDefaults?.object(forKey: Constants.UserDefaults.additionalUserData) as? [String: Any] {
             createdProfile.reasonsToSmoke = (returnedData[Constants.AdditionalUserDataConstants.reasonsToSmoke] as? [String]) as NSObject?
             createdProfile.reasonsToQuit = (returnedData[Constants.AdditionalUserDataConstants.reasonsNotToSmoke] as? [String]) as NSObject?
+            userDefaults?.removeObject(forKey: Constants.UserDefaults.additionalUserData)
         }
         saveContext()
         return createdProfile

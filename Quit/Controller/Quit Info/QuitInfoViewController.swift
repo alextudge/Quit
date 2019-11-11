@@ -28,6 +28,38 @@ private extension QuitInfoViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    func generateLocalNotif(quitDate: Date?) {
+        guard let quitDate = quitDate else {
+            return
+        }
+        HealthStats.allCases.forEach {
+            let center = UNUserNotificationCenter.current()
+            center.getNotificationSettings { settings in
+                guard settings.authorizationStatus == .authorized else {
+                    return
+                }
+            }
+            let minutes = Int($0.secondsForHealthState() / 60)
+            let content = UNMutableNotificationContent()
+            content.categoryIdentifier = Constants.ExternalNotifCategories.healthProgress
+            content.title = "New health improvement"
+            content.subtitle = "\(minutes) minutes smoke free!"
+            content.body = $0.rawValue
+            content.sound = .default
+            let date = Date(timeInterval: TimeInterval(minutes * 60), since: quitDate)
+            let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+            let request = UNNotificationRequest(identifier: $0.rawValue, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelAppleLocalNotifs() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: HealthStats.allCases.compactMap { $0.rawValue })
+    }
 }
 
 extension QuitInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -73,6 +105,15 @@ extension QuitInfoViewController: QuitInfoCostCellDelegate {
 extension QuitInfoViewController: QuitInfoDateCellDelegate {
     func didFinishEnteringData() {
         NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.quitDateChanged))
-        dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "🙋‍", message: "Would you like to enable notifications each time you reach a new health achievement?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { [weak self] _ in
+            self?.generateLocalNotif(quitDate: self?.persistenceManager?.getProfile()?.quitDate)
+        })
+        let noAction = UIAlertAction(title: "No", style: .destructive, handler: { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        present(alert, animated: true, completion: nil)
     }
 }

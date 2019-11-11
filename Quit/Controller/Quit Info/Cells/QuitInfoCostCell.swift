@@ -25,6 +25,13 @@ class QuitInfoCostCell: UICollectionViewCell, QuitBaseCellProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDelegates()
+        costOf20TextField.addDoneButtonToKeyboard(action: #selector(costOf20TextField.resignFirstResponder))
+        smokedDailyTextField.addDoneButtonToKeyboard(action: #selector(smokedDailyTextField.resignFirstResponder))
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        endEditing(true)
     }
     
     func setup(persistenceManager: PersistenceManager?) {

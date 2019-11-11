@@ -47,7 +47,7 @@ enum QuitAchievements: CaseIterable {
             passed = value >= 10
         case .litter:
             value  = profile.cigarettesAvoided ?? 0
-            passed = true
+            passed = value > 0
         case .twoDays:
             value = profile.daysSmokeFree ?? 0
             passed = value >= 2

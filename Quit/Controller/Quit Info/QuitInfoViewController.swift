@@ -17,9 +17,10 @@ class QuitInfoViewController: QuitBaseViewController {
         setupDelegates()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        collectionView.reloadData()
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.contentOffset = .zero
     }
 }
 
@@ -33,6 +34,7 @@ private extension QuitInfoViewController {
         guard let quitDate = quitDate else {
             return
         }
+        cancelAppleLocalNotifs()
         HealthStats.allCases.forEach {
             let center = UNUserNotificationCenter.current()
             center.getNotificationSettings { settings in
@@ -42,7 +44,6 @@ private extension QuitInfoViewController {
             }
             let minutes = Int($0.secondsForHealthState() / 60)
             let content = UNMutableNotificationContent()
-            content.categoryIdentifier = Constants.ExternalNotifCategories.healthProgress
             content.title = "New health improvement"
             content.subtitle = "\(minutes) minutes smoke free!"
             content.body = $0.rawValue
@@ -103,17 +104,11 @@ extension QuitInfoViewController: QuitInfoCostCellDelegate {
 }
 
 extension QuitInfoViewController: QuitInfoDateCellDelegate {
-    func didFinishEnteringData() {
+    func didFinishEnteringData(enablenotifications: Bool) {
         NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.quitDateChanged))
-        let alert = UIAlertController(title: "🙋‍", message: "Would you like to enable notifications each time you reach a new health achievement?", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { [weak self] _ in
-            self?.generateLocalNotif(quitDate: self?.persistenceManager?.getProfile()?.quitDate)
-        })
-        let noAction = UIAlertAction(title: "No", style: .destructive, handler: { [weak self] _ in
-            self?.dismiss(animated: true, completion: nil)
-        })
-        alert.addAction(noAction)
-        alert.addAction(yesAction)
-        present(alert, animated: true, completion: nil)
+        if enablenotifications {
+            generateLocalNotif(quitDate: persistenceManager?.getProfile()?.quitDate)
+        }
+        dismiss(animated: true, completion: nil)
     }
 }

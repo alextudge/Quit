@@ -50,4 +50,35 @@ enum HealthStats: String, CaseIterable {
             return 31536000 * 10
         }
     }
+    
+    func information() -> String {
+        switch self {
+        case .pulseNormal:
+            return "HI"
+        case .oxygenLevels:
+            return ""
+        case .nicotineRemoval:
+            return ""
+        case .monoxideRemoval:
+            return ""
+        case .nerveEndings:
+            return ""
+        case .tasteAndSmell:
+            return ""
+        case .bronchialTubes:
+            return ""
+        case .oneWeekSuccess:
+            return ""
+        case .lungPerformance:
+            return ""
+        case .fertility:
+            return ""
+        case .heartDisease:
+            return ""
+        case .lungCancer:
+            return ""
+        @unknown default:
+            return ""
+        }
+    }
 }

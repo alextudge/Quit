@@ -14,7 +14,6 @@ class IntentHandler: INExtension {
         guard intent is AddCravingIntent else {
             fatalError()
         }
-        
         return AddCravingIntentHandler()
     }
     

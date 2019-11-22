@@ -20,22 +20,16 @@ class HomeViewController: QuitBaseViewController {
         setupUI()
         setupDelegates()
         setupTableView()
-        showOnboarding()
+        startupOperations()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        requestProfileDataIfNeeded()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
         collectionView.collectionViewLayout.invalidateLayout()
         collectionView.frame = view.bounds
-        collectionView.reloadData()
     }
     
-    func requestProfileDataIfNeeded() {
+    func startupOperations() {
         guard let profile = persistenceManager?.getProfile(),
             profile.quitDate != nil,
             profile.smokedDaily != nil,
@@ -43,25 +37,19 @@ class HomeViewController: QuitBaseViewController {
                 segueToProfileViewController()
                 return
         }
+        showPendingStartupViews()
     }
 }
 
 private extension HomeViewController {
     func setupUI() {
         navigationController?.navigationBar.isHidden = true
-        setupSettingsNavButton()
     }
     
     func setupDelegates() {
         persistenceManager = PersistenceManager()
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    func setupSettingsNavButton() {
-        let image = UIImage(named: "Settings")?.withRenderingMode(.alwaysTemplate)
-        let rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(segueToSettings))
-        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
     func setupTableView() {
@@ -72,29 +60,16 @@ private extension HomeViewController {
         collectionView.register(UINib(nibName: Constants.Cells.sectionFiveCarouselCell, bundle: nil), forCellWithReuseIdentifier: Constants.Cells.sectionFiveCarouselCell)
     }
     
-    func headerFor(section: Int) -> UIView {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
-        let label = UILabel(frame: CGRect(x: 15, y: 5, width: screenWidth - 40, height: 45))
-        header.backgroundColor = .systemBackground
-        label.textColor = .secondaryLabel
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        label.text = viewModel.titleForHeaderOf(section: section)
-        header.addSubview(label)
-        header.clipsToBounds = true
-        return header
-    }
-    
-    func showOnboarding() {
+    func showPendingStartupViews() {
         let appLoadCount = persistenceManager?.appLoadCounter() ?? 1
-        if appLoadCount % 3 != 0, persistenceManager?.isAdFree() == false {
+        if appLoadCount % 3 == 0, persistenceManager?.isAdFree() == false {
             setupAd()
         }
     }
     
     func setupAd() {
         interstitial.delegate = self
-        let request = GADRequest()
-        //        interstitial.load(request)
+        interstitial.load(GADRequest())
     }
 }
 
@@ -164,6 +139,15 @@ extension HomeViewController: SavingGoalVCDelegate {
     }
 }
 
+extension HomeViewController: SectionFourCarouselCellDelegate {
+    func loadHealthSummary(stat: HealthStats) {
+        if let viewController = ViewControllerFactory.QuitHealthSummaryViewController.viewController() as? QuitHealthSummaryViewController {
+            viewController.healthStat = stat
+            presentQuitBaseViewController(viewController)
+        }
+    }
+}
+
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 5
@@ -199,6 +183,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFourCarouselCell, for: indexPath) as? SectionFourCarouselCell else {
                 return UICollectionViewCell()
             }
+            cell.delegate = self
             baseCell = cell
         case 4:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.sectionFiveCarouselCell, for: indexPath) as? SectionFiveCarouselCell else {

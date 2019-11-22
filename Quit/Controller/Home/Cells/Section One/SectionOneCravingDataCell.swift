@@ -34,6 +34,7 @@ class SectionOneCravingDataCell: UICollectionViewCell {
         setupQuitTimer()
         displayQuitDate()
     }
+    
     @IBAction private func didTapSettingsViewController(_ sender: Any) {
         delegate?.didTapSettings()
     }

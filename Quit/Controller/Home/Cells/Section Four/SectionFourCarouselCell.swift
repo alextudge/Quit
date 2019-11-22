@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol SectionFourCarouselCellDelegate: class {
+    func loadHealthSummary(stat: HealthStats)
+}
+
 class SectionFourCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var persistenceManager: PersistenceManager?
+    
+    weak var delegate: SectionFourCarouselCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,6 +61,11 @@ extension SectionFourCarouselCell: UICollectionViewDelegate, UICollectionViewDat
         cell.persistenceManager = persistenceManager
         cell.setupCell(data: HealthStats.allCases[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let healthStat = HealthStats.allCases[indexPath.row]
+        delegate?.loadHealthSummary(stat: healthStat)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

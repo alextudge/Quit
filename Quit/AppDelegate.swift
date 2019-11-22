@@ -28,10 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     func configureNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
-            if granted {
-                let healthNotificationCategory = UNNotificationCategory(identifier: Constants.ExternalNotifCategories.healthProgress, actions: [], intentIdentifiers: [], options: [])
-                UNUserNotificationCenter.current().setNotificationCategories([healthNotificationCategory])
-            }
         }
     }
     

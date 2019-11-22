@@ -63,10 +63,6 @@ struct Constants {
         static let quitDateChanged = NSNotification.Name("quitDateChanged")
         static let additionalDataUpdated = NSNotification.Name("additionalDataUpdated")
     }
-    
-    struct ExternalNotifCategories {
-        static let healthProgress = "HealthAchievementNotification"
-    }
 }
 
 struct Styles {

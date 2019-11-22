@@ -13,6 +13,11 @@ class CravingsCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var triggerLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        triggerLabel.text = ""
+    }
+    
     func setup(_ craving: Craving) {
         let formatter = mediumDateFormatter()
         if let date = craving.cravingDate {

@@ -22,6 +22,7 @@ class CravingsViewController: QuitBaseViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.tableFooterView = UIView()
         tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         navigationItem.rightBarButtonItem = editButtonItem
     }

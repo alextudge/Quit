@@ -9,16 +9,24 @@
 import UIKit
 
 protocol QuitInfoDateCellDelegate: class {
-    func didFinishEnteringData()
+    func didFinishEnteringData(enablenotifications: Bool)
 }
 
 class QuitInfoDateCell: UICollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var notificationsTitleLabel: QuitLabel!
+    @IBOutlet private weak var enableNotificationsSwitch: UISwitch!
     
     var persistenceManager: PersistenceManager?
     
     weak var delegate: QuitInfoDateCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        notificationsTitleLabel.sizeToFit()
+        enableNotificationsSwitch.onTintColor = .quitPrimaryColour
+    }
     
     func setup(persistenceManager: PersistenceManager?) {
         self.persistenceManager = persistenceManager
@@ -27,7 +35,7 @@ class QuitInfoDateCell: UICollectionViewCell, QuitBaseCellProtocol {
     
     @IBAction private func didTapSaveButton(_ sender: Any) {
         persistValues()
-        delegate?.didFinishEnteringData()
+        delegate?.didFinishEnteringData(enablenotifications: enableNotificationsSwitch.isOn)
     }
 }
 

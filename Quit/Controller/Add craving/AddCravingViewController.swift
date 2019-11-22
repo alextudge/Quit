@@ -14,7 +14,7 @@ protocol AddCravingViewControllerDelegate: class {
     func segueToSmokedViewController()
 }
 
-class AddCravingViewController: QuitBaseViewController {
+class AddCravingViewController: QuitCelebrationBaseViewController {
     
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var pickerView: UIPickerView!

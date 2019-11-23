@@ -33,15 +33,17 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - SwiftLint (0.34.0)
+  - SwiftyStoreKit (0.15.0)
 
 DEPENDENCIES:
   - Charts
   - Google-Mobile-Ads-SDK
   - lottie-ios
   - SwiftLint
+  - SwiftyStoreKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Charts
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
@@ -49,6 +51,8 @@ SPEC REPOS:
     - lottie-ios
     - nanopb
     - SwiftLint
+  trunk:
+    - SwiftyStoreKit
 
 SPEC CHECKSUMS:
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
@@ -58,7 +62,8 @@ SPEC CHECKSUMS:
   lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
+  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
 
-PODFILE CHECKSUM: 6c773e7d5e25a7f2b44e6c64d33fd33b12e2d8f3
+PODFILE CHECKSUM: 2dda2df457782664d7abb060bb9b06fe669777cc
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.8.4

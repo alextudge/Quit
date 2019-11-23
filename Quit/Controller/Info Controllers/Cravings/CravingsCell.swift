@@ -23,7 +23,7 @@ class CravingsCell: UITableViewCell {
         if let date = craving.cravingDate {
             dateLabel.text = formatter.string(from: date)
         }
-        triggerLabel.text = craving.cravingCatagory
+        triggerLabel.text = craving.cravingCatagory?.isEmpty == true ? "No trigger" : craving.cravingCatagory
     }
     
     func mediumDateFormatter() -> DateFormatter {

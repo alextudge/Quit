@@ -26,7 +26,6 @@
 		1752F0AF21BF11AF0056642F /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
 		1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B221C0414E0056642F /* AchievementCell.swift */; };
-		175871DB22DA0BF600DB9E75 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 175871DA22DA0BF600DB9E75 /* SwiftyStoreKit */; };
 		175871DD22DA107F00DB9E75 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175871DC22DA107F00DB9E75 /* StoreKit.framework */; };
 		175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41EC21D3E0A500FB7588 /* DateExtensions.swift */; };
 		175D41EF21D3E23300FB7588 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41EE21D3E23300FB7588 /* TextField.swift */; };
@@ -306,7 +305,6 @@
 			files = (
 				175871DD22DA107F00DB9E75 /* StoreKit.framework in Frameworks */,
 				AFCC50839C8F1E441234087D /* Pods_Quit.framework in Frameworks */,
-				175871DB22DA0BF600DB9E75 /* SwiftyStoreKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +492,7 @@
 				1769EF8A23527E3100AAAFE5 /* Quit Info */,
 				178B32F42378912F007034C2 /* Achievements */,
 				177D8D932379F28B00ACAFE5 /* Add craving */,
-				1798163623889F6800623DE0 /* Heealth */,
+				1798163623889F6800623DE0 /* Health */,
 				177AAA51237E0D9F00E6CEF4 /* Savings */,
 				17012659227F2CB600E416F6 /* Info Controllers */,
 				17F021FF2031EA83005EF65C /* SettingsVC.swift */,
@@ -543,12 +541,12 @@
 			path = "Siri Intents";
 			sourceTree = "<group>";
 		};
-		1798163623889F6800623DE0 /* Heealth */ = {
+		1798163623889F6800623DE0 /* Health */ = {
 			isa = PBXGroup;
 			children = (
 				1798163723889F8E00623DE0 /* QuitHealthSummaryViewController.swift */,
 			);
-			path = Heealth;
+			path = Health;
 			sourceTree = "<group>";
 		};
 		179FDFC2216403F3003131C5 /* Home */ = {
@@ -773,7 +771,6 @@
 			);
 			name = Quit;
 			packageProductDependencies = (
-				175871DA22DA0BF600DB9E75 /* SwiftyStoreKit */,
 			);
 			productName = Quit;
 			productReference = 177F03E12025220000CC7CA8 /* Quit.app */;
@@ -850,7 +847,6 @@
 					177F03E02025220000CC7CA8 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -897,7 +893,6 @@
 			);
 			mainGroup = 177F03D82025220000CC7CA8;
 			packageReferences = (
-				175871D922DA0BF600DB9E75 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 			);
 			productRefGroup = 177F03E22025220000CC7CA8 /* Products */;
 			projectDirPath = "";
@@ -1394,6 +1389,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Quit/Quit.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1409,6 +1405,7 @@
 				MARKETING_VERSION = 6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1422,6 +1419,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Quit/Quit.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1437,6 +1435,7 @@
 				MARKETING_VERSION = 6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1637,25 +1636,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		175871D922DA0BF600DB9E75 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.15.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		175871DA22DA0BF600DB9E75 /* SwiftyStoreKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 175871D922DA0BF600DB9E75 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
-			productName = SwiftyStoreKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */ = {

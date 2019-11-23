@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_HealthAchievementNotificationVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_HealthAchievementNotificationVersionString[];
+FOUNDATION_EXPORT double SwiftyStoreKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwiftyStoreKitVersionString[];
 

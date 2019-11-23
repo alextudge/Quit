@@ -6,10 +6,7 @@ target 'Quit' do
   pod 'SwiftLint'
   pod 'Google-Mobile-Ads-SDK'
   pod 'lottie-ios'
-  
-  target 'HealthAchievementNotification' do
-     inherit! :search_paths
-  end
+  pod 'SwiftyStoreKit'
   
   target 'QuitTests' do
     inherit! :search_paths

@@ -21,8 +21,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-YQ-f0M" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="20" y="84" width="374" height="50"/>
-                                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="20" y="94" width="374" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bNW-K1-JLc"/>
                                 </constraints>
@@ -34,69 +34,59 @@
                                     <action selector="deleteAllDataButtonPressed:" destination="QzD-5e-57u" eventType="touchUpInside" id="ZMN-m1-uZk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQp-PS-LSN">
-                                <rect key="frame" x="10" y="760.5" width="394" height="101.5"/>
-                                <string key="text">Clear Data removes your cravings and savings goals. Click on the date in the main screen to change your quit date. Quit stores your data on this device. It's never sent over the interent, we can't see it, and it's only used to display your stats.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-ML-Xrk" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="20" y="195" width="374" height="50"/>
-                                <color key="backgroundColor" name="blueColour"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="zp1-Y9-rmN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Ad Free">
-                                    <color key="titleColor" name="quitWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapAdFreeButton:" destination="QzD-5e-57u" eventType="touchUpInside" id="ugx-5N-laf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wml-It-yJd" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
-                                <rect key="frame" x="20" y="265" width="374" height="50"/>
-                                <color key="backgroundColor" name="greenColour"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="PAh-wE-ojM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Restore purchases">
-                                    <color key="titleColor" name="quitWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapRestorePurchases:" destination="QzD-5e-57u" eventType="touchUpInside" id="Qj7-XD-abg"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omC-Hj-YSZ">
-                                <rect key="frame" x="20" y="154" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RxB-T9-Ei2">
+                                <rect key="frame" x="20" y="164" width="374" height="160.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omC-Hj-YSZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-ML-Xrk" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="40.5" width="374" height="50"/>
+                                        <color key="backgroundColor" name="quitPrimaryColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="zp1-Y9-rmN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Ad Free">
+                                            <color key="titleColor" name="quitWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapAdFreeButton:" destination="QzD-5e-57u" eventType="touchUpInside" id="ugx-5N-laf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wml-It-yJd" customClass="RoundedButton" customModule="Quit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="110.5" width="374" height="50"/>
+                                        <color key="backgroundColor" name="quitPrimaryColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PAh-wE-ojM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Restore purchases">
+                                            <color key="titleColor" name="quitWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapRestorePurchases:" destination="QzD-5e-57u" eventType="touchUpInside" id="Qj7-XD-abg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="2z4-ML-Xrk" firstAttribute="top" secondItem="omC-Hj-YSZ" secondAttribute="bottom" constant="20" id="3PH-G2-DSO"/>
-                            <constraint firstAttribute="trailing" secondItem="omC-Hj-YSZ" secondAttribute="trailing" constant="20" id="9e7-IX-U3v"/>
-                            <constraint firstItem="nh8-YQ-f0M" firstAttribute="top" secondItem="gOf-cF-7gA" secondAttribute="bottom" constant="40" id="AJE-EO-kn2"/>
+                            <constraint firstItem="nh8-YQ-f0M" firstAttribute="top" secondItem="gOf-cF-7gA" secondAttribute="bottom" constant="50" id="AJE-EO-kn2"/>
                             <constraint firstItem="nh8-YQ-f0M" firstAttribute="leading" secondItem="g3R-M5-fam" secondAttribute="leading" constant="20" id="BNN-LY-Vy1"/>
-                            <constraint firstItem="2z4-ML-Xrk" firstAttribute="leading" secondItem="g3R-M5-fam" secondAttribute="leading" constant="20" id="Dgd-cr-7jx"/>
-                            <constraint firstItem="cQp-PS-LSN" firstAttribute="leading" secondItem="g3R-M5-fam" secondAttribute="leading" constant="10" id="MQn-U6-7hU"/>
-                            <constraint firstItem="wml-It-yJd" firstAttribute="top" secondItem="2z4-ML-Xrk" secondAttribute="bottom" constant="20" id="T4c-CH-e8O"/>
-                            <constraint firstItem="wml-It-yJd" firstAttribute="leading" secondItem="g3R-M5-fam" secondAttribute="leading" constant="20" id="UdK-BN-tEO"/>
-                            <constraint firstAttribute="trailing" secondItem="wml-It-yJd" secondAttribute="trailing" constant="20" id="VNp-Ym-p7H"/>
-                            <constraint firstItem="omC-Hj-YSZ" firstAttribute="top" secondItem="nh8-YQ-f0M" secondAttribute="bottom" constant="20" id="bah-nJ-dkv"/>
-                            <constraint firstAttribute="trailing" secondItem="cQp-PS-LSN" secondAttribute="trailing" constant="10" id="cCm-cB-BY4"/>
-                            <constraint firstAttribute="trailing" secondItem="2z4-ML-Xrk" secondAttribute="trailing" constant="20" id="cEX-ZF-hE3"/>
+                            <constraint firstAttribute="trailing" secondItem="RxB-T9-Ei2" secondAttribute="trailing" constant="20" id="I7K-gx-6qN"/>
+                            <constraint firstItem="RxB-T9-Ei2" firstAttribute="top" secondItem="nh8-YQ-f0M" secondAttribute="bottom" constant="20" id="MCD-1c-7MB"/>
                             <constraint firstAttribute="trailing" secondItem="nh8-YQ-f0M" secondAttribute="trailing" constant="20" id="enj-M7-CL3"/>
-                            <constraint firstItem="JOQ-8B-enT" firstAttribute="top" secondItem="cQp-PS-LSN" secondAttribute="bottom" id="pz7-3C-TGT"/>
-                            <constraint firstItem="omC-Hj-YSZ" firstAttribute="leading" secondItem="g3R-M5-fam" secondAttribute="leading" constant="20" id="ww8-pX-WdA"/>
+                            <constraint firstItem="RxB-T9-Ei2" firstAttribute="leading" secondItem="g3R-M5-fam" secondAttribute="leading" constant="20" id="ljU-w2-mQW"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="adFreeButton" destination="2z4-ML-Xrk" id="TDj-B7-sko"/>
+                        <outlet property="adFreeButton" destination="2z4-ML-Xrk" id="Kvo-md-dYr"/>
+                        <outlet property="purchaseStackView" destination="RxB-T9-Ei2" id="LWi-gR-5ND"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NO8-cD-lkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -282,12 +272,6 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="blueColour">
-            <color red="0.0" green="0.5899999737739563" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="greenColour">
-            <color red="0.40000000000000002" green="0.80000000000000004" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="quitPrimaryColor">
             <color red="0.0" green="0.5899999737739563" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

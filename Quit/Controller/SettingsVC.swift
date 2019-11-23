@@ -11,7 +11,8 @@ import SwiftyStoreKit
 
 class SettingsVC: QuitBaseViewController {
     
-    @IBOutlet private weak var adFreeButton: UIButton!
+    @IBOutlet private weak var adFreeButton: RoundedButton!
+    @IBOutlet private weak var purchaseStackView: UIStackView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -20,7 +21,6 @@ class SettingsVC: QuitBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adFreeButton.isHidden = true
         getAdFreeOffers()
     }
     
@@ -53,7 +53,7 @@ private extension SettingsVC {
             if let product = result.retrievedProducts.first {
                 let priceString = product.localizedPrice!
                 self.adFreeButton.setTitle("Ad free: \(priceString)", for: .normal)
-                self.adFreeButton.isHidden = false
+                self.purchaseStackView.isHidden = false
             }
         }
     }

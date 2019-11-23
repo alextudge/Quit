@@ -63,7 +63,7 @@ private extension SectionFiveReasonsToSmokeCell {
         label.text = text
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
-        label.textColor = .darkGray
+        label.textColor = .label
         return label
     }
 }

@@ -23,6 +23,7 @@ class EditArrayVC: QuitBaseViewController {
     
     @IBAction func didTapSaveButton(_ sender: Any) {
         saveNewEntries(entries: textToArray(text: editArrayTextView.text))
+        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.additionalDataUpdated))
         dismiss(animated: true, completion: nil)
     }
 }
@@ -32,7 +33,7 @@ private extension EditArrayVC {
         editArrayTextView.layer.cornerRadius = 10
         editArrayTextView.layer.borderWidth = 2
         editArrayTextView.layer.borderColor = UIColor.lightGray.cgColor
-        editArrayTextView.textColor = .darkGray
+        editArrayTextView.textColor = .label
         if isReasonsToSmoke {
             editArrayTextView.text = arrayToTextBlock(array: persistenceManager?.getProfile()?.reasonsToSmoke as? [String] ?? [])
         } else {

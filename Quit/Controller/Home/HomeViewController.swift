@@ -201,7 +201,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            let heightDivisionalFactor: CGFloat = UIDevice.current.isPortait ? 2 : 1
+            var heightDivisionalFactor: CGFloat = UIDevice.current.isPortait ? 2 : 1
+            if indexPath.section == 3 {
+                heightDivisionalFactor = 1.5
+            }
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / heightDivisionalFactor)
         case .pad:
             let heightDivisionalFactor: CGFloat = UIDevice.current.isPortait ? 3 : 2

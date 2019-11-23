@@ -54,7 +54,7 @@ enum HealthStats: String, CaseIterable {
     func information() -> String {
         switch self {
         case .pulseNormal:
-            return "HI"
+            return "The heart rate drops and returns to normal"
         case .oxygenLevels:
             return ""
         case .nicotineRemoval:

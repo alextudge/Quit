@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="247" height="134"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6GN-0F-b22">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6GN-0F-b22">
                         <rect key="frame" x="0.0" y="0.0" width="247" height="134"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FkC-f7-86O">
@@ -26,8 +26,8 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="BpH-lu-l9j">
-                        <rect key="frame" x="104" y="82" width="39" height="37"/>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="BpH-lu-l9j">
+                        <rect key="frame" x="112" y="82" width="23" height="37"/>
                         <color key="pageIndicatorTintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="currentPageIndicatorTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </pageControl>
@@ -39,7 +39,7 @@
                     <constraint firstItem="6GN-0F-b22" firstAttribute="leading" secondItem="T5i-Qq-Laf" secondAttribute="leading" id="8g8-Q9-Ym3"/>
                     <constraint firstItem="BpH-lu-l9j" firstAttribute="centerX" secondItem="T5i-Qq-Laf" secondAttribute="centerX" id="Hqm-c1-a25"/>
                     <constraint firstAttribute="trailing" secondItem="6GN-0F-b22" secondAttribute="trailing" id="MvJ-tS-sE6"/>
-                    <constraint firstAttribute="bottom" secondItem="BpH-lu-l9j" secondAttribute="bottom" constant="15" id="aBQ-Fh-nIi"/>
+                    <constraint firstAttribute="bottom" secondItem="BpH-lu-l9j" secondAttribute="bottom" constant="15" id="b8F-0d-UH3"/>
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

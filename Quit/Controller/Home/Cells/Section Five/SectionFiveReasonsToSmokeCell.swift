@@ -22,13 +22,10 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
     var isReasonsToSmoke = false
     
     weak var delegate: SectionFiveReasonsToSmokeCellDelegate?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        roundedView.frame = CGRect(x: CGFloat(5), y: CGFloat(5), width: UIScreen.main.bounds.width - 10, height: UIScreen.main.bounds.height / 2.3 - 10)
-        roundedView.layer.cornerRadius = 10
-        roundedView.layer.borderColor = UIColor.lightGray.cgColor
-        roundedView.layer.borderWidth = 1
+        setupUI()
     }
     
     func setup(data: Profile?) {
@@ -54,6 +51,13 @@ class SectionFiveReasonsToSmokeCell: UICollectionViewCell {
 }
 
 private extension SectionFiveReasonsToSmokeCell {
+    func setupUI() {
+        scrollView.layer.cornerRadius = 5
+        scrollView.layer.borderWidth = 1
+        scrollView.layer.borderColor = UIColor.label.withAlphaComponent(0.5).cgColor
+
+    }
+    
     func generateLabel(text: String?) -> UILabel {
         let label = UILabel(frame: CGRect(x: 0, y: 20, width: Int(UIScreen.main.bounds.width) - 40, height: 30))
         label.text = text

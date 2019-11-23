@@ -10,6 +10,7 @@ import UIKit
 
 class QuitHealthSummaryViewController: QuitCelebrationBaseViewController {
     
+    @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var titleLabel: QuitLabel!
     @IBOutlet private weak var textView: UITextView!
     
@@ -17,6 +18,14 @@ class QuitHealthSummaryViewController: QuitCelebrationBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+}
+
+private extension QuitHealthSummaryViewController {
+    func setupUI() {
+        stackView.layer.cornerRadius = 5
+        stackView.backgroundColor = UIColor.quitBackgroundColour.withAlphaComponent(0.6)
         titleLabel.text = healthStat?.rawValue
         textView.text = healthStat?.information()
         guard let profile = persistenceManager?.getProfile(),

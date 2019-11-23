@@ -15,6 +15,7 @@ protocol SectionThreeCarouselCellDelegate: class {
 class SectionThreeCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var pageController: UIPageControl!
     
     var persistenceManager: PersistenceManager?
     
@@ -72,6 +73,10 @@ extension SectionThreeCarouselCell: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return cellSize(collectionView: collectionView)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+                pageController.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
 }
 

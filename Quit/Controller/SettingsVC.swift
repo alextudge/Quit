@@ -13,15 +13,15 @@ class SettingsVC: QuitBaseViewController {
     
     @IBOutlet private weak var adFreeButton: UIButton!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Settings"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         adFreeButton.isHidden = true
         getAdFreeOffers()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        title = "Settings"
     }
     
     @IBAction private func deleteAllDataButtonPressed(_ sender: Any) {

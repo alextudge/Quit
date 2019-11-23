@@ -62,7 +62,7 @@ private extension HomeViewController {
     
     func showPendingStartupViews() {
         let appLoadCount = persistenceManager?.appLoadCounter() ?? 1
-        if appLoadCount % 3 == 0, persistenceManager?.isAdFree() == false {
+        if appLoadCount % 5 == 0, persistenceManager?.isAdFree() == false {
             setupAd()
         }
     }

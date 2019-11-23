@@ -604,11 +604,11 @@
 			isa = PBXGroup;
 			children = (
 				179FDFE921693389003131C5 /* SectionThreeCarouselCell.swift */,
+				178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */,
 				179FDFED216935D1003131C5 /* SectionThreeCravingsChartCell.swift */,
 				179FDFEE216935D1003131C5 /* SectionThreeCravingsChartCell.xib */,
 				179FDFF3216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift */,
 				179FDFF4216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib */,
-				178500E62368E10C00C64DCF /* SectionThreeCarouselCell.xib */,
 			);
 			path = "Section Three";
 			sourceTree = "<group>";
@@ -1406,6 +1406,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_UIKITFORMAC = NO;
@@ -1433,6 +1434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_UIKITFORMAC = NO;

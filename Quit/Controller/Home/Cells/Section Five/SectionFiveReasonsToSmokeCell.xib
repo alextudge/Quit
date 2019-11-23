@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3e-2F-s6L" customClass="RoundedView" customModule="Quit" customModuleProvider="target">
-                        <rect key="frame" x="5" y="5" width="559" height="478"/>
+                        <rect key="frame" x="10" y="10" width="549" height="468"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AqC-KO-S7a">
-                                <rect key="frame" x="20" y="72" width="519" height="356"/>
+                                <rect key="frame" x="20" y="60.5" width="509" height="357.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="500" placeholderIntrinsicHeight="407" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="m8L-IO-8JD">
-                                        <rect key="frame" x="0.0" y="0.0" width="519" height="407"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="509" height="407"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -35,31 +35,31 @@
                                     <constraint firstItem="m8L-IO-8JD" firstAttribute="leading" secondItem="AqC-KO-S7a" secondAttribute="leading" id="uTF-m0-cgx"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0R-ej-EkA">
-                                <rect key="frame" x="499" y="20" width="50" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0R-ej-EkA">
+                                <rect key="frame" x="489" y="20" width="50" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Vgj-cY-8wM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                <state key="normal" title="Edit">
+                                <color key="tintColor" name="quitPrimaryColor"/>
+                                <state key="normal" image="pencil.and.ellipsis.rectangle" catalog="system">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapEditButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nZV-ZC-7aL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qve-XJ-VxS">
-                                <rect key="frame" x="20" y="20" width="469" height="42"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="textColor" cocoaTouchSystemColor="secondaryLabelColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qve-XJ-VxS" customClass="QuitLabel" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="459" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Qve-XJ-VxS" firstAttribute="top" secondItem="g3e-2F-s6L" secondAttribute="top" constant="20" id="305-pz-K3i"/>
                             <constraint firstAttribute="trailing" secondItem="AqC-KO-S7a" secondAttribute="trailing" constant="20" id="3HG-Fr-juz"/>
-                            <constraint firstItem="AqC-KO-S7a" firstAttribute="top" secondItem="Qve-XJ-VxS" secondAttribute="bottom" constant="10" id="Edh-ZX-R5k"/>
+                            <constraint firstItem="Qve-XJ-VxS" firstAttribute="top" secondItem="g3e-2F-s6L" secondAttribute="top" constant="20" id="6dK-UT-a9k"/>
+                            <constraint firstItem="AqC-KO-S7a" firstAttribute="top" secondItem="Qve-XJ-VxS" secondAttribute="bottom" constant="20" id="Edh-ZX-R5k"/>
                             <constraint firstAttribute="trailing" secondItem="W0R-ej-EkA" secondAttribute="trailing" constant="10" id="FsY-46-mdO"/>
                             <constraint firstItem="Qve-XJ-VxS" firstAttribute="leading" secondItem="g3e-2F-s6L" secondAttribute="leading" constant="20" id="Fut-Fm-Nr4"/>
                             <constraint firstAttribute="bottom" secondItem="AqC-KO-S7a" secondAttribute="bottom" constant="50" id="GKp-Lv-9qh"/>
@@ -71,10 +71,10 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="g3e-2F-s6L" secondAttribute="trailing" constant="5" id="0Ok-jE-zBm"/>
-                <constraint firstItem="g3e-2F-s6L" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="4mH-fl-0cq"/>
-                <constraint firstAttribute="bottom" secondItem="g3e-2F-s6L" secondAttribute="bottom" constant="5" id="CeG-L3-Yj2"/>
-                <constraint firstItem="g3e-2F-s6L" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="tBf-J5-CpP"/>
+                <constraint firstAttribute="trailing" secondItem="g3e-2F-s6L" secondAttribute="trailing" constant="10" id="0Ok-jE-zBm"/>
+                <constraint firstItem="g3e-2F-s6L" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="4mH-fl-0cq"/>
+                <constraint firstAttribute="bottom" secondItem="g3e-2F-s6L" secondAttribute="bottom" constant="10" id="CeG-L3-Yj2"/>
+                <constraint firstItem="g3e-2F-s6L" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="tBf-J5-CpP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="569" height="488"/>
@@ -87,4 +87,10 @@
             <point key="canvasLocation" x="468" y="252.77361319340332"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+        <namedColor name="quitPrimaryColor">
+            <color red="0.0" green="0.5899999737739563" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

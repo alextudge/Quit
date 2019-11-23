@@ -26,6 +26,7 @@ class SectionTwoCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellPr
         setupCollectionView()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.savingsChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData(notification:)), name: Constants.InternalNotifs.quitDateChanged, object: nil)
+        pageController.currentPage = 0
     }
     
     override func draw(_ rect: CGRect) {
@@ -35,11 +36,10 @@ class SectionTwoCarouselCell: QuitBaseCarouselCollectionViewCell, QuitBaseCellPr
     
     func setup(peersistenceManager: PersistenceManager?) {
         self.persistenceManager = peersistenceManager
-        pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
+        pageController.numberOfPages = (persistenceManager?.getGoals().count ?? 0) + 1
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
         pageController.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
 }
@@ -93,7 +93,6 @@ extension SectionTwoCarouselCell: SectionTwoSavingsOverviewCellDelegate {
 
 private extension SectionTwoCarouselCell {
     @objc func reloadData(notification: NSNotification) {
-        pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
         collectionView.reloadData()
     }
     
@@ -102,6 +101,5 @@ private extension SectionTwoCarouselCell {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "SectionTwoSavingsOverviewCell", bundle: nil), forCellWithReuseIdentifier: "SectionTwoSavingsOverviewCell")
         collectionView.register(UINib(nibName: "SectionTwoSavingsGoalCell", bundle: nil), forCellWithReuseIdentifier: "SectionTwoSavingsGoalCell")
-        pageController.numberOfPages = persistenceManager?.getGoals().count ?? 0 + 1
     }
 }

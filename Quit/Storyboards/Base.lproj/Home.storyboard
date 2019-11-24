@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wda-a8-vs5">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,19 +80,29 @@
                                 <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rv-yE-d7e" customClass="QuitLabel" customModule="Quit" customModuleProvider="target">
+                                <rect key="frame" x="20" y="475.5" width="335" height="101.5"/>
+                                <string key="text">This will reset all pending health notifcations. You can manage these individually at the bottom of the home screen, or disable all notifications from Quit at the system level</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Qba-83-lMH" firstAttribute="top" secondItem="bZL-b4-YAF" secondAttribute="top" constant="30" id="74b-BQ-hCr"/>
+                            <constraint firstItem="bZL-b4-YAF" firstAttribute="trailing" secondItem="0Rv-yE-d7e" secondAttribute="trailing" constant="20" id="7l3-fz-lPy"/>
                             <constraint firstItem="4L9-yC-83k" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="30" id="A1x-Pi-VL4"/>
+                            <constraint firstItem="0Rv-yE-d7e" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="20" id="Bnd-S7-Ez2"/>
                             <constraint firstItem="4L9-yC-83k" firstAttribute="top" secondItem="Qba-83-lMH" secondAttribute="bottom" constant="30" id="BsA-vK-0JO"/>
                             <constraint firstItem="bZL-b4-YAF" firstAttribute="trailing" secondItem="4L9-yC-83k" secondAttribute="trailing" constant="30" id="HeD-wN-ih4"/>
-                            <constraint firstItem="Y3K-tH-AeR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4L9-yC-83k" secondAttribute="bottom" id="K4d-no-BeJ"/>
                             <constraint firstItem="bZL-b4-YAF" firstAttribute="bottom" secondItem="Y3K-tH-AeR" secondAttribute="bottom" constant="20" id="Tco-Nj-awB"/>
                             <constraint firstAttribute="trailing" secondItem="Qba-83-lMH" secondAttribute="trailing" constant="30" id="V0E-fh-MlS"/>
                             <constraint firstItem="Y3K-tH-AeR" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="20" id="b72-Kp-ikY"/>
                             <constraint firstItem="Qba-83-lMH" firstAttribute="leading" secondItem="bZL-b4-YAF" secondAttribute="leading" constant="30" id="cTm-m6-rPp"/>
                             <constraint firstItem="bZL-b4-YAF" firstAttribute="trailing" secondItem="Y3K-tH-AeR" secondAttribute="trailing" constant="20" id="wAw-iv-DRy"/>
+                            <constraint firstItem="Y3K-tH-AeR" firstAttribute="top" secondItem="0Rv-yE-d7e" secondAttribute="bottom" constant="20" id="yDy-Er-6pK"/>
+                            <constraint firstItem="0Rv-yE-d7e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4L9-yC-83k" secondAttribute="bottom" constant="20" id="z4o-Cv-YNA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bZL-b4-YAF"/>
                     </view>

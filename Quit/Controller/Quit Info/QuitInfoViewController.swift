@@ -54,6 +54,9 @@ private extension QuitInfoViewController {
             content.body = $0.rawValue
             content.sound = .default
             let date = Date(timeInterval: TimeInterval(minutes * 60), since: quitDate)
+            guard date > Date() else {
+                return
+            }
             let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
             let request = UNNotificationRequest(identifier: $0.rawValue, content: content, trigger: trigger)

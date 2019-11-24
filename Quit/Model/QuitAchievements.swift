@@ -43,8 +43,8 @@ enum QuitAchievements: CaseIterable {
             value = profile.daysSmokeFree ?? 0
             passed = value >= 1.0
         case .tenCigarettes:
-            value  = profile.cigarettesAvoided ?? 0
-            passed = value >= 10
+            value  = profile.daysSmokeFree ?? 0
+            passed = profile.cigarettesAvoided ?? 0 >= 10.0
         case .litter:
             value  = profile.cigarettesAvoided ?? 0
             passed = value > 0
@@ -55,11 +55,11 @@ enum QuitAchievements: CaseIterable {
             value = profile.daysSmokeFree ?? 0
             passed = value >= 3
         case .oneHundredCigarettes:
-            value = profile.cigarettesAvoided ?? 0
-            passed = value >= 100
+            value = profile.daysSmokeFree ?? 0
+            passed = profile.cigarettesAvoided ?? 0 >= 100.0
         case .trees:
             value  = Double((profile.cigarettesAvoided ?? 0).rounded(toPlaces: 2) / 300).rounded(toPlaces: 2)
-            passed = value >= 1
+            passed = value >= 0
         }
         let text = passed ? successText(value: value) : failureText()
         return (text, passed)
@@ -68,22 +68,22 @@ enum QuitAchievements: CaseIterable {
 
 private extension QuitAchievements {
     func successText(value: Double) -> String {
-        let value = Int(value)
+        let intValue = Int(value)
         switch self {
         case .avoided:
-            return "You've avoided \(value) cigarettes"
+            return "You've avoided \(intValue) cigarettes"
         case .oneDay:
-            return "Smashed it! You're \(value) days free"
+            return "Smashed it! You're \(intValue) days free"
         case .tenCigarettes:
-            return "10 not smoked is an amazing start, and in just \(value) days"
+            return "10 not smoked is an amazing start, and in just \(intValue) days"
         case .litter:
-            return "98% of each butt is micro plastic, and they contain environmentally toxic substances such as arsenic and lead. You've prevented \(value) butts from entering the environment"
+            return "98% of each butt is micro plastic, and they contain environmentally toxic substances such as arsenic and lead. You've prevented \(intValue) butts from entering the environment"
         case .twoDays:
-            return "Amazing, you're \(value) days free"
+            return "Amazing, you're \(intValue) days free"
         case .threeDays:
             return "For a lot of people the hardest part is over. Keep it up!"
         case .oneHundredCigarettes:
-            return "100 not smoked is an insane achievement, and in just \(value) days"
+            return "100 not smoked is an insane achievement, and in just \(intValue) days"
         case .trees:
             return "One tree is used for every 300 cigarettes produced. You've saved \(value) trees"
         }

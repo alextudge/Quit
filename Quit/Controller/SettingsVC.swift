@@ -26,6 +26,8 @@ class SettingsVC: QuitBaseViewController {
     
     @IBAction private func deleteAllDataButtonPressed(_ sender: Any) {
         persistenceManager?.deleteAllData()
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
         dismiss(animated: true, completion: nil)
     }
     

@@ -17,6 +17,11 @@ class QuitInfoViewController: QuitBaseViewController {
         setupDelegates()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        closeButton?.isHidden = true
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         collectionView.collectionViewLayout.invalidateLayout()

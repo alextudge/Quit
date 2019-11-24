@@ -14,6 +14,7 @@ class QuitBaseViewController: UIViewController {
     var profile: Profile? {
         return persistenceManager?.getProfile()
     }
+    private(set) var closeButton: UIButton?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -59,6 +60,7 @@ private extension QuitBaseViewController {
         closeButton.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 10, width: 30, height: 30)
         closeButton.tintColor = .quitPrimaryColour
         closeButton.addTarget(self, action: #selector(didTapClose), for: .touchUpInside)
+        self.closeButton = closeButton
         return closeButton
     }
     

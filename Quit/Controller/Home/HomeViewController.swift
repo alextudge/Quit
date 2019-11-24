@@ -202,7 +202,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             var heightDivisionalFactor: CGFloat = UIDevice.current.isPortait ? 2 : 1
-            if indexPath.section == 3 {
+            if indexPath.section == 3 && UIDevice.current.isPortait {
                 heightDivisionalFactor = 1.5
             }
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / heightDivisionalFactor)

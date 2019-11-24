@@ -5,13 +5,15 @@
 	<key>INEnums</key>
 	<array/>
 	<key>INIntentDefinitionModelVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
+	<key>INIntentDefinitionNamespace</key>
+	<string>dpcnds</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>18F132</string>
+	<string>19C46a</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>10E1001</string>
+	<string>11B500</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>10.2.1</string>
+	<string>11.2.1</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -21,8 +23,6 @@
 			<string>Add a craving</string>
 			<key>INIntentDescriptionID</key>
 			<string>hKpCzP</string>
-			<key>INIntentLastParameterTag</key>
-			<integer>0</integer>
 			<key>INIntentName</key>
 			<string>AddCraving</string>
 			<key>INIntentParameterCombinations</key>
@@ -32,7 +32,7 @@
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
 					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
+					<string>Record a craving</string>
 					<key>INIntentParameterCombinationSubtitleID</key>
 					<string>YygONd</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
@@ -43,25 +43,17 @@
 					<string>YXkYM8</string>
 				</dict>
 			</dict>
-			<key>INIntentParameters</key>
-			<array/>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>That's been recorded for you</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>LRquwd</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>FAIL</string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>RjjCYE</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string>Yay</string>
+						<string>That's been recorded for you</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>oXjYw4</string>
 						<key>INIntentResponseCodeName</key>
@@ -69,25 +61,31 @@
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Sorry, we couldn't record that craving</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>JKzrZL</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Sorry, we couldn't record that craving</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>RjjCYE</string>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>AddCraving</string>
 			<key>INIntentTitleID</key>
 			<string>u7Dknx</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Add</string>
 		</dict>
 	</array>
+	<key>INTypes</key>
+	<array/>
 </dict>
 </plist>

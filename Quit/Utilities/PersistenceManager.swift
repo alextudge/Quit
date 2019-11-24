@@ -20,6 +20,7 @@ class PersistenceManager: NSObject {
     override init() {
         super.init()
         context = persistentContainer.viewContext
+        generateTestDate()
         deleteOldCravings()
     }
     

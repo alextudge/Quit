@@ -63,10 +63,10 @@ extension SectionFourCarouselCell: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let healthStat = HealthStats.allCases[indexPath.row]
-        delegate?.loadHealthSummary(stat: healthStat)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let healthStat = HealthStats.allCases[indexPath.row]
+//        delegate?.loadHealthSummary(stat: healthStat)
+//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.height / 1.75, height: (collectionView.frame.height / 2) - 2)

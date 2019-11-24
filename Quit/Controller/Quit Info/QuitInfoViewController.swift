@@ -108,6 +108,8 @@ extension QuitInfoViewController: QuitInfoDateCellDelegate {
         NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.quitDateChanged))
         if enablenotifications {
             generateLocalNotif(quitDate: persistenceManager?.getProfile()?.quitDate)
+        } else {
+            cancelAppleLocalNotifs()
         }
         dismiss(animated: true, completion: nil)
     }

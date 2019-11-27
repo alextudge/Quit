@@ -68,10 +68,13 @@ private extension SectionThreeCravingsChartCell {
             let cravingCount = $0.value
             let entry = ChartDataEntry(x: xValue, y: Double(cravingCount))
             cravingEntries.append(entry)
-            if let smokedCount = smokedDict[$0.key] {
-                let smokedEntry = ChartDataEntry(x: xValue, y: Double(smokedCount))
-                smokedEntries.append(smokedEntry)
-            }
+        }
+        smokedDict.forEach {
+            let timeInerval = $0.key.timeIntervalSince1970
+            let xValue = (timeInerval - referenceTimeInterval) / (3600 * 24)
+            let cravingCount = $0.value
+            let entry = ChartDataEntry(x: xValue, y: Double(cravingCount))
+            smokedEntries.append(entry)
         }
         cravingEntries.sort(by: {$0.x < $1.x})
         smokedEntries.sort(by: {$0.x < $1.x})

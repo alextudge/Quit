@@ -24,6 +24,7 @@ class CravingsCell: UITableViewCell {
             dateLabel.text = formatter.string(from: date)
         }
         triggerLabel.text = craving.cravingCatagory?.isEmpty == true ? "No trigger" : craving.cravingCatagory
+        backgroundColor = craving.cravingSmoked ? UIColor.orange.withAlphaComponent(0.1) : .clear
     }
     
     func mediumDateFormatter() -> DateFormatter {

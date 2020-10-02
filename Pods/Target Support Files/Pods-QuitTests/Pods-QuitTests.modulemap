@@ -1,6 +1,0 @@
-framework module Pods_QuitTests {
-  umbrella header "Pods-QuitTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

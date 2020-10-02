@@ -21,6 +21,8 @@
 		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
 		171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		172A93EC237892A60069CE93 /* QuitAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A93EB237892A60069CE93 /* QuitAchievements.swift */; };
+		1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B38B25277FF700C469C1 /* QuitApp.swift */; };
+		1732B3922527802F00C469C1 /* QHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3912527802F00C469C1 /* QHomeView.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */; };
 		1752F0AF21BF11AF0056642F /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */; };
@@ -110,9 +112,6 @@
 		17F8FF96219A10060095CD6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
 		17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
-		45EB774CEFB204A24B2152A7 /* Pods_QuitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */; };
-		AFCC50839C8F1E441234087D /* Pods_Quit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212F2A76F0721C15EF160C14 /* Pods_Quit.framework */; };
-		E5A7377D6A8742637F6D358E /* Pods_QuitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,7 +171,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00BCB9F2E2560144BC571FA0 /* Pods-HealthAchievementNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthAchievementNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthAchievementNotification/Pods-HealthAchievementNotification.debug.xcconfig"; sourceTree = "<group>"; };
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17012655227EFDE000E416F6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -191,6 +189,8 @@
 		171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveCarouselCell.swift; sourceTree = "<group>"; };
 		171EAFF121D40D200088C90C /* AdditionalUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalUserData.swift; sourceTree = "<group>"; };
 		172A93EB237892A60069CE93 /* QuitAchievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitAchievements.swift; sourceTree = "<group>"; };
+		1732B38B25277FF700C469C1 /* QuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitApp.swift; sourceTree = "<group>"; };
+		1732B3912527802F00C469C1 /* QHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHomeView.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
@@ -277,17 +277,6 @@
 		17F8FF8A219A08E70095CD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F8FF93219A0CE20095CD6E /* QuitWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitWidget.entitlements; sourceTree = "<group>"; };
 		17F8FF94219A0CF10095CD6E /* Quit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quit.entitlements; sourceTree = "<group>"; };
-		212F2A76F0721C15EF160C14 /* Pods_Quit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		47E50A3FB87BCE92EA0607FF /* Pods-QuitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4F18F136E5C9193A811664E7 /* Pods-QuitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuitUITests/Pods-QuitUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		50872ED9CE4C9CA05543A04E /* Pods-HealthAchievementNotification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthAchievementNotification.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthAchievementNotification/Pods-HealthAchievementNotification.release.xcconfig"; sourceTree = "<group>"; };
-		84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3CCB7662D338FC2FE059F1C /* Pods-QuitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuitUITests/Pods-QuitUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B5C239CD5BADF3C631C765B5 /* Pods-Quit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quit/Pods-Quit.debug.xcconfig"; sourceTree = "<group>"; };
-		D039548F57393006A5A67202 /* Pods-QuitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuitTests/Pods-QuitTests.release.xcconfig"; sourceTree = "<group>"; };
-		F1EED35FB330219C4014CB75 /* Pods_HealthAchievementNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthAchievementNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAC2389381F77A9523A4AF8C /* Pods-Quit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quit/Pods-Quit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +284,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45EB774CEFB204A24B2152A7 /* Pods_QuitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +292,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				175871DD22DA107F00DB9E75 /* StoreKit.framework in Frameworks */,
-				AFCC50839C8F1E441234087D /* Pods_Quit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +306,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5A7377D6A8742637F6D358E /* Pods_QuitUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +370,15 @@
 			path = "Section Five";
 			sourceTree = "<group>";
 		};
+		1732B38225277FE100C469C1 /* QuitUI */ = {
+			isa = PBXGroup;
+			children = (
+				1732B38B25277FF700C469C1 /* QuitApp.swift */,
+				1732B3912527802F00C469C1 /* QHomeView.swift */,
+			);
+			path = QuitUI;
+			sourceTree = "<group>";
+		};
 		175D41EB21D3E06C00FB7588 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,7 +429,6 @@
 				179014A222A7040100C7D734 /* Siri Intents */,
 				1790149722A703A500C7D734 /* AddCravingIntent */,
 				177F03E22025220000CC7CA8 /* Products */,
-				4F797A7321EFCB28DD35F62E /* Pods */,
 				F794A69D49B54B9AB70B83F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -454,6 +448,7 @@
 		177F03E32025220000CC7CA8 /* Quit */ = {
 			isa = PBXGroup;
 			children = (
+				1732B38225277FE100C469C1 /* QuitUI */,
 				177F04222028A70600CC7CA8 /* Utilities */,
 				17156BE1225966BF005EEE69 /* Storyboards */,
 				177F04212028A6F000CC7CA8 /* Controller */,
@@ -698,32 +693,13 @@
 			path = QuitWidget;
 			sourceTree = "<group>";
 		};
-		4F797A7321EFCB28DD35F62E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B5C239CD5BADF3C631C765B5 /* Pods-Quit.debug.xcconfig */,
-				FAC2389381F77A9523A4AF8C /* Pods-Quit.release.xcconfig */,
-				47E50A3FB87BCE92EA0607FF /* Pods-QuitTests.debug.xcconfig */,
-				D039548F57393006A5A67202 /* Pods-QuitTests.release.xcconfig */,
-				4F18F136E5C9193A811664E7 /* Pods-QuitUITests.debug.xcconfig */,
-				B3CCB7662D338FC2FE059F1C /* Pods-QuitUITests.release.xcconfig */,
-				00BCB9F2E2560144BC571FA0 /* Pods-HealthAchievementNotification.debug.xcconfig */,
-				50872ED9CE4C9CA05543A04E /* Pods-HealthAchievementNotification.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		F794A69D49B54B9AB70B83F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				175871DC22DA107F00DB9E75 /* StoreKit.framework */,
-				212F2A76F0721C15EF160C14 /* Pods_Quit.framework */,
-				27A845E8B889F334B84BF659 /* Pods_QuitTests.framework */,
-				84429B422EB59699CDA05884 /* Pods_QuitUITests.framework */,
 				17F8FF82219A08E70095CD6E /* NotificationCenter.framework */,
 				1714FC86219E06C000CFB203 /* UserNotifications.framework */,
 				1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */,
-				F1EED35FB330219C4014CB75 /* Pods_HealthAchievementNotification.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -735,7 +711,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 170006902035D0DC0056F25C /* Build configuration list for PBXNativeTarget "QuitTests" */;
 			buildPhases = (
-				1BB9DFD1A61914773FDA1D87 /* [CP] Check Pods Manifest.lock */,
 				170006822035D0DC0056F25C /* Sources */,
 				170006832035D0DC0056F25C /* Frameworks */,
 				170006842035D0DC0056F25C /* Resources */,
@@ -754,12 +729,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 177F03F62025220900CC7CA8 /* Build configuration list for PBXNativeTarget "Quit" */;
 			buildPhases = (
-				91909F69C21BBCE3509C1943 /* [CP] Check Pods Manifest.lock */,
 				177F03DD2025220000CC7CA8 /* Sources */,
 				177F03DE2025220000CC7CA8 /* Frameworks */,
 				177F03DF2025220000CC7CA8 /* Resources */,
 				177F04062027716900CC7CA8 /* Embed Frameworks */,
-				727D64CEA1A1B372892E3CC4 /* [CP] Embed Pods Frameworks */,
 				171910CC20A9E2D100B72D0A /* ShellScript */,
 				17F8FF91219A08E70095CD6E /* Embed App Extensions */,
 			);
@@ -770,8 +743,6 @@
 				1790149C22A703A500C7D734 /* PBXTargetDependency */,
 			);
 			name = Quit;
-			packageProductDependencies = (
-			);
 			productName = Quit;
 			productReference = 177F03E12025220000CC7CA8 /* Quit.app */;
 			productType = "com.apple.product-type.application";
@@ -797,7 +768,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17C6B5EF2035DFF100AAE086 /* Build configuration list for PBXNativeTarget "QuitUITests" */;
 			buildPhases = (
-				7177911D672C849D8CC5A5FD /* [CP] Check Pods Manifest.lock */,
 				17C6B5E42035DFF100AAE086 /* Sources */,
 				17C6B5E52035DFF100AAE086 /* Frameworks */,
 				17C6B5E62035DFF100AAE086 /* Resources */,
@@ -892,8 +862,6 @@
 				Base,
 			);
 			mainGroup = 177F03D82025220000CC7CA8;
-			packageReferences = (
-			);
 			productRefGroup = 177F03E22025220000CC7CA8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -982,77 +950,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
-		1BB9DFD1A61914773FDA1D87 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QuitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7177911D672C849D8CC5A5FD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QuitUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		727D64CEA1A1B372892E3CC4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Quit/Pods-Quit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Quit/Pods-Quit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Quit/Pods-Quit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		91909F69C21BBCE3509C1943 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Quit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1080,6 +977,7 @@
 				1714FC9C219E306000CFB203 /* AddCravingViewController.swift in Sources */,
 				179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
+				1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */,
 				17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */,
 				1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */,
 				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
@@ -1105,6 +1003,7 @@
 				17A8B4BF237E180200AD297B /* QuitCelebrationBaseViewController.swift in Sources */,
 				1788CBCC2039B3E000064A86 /* Constants.swift in Sources */,
 				179FDFDC2166C3FA003131C5 /* SectionTwoCarouselCell.swift in Sources */,
+				1732B3922527802F00C469C1 /* QHomeView.swift in Sources */,
 				1798163823889F8E00623DE0 /* QuitHealthSummaryViewController.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,
 				175D41EF21D3E23300FB7588 /* TextField.swift in Sources */,
@@ -1222,7 +1121,6 @@
 /* Begin XCBuildConfiguration section */
 		1700068D2035D0DC0056F25C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47E50A3FB87BCE92EA0607FF /* Pods-QuitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1244,7 +1142,6 @@
 		};
 		1700068E2035D0DC0056F25C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D039548F57393006A5A67202 /* Pods-QuitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1384,7 +1281,6 @@
 		};
 		177F03F72025220900CC7CA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5C239CD5BADF3C631C765B5 /* Pods-Quit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1415,7 +1311,6 @@
 		};
 		177F03F82025220900CC7CA8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAC2389381F77A9523A4AF8C /* Pods-Quit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1493,7 +1388,6 @@
 		};
 		17C6B5F02035DFF100AAE086 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F18F136E5C9193A811664E7 /* Pods-QuitUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
@@ -1514,7 +1408,6 @@
 		};
 		17C6B5F12035DFF100AAE086 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3CCB7662D338FC2FE059F1C /* Pods-QuitUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;

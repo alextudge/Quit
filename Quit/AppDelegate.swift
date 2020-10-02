@@ -6,45 +6,45 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import UIKit
-import UserNotifications
-import GoogleMobileAds
-import SwiftyStoreKit
-
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        configureNotifications()
-        configurePurchases()
-        return true
-    }
-}
-
-private extension AppDelegate {
-    func configureNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
-        }
-    }
-    
-    func configurePurchases() {
-        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-            for purchase in purchases {
-                switch purchase.transaction.transactionState {
-                case .purchased, .restored:
-                    if purchase.needsFinishTransaction {
-                        // Deliver content from server, then:
-                        SwiftyStoreKit.finishTransaction(purchase.transaction)
-                    }
-                // Unlock content
-                case .failed, .purchasing, .deferred:
-                    break // do nothing
-                }
-            }
-        }
-    }
-}
+//import UIKit
+//import UserNotifications
+//import GoogleMobileAds
+//import SwiftyStoreKit
+//
+//@UIApplicationMain
+//class AppDelegate: UIResponder, UIApplicationDelegate {
+//
+//    var window: UIWindow?
+//
+//    func application(_ application: UIApplication,
+//                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        GADMobileAds.sharedInstance().start(completionHandler: nil)
+//        configureNotifications()
+//        configurePurchases()
+//        return true
+//    }
+//}
+//
+//private extension AppDelegate {
+//    func configureNotifications() {
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
+//        }
+//    }
+//    
+//    func configurePurchases() {
+//        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+//            for purchase in purchases {
+//                switch purchase.transaction.transactionState {
+//                case .purchased, .restored:
+//                    if purchase.needsFinishTransaction {
+//                        // Deliver content from server, then:
+//                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+//                    }
+//                // Unlock content
+//                case .failed, .purchasing, .deferred:
+//                    break // do nothing
+//                }
+//            }
+//        }
+//    }
+//}

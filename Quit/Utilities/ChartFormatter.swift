@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import Charts
+import UIKit
 
 class ChartXAxisFormatter: NSObject {
     
@@ -17,17 +17,5 @@ class ChartXAxisFormatter: NSObject {
         self.init()
         self.referenceTimeInterval = referenceTimeInterval
         self.dateFormatter = dateFormatter
-    }
-}
-
-extension ChartXAxisFormatter: IAxisValueFormatter {
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        guard let dateFormatter = dateFormatter,
-            let referenceTimeInterval = referenceTimeInterval
-            else {
-                return ""
-        }
-        let date = Date(timeIntervalSince1970: value * 3600 * 24 + referenceTimeInterval)
-        return dateFormatter.string(from: date)
     }
 }

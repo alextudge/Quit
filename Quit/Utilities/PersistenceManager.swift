@@ -11,7 +11,7 @@ import CoreData
 class PersistenceManager: NSObject {
     
     private var context: NSManagedObjectContext!
-    private lazy var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentContainer = {
         generatePersistenceContainer()
     }()
     private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.appGroupId)
@@ -21,6 +21,7 @@ class PersistenceManager: NSObject {
         super.init()
         context = persistentContainer.viewContext
         deleteOldCravings()
+//        generateTestDate()
     }
     
     func appLoadCounter() -> Int {
@@ -147,7 +148,6 @@ private extension PersistenceManager {
         description.shouldInferMappingModelAutomatically = true
         description.shouldMigrateStoreAutomatically = true
         description.url = storeUrl
-        // swiftlint:disable:next line_length
         container.persistentStoreDescriptions = [NSPersistentStoreDescription(url:  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier:  Constants.AppConfig.appGroupId)!.appendingPathComponent(Constants.CoreData.databaseId))]
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {

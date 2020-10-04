@@ -7,12 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17012656227EFDE000E416F6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012655227EFDE000E416F6 /* Settings.storyboard */; };
-		17012658227F0F9200E416F6 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17012657227F0F9200E416F6 /* Other.storyboard */; };
 		1701265B227F9BB100E416F6 /* CravingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265A227F9BB100E416F6 /* CravingsViewController.swift */; };
 		1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1701265C227F9D2100E416F6 /* CravingsCell.swift */; };
-		1705FCC82291A53700E577EC /* progressComplete.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCC72291A53700E577EC /* progressComplete.json */; };
-		1705FCD02291A72E00E577EC /* progressView.json in Resources */ = {isa = PBXBuildFile; fileRef = 1705FCCF2291A72E00E577EC /* progressView.json */; };
 		170B0A94229486C800217358 /* SectionFiveNotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B0A92229486C800217358 /* SectionFiveNotificationsCell.swift */; };
 		170B0A95229486C800217358 /* SectionFiveNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 170B0A93229486C800217358 /* SectionFiveNotificationsCell.xib */; };
 		1714FC9C219E306000CFB203 /* AddCravingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9B219E306000CFB203 /* AddCravingViewController.swift */; };
@@ -23,8 +19,18 @@
 		172A93EC237892A60069CE93 /* QuitAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A93EB237892A60069CE93 /* QuitAchievements.swift */; };
 		1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B38B25277FF700C469C1 /* QuitApp.swift */; };
 		1732B3922527802F00C469C1 /* QHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3912527802F00C469C1 /* QHomeView.swift */; };
+		1732B3AD252782FB00C469C1 /* QGuages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3AC252782FB00C469C1 /* QGuages.swift */; };
+		1732B3B92527851E00C469C1 /* QHeadlineGuageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3B82527851E00C469C1 /* QHeadlineGuageListView.swift */; };
+		1732B3C32527858300C469C1 /* QHeadlineGuageListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3C22527858300C469C1 /* QHeadlineGuageListItemView.swift */; };
 		1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */; };
 		1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */; };
+		17440DD82527B1C6000E4703 /* QHealth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DD72527B1C6000E4703 /* QHealth.swift */; };
+		17440DE32527D6B7000E4703 /* QClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DE22527D6B7000E4703 /* QClockView.swift */; };
+		17440DEA2527E4E7000E4703 /* QEditQuitDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DE92527E4E7000E4703 /* QEditQuitDateView.swift */; };
+		17440DFA2527EB5D000E4703 /* QCravingChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DF92527EB5D000E4703 /* QCravingChartView.swift */; };
+		17440E00252A3773000E4703 /* QBankNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DFF252A3773000E4703 /* QBankNoteView.swift */; };
+		17440E07252A6164000E4703 /* QLineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440E06252A6164000E4703 /* QLineGraph.swift */; };
+		1752B7E82527A8E000064384 /* QGuageInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752B7E72527A8E000064384 /* QGuageInformationView.swift */; };
 		1752F0AF21BF11AF0056642F /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
 		1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B221C0414E0056642F /* AchievementCell.swift */; };
@@ -36,10 +42,8 @@
 		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
 		1769EF8C23527E7300AAAFE5 /* QuitInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769EF8B23527E7300AAAFE5 /* QuitInfoViewController.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
-		177F03EA2025220000CC7CA8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03E82025220000CC7CA8 /* Home.storyboard */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
-		177F03F22025220900CC7CA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */; };
 		177F04242029104900CC7CA8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* Profile.swift */; };
 		178500E32368DF5600C64DCF /* SectionOneCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */; };
 		178500E52368E04F00C64DCF /* SectionTwoCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178500E42368E04F00C64DCF /* SectionTwoCarouselCell.xib */; };
@@ -61,10 +65,8 @@
 		179014A722A70C2900C7D734 /* AddCravingIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179014A622A70C2900C7D734 /* AddCravingIntentHandler.swift */; };
 		179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
-		179014AA22A70F3A00C7D734 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* Profile.swift */; };
 		179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		179014AD22A70F5300C7D734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
-		1791FDDA21D410DF00EDF452 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791FDDB21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift */; };
 		1791FDDE21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1791FDDC21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib */; };
 		1791FDE621D55A5A00EDF452 /* EditArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791FDE521D55A5A00EDF452 /* EditArrayVC.swift */; };
@@ -95,7 +97,10 @@
 		17BD352722989DFB004E766B /* ViewPendingNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */; };
 		17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD352922989ED7004E766B /* ViewNotificationCell.swift */; };
 		17BD352C2298ABCE004E766B /* AddNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD352B2298ABCE004E766B /* AddNotificationViewController.swift */; };
-		17C6B5EB2035DFF100AAE086 /* MainVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */; };
+		17C14E7F25278D3B001564B0 /* QBatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C14E7E25278D3B001564B0 /* QBatteryView.swift */; };
+		17C14F1125279CF5001564B0 /* QEntryDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C14F1025279CF5001564B0 /* QEntryDecisionView.swift */; };
+		17C14F2425279D81001564B0 /* QUnregisteredUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C14F2325279D81001564B0 /* QUnregisteredUserView.swift */; };
+		17C14F3225279F1D001564B0 /* QSetupProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C14F3125279F1D001564B0 /* QSetupProfileView.swift */; };
 		17F022002031EA83005EF65C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F021FF2031EA83005EF65C /* SettingsVC.swift */; };
 		17F1B61D21D5B1DF0021722D /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1B61C21D5B1DF0021722D /* DoubleExtensions.swift */; };
 		17F3BA50237627CE00B01083 /* QuitInfoCostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3BA4F237627CE00B01083 /* QuitInfoCostCell.swift */; };
@@ -103,15 +108,6 @@
 		17F3BA5423762EA900B01083 /* QuitBaseCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3BA5323762EA900B01083 /* QuitBaseCellProtocol.swift */; };
 		17F4E6F320C1473800B9A21B /* QuitInfoVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */; };
 		17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
-		17F8FF83219A08E70095CD6E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F8FF82219A08E70095CD6E /* NotificationCenter.framework */; };
-		17F8FF86219A08E70095CD6E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8FF85219A08E70095CD6E /* TodayViewController.swift */; };
-		17F8FF89219A08E70095CD6E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F8FF87219A08E70095CD6E /* MainInterface.storyboard */; };
-		17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17F8FF81219A08E70095CD6E /* QuitWidget.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		17F8FF92219A0B320095CD6E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F4E6F420C14AC600B9A21B /* RoundButton.swift */; };
-		17F8FF95219A0F050095CD6E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* Profile.swift */; };
-		17F8FF96219A10060095CD6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
-		17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
-		17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,20 +124,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1790149522A703A500C7D734;
 			remoteInfo = AddCravingIntent;
-		};
-		17C6B5ED2035DFF100AAE086 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 177F03D92025220000CC7CA8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 177F03E02025220000CC7CA8;
-			remoteInfo = Quit;
-		};
-		17F8FF8B219A08E70095CD6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 177F03D92025220000CC7CA8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 17F8FF80219A08E70095CD6E;
-			remoteInfo = QuitWidget;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -162,7 +144,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				17F8FF8D219A08E70095CD6E /* QuitWidget.appex in Embed App Extensions */,
 				1790149D22A703A500C7D734 /* AddCravingIntent.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -173,12 +154,8 @@
 /* Begin PBXFileReference section */
 		170006862035D0DC0056F25C /* QuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1700068A2035D0DC0056F25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		17012655227EFDE000E416F6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		17012657227F0F9200E416F6 /* Other.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Other.storyboard; sourceTree = "<group>"; };
 		1701265A227F9BB100E416F6 /* CravingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsViewController.swift; sourceTree = "<group>"; };
 		1701265C227F9D2100E416F6 /* CravingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravingsCell.swift; sourceTree = "<group>"; };
-		1705FCC72291A53700E577EC /* progressComplete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressComplete.json; sourceTree = "<group>"; };
-		1705FCCF2291A72E00E577EC /* progressView.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressView.json; sourceTree = "<group>"; };
 		170B0A92229486C800217358 /* SectionFiveNotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveNotificationsCell.swift; sourceTree = "<group>"; };
 		170B0A93229486C800217358 /* SectionFiveNotificationsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveNotificationsCell.xib; sourceTree = "<group>"; };
 		1714FC86219E06C000CFB203 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -191,8 +168,18 @@
 		172A93EB237892A60069CE93 /* QuitAchievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitAchievements.swift; sourceTree = "<group>"; };
 		1732B38B25277FF700C469C1 /* QuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitApp.swift; sourceTree = "<group>"; };
 		1732B3912527802F00C469C1 /* QHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHomeView.swift; sourceTree = "<group>"; };
+		1732B3AC252782FB00C469C1 /* QGuages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QGuages.swift; sourceTree = "<group>"; };
+		1732B3B82527851E00C469C1 /* QHeadlineGuageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHeadlineGuageListView.swift; sourceTree = "<group>"; };
+		1732B3C22527858300C469C1 /* QHeadlineGuageListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHeadlineGuageListItemView.swift; sourceTree = "<group>"; };
 		1737C9DF2029FEE800AA8CE5 /* SavingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalVC.swift; sourceTree = "<group>"; };
 		1739ECAD22C2A7E2005ED03E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		17440DD72527B1C6000E4703 /* QHealth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHealth.swift; sourceTree = "<group>"; };
+		17440DE22527D6B7000E4703 /* QClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QClockView.swift; sourceTree = "<group>"; };
+		17440DE92527E4E7000E4703 /* QEditQuitDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEditQuitDateView.swift; sourceTree = "<group>"; };
+		17440DF92527EB5D000E4703 /* QCravingChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCravingChartView.swift; sourceTree = "<group>"; };
+		17440DFF252A3773000E4703 /* QBankNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QBankNoteView.swift; sourceTree = "<group>"; };
+		17440E06252A6164000E4703 /* QLineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLineGraph.swift; sourceTree = "<group>"; };
+		1752B7E72527A8E000064384 /* QGuageInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QGuageInformationView.swift; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
 		1752F0B221C0414E0056642F /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
@@ -205,10 +192,8 @@
 		1769EF8B23527E7300AAAFE5 /* QuitInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoViewController.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		177F03E92025220000CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		177F03EC2025220000CC7CA8 /* Quit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quit.xcdatamodel; sourceTree = "<group>"; };
 		177F03EE2025220900CC7CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		177F03F12025220900CC7CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		177F03F32025220900CC7CA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		177F04232029104900CC7CA8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		178500E22368DF5600C64DCF /* SectionOneCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneCarouselCell.xib; sourceTree = "<group>"; };
@@ -260,9 +245,10 @@
 		17BD352622989DFB004E766B /* ViewPendingNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPendingNotificationsViewController.swift; sourceTree = "<group>"; };
 		17BD352922989ED7004E766B /* ViewNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNotificationCell.swift; sourceTree = "<group>"; };
 		17BD352B2298ABCE004E766B /* AddNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotificationViewController.swift; sourceTree = "<group>"; };
-		17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUITests.swift; sourceTree = "<group>"; };
-		17C6B5EC2035DFF100AAE086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17C14E7E25278D3B001564B0 /* QBatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QBatteryView.swift; sourceTree = "<group>"; };
+		17C14F1025279CF5001564B0 /* QEntryDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEntryDecisionView.swift; sourceTree = "<group>"; };
+		17C14F2325279D81001564B0 /* QUnregisteredUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QUnregisteredUserView.swift; sourceTree = "<group>"; };
+		17C14F3125279F1D001564B0 /* QSetupProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSetupProfileView.swift; sourceTree = "<group>"; };
 		17F021FF2031EA83005EF65C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		17F1B61C21D5B1DF0021722D /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		17F3BA4F237627CE00B01083 /* QuitInfoCostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoCostCell.swift; sourceTree = "<group>"; };
@@ -270,12 +256,7 @@
 		17F3BA5323762EA900B01083 /* QuitBaseCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitBaseCellProtocol.swift; sourceTree = "<group>"; };
 		17F4E6F220C1473800B9A21B /* QuitInfoVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoVCViewModel.swift; sourceTree = "<group>"; };
 		17F4E6F420C14AC600B9A21B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		17F8FF81219A08E70095CD6E /* QuitWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuitWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F8FF82219A08E70095CD6E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		17F8FF85219A08E70095CD6E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		17F8FF88219A08E70095CD6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		17F8FF8A219A08E70095CD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		17F8FF93219A0CE20095CD6E /* QuitWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuitWidget.entitlements; sourceTree = "<group>"; };
 		17F8FF94219A0CF10095CD6E /* Quit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quit.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,21 +283,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		17C6B5E52035DFF100AAE086 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		17F8FF7E219A08E70095CD6E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17F8FF83219A08E70095CD6E /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -337,26 +303,6 @@
 			path = "Info Controllers";
 			sourceTree = "<group>";
 		};
-		1705FCB7228F75E900E577EC /* Lottie */ = {
-			isa = PBXGroup;
-			children = (
-				1705FCCF2291A72E00E577EC /* progressView.json */,
-				1705FCC72291A53700E577EC /* progressComplete.json */,
-			);
-			path = Lottie;
-			sourceTree = "<group>";
-		};
-		17156BE1225966BF005EEE69 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */,
-				177F03E82025220000CC7CA8 /* Home.storyboard */,
-				17012655227EFDE000E416F6 /* Settings.storyboard */,
-				17012657227F0F9200E416F6 /* Other.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		171EAFEC21D409230088C90C /* Section Five */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,9 +320,61 @@
 			isa = PBXGroup;
 			children = (
 				1732B38B25277FF700C469C1 /* QuitApp.swift */,
-				1732B3912527802F00C469C1 /* QHomeView.swift */,
+				1732B3B6252784FB00C469C1 /* View */,
+				1732B3AB252782D100C469C1 /* Model */,
 			);
 			path = QuitUI;
+			sourceTree = "<group>";
+		};
+		1732B3AB252782D100C469C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17C14F3B2527A5DE001564B0 /* Core Data */,
+				1732B3AC252782FB00C469C1 /* QGuages.swift */,
+				17440DD72527B1C6000E4703 /* QHealth.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1732B3B6252784FB00C469C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17C14F1025279CF5001564B0 /* QEntryDecisionView.swift */,
+				17C14F2225279D6D001564B0 /* Profile */,
+				1732B3B72527850200C469C1 /* Home */,
+				1752B7E62527A8B900064384 /* Guage Information */,
+				17440DDF2527D419000E4703 /* Element Views */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1732B3B72527850200C469C1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1732B3912527802F00C469C1 /* QHomeView.swift */,
+				1732B3B82527851E00C469C1 /* QHeadlineGuageListView.swift */,
+				1732B3C22527858300C469C1 /* QHeadlineGuageListItemView.swift */,
+				17440DE92527E4E7000E4703 /* QEditQuitDateView.swift */,
+				17440DF92527EB5D000E4703 /* QCravingChartView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		17440DDF2527D419000E4703 /* Element Views */ = {
+			isa = PBXGroup;
+			children = (
+				17440E06252A6164000E4703 /* QLineGraph.swift */,
+				17C14E8C2527950A001564B0 /* Guages */,
+			);
+			path = "Element Views";
+			sourceTree = "<group>";
+		};
+		1752B7E62527A8B900064384 /* Guage Information */ = {
+			isa = PBXGroup;
+			children = (
+				1752B7E72527A8E000064384 /* QGuageInformationView.swift */,
+			);
+			path = "Guage Information";
 			sourceTree = "<group>";
 		};
 		175D41EB21D3E06C00FB7588 /* Extensions */ = {
@@ -424,8 +422,6 @@
 			children = (
 				177F03E32025220000CC7CA8 /* Quit */,
 				170006872035D0DC0056F25C /* QuitTests */,
-				17C6B5E92035DFF100AAE086 /* QuitUITests */,
-				17F8FF84219A08E70095CD6E /* QuitWidget */,
 				179014A222A7040100C7D734 /* Siri Intents */,
 				1790149722A703A500C7D734 /* AddCravingIntent */,
 				177F03E22025220000CC7CA8 /* Products */,
@@ -438,8 +434,6 @@
 			children = (
 				177F03E12025220000CC7CA8 /* Quit.app */,
 				170006862035D0DC0056F25C /* QuitTests.xctest */,
-				17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */,
-				17F8FF81219A08E70095CD6E /* QuitWidget.appex */,
 				1790149622A703A500C7D734 /* AddCravingIntent.appex */,
 			);
 			name = Products;
@@ -450,12 +444,10 @@
 			children = (
 				1732B38225277FE100C469C1 /* QuitUI */,
 				177F04222028A70600CC7CA8 /* Utilities */,
-				17156BE1225966BF005EEE69 /* Storyboards */,
 				177F04212028A6F000CC7CA8 /* Controller */,
 				177F041E2028A6CF00CC7CA8 /* Model */,
 				17F4E6F120C146B200B9A21B /* View */,
 				17C8AB50206971310078680A /* ViewModel */,
-				1705FCB7228F75E900E577EC /* Lottie */,
 				177F03E42025220000CC7CA8 /* AppDelegate.swift */,
 				177F03EE2025220900CC7CA8 /* Assets.xcassets */,
 				1790143022A6F48200C7D734 /* Colours.xcassets */,
@@ -468,8 +460,6 @@
 		177F041E2028A6CF00CC7CA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */,
-				177F04232029104900CC7CA8 /* Profile.swift */,
 				171EAFF121D40D200088C90C /* AdditionalUserData.swift */,
 				178E014923777E2400C800C0 /* QuitHealthStats.swift */,
 				172A93EB237892A60069CE93 /* QuitAchievements.swift */,
@@ -636,13 +626,32 @@
 			path = Cravings;
 			sourceTree = "<group>";
 		};
-		17C6B5E92035DFF100AAE086 /* QuitUITests */ = {
+		17C14E8C2527950A001564B0 /* Guages */ = {
 			isa = PBXGroup;
 			children = (
-				17C6B5EA2035DFF100AAE086 /* MainVCUITests.swift */,
-				17C6B5EC2035DFF100AAE086 /* Info.plist */,
+				17C14E7E25278D3B001564B0 /* QBatteryView.swift */,
+				17440DE22527D6B7000E4703 /* QClockView.swift */,
+				17440DFF252A3773000E4703 /* QBankNoteView.swift */,
 			);
-			path = QuitUITests;
+			path = Guages;
+			sourceTree = "<group>";
+		};
+		17C14F2225279D6D001564B0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				17C14F2325279D81001564B0 /* QUnregisteredUserView.swift */,
+				17C14F3125279F1D001564B0 /* QSetupProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		17C14F3B2527A5DE001564B0 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */,
+				177F04232029104900CC7CA8 /* Profile.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		17C8AB50206971310078680A /* ViewModel */ = {
@@ -680,17 +689,6 @@
 				178500EE2368F43700C64DCF /* QuitLabel.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		17F8FF84219A08E70095CD6E /* QuitWidget */ = {
-			isa = PBXGroup;
-			children = (
-				17F8FF93219A0CE20095CD6E /* QuitWidget.entitlements */,
-				17F8FF85219A08E70095CD6E /* TodayViewController.swift */,
-				17F8FF87219A08E70095CD6E /* MainInterface.storyboard */,
-				17F8FF8A219A08E70095CD6E /* Info.plist */,
-			);
-			path = QuitWidget;
 			sourceTree = "<group>";
 		};
 		F794A69D49B54B9AB70B83F4 /* Frameworks */ = {
@@ -733,16 +731,16 @@
 				177F03DE2025220000CC7CA8 /* Frameworks */,
 				177F03DF2025220000CC7CA8 /* Resources */,
 				177F04062027716900CC7CA8 /* Embed Frameworks */,
-				171910CC20A9E2D100B72D0A /* ShellScript */,
 				17F8FF91219A08E70095CD6E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				17F8FF8C219A08E70095CD6E /* PBXTargetDependency */,
 				1790149C22A703A500C7D734 /* PBXTargetDependency */,
 			);
 			name = Quit;
+			packageProductDependencies = (
+			);
 			productName = Quit;
 			productReference = 177F03E12025220000CC7CA8 /* Quit.app */;
 			productType = "com.apple.product-type.application";
@@ -764,41 +762,6 @@
 			productReference = 1790149622A703A500C7D734 /* AddCravingIntent.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		17C6B5E72035DFF100AAE086 /* QuitUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 17C6B5EF2035DFF100AAE086 /* Build configuration list for PBXNativeTarget "QuitUITests" */;
-			buildPhases = (
-				17C6B5E42035DFF100AAE086 /* Sources */,
-				17C6B5E52035DFF100AAE086 /* Frameworks */,
-				17C6B5E62035DFF100AAE086 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				17C6B5EE2035DFF100AAE086 /* PBXTargetDependency */,
-			);
-			name = QuitUITests;
-			productName = QuitUITests;
-			productReference = 17C6B5E82035DFF100AAE086 /* QuitUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		17F8FF80219A08E70095CD6E /* QuitWidget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 17F8FF90219A08E70095CD6E /* Build configuration list for PBXNativeTarget "QuitWidget" */;
-			buildPhases = (
-				17F8FF7D219A08E70095CD6E /* Sources */,
-				17F8FF7E219A08E70095CD6E /* Frameworks */,
-				17F8FF7F219A08E70095CD6E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = QuitWidget;
-			productName = QuitWidget;
-			productReference = 17F8FF81219A08E70095CD6E /* QuitWidget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -806,7 +769,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Alex Tudge";
 				TargetAttributes = {
 					170006852035D0DC0056F25C = {
@@ -835,22 +798,6 @@
 							};
 						};
 					};
-					17C6B5E72035DFF100AAE086 = {
-						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 177F03E02025220000CC7CA8;
-					};
-					17F8FF80219A08E70095CD6E = {
-						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
 				};
 			};
 			buildConfigurationList = 177F03DC2025220000CC7CA8 /* Build configuration list for PBXProject "Quit" */;
@@ -862,14 +809,14 @@
 				Base,
 			);
 			mainGroup = 177F03D82025220000CC7CA8;
+			packageReferences = (
+			);
 			productRefGroup = 177F03E22025220000CC7CA8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				177F03E02025220000CC7CA8 /* Quit */,
 				170006852035D0DC0056F25C /* QuitTests */,
-				17C6B5E72035DFF100AAE086 /* QuitUITests */,
-				17F8FF80219A08E70095CD6E /* QuitWidget */,
 				1790149522A703A500C7D734 /* AddCravingIntent */,
 			);
 		};
@@ -888,27 +835,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				179FDFF6216D3D5A003131C5 /* SectionThreeTriggerChartCell.xib in Resources */,
-				17012656227EFDE000E416F6 /* Settings.storyboard in Resources */,
 				179FDFE721681AFE003131C5 /* SectionTwoSavingsGoalCell.xib in Resources */,
 				179FDFE12168118C003131C5 /* SectionTwoSavingsOverviewCell.xib in Resources */,
-				1705FCC82291A53700E577EC /* progressComplete.json in Resources */,
-				177F03F22025220900CC7CA8 /* LaunchScreen.storyboard in Resources */,
 				179FDFCC21640536003131C5 /* SectionOneCravingDataCell.xib in Resources */,
 				179FDFD2216419CC003131C5 /* SectionOneVapingDataCell.xib in Resources */,
 				170B0A95229486C800217358 /* SectionFiveNotificationsCell.xib in Resources */,
 				17BA7095217515E900ACA5F6 /* SectionFourHealthCell.xib in Resources */,
-				17012658227F0F9200E416F6 /* Other.storyboard in Resources */,
 				1791FDDE21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.xib in Resources */,
 				178500E32368DF5600C64DCF /* SectionOneCarouselCell.xib in Resources */,
 				178500E52368E04F00C64DCF /* SectionTwoCarouselCell.xib in Resources */,
 				178500E92368E16800C64DCF /* SectionFourCarouselCell.xib in Resources */,
 				1790143122A6F48200C7D734 /* Colours.xcassets in Resources */,
-				1705FCD02291A72E00E577EC /* progressView.json in Resources */,
 				179FDFF0216935D1003131C5 /* SectionThreeCravingsChartCell.xib in Resources */,
 				178500E72368E10C00C64DCF /* SectionThreeCarouselCell.xib in Resources */,
 				178500EB2368E1BA00C64DCF /* SectionFiveCarouselCell.xib in Resources */,
 				177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */,
-				177F03EA2025220000CC7CA8 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,38 +860,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		17C6B5E62035DFF100AAE086 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		17F8FF7F219A08E70095CD6E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17F8FF89219A08E70095CD6E /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		171910CC20A9E2D100B72D0A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		170006822035D0DC0056F25C /* Sources */ = {
@@ -964,6 +874,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17440DFA2527EB5D000E4703 /* QCravingChartView.swift in Sources */,
 				1769EF8C23527E7300AAAFE5 /* QuitInfoViewController.swift in Sources */,
 				178E014C2377876600C800C0 /* UIDeviceExtensions.swift in Sources */,
 				1791FDE621D55A5A00EDF452 /* EditArrayVC.swift in Sources */,
@@ -981,30 +892,39 @@
 				17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */,
 				1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */,
 				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
+				17C14F1125279CF5001564B0 /* QEntryDecisionView.swift in Sources */,
 				17F3BA50237627CE00B01083 /* QuitInfoCostCell.swift in Sources */,
+				17440E07252A6164000E4703 /* QLineGraph.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
 				171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */,
 				1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */,
+				1732B3AD252782FB00C469C1 /* QGuages.swift in Sources */,
 				17BD352C2298ABCE004E766B /* AddNotificationViewController.swift in Sources */,
+				17440DEA2527E4E7000E4703 /* QEditQuitDateView.swift in Sources */,
 				17F3BA522376281900B01083 /* QuitInfoDateCell.swift in Sources */,
 				17BA7094217515E900ACA5F6 /* SectionFourHealthCell.swift in Sources */,
 				17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */,
 				1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */,
 				175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */,
 				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
+				1732B3B92527851E00C469C1 /* QHeadlineGuageListView.swift in Sources */,
 				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,
+				17C14F2425279D81001564B0 /* QUnregisteredUserView.swift in Sources */,
+				17440E00252A3773000E4703 /* QBankNoteView.swift in Sources */,
 				178500ED2368E74E00C64DCF /* UIColorExtensions.swift in Sources */,
 				17F3BA5423762EA900B01083 /* QuitBaseCellProtocol.swift in Sources */,
 				178500EF2368F43700C64DCF /* QuitLabel.swift in Sources */,
 				17F4E6F520C14AC600B9A21B /* RoundButton.swift in Sources */,
 				178E014A23777E2400C800C0 /* QuitHealthStats.swift in Sources */,
 				179FDFD1216419CC003131C5 /* SectionOneVapingDataCell.swift in Sources */,
+				1752B7E82527A8E000064384 /* QGuageInformationView.swift in Sources */,
 				179FDFEF216935D1003131C5 /* SectionThreeCravingsChartCell.swift in Sources */,
 				17A8B4BF237E180200AD297B /* QuitCelebrationBaseViewController.swift in Sources */,
 				1788CBCC2039B3E000064A86 /* Constants.swift in Sources */,
 				179FDFDC2166C3FA003131C5 /* SectionTwoCarouselCell.swift in Sources */,
 				1732B3922527802F00C469C1 /* QHomeView.swift in Sources */,
 				1798163823889F8E00623DE0 /* QuitHealthSummaryViewController.swift in Sources */,
+				17C14F3225279F1D001564B0 /* QSetupProfileView.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,
 				175D41EF21D3E23300FB7588 /* TextField.swift in Sources */,
 				179FDFD82166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift in Sources */,
@@ -1017,15 +937,19 @@
 				179FDFC721640479003131C5 /* SectionOneCarouselCell.swift in Sources */,
 				178E0150237889FE00C800C0 /* QuitBaseCarouselCollectionViewCell.swift in Sources */,
 				179FDFD62166A2BF003131C5 /* HomeViewModel.swift in Sources */,
+				17440DD82527B1C6000E4703 /* QHealth.swift in Sources */,
 				17F1B61D21D5B1DF0021722D /* DoubleExtensions.swift in Sources */,
 				1791FDDD21D4135A00EDF452 /* SectionFiveReasonsToSmokeCell.swift in Sources */,
 				179FDFE621681AFE003131C5 /* SectionTwoSavingsGoalCell.swift in Sources */,
+				17C14E7F25278D3B001564B0 /* QBatteryView.swift in Sources */,
+				17440DE32527D6B7000E4703 /* QClockView.swift in Sources */,
 				175D41F721D3E36600FB7588 /* ChartFormatter.swift in Sources */,
 				172A93EC237892A60069CE93 /* QuitAchievements.swift in Sources */,
 				171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */,
 				17BA70902175143A00ACA5F6 /* SectionFourCarouselCell.swift in Sources */,
 				179014A422A7042400C7D734 /* AddCravingIntent.intentdefinition in Sources */,
 				17F022002031EA83005EF65C /* SettingsVC.swift in Sources */,
+				1732B3C32527858300C469C1 /* QHeadlineGuageListItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,31 +962,8 @@
 				179014A522A7058000C7D734 /* AddCravingIntent.intentdefinition in Sources */,
 				179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */,
 				179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */,
-				179014AA22A70F3A00C7D734 /* Profile.swift in Sources */,
 				179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */,
 				179014AD22A70F5300C7D734 /* Constants.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		17C6B5E42035DFF100AAE086 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17C6B5EB2035DFF100AAE086 /* MainVCUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		17F8FF7D219A08E70095CD6E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17F8FF92219A0B320095CD6E /* RoundButton.swift in Sources */,
-				17F8FF97219A180B0095CD6E /* PersistenceManager.swift in Sources */,
-				17F8FF95219A0F050095CD6E /* Profile.swift in Sources */,
-				17F8FF86219A08E70095CD6E /* TodayViewController.swift in Sources */,
-				17F8FF98219A18810095CD6E /* Quit.xcdatamodeld in Sources */,
-				1791FDDA21D410DF00EDF452 /* AdditionalUserData.swift in Sources */,
-				17F8FF96219A10060095CD6E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,44 +980,7 @@
 			target = 1790149522A703A500C7D734 /* AddCravingIntent */;
 			targetProxy = 1790149B22A703A500C7D734 /* PBXContainerItemProxy */;
 		};
-		17C6B5EE2035DFF100AAE086 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 177F03E02025220000CC7CA8 /* Quit */;
-			targetProxy = 17C6B5ED2035DFF100AAE086 /* PBXContainerItemProxy */;
-		};
-		17F8FF8C219A08E70095CD6E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 17F8FF80219A08E70095CD6E /* QuitWidget */;
-			targetProxy = 17F8FF8B219A08E70095CD6E /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		177F03E82025220000CC7CA8 /* Home.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				177F03E92025220000CC7CA8 /* Base */,
-			);
-			name = Home.storyboard;
-			sourceTree = "<group>";
-		};
-		177F03F02025220900CC7CA8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				177F03F12025220900CC7CA8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		17F8FF87219A08E70095CD6E /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				17F8FF88219A08E70095CD6E /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1700068D2035D0DC0056F25C /* Debug */ = {
@@ -1126,7 +990,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				INFOPLIST_FILE = QuitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1147,7 +1011,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				INFOPLIST_FILE = QuitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1187,6 +1051,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1219,7 +1084,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -1249,6 +1113,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1275,7 +1140,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};
@@ -1294,7 +1158,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Quit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1303,7 +1167,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_UIKITFORMAC = NO;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1324,7 +1188,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Quit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1333,7 +1197,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_UIKITFORMAC = NO;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1357,7 +1221,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.AddCravingIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_UIKITFORMAC = NO;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1380,94 +1244,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.AddCravingIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_UIKITFORMAC = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		17C6B5F02035DFF100AAE086 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L8E3HCRWG9;
-				INFOPLIST_FILE = QuitUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.QuitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Quit;
-			};
-			name = Debug;
-		};
-		17C6B5F12035DFF100AAE086 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L8E3HCRWG9;
-				INFOPLIST_FILE = QuitUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.QuitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Quit;
-			};
-			name = Release;
-		};
-		17F8FF8E219A08E70095CD6E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = QuitWidget/QuitWidget.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L8E3HCRWG9;
-				INFOPLIST_FILE = QuitWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.QuitWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_UIKITFORMAC = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		17F8FF8F219A08E70095CD6E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = QuitWidget/QuitWidget.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L8E3HCRWG9;
-				INFOPLIST_FILE = QuitWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit.QuitWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_UIKITFORMAC = NO;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1508,24 +1285,6 @@
 			buildConfigurations = (
 				1790149F22A703A500C7D734 /* Debug */,
 				179014A022A703A500C7D734 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		17C6B5EF2035DFF100AAE086 /* Build configuration list for PBXNativeTarget "QuitUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				17C6B5F02035DFF100AAE086 /* Debug */,
-				17C6B5F12035DFF100AAE086 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		17F8FF90219A08E70095CD6E /* Build configuration list for PBXNativeTarget "QuitWidget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				17F8FF8E219A08E70095CD6E /* Debug */,
-				17F8FF8F219A08E70095CD6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

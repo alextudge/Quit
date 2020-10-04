@@ -40,34 +40,33 @@ private extension QuitInfoViewController {
             return
         }
         cancelAppleLocalNotifs()
-        HealthStats.allCases.forEach {
-            let center = UNUserNotificationCenter.current()
-            center.getNotificationSettings { settings in
-                guard settings.authorizationStatus == .authorized else {
-                    return
-                }
-            }
-            let minutes = Int($0.secondsForHealthState() / 60)
-            let content = UNMutableNotificationContent()
-            content.title = "New health improvement"
-            content.subtitle = "\(minutes) minutes smoke free!"
-            content.body = $0.rawValue
-            content.sound = .default
-            let date = Date(timeInterval: TimeInterval(minutes * 60), since: quitDate)
-            guard date > Date() else {
-                return
-            }
-            let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-            let request = UNNotificationRequest(identifier: $0.rawValue, content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
+//        HealthStats.allCases.forEach {
+//            let center = UNUserNotificationCenter.current()
+//            center.getNotificationSettings { settings in
+//                guard settings.authorizationStatus == .authorized else {
+//                    return
+//                }
+//            }
+//            let minutes = Int($0.secondsForHealthState() / 60)
+//            let content = UNMutableNotificationContent()
+//            content.title = "New health improvement"
+//            content.subtitle = "\(minutes) minutes smoke free!"
+//            content.sound = .default
+//            let date = Date(timeInterval: TimeInterval(minutes * 60), since: quitDate)
+//            guard date > Date() else {
+//                return
+//            }
+//            let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+//            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+//            let request = UNNotificationRequest(identifier: $0.rawValue, content: content, trigger: trigger)
+//            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//        }
         dismiss(animated: true, completion: nil)
     }
     
     func cancelAppleLocalNotifs() {
         let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: HealthStats.allCases.compactMap { $0.rawValue })
+//        center.removePendingNotificationRequests(withIdentifiers: HealthStats.allCases.compactMap { $0.rawValue })
     }
 }
 

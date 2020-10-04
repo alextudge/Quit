@@ -6,14 +6,13 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import GoogleMobileAds
+import UIKit
 
 class HomeViewController: QuitBaseViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private let viewModel = HomeViewModel()
-    private let interstitial = GADInterstitial(adUnitID: Constants.AppConfig.adInterstitialId)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,21 +60,6 @@ private extension HomeViewController {
     }
     
     func showPendingStartupViews() {
-        let appLoadCount = persistenceManager?.appLoadCounter() ?? 1
-        if appLoadCount % 5 == 0, appLoadCount > 1, persistenceManager?.isAdFree() == false {
-            setupAd()
-        }
-    }
-    
-    func setupAd() {
-        interstitial.delegate = self
-        interstitial.load(GADRequest())
-    }
-}
-
-extension HomeViewController: GADInterstitialDelegate {
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        interstitial.present(fromRootViewController: self)
     }
 }
 
@@ -140,12 +124,12 @@ extension HomeViewController: SavingGoalVCDelegate {
 }
 
 extension HomeViewController: SectionFourCarouselCellDelegate {
-    func loadHealthSummary(stat: HealthStats) {
-        if let viewController = ViewControllerFactory.QuitHealthSummaryViewController.viewController() as? QuitHealthSummaryViewController {
-            viewController.healthStat = stat
-            presentQuitBaseViewController(viewController)
-        }
-    }
+//    func loadHealthSummary(stat: HealthStats) {
+//        if let viewController = ViewControllerFactory.QuitHealthSummaryViewController.viewController() as? QuitHealthSummaryViewController {
+//            viewController.healthStat = stat
+//            presentQuitBaseViewController(viewController)
+//        }
+//    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

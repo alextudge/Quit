@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SectionFourCarouselCellDelegate: class {
-    func loadHealthSummary(stat: HealthStats)
+//    func loadHealthSummary(stat: HealthStats)
 }
 
 class SectionFourCarouselCell: UICollectionViewCell, QuitBaseCellProtocol {
@@ -51,7 +51,7 @@ extension SectionFourCarouselCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HealthStats.allCases.count
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,7 +59,7 @@ extension SectionFourCarouselCell: UICollectionViewDelegate, UICollectionViewDat
                 return UICollectionViewCell()
         }
         cell.persistenceManager = persistenceManager
-        cell.setupCell(data: HealthStats.allCases[indexPath.row])
+//        cell.setupCell(data: HealthStats.allCases[indexPath.row])
         return cell
     }
     

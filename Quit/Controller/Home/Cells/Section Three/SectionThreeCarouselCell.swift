@@ -59,7 +59,6 @@ extension SectionThreeCarouselCell: UICollectionViewDelegate, UICollectionViewDa
                 return UICollectionViewCell()
             }
             cell.delegate = self
-            cell.setup(persistenceManager: persistenceManager)
             return cell
         } else if indexPath.row == 1 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionThreeTriggerChartCell", for: indexPath) as? SectionThreeTriggerChartCell else {

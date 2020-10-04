@@ -6,12 +6,12 @@
 //  Copyright © 2018 Alex Tudge. All rights reserved.
 //
 
-import Lottie
+import UIKit
 
 class SectionFourHealthCell: UICollectionViewCell, QuitBaseCellProtocol {
     
     @IBOutlet private weak var healthStateLabel: UILabel!
-    @IBOutlet private weak var progressLottieView: AnimationView!
+//    @IBOutlet private weak var progressLottieView: AnimationView!
     
     private var shapeLayer = CAShapeLayer()
     private var trackShapeLayer = CAShapeLayer()
@@ -22,31 +22,18 @@ class SectionFourHealthCell: UICollectionViewCell, QuitBaseCellProtocol {
         setupSavingProgress()
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        reshapeProgressLayers()
-    }
-    
-    func setupCell(data: HealthStats) {
-        guard let profile = persistenceManager?.getProfile(),
-            let minuteSmokeFree = profile.minutesSmokeFree else {
-            return
-        }
-        let time = data.secondsForHealthState() / 60
-        let progress = Float(minuteSmokeFree / time)
-        shapeLayer.isHidden = progress >= 1
-        trackShapeLayer.isHidden = progress >= 1
-        progressLottieView.animation = nil
-        if progress >= 1 {
-            progressLottieView.animation = Animation.named("progressComplete")
-            progressLottieView.play()
-        } else {
-            animateProgressView(progress: progress)
-        }
-        healthStateLabel.text = data.rawValue
-        reshapeProgressLayers()
-        layoutIfNeeded()
-    }
+//    func setupCell(data: HealthStats) {
+//        guard let profile = persistenceManager?.getProfile(),
+//            let minuteSmokeFree = profile.minutesSmokeFree else {
+//            return
+//        }
+//        let time = data.secondsForHealthState() / 60
+//        let progress = Float(minuteSmokeFree / time)
+//        shapeLayer.isHidden = progress >= 1
+//        trackShapeLayer.isHidden = progress >= 1
+//       
+//        layoutIfNeeded()
+//    }
 }
 
 private extension SectionFourHealthCell {
@@ -72,11 +59,5 @@ private extension SectionFourHealthCell {
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: "basicAnimation")
-    }
-    
-    func reshapeProgressLayers() {
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: progressLottieView.frame.midX, y: progressLottieView.frame.midY), radius: (progressLottieView.frame.height / 2.0) - 7.5, startAngle: -CGFloat.pi / 3, endAngle: 2 * CGFloat.pi, clockwise: true)
-        trackShapeLayer.path = circularPath.cgPath
-        shapeLayer.path = circularPath.cgPath
     }
 }

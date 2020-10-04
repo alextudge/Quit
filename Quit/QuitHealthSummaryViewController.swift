@@ -14,7 +14,7 @@ class QuitHealthSummaryViewController: QuitCelebrationBaseViewController {
     @IBOutlet private weak var titleLabel: QuitLabel!
     @IBOutlet private weak var textView: UITextView!
     
-    var healthStat: HealthStats?
+//    var healthStat: HealthStats?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +26,15 @@ private extension QuitHealthSummaryViewController {
     func setupUI() {
         stackView.layer.cornerRadius = 5
         stackView.backgroundColor = UIColor.quitBackgroundColour.withAlphaComponent(0.6)
-        titleLabel.text = healthStat?.rawValue
-        textView.text = healthStat?.information()
+//        textView.text = healthStat?.information()
         guard let profile = persistenceManager?.getProfile(),
             let minuteSmokeFree = profile.minutesSmokeFree else {
             return
         }
-        let time = (healthStat?.secondsForHealthState() ?? 0) / 60
-        let progress = Float(minuteSmokeFree / time)
-        if progress >= 1 {
-            setupEmitter()
-        }
+//        let time = (healthStat?.secondsForHealthState() ?? 0) / 60
+//        let progress = Float(minuteSmokeFree / time)
+//        if progress >= 1 {
+//            setupEmitter()
+//        }
     }
 }

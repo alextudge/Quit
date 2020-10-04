@@ -32,6 +32,13 @@ extension Profile {
         return secondsSmokeFree / 60
     }
     
+    var secondsSmokeFree: Int? {
+        guard let quitDate = quitDate else {
+            return nil
+        }
+        return Int(Date().timeIntervalSince(quitDate))
+    }
+    
     var daysSmokeFree: Double? {
         guard let minutesSmokeFree = minutesSmokeFree else {
             return nil
@@ -61,6 +68,13 @@ extension Profile {
             return nil
         }
         return smokedPerMinute * minutesSmokeFree
+    }
+    
+    var minutesRegained: Int? {
+        guard let cigarettesAvoided = cigarettesAvoided else {
+            return nil
+        }
+        return Int(cigarettesAvoided) * 5
     }
 }
 

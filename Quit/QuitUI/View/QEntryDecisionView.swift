@@ -11,10 +11,7 @@ import SwiftUI
 struct QEntryDecisionView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(
-        entity: Profile.entity(),
-        sortDescriptors: []
-    ) var profiles: FetchedResults<Profile>
+    @FetchRequest(entity: Profile.entity(), sortDescriptors: []) var profiles: FetchedResults<Profile>
     
     var body: some View {
         NavigationView {

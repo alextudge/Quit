@@ -22,17 +22,20 @@ struct QCravingChartView: View {
         VStack(alignment: .leading) {
             QLineGraph(dataPoints: processedCravings())
                 .trim(to: chartHasAppeared ? 1 : 0)
-                .stroke(LinearGradient(gradient: Gradient(colors: [.orange, .green]), startPoint: .top, endPoint: .bottom), lineWidth: 2)
+                .stroke(Color.white, lineWidth: 2)
             HStack {
-                if let min = cravings.map { ($0.cravingDate ?? Date()) }.min(),
-                   let max = cravings.map { ($0.cravingDate ?? Date()) }.max() {
+                if let min = cravings.map { ($0.cravingDate ?? Date()) }.min() {
                     Text("\(stringDate(date: min))")
+                        .foregroundColor(.white)
                     Spacer()
-                    Text("\(stringDate(date: max))")
+                    Text("Now")
+                        .foregroundColor(.white)
                 }
             }
         }
         .padding()
+        .background(Color.green)
+        .cornerRadius(5)
         .onAppear {
             withAnimation(.easeInOut(duration: 2)) {
                 chartHasAppeared = true

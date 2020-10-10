@@ -18,7 +18,7 @@ struct QClockView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                PieChartSlide(geometry: geometry, startAngle: -90, endAngle: correctedProgress - 90, colour: .green)
+                PieChartSlide(geometry: geometry, startAngle: -90, endAngle: correctedProgress - 90, colour: .white)
                 PieChartSlide(geometry: geometry, startAngle: correctedProgress - 90, endAngle: 270, colour: .clear)
             }
         }
@@ -55,6 +55,6 @@ public struct PieChartSlide: View {
     public var body: some View {
         path
             .fill(colour)
-            .overlay(path.stroke(Color.white, lineWidth: 10))
+            .overlay(path.stroke(Color.white, lineWidth: 2))
     }
 }

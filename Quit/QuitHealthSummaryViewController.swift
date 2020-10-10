@@ -27,10 +27,10 @@ private extension QuitHealthSummaryViewController {
         stackView.layer.cornerRadius = 5
         stackView.backgroundColor = UIColor.quitBackgroundColour.withAlphaComponent(0.6)
 //        textView.text = healthStat?.information()
-        guard let profile = persistenceManager?.getProfile(),
-            let minuteSmokeFree = profile.minutesSmokeFree else {
-            return
-        }
+//        guard let profile = persistenceManager?.getProfile(),
+//            let minuteSmokeFree = profile.minutesSmokeFree else {
+//            return
+//        }
 //        let time = (healthStat?.secondsForHealthState() ?? 0) / 60
 //        let progress = Float(minuteSmokeFree / time)
 //        if progress >= 1 {

@@ -9,6 +9,13 @@
 import Foundation
 
 extension Profile {
+    var costPerMinute: Double {
+        guard let costPerDay = costPerDay else {
+            return 0
+        }
+        return costPerDay / 1440
+    }
+    
     var costPerDay: Double? {
         guard let costPerCigarette = costPerCigarette,
             let smokedDaily = smokedDaily else {
@@ -24,9 +31,9 @@ extension Profile {
         return costPerWeek * 52
     }
     
-    var minutesSmokeFree: Double? {
+    var minutesSmokeFree: Double {
         guard let quitDate = quitDate else {
-            return nil
+            return 0
         }
         let secondsSmokeFree = Date().timeIntervalSince(quitDate)
         return secondsSmokeFree / 60
@@ -40,41 +47,26 @@ extension Profile {
     }
     
     var daysSmokeFree: Double? {
-        guard let minutesSmokeFree = minutesSmokeFree else {
-            return nil
-        }
-        return minutesSmokeFree / 1440
+        minutesSmokeFree / 1440
     }
     
-    var savedSoFar: Double? {
-        guard let minutesSmokeFree = minutesSmokeFree,
-            let costPerMinute = costPerMinute else {
-                return nil
-        }
-        return minutesSmokeFree * costPerMinute
+    var savedSoFar: Double {
+        minutesSmokeFree * costPerMinute
     }
     
     var vapingSavings: Double? {
-        guard let savedSoFar = savedSoFar,
-            let vapeSpend = vapeSpending else {
-                return nil
+        guard let vapeSpend = vapeSpending else {
+            return nil
         }
         return savedSoFar - vapeSpend.doubleValue
     }
     
-    var cigarettesAvoided: Double? {
-        guard let smokedPerMinute = smokedPerMinute,
-            let minutesSmokeFree = minutesSmokeFree else {
-            return nil
-        }
-        return smokedPerMinute * minutesSmokeFree
+    var cigarettesAvoided: Double {
+        (smokedPerMinute ?? 0) * minutesSmokeFree
     }
     
-    var minutesRegained: Int? {
-        guard let cigarettesAvoided = cigarettesAvoided else {
-            return nil
-        }
-        return Int(cigarettesAvoided) * 5
+    var minutesRegained: Int {
+        Int(cigarettesAvoided) * 5
     }
 }
 
@@ -84,13 +76,6 @@ private extension Profile {
             return nil
         }
         return Double(truncating: costOf20) / 20.0
-    }
-    
-    var costPerMinute: Double? {
-        guard let costPerDay = costPerDay else {
-            return nil
-        }
-        return costPerDay / 1440
     }
     
     var costPerWeek: Double? {

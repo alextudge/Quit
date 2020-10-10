@@ -17,28 +17,18 @@ struct QEditQuitDateView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Your quit date")
-                    .font(.headline)
-                DatePicker("", selection: .init(get: { (profile.quitDate ?? Date()) },
-                                                set: { profile.quitDate = $0}))
-            }
-            Button(action: {
-                withAnimation(.easeInOut(duration: 0.25)) {
-                    showTimer.toggle()
+                if let date = profile.quitDate {
+                    Text(Date().offsetFrom(date: date))
                 }
-            }) {
-                Image(systemName: showTimer ? "minus" : "plus")
+                DatePicker("", selection: .init(get: { (
+                    profile.quitDate ?? Date())
+                },
+                set: {
+                    profile.quitDate = $0
+                    try? managedObjectContext.save()
+                }))
             }
-            .padding()
-            if showTimer,
-               let date = profile.quitDate {
-                Text(Date().offsetFrom(date: date))
-            }
-        }
-        .padding()
-        .background(Color(UIColor.systemBackground))
-        .cornerRadius(5)
-        .shadow(radius: 3)
+        }.padding()
     }
 }
 

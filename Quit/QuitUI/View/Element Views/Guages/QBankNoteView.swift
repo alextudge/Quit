@@ -20,16 +20,16 @@ struct QBankNoteView: View {
             ZStack {
                 GeometryReader { subGeo in
                     Rectangle()
-                        .fill(Color.green)
-                        .cornerRadius(2)
+                        .fill(Color.white)
+                        .cornerRadius(5)
                         .frame(height: subGeo.size.height * CGFloat(correctedProgress))
                         .offset(y: subGeo.size.height - subGeo.size.height * CGFloat(correctedProgress))
                     Rectangle()
                         .fill(Color.clear)
-                        .cornerRadius(2)
+                        .cornerRadius(5)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.white, lineWidth: 10)
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.white, lineWidth: 2)
                         )
                 }
             }

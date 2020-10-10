@@ -11,9 +11,9 @@ import SwiftUI
 struct QSetupProfileView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    @State var quitDate = Date()
-    @State var numberSmoked = ""
-    @State var costOf20 = ""
+    @State private var quitDate = Date()
+    @State private var numberSmoked = ""
+    @State private var costOf20 = ""
     
     var body: some View {
         Form {

@@ -15,23 +15,33 @@ struct QHomeView: View {
     
     var body: some View {
         GeometryReader { geo in
-            ScrollView(.vertical) {
-                LazyVStack(alignment: .leading, spacing: 20) {
-                    Text("Highlights")
+            List {
+                Section(header: Text("Highlights")) {
                     QHeadlineGuageListView(profile: profile)
-                        .frame(height: geo.size.height * 0.4)
+                        .frame(height: geo.size.height * 0.3)
+                        .listRowInsets(EdgeInsets())
+                }
+                Section(header: Text("Your Quit")) {
                     QEditQuitDateView(profile: profile)
-                    Text("Your cravings")
-                    QCravingChartView()
-                        .frame(height: geo.size.height * 0.4)
+                        .listRowInsets(EdgeInsets())
+                }
+                Section(header: Text("Your Finances")) {
+                    QFinanceListView(profile: profile)
+                        .frame(height: geo.size.height * 0.1)
+                        .listRowInsets(EdgeInsets())
+                }
+                Section(header: Text("Cravings & Triggers")) {
+                    QCravingsSectionView()
+                        .frame(height: geo.size.height * 0.3)
+                        .listRowInsets(EdgeInsets())
                 }
             }
         }
-        .navigationBarItems(leading:
-            Button("Delete", action: {
-                managedObjectContext.delete(profile)
-                try? managedObjectContext.save()
-            })
+        .edgesIgnoringSafeArea(.all)
+        .navigationBarItems(trailing:
+            NavigationLink(destination: QSettingsView(profile: profile)) {
+                Label("Settings", systemImage: "slider.horizontal.3")
+            }
         )
     }
 }

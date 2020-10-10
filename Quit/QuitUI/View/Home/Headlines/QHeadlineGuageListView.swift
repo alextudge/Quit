@@ -19,12 +19,10 @@ struct QHeadlineGuageListView: View {
                     ForEach(QGuage.allCases, id: \.self) {
                         QHeadlineGuageListItemView(guage: $0, profile: profile)
                             .frame(width: geo.size.width * 0.8, height: geo.size.height)
-                            .background($0.colour)
+                            .background(LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .cornerRadius(5)
-                            .shadow(radius: 3)
                     }
                 }
-                .padding(.horizontal)
             }
         }
     }

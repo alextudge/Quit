@@ -18,8 +18,8 @@ struct QClockView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                PieChartSlide(geometry: geometry, startAngle: -90, endAngle: correctedProgress - 90, colour: .white)
-                PieChartSlide(geometry: geometry, startAngle: correctedProgress - 90, endAngle: 270, colour: .clear)
+                PieChartSlide(geo: geometry, startAngle: -90, endAngle: correctedProgress - 90, colour: .white)
+                PieChartSlide(geo: geometry, startAngle: correctedProgress - 90, endAngle: 270, colour: .clear)
             }
         }
     }
@@ -35,16 +35,17 @@ public struct PieChartSlide: View {
     
     @State private var show = false
     
-    var geometry: GeometryProxy
+    var geo: GeometryProxy
     var startAngle: Double
     var endAngle: Double
     var colour: Color
     
     var path: Path {
-        let radius = geometry.size.width / 3
+        let radius = min(geo.size.width, geo.size.height) / 2
         var path = Path()
-        path.move(to: CGPoint(x: radius, y: radius))
-        path.addArc(center: CGPoint(x: radius, y: radius),
+        let center = CGPoint(x: geo.size.width / 2, y: geo.size.height / 2)
+        path.move(to: center)
+        path.addArc(center: center,
                     radius: radius,
                     startAngle: Angle(degrees: startAngle),
                     endAngle: Angle(degrees: endAngle),

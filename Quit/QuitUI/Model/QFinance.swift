@@ -9,7 +9,7 @@
 import Foundation
 
 enum QFinance: CaseIterable {
-    case daily, weekly, annual, soFar, lifetime
+    case soFar, daily, weekly, annual, lifetime
     
     var title: String {
         switch self {

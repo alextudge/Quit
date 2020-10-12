@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct QFinanceSummaryView: View {
+struct QFinanceTimeSavingView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var profile: Profile
@@ -29,7 +29,7 @@ struct QFinanceSummaryView: View {
     }
 }
 
-private extension QFinanceSummaryView {
+private extension QFinanceTimeSavingView {
     func stringFromCurrencyFormatter(data: Double) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -37,8 +37,8 @@ private extension QFinanceSummaryView {
     }
 }
 
-struct QFinanceSummaryView_Previews: PreviewProvider {
+struct QFinaceTimeSavingView_Previews: PreviewProvider {
     static var previews: some View {
-        QFinanceSummaryView(profile: Profile(), finance: .daily)
+        QFinanceTimeSavingView(profile: Profile(), finance: .daily)
     }
 }

@@ -10,21 +10,12 @@ import SwiftUI
 
 struct QFinanceListView: View {
     
-    @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var profile: Profile
     
     var body: some View {
-        GeometryReader { geo in
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 20) {
-                    ForEach(QFinance.allCases, id: \.self) {
-                        QFinanceSummaryView(profile: profile, finance: $0)
-                            .frame(height: geo.size.height)
-                            .background(LinearGradient(gradient: Gradient(colors: [.orange, .yellow]), startPoint: .bottomLeading, endPoint: .topTrailing))
-                            .cornerRadius(5)
-                    }
-                }
-            }
+        VStack {
+            QFinanceTimeSavingListView(profile: profile)
+            QFinanceSavingGoalListView(profile: profile)
         }
     }
 }

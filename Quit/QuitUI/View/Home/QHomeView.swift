@@ -27,7 +27,7 @@ struct QHomeView: View {
                 }
                 Section(header: Text("Your Finances")) {
                     QFinanceListView(profile: profile)
-                        .frame(height: geo.size.height * 0.1)
+                        .frame(height: geo.size.height * 0.3)
                         .listRowInsets(EdgeInsets())
                 }
                 Section(header: Text("Cravings & Triggers")) {

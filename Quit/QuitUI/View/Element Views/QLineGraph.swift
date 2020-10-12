@@ -17,11 +17,11 @@ struct QLineGraph: Shape {
     }
     
     func path(in rect: CGRect) -> Path {
-        return Path { p in
+        return Path { path in
             guard dataPoints.count > 1 else { return }
-            p.move(to: CGPoint(x: 0, y: (rect.height / (datePointValues.max() ?? 0)) * CGFloat(datePointValues[0])))
+            path.move(to: CGPoint(x: 0, y: (rect.height / (datePointValues.max() ?? 0)) * CGFloat(datePointValues[0])))
             datePointValues.indices.forEach {
-                p.addLine(to: point(at: $0, rect: rect))
+                path.addLine(to: point(at: $0, rect: rect))
             }
         }
     }

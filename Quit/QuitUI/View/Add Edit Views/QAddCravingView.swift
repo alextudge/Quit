@@ -33,12 +33,13 @@ struct QAddCravingView: View {
                     }
                 }
             }
-            TextField("New Category", text: $newCategory)
+            TextField("New trigger", text: $newCategory)
             Button("Save craving", action: {
                 saveCraving()
             })
             .buttonStyle(QButtonStyle())
         }
+        .navigationTitle("Add a craving")
     }
 }
 

@@ -34,7 +34,7 @@ struct QCravingChartView: View {
             }
         }
         .padding()
-        .background(Color.green)
+        .background(LinearGradient(gradient: Gradient(colors: [.green, Color("quitSecondaryColor")]), startPoint: .topTrailing, endPoint: .bottomLeading))
         .cornerRadius(5)
         .onAppear {
             withAnimation(.easeInOut(duration: 2)) {

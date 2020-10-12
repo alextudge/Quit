@@ -13,7 +13,10 @@ struct QGuageInformationView: View {
     let guage: QGuage
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+        }
+        .navigationTitle(guage.nameForHeadline)
     }
 }
 

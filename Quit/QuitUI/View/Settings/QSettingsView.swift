@@ -20,6 +20,7 @@ struct QSettingsView: View {
                 try? managedObjectContext.save()
             })
         }
+        .navigationTitle("Settings")
     }
 }
 

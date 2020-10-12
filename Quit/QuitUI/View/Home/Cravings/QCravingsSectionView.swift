@@ -18,9 +18,20 @@ struct QCravingsSectionView: View {
                 NavigationLink(destination: QAddCravingView(), tag: 1, selection: $addingCraving) {
                     EmptyView()
                 }
-                Button("Add craving", action: {
-                    addingCraving = 1
-                })
+                NavigationLink(destination: QViewCravingsView(), tag: 2, selection: $addingCraving) {
+                    EmptyView()
+                }
+                HStack {
+                    Button("Add craving", action: {
+                        addingCraving = 1
+                    })
+                    .buttonStyle(QButtonStyle())
+                    Spacer()
+                    Button("View cravings", action: {
+                        addingCraving = 2
+                    })
+                    .buttonStyle(QButtonStyle())
+                }
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 20) {
                         QCravingChartView()

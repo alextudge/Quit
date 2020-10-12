@@ -14,7 +14,7 @@
 		170B0A94229486C800217358 /* SectionFiveNotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B0A92229486C800217358 /* SectionFiveNotificationsCell.swift */; };
 		170B0A95229486C800217358 /* SectionFiveNotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 170B0A93229486C800217358 /* SectionFiveNotificationsCell.xib */; };
 		1711904725312EB0008A271A /* QFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1711904625312EB0008A271A /* QFinance.swift */; };
-		1711904B2531337A008A271A /* QFinanceGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1711904A2531337A008A271A /* QFinanceGoalView.swift */; };
+		1711904B2531337A008A271A /* QFinanceSavingGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1711904A2531337A008A271A /* QFinanceSavingGoalView.swift */; };
 		17119081253497DB008A271A /* QFinanceTimeSavingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17119080253497DB008A271A /* QFinanceTimeSavingListView.swift */; };
 		1711908725349858008A271A /* QFinanceSavingGoalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1711908625349858008A271A /* QFinanceSavingGoalListView.swift */; };
 		1714FC9C219E306000CFB203 /* AddCravingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714FC9B219E306000CFB203 /* AddCravingViewController.swift */; };
@@ -36,11 +36,18 @@
 		17440DFA2527EB5D000E4703 /* QCravingChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DF92527EB5D000E4703 /* QCravingChartView.swift */; };
 		17440E00252A3773000E4703 /* QBankNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DFF252A3773000E4703 /* QBankNoteView.swift */; };
 		17440E07252A6164000E4703 /* QLineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440E06252A6164000E4703 /* QLineGraph.swift */; };
+		174B53402534F1BE009F254C /* QAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B533F2534F1BE009F254C /* QAchievement.swift */; };
+		174B534B2534F41A009F254C /* QAchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B534A2534F41A009F254C /* QAchievementView.swift */; };
+		174B53512534FAF4009F254C /* QViewAchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B53502534FAF4009F254C /* QViewAchievementsView.swift */; };
+		174B53582534FCCA009F254C /* QHealthListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B53572534FCCA009F254C /* QHealthListView.swift */; };
+		174B53622534FDB7009F254C /* QHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B53612534FDB7009F254C /* QHealthView.swift */; };
 		1752B7E82527A8E000064384 /* QGuageInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752B7E72527A8E000064384 /* QGuageInformationView.swift */; };
 		1752F0AF21BF11AF0056642F /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
 		1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B221C0414E0056642F /* AchievementCell.swift */; };
 		175871DD22DA107F00DB9E75 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175871DC22DA107F00DB9E75 /* StoreKit.framework */; };
+		175C834E25349F5A000FAD1E /* QViewCravingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C834D25349F5A000FAD1E /* QViewCravingsView.swift */; };
+		175C83542534D532000FAD1E /* QSavingGoalEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C83532534D532000FAD1E /* QSavingGoalEditView.swift */; };
 		175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41EC21D3E0A500FB7588 /* DateExtensions.swift */; };
 		175D41EF21D3E23300FB7588 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41EE21D3E23300FB7588 /* TextField.swift */; };
 		175D41F721D3E36600FB7588 /* ChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F621D3E36600FB7588 /* ChartFormatter.swift */; };
@@ -171,7 +178,7 @@
 		170B0A92229486C800217358 /* SectionFiveNotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveNotificationsCell.swift; sourceTree = "<group>"; };
 		170B0A93229486C800217358 /* SectionFiveNotificationsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFiveNotificationsCell.xib; sourceTree = "<group>"; };
 		1711904625312EB0008A271A /* QFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFinance.swift; sourceTree = "<group>"; };
-		1711904A2531337A008A271A /* QFinanceGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFinanceGoalView.swift; sourceTree = "<group>"; };
+		1711904A2531337A008A271A /* QFinanceSavingGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFinanceSavingGoalView.swift; sourceTree = "<group>"; };
 		17119080253497DB008A271A /* QFinanceTimeSavingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFinanceTimeSavingListView.swift; sourceTree = "<group>"; };
 		1711908625349858008A271A /* QFinanceSavingGoalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFinanceSavingGoalListView.swift; sourceTree = "<group>"; };
 		1714FC86219E06C000CFB203 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -195,11 +202,18 @@
 		17440DF92527EB5D000E4703 /* QCravingChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCravingChartView.swift; sourceTree = "<group>"; };
 		17440DFF252A3773000E4703 /* QBankNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QBankNoteView.swift; sourceTree = "<group>"; };
 		17440E06252A6164000E4703 /* QLineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLineGraph.swift; sourceTree = "<group>"; };
+		174B533F2534F1BE009F254C /* QAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAchievement.swift; sourceTree = "<group>"; };
+		174B534A2534F41A009F254C /* QAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAchievementView.swift; sourceTree = "<group>"; };
+		174B53502534FAF4009F254C /* QViewAchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QViewAchievementsView.swift; sourceTree = "<group>"; };
+		174B53572534FCCA009F254C /* QHealthListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHealthListView.swift; sourceTree = "<group>"; };
+		174B53612534FDB7009F254C /* QHealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHealthView.swift; sourceTree = "<group>"; };
 		1752B7E72527A8E000064384 /* QGuageInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QGuageInformationView.swift; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
 		1752F0B221C0414E0056642F /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		175871DC22DA107F00DB9E75 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		175C834D25349F5A000FAD1E /* QViewCravingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QViewCravingsView.swift; sourceTree = "<group>"; };
+		175C83532534D532000FAD1E /* QSavingGoalEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSavingGoalEditView.swift; sourceTree = "<group>"; };
 		175D41EC21D3E0A500FB7588 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		175D41EE21D3E23300FB7588 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		175D41F621D3E36600FB7588 /* ChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFormatter.swift; sourceTree = "<group>"; };
@@ -327,7 +341,6 @@
 			isa = PBXGroup;
 			children = (
 				17043208252F8D24007263B6 /* QSettingsView.swift */,
-				17C09C1225311572007966B1 /* QAddCravingView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -370,6 +383,7 @@
 				1732B3AC252782FB00C469C1 /* QGuages.swift */,
 				17440DD72527B1C6000E4703 /* QHealth.swift */,
 				1711904625312EB0008A271A /* QFinance.swift */,
+				174B533F2534F1BE009F254C /* QAchievement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,7 +395,8 @@
 				17C14F2225279D6D001564B0 /* Profile */,
 				1732B3B72527850200C469C1 /* Home */,
 				17043207252F8D04007263B6 /* Settings */,
-				1752B7E62527A8B900064384 /* Guage Information */,
+				1752B7E62527A8B900064384 /* Information Views */,
+				175C83592534E323000FAD1E /* Add Edit Views */,
 				17440DDF2527D419000E4703 /* Element Views */,
 				1704320E252FAB70007263B6 /* Reusable Views */,
 			);
@@ -395,7 +410,9 @@
 				17440DE92527E4E7000E4703 /* QEditQuitDateView.swift */,
 				17C09C29253125A5007966B1 /* Headlines */,
 				17C09C2A253125B7007966B1 /* Finance */,
+				174B53432534F1E0009F254C /* Achievements */,
 				17C09C2825312593007966B1 /* Cravings */,
+				174B53562534FCB3009F254C /* Health */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -409,12 +426,40 @@
 			path = "Element Views";
 			sourceTree = "<group>";
 		};
-		1752B7E62527A8B900064384 /* Guage Information */ = {
+		174B53432534F1E0009F254C /* Achievements */ = {
 			isa = PBXGroup;
 			children = (
+				174B534A2534F41A009F254C /* QAchievementView.swift */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
+		174B53562534FCB3009F254C /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				174B53572534FCCA009F254C /* QHealthListView.swift */,
+				174B53612534FDB7009F254C /* QHealthView.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		1752B7E62527A8B900064384 /* Information Views */ = {
+			isa = PBXGroup;
+			children = (
+				175C834D25349F5A000FAD1E /* QViewCravingsView.swift */,
+				174B53502534FAF4009F254C /* QViewAchievementsView.swift */,
 				1752B7E72527A8E000064384 /* QGuageInformationView.swift */,
 			);
-			path = "Guage Information";
+			path = "Information Views";
+			sourceTree = "<group>";
+		};
+		175C83592534E323000FAD1E /* Add Edit Views */ = {
+			isa = PBXGroup;
+			children = (
+				17C09C1225311572007966B1 /* QAddCravingView.swift */,
+				175C83532534D532000FAD1E /* QSavingGoalEditView.swift */,
+			);
+			path = "Add Edit Views";
 			sourceTree = "<group>";
 		};
 		175D41EB21D3E06C00FB7588 /* Extensions */ = {
@@ -691,7 +736,7 @@
 				17119080253497DB008A271A /* QFinanceTimeSavingListView.swift */,
 				17C09C2B253125D7007966B1 /* QFinanceTimeSavingView.swift */,
 				1711908625349858008A271A /* QFinanceSavingGoalListView.swift */,
-				1711904A2531337A008A271A /* QFinanceGoalView.swift */,
+				1711904A2531337A008A271A /* QFinanceSavingGoalView.swift */,
 			);
 			path = Finance;
 			sourceTree = "<group>";
@@ -961,6 +1006,8 @@
 				179FDFCA2164052D003131C5 /* SectionOneCravingDataCell.swift in Sources */,
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */,
+				174B53512534FAF4009F254C /* QViewAchievementsView.swift in Sources */,
+				175C83542534D532000FAD1E /* QSavingGoalEditView.swift in Sources */,
 				17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */,
 				1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */,
 				179FDFE02168118C003131C5 /* SectionTwoSavingsOverviewCell.swift in Sources */,
@@ -968,11 +1015,14 @@
 				17F3BA50237627CE00B01083 /* QuitInfoCostCell.swift in Sources */,
 				17440E07252A6164000E4703 /* QLineGraph.swift in Sources */,
 				1737C9E02029FEE800AA8CE5 /* SavingGoalVC.swift in Sources */,
+				174B53582534FCCA009F254C /* QHealthListView.swift in Sources */,
 				171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */,
 				1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */,
 				1732B3AD252782FB00C469C1 /* QGuages.swift in Sources */,
 				17BD352C2298ABCE004E766B /* AddNotificationViewController.swift in Sources */,
-				1711904B2531337A008A271A /* QFinanceGoalView.swift in Sources */,
+				1711904B2531337A008A271A /* QFinanceSavingGoalView.swift in Sources */,
+				174B534B2534F41A009F254C /* QAchievementView.swift in Sources */,
+				174B53622534FDB7009F254C /* QHealthView.swift in Sources */,
 				17440DEA2527E4E7000E4703 /* QEditQuitDateView.swift in Sources */,
 				1711904725312EB0008A271A /* QFinance.swift in Sources */,
 				17F3BA522376281900B01083 /* QuitInfoDateCell.swift in Sources */,
@@ -1005,9 +1055,11 @@
 				17C14F3225279F1D001564B0 /* QSetupProfileView.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,
 				175D41EF21D3E23300FB7588 /* TextField.swift in Sources */,
+				175C834E25349F5A000FAD1E /* QViewCravingsView.swift in Sources */,
 				179FDFD82166A3E4003131C5 /* SectionOneCravingDataCellViewModel.swift in Sources */,
 				177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */,
 				1701265B227F9BB100E416F6 /* CravingsViewController.swift in Sources */,
+				174B53402534F1BE009F254C /* QAchievement.swift in Sources */,
 				1701265D227F9D2100E416F6 /* CravingsCell.swift in Sources */,
 				1714FC9E219E359A00CFB203 /* AddCravingViewModel.swift in Sources */,
 				170B0A94229486C800217358 /* SectionFiveNotificationsCell.swift in Sources */,

@@ -12,18 +12,13 @@ struct QHomeView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var profile: Profile
-    private var achievementsAchieved: Int {
-        QAchievements.allCases.compactMap {
-            $0.resultsText(profile: profile).passed
-        }.count
-    }
     
     var body: some View {
         GeometryReader { geo in
             List {
                 Section(header: Text("Highlights")) {
                     QHeadlineGuageListView(profile: profile)
-                        .frame(height: geo.size.height * 0.3)
+                        .frame(height: geo.size.height * 0.25)
                         .listRowInsets(EdgeInsets())
                 }
                 Section(header: Text("Your Quit")) {
@@ -36,9 +31,7 @@ struct QHomeView: View {
                         .listRowInsets(EdgeInsets())
                 }
                 Section(header: Text("Achievements")) {
-                    NavigationLink(destination: QViewAchievementsView(profile: profile)) {
-                        Label("\(achievementsAchieved) achieved!\nTap here to see them all.", systemImage: "bolt.fill")
-                    }
+                    QAchievementHomeView(profile: profile)
                 }
                 Section(header: Text("Cravings & Triggers")) {
                     QCravingsSectionView()
@@ -51,7 +44,9 @@ struct QHomeView: View {
                         .listRowInsets(EdgeInsets())
                 }
                 Section(header: Text("Notifications")) {
-                    
+                    NavigationLink(destination: QNotificationsHomeView()) {
+                        Text("Location Notification")
+                    }
                 }
             }
         }

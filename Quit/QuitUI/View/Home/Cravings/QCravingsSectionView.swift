@@ -9,31 +9,30 @@
 import SwiftUI
 
 struct QCravingsSectionView: View {
-    
-    @State private var addingCraving: Int?
-    
+        
     var body: some View {
         GeometryReader { geo in
             VStack {
-                NavigationLink(destination: QAddCravingView(), tag: 1, selection: $addingCraving) {
-                    EmptyView()
-                }
-                NavigationLink(destination: QViewCravingsView(), tag: 2, selection: $addingCraving) {
-                    EmptyView()
-                }
-                HStack {
-                    Button("Add craving", action: {
-                        addingCraving = 1
-                    })
-                    .buttonStyle(QButtonStyle())
-                    Spacer()
-                    Button("View cravings", action: {
-                        addingCraving = 2
-                    })
-                    .buttonStyle(QButtonStyle())
-                }
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 20) {
+                        VStack(spacing: 20) {
+                            NavigationLink(destination: QAddCravingView()) {
+                                Text("Add Craving")
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(width: geo.size.width * 0.3, height: (geo.size.height / 2) - 10)
+                                    .background(Color.green)
+                                    .cornerRadius(5)
+                            }
+                            NavigationLink(destination: QViewCravingsView()) {
+                                Text("View Cravings")
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(width: geo.size.width * 0.3, height: (geo.size.height / 2) - 10)
+                                    .background(Color.green)
+                                    .cornerRadius(5)
+                            }
+                        }
                         QCravingChartView()
                             .frame(width: geo.size.width * 0.8)
                         QCravingChartView()

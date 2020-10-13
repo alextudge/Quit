@@ -41,6 +41,12 @@
 		174B53512534FAF4009F254C /* QViewAchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B53502534FAF4009F254C /* QViewAchievementsView.swift */; };
 		174B53582534FCCA009F254C /* QHealthListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B53572534FCCA009F254C /* QHealthListView.swift */; };
 		174B53622534FDB7009F254C /* QHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B53612534FDB7009F254C /* QHealthView.swift */; };
+		174B53662535006B009F254C /* QHealthInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B53652535006B009F254C /* QHealthInfoView.swift */; };
+		174B537A253637FE009F254C /* QAchievementHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B5379253637FE009F254C /* QAchievementHomeView.swift */; };
+		174B53872536393A009F254C /* QAddCustomNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B53862536393A009F254C /* QAddCustomNotificationView.swift */; };
+		174B538B25363CBC009F254C /* QMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B538A25363CBC009F254C /* QMapView.swift */; };
+		174B539125365A2F009F254C /* QNotificationsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B539025365A2F009F254C /* QNotificationsHomeView.swift */; };
+		174B539525365A8D009F254C /* QViewPendingNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B539425365A8D009F254C /* QViewPendingNotificationsView.swift */; };
 		1752B7E82527A8E000064384 /* QGuageInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752B7E72527A8E000064384 /* QGuageInformationView.swift */; };
 		1752F0AF21BF11AF0056642F /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */; };
 		1752F0B121BF12E30056642F /* ViewControllerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */; };
@@ -54,6 +60,7 @@
 		175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */; };
 		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
 		1769EF8C23527E7300AAAFE5 /* QuitInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769EF8B23527E7300AAAFE5 /* QuitInfoViewController.swift */; };
+		1776546425365E7500461631 /* QAddTimeNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776546325365E7500461631 /* QAddTimeNotificationView.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
@@ -207,6 +214,12 @@
 		174B53502534FAF4009F254C /* QViewAchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QViewAchievementsView.swift; sourceTree = "<group>"; };
 		174B53572534FCCA009F254C /* QHealthListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHealthListView.swift; sourceTree = "<group>"; };
 		174B53612534FDB7009F254C /* QHealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHealthView.swift; sourceTree = "<group>"; };
+		174B53652535006B009F254C /* QHealthInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHealthInfoView.swift; sourceTree = "<group>"; };
+		174B5379253637FE009F254C /* QAchievementHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAchievementHomeView.swift; sourceTree = "<group>"; };
+		174B53862536393A009F254C /* QAddCustomNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddCustomNotificationView.swift; sourceTree = "<group>"; };
+		174B538A25363CBC009F254C /* QMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMapView.swift; sourceTree = "<group>"; };
+		174B539025365A2F009F254C /* QNotificationsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QNotificationsHomeView.swift; sourceTree = "<group>"; };
+		174B539425365A8D009F254C /* QViewPendingNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QViewPendingNotificationsView.swift; sourceTree = "<group>"; };
 		1752B7E72527A8E000064384 /* QGuageInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QGuageInformationView.swift; sourceTree = "<group>"; };
 		1752F0AE21BF11AE0056642F /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		1752F0B021BF12E30056642F /* ViewControllerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstructor.swift; sourceTree = "<group>"; };
@@ -220,6 +233,7 @@
 		175D41F821D3E3AC00FB7588 /* QuitFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitFormatters.swift; sourceTree = "<group>"; };
 		1767D300219C417F007E4DE9 /* SmokedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokedVC.swift; sourceTree = "<group>"; };
 		1769EF8B23527E7300AAAFE5 /* QuitInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoViewController.swift; sourceTree = "<group>"; };
+		1776546325365E7500461631 /* QAddTimeNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddTimeNotificationView.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F03EC2025220000CC7CA8 /* Quit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quit.xcdatamodel; sourceTree = "<group>"; };
@@ -349,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				1704320F252FAB92007263B6 /* QButtonStyle.swift */,
+				174B538A25363CBC009F254C /* QMapView.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -413,6 +428,7 @@
 				174B53432534F1E0009F254C /* Achievements */,
 				17C09C2825312593007966B1 /* Cravings */,
 				174B53562534FCB3009F254C /* Health */,
+				174B537F25363888009F254C /* Notifications */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -429,6 +445,7 @@
 		174B53432534F1E0009F254C /* Achievements */ = {
 			isa = PBXGroup;
 			children = (
+				174B5379253637FE009F254C /* QAchievementHomeView.swift */,
 				174B534A2534F41A009F254C /* QAchievementView.swift */,
 			);
 			path = Achievements;
@@ -443,12 +460,22 @@
 			path = Health;
 			sourceTree = "<group>";
 		};
+		174B537F25363888009F254C /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				174B539025365A2F009F254C /* QNotificationsHomeView.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		1752B7E62527A8B900064384 /* Information Views */ = {
 			isa = PBXGroup;
 			children = (
 				175C834D25349F5A000FAD1E /* QViewCravingsView.swift */,
 				174B53502534FAF4009F254C /* QViewAchievementsView.swift */,
 				1752B7E72527A8E000064384 /* QGuageInformationView.swift */,
+				174B53652535006B009F254C /* QHealthInfoView.swift */,
+				174B539425365A8D009F254C /* QViewPendingNotificationsView.swift */,
 			);
 			path = "Information Views";
 			sourceTree = "<group>";
@@ -458,6 +485,8 @@
 			children = (
 				17C09C1225311572007966B1 /* QAddCravingView.swift */,
 				175C83532534D532000FAD1E /* QSavingGoalEditView.swift */,
+				174B53862536393A009F254C /* QAddCustomNotificationView.swift */,
+				1776546325365E7500461631 /* QAddTimeNotificationView.swift */,
 			);
 			path = "Add Edit Views";
 			sourceTree = "<group>";
@@ -1007,6 +1036,7 @@
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */,
 				174B53512534FAF4009F254C /* QViewAchievementsView.swift in Sources */,
+				174B539525365A8D009F254C /* QViewPendingNotificationsView.swift in Sources */,
 				175C83542534D532000FAD1E /* QSavingGoalEditView.swift in Sources */,
 				17BD352A22989ED7004E766B /* ViewNotificationCell.swift in Sources */,
 				1752F0B321C0414E0056642F /* AchievementCell.swift in Sources */,
@@ -1023,6 +1053,7 @@
 				1711904B2531337A008A271A /* QFinanceSavingGoalView.swift in Sources */,
 				174B534B2534F41A009F254C /* QAchievementView.swift in Sources */,
 				174B53622534FDB7009F254C /* QHealthView.swift in Sources */,
+				174B538B25363CBC009F254C /* QMapView.swift in Sources */,
 				17440DEA2527E4E7000E4703 /* QEditQuitDateView.swift in Sources */,
 				1711904725312EB0008A271A /* QFinance.swift in Sources */,
 				17F3BA522376281900B01083 /* QuitInfoDateCell.swift in Sources */,
@@ -1032,10 +1063,12 @@
 				175D41F921D3E3AC00FB7588 /* QuitFormatters.swift in Sources */,
 				179FDFF5216D3D5A003131C5 /* SectionThreeTriggerChartCell.swift in Sources */,
 				1732B3B92527851E00C469C1 /* QHeadlineGuageListView.swift in Sources */,
+				174B537A253637FE009F254C /* QAchievementHomeView.swift in Sources */,
 				1711908725349858008A271A /* QFinanceSavingGoalListView.swift in Sources */,
 				17C09C1725311D2F007966B1 /* QCravingsSectionView.swift in Sources */,
 				179FDFD421641B0D003131C5 /* RoundedView.swift in Sources */,
 				17C14F2425279D81001564B0 /* QUnregisteredUserView.swift in Sources */,
+				174B53872536393A009F254C /* QAddCustomNotificationView.swift in Sources */,
 				17440E00252A3773000E4703 /* QBankNoteView.swift in Sources */,
 				178500ED2368E74E00C64DCF /* UIColorExtensions.swift in Sources */,
 				17119081253497DB008A271A /* QFinanceTimeSavingListView.swift in Sources */,
@@ -1049,6 +1082,7 @@
 				179FDFEF216935D1003131C5 /* SectionThreeCravingsChartCell.swift in Sources */,
 				17A8B4BF237E180200AD297B /* QuitCelebrationBaseViewController.swift in Sources */,
 				1788CBCC2039B3E000064A86 /* Constants.swift in Sources */,
+				1776546425365E7500461631 /* QAddTimeNotificationView.swift in Sources */,
 				179FDFDC2166C3FA003131C5 /* SectionTwoCarouselCell.swift in Sources */,
 				1732B3922527802F00C469C1 /* QHomeView.swift in Sources */,
 				1798163823889F8E00623DE0 /* QuitHealthSummaryViewController.swift in Sources */,
@@ -1081,6 +1115,8 @@
 				179014A422A7042400C7D734 /* AddCravingIntent.intentdefinition in Sources */,
 				17F022002031EA83005EF65C /* SettingsVC.swift in Sources */,
 				1732B3C32527858300C469C1 /* QHeadlineGuageListItemView.swift in Sources */,
+				174B53662535006B009F254C /* QHealthInfoView.swift in Sources */,
+				174B539125365A2F009F254C /* QNotificationsHomeView.swift in Sources */,
 				17C09C1325311572007966B1 /* QAddCravingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

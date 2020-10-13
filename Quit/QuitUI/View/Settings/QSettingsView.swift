@@ -15,7 +15,7 @@ struct QSettingsView: View {
     
     var body: some View {
         List {
-            Button("Delete", action: {
+            Button("Delete everything", action: {
                 managedObjectContext.delete(profile)
                 try? managedObjectContext.save()
             })

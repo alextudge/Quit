@@ -14,12 +14,15 @@ struct QHealthView: View {
     let healthStat: QHealth
     
     var body: some View {
-        VStack {
-            Text(healthStat.title)
-                .lineLimit(nil)
-                .multilineTextAlignment(.center)
-            QClockView(progress: Double(profile.secondsSmokeFree ?? 0) / healthStat.secondsForHealthState())
-        }.padding()
+        NavigationLink(destination: QHealthInfoView(healthState: healthStat)) {
+            VStack {
+                Text(healthStat.title)
+                    .foregroundColor(.white)
+                    .lineLimit(nil)
+                    .multilineTextAlignment(.center)
+                QClockView(progress: Double(profile.secondsSmokeFree ?? 0) / healthStat.secondsForHealthState())
+            }.padding()
+        }
     }
 }
 

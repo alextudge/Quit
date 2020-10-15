@@ -21,7 +21,7 @@ struct QHomeView: View {
                         .frame(height: geo.size.height * 0.25)
                         .listRowInsets(EdgeInsets())
                 }
-                Section(header: Text("Your Quit")) {
+                Section(header: Text("Your Quit Date")) {
                     QEditQuitDateView(profile: profile)
                         .listRowInsets(EdgeInsets())
                 }

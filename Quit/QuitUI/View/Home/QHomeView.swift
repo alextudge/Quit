@@ -51,6 +51,7 @@ struct QHomeView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+        .navigationBarTitle("", displayMode: .inline)
         .navigationBarItems(trailing:
             NavigationLink(destination: QSettingsView(profile: profile)) {
                 Label("Settings", systemImage: "slider.horizontal.3")

@@ -11,30 +11,31 @@ import MapKit
 
 struct QMapView: UIViewRepresentable {
     
-    var locationManager = CLLocationManager()
-    
-    func setupManager() {
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-    }
+    @Binding var centerCoordinate: CLLocationCoordinate2D
     
     func makeUIView(context: Context) -> MKMapView {
-        setupManager()
-        let mapView = MKMapView(frame: UIScreen.main.bounds)
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
+        let mapView = MKMapView()
+        mapView.delegate = context.coordinator
         return mapView
     }
     
-    func updateUIView(_ uiView: MKMapView, context: Context) {}
-}
-
-final class QMapViewCheckpoint: NSObject, MKAnnotation {
-    let title: String?
-    let coordinate: CLLocationCoordinate2D
+    func updateUIView(_ view: MKMapView, context: Context) {
+        
+    }
     
-    init(title: String?, coordinate: CLLocationCoordinate2D) {
-        self.title = title
-        self.coordinate = coordinate
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, MKMapViewDelegate {
+        var parent: QMapView
+        
+        init(_ parent: QMapView) {
+            self.parent = parent
+        }
+        
+        func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+            parent.centerCoordinate = mapView.centerCoordinate
+        }
     }
 }

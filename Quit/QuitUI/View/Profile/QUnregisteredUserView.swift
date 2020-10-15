@@ -15,7 +15,7 @@ struct QUnregisteredUserView: View {
                 Text("Setup")
             }
         }
-        .navigationBarTitle("👋", displayMode: .large)
+        .navigationBarTitle("👋", displayMode: .inline)
     }
 }
 

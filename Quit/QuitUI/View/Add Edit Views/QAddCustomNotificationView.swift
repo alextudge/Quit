@@ -15,6 +15,9 @@ struct QAddCustomNotificationView: View {
             NavigationLink(destination: QAddTimeNotificationView()) {
                 Text("Add a time based notification")
             }
+            NavigationLink(destination: QAddLocationNotificationView()) {
+                Text("Add a location based notification")
+            }
         }
     }
 }

@@ -61,6 +61,7 @@
 		1767D301219C417F007E4DE9 /* SmokedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767D300219C417F007E4DE9 /* SmokedVC.swift */; };
 		1769EF8C23527E7300AAAFE5 /* QuitInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769EF8B23527E7300AAAFE5 /* QuitInfoViewController.swift */; };
 		1776546425365E7500461631 /* QAddTimeNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776546325365E7500461631 /* QAddTimeNotificationView.swift */; };
+		1776546A2536650900461631 /* QAddLocationNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177654692536650900461631 /* QAddLocationNotificationView.swift */; };
 		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
@@ -234,6 +235,7 @@
 		1767D300219C417F007E4DE9 /* SmokedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokedVC.swift; sourceTree = "<group>"; };
 		1769EF8B23527E7300AAAFE5 /* QuitInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitInfoViewController.swift; sourceTree = "<group>"; };
 		1776546325365E7500461631 /* QAddTimeNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddTimeNotificationView.swift; sourceTree = "<group>"; };
+		177654692536650900461631 /* QAddLocationNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddLocationNotificationView.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F03EC2025220000CC7CA8 /* Quit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quit.xcdatamodel; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				175C83532534D532000FAD1E /* QSavingGoalEditView.swift */,
 				174B53862536393A009F254C /* QAddCustomNotificationView.swift */,
 				1776546325365E7500461631 /* QAddTimeNotificationView.swift */,
+				177654692536650900461631 /* QAddLocationNotificationView.swift */,
 			);
 			path = "Add Edit Views";
 			sourceTree = "<group>";
@@ -1108,6 +1111,7 @@
 				17C14E7F25278D3B001564B0 /* QBatteryView.swift in Sources */,
 				17440DE32527D6B7000E4703 /* QClockView.swift in Sources */,
 				175D41F721D3E36600FB7588 /* ChartFormatter.swift in Sources */,
+				1776546A2536650900461631 /* QAddLocationNotificationView.swift in Sources */,
 				172A93EC237892A60069CE93 /* QuitAchievements.swift in Sources */,
 				171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */,
 				17BA70902175143A00ACA5F6 /* SectionFourCarouselCell.swift in Sources */,

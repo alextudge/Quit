@@ -15,6 +15,7 @@ struct QAddTimeNotificationView: View {
     @State private var selectedDate = Date()
     @State private var title = ""
     @State private var message = ""
+    @State private var showingAlert = false
     
     var body: some View {
         Form {
@@ -22,9 +23,16 @@ struct QAddTimeNotificationView: View {
             TextField("Give your notification a title", text: $title)
             TextField("Give your notification a message", text: $message)
             Button("Save", action: {
-                setTimeNotification()
+                if title.isEmpty || message.isEmpty {
+                    showingAlert = true
+                } else {
+                    setTimeNotification()
+                }
             })
             .buttonStyle(QButtonStyle())
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("🤕"), message: Text("Both text fields are required."), dismissButton: .default(Text("Got it!")))
         }
     }
 }

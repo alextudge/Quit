@@ -25,7 +25,11 @@ struct QAchievementHomeView: View {
                 Text("Tap here to see them all.")
                     .font(.subheadline)
             }
+            .padding()
         }
+        .frame(minWidth: 100, maxWidth: .infinity, minHeight: 44, alignment: .leading)
+        .background(Color(UIColor.tertiarySystemBackground))
+        .cornerRadius(5)
     }
 }
 

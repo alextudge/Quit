@@ -33,6 +33,8 @@ struct QEditQuitDateView: View {
             }
         }
         .padding()
+        .background(Color(UIColor.tertiarySystemBackground))
+        .cornerRadius(5)
     }
 }
 

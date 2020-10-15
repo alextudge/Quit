@@ -19,7 +19,7 @@ struct QLineGraph: Shape {
     func path(in rect: CGRect) -> Path {
         return Path { path in
             guard dataPoints.count > 1 else { return }
-            path.move(to: .zero)
+            path.move(to: CGPoint(x: 0, y: rect.size.height))
             datePointValues.indices.forEach {
                 path.addLine(to: point(at: $0, rect: rect))
             }

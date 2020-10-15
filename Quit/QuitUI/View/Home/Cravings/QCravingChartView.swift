@@ -23,6 +23,7 @@ struct QCravingChartView: View {
         VStack(alignment: .leading) {
             Text(chartTitle)
                 .font(.headline)
+                .foregroundColor(.white)
             QLineGraph(dataPoints: processedCravings())
                 .trim(to: chartHasAppeared ? 1 : 0)
                 .stroke(Color.white, lineWidth: 2)
@@ -37,7 +38,7 @@ struct QCravingChartView: View {
             }
         }
         .padding()
-        .background(LinearGradient(gradient: Gradient(colors: [.green, Color("quitSecondaryColor")]), startPoint: .topTrailing, endPoint: .bottomLeading))
+        .background(LinearGradient(gradient: Gradient(colors: [Color("quitSecondaryColor"), .green]), startPoint: .topTrailing, endPoint: .bottomLeading))
         .cornerRadius(5)
         .onAppear {
             withAnimation(.easeInOut(duration: 2)) {

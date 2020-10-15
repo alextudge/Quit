@@ -15,6 +15,7 @@ struct QSavingGoalEditView: View {
     var savingGoal: SavingGoal?
     @State private var savingGoalName: String = ""
     @State private var savingGoalAmount: String = ""
+    @State private var showingAlert = false
     
     var body: some View {
         Form {
@@ -22,8 +23,13 @@ struct QSavingGoalEditView: View {
             TextField("How much does it cost?", text: $savingGoalAmount)
                 .keyboardType(.numberPad)
             Button("Save", action: {
-                updateOrSaveGoal()
+                if savingGoalName.isEmpty || !savingGoalAmount.isNumber {
+                    showingAlert = true
+                } else {
+                    updateOrSaveGoal()
+                }
             })
+            .buttonStyle(QButtonStyle())
             if savingGoal != nil {
                 Button("Delete", action: {
                     deleteSavingGoal()
@@ -36,6 +42,9 @@ struct QSavingGoalEditView: View {
             if let amount = savingGoal?.goalAmount {
                 savingGoalAmount = String(amount)
             }
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("🤕"), message: Text("Both text fields are required."), dismissButton: .default(Text("Got it!")))
         }
     }
 }

@@ -9,6 +9,7 @@
 //Sync with iCloud
 //Add Quit pro
 //SwiftUI widget
+//Add vape section
 
 import SwiftUI
 

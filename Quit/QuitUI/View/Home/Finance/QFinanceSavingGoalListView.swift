@@ -21,7 +21,6 @@ struct QFinanceSavingGoalListView: View {
         GeometryReader { geo in
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
-                    
                     if goals.count > 0 {
                         Text("Your savings goals")
                             .foregroundColor(.white)
@@ -37,7 +36,7 @@ struct QFinanceSavingGoalListView: View {
                             .cornerRadius(5)
                     }
                     NavigationLink(destination: QSavingGoalEditView(savingGoal: nil)) {
-                        Text("Add Goal")
+                        Text("Add a saving goal")
                             .foregroundColor(.white)
                             .padding()
                             .frame(width: geo.size.width * 0.3, height: geo.size.height)

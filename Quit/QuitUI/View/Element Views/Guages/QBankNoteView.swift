@@ -12,13 +12,23 @@ struct QBankNoteView: View {
     
     var progress: Double
     private var correctedProgress: Double {
-        progress > 1 ? 1 : progress
+        if progress > 1 {
+            return 1
+        } else if progress < 0 {
+            return 0
+        }
+        return progress
     }
     
     var body: some View {
         GeometryReader { geo in
             ZStack {
                 GeometryReader { subGeo in
+                    Text("£")
+                        .font(.largeTitle)
+                        .padding()
+                        .foregroundColor(.white)
+                        .scaledToFit()
                     Rectangle()
                         .fill(Color.white)
                         .cornerRadius(5)
@@ -33,11 +43,8 @@ struct QBankNoteView: View {
                         )
                 }
             }
-            .frame(width: geo.size.width, height: geo.size.width * 0.5)
-            Text("£")
-                .font(.largeTitle)
-                .padding()
-                .foregroundColor(.white)
+            .frame(width: geo.size.width, height: ((geo.size.width * 0.5) < geo.size.height) ? (geo.size.width * 0.5) : geo.size.height)
+            .clipped()
         }
     }
 }

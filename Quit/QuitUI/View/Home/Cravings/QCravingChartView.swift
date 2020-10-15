@@ -17,9 +17,12 @@ struct QCravingChartView: View {
         predicate: NSPredicate(format: "cravingSmoked = %d", false)
     ) var cravings: FetchedResults<Craving>
     @State private var chartHasAppeared = false
+    let chartTitle: String
     
     var body: some View {
         VStack(alignment: .leading) {
+            Text(chartTitle)
+                .font(.headline)
             QLineGraph(dataPoints: processedCravings())
                 .trim(to: chartHasAppeared ? 1 : 0)
                 .stroke(Color.white, lineWidth: 2)
@@ -71,6 +74,6 @@ private extension QCravingChartView {
 
 struct QCravingChartView_Previews: PreviewProvider {
     static var previews: some View {
-        QCravingChartView()
+        QCravingChartView(chartTitle: "")
     }
 }

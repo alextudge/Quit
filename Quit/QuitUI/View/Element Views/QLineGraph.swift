@@ -19,7 +19,7 @@ struct QLineGraph: Shape {
     func path(in rect: CGRect) -> Path {
         return Path { path in
             guard dataPoints.count > 1 else { return }
-            path.move(to: CGPoint(x: 0, y: (rect.height / (datePointValues.max() ?? 0)) * CGFloat(datePointValues[0])))
+            path.move(to: .zero)
             datePointValues.indices.forEach {
                 path.addLine(to: point(at: $0, rect: rect))
             }
@@ -30,7 +30,7 @@ struct QLineGraph: Shape {
 private extension QLineGraph {
     func point(at index: Int, rect: CGRect) -> CGPoint {
         let x = (rect.width / CGFloat(dataPoints.count - 1)) * CGFloat(index)
-        let y = (rect.height / (datePointValues.max() ?? 0)) * CGFloat(datePointValues[index])
+        let y = rect.height - (rect.height / (datePointValues.max() ?? 0)) * CGFloat(datePointValues[index])
         return CGPoint(x: x, y: y)
     }
 }

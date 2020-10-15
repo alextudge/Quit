@@ -18,7 +18,7 @@ struct QHeadlineGuageListView: View {
                 LazyHStack(spacing: 20) {
                     ForEach(QGuage.allCases, id: \.self) {
                         QHeadlineGuageListItemView(guage: $0, profile: profile)
-                            .frame(width: geo.size.width * 0.8, height: geo.size.height)
+                            .frame(width: geo.size.width * 0.6, height: geo.size.height)
                             .background(LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .cornerRadius(5)
                     }

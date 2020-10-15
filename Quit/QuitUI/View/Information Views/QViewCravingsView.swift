@@ -22,6 +22,7 @@ struct QViewCravingsView: View {
             ForEach(cravings, id: \.self) { craving in
                 VStack(alignment: .leading) {
                     Text("\(standardisedDate(date: craving.cravingDate ?? Date()))")
+                        .foregroundColor(craving.cravingSmoked ? .orange : .primary)
                     Text("\(craving.cravingCatagory ?? "")")
                 }
             }

@@ -459,7 +459,6 @@
 			isa = PBXGroup;
 			children = (
 				174B5379253637FE009F254C /* QAchievementHomeView.swift */,
-				174B534A2534F41A009F254C /* QAchievementView.swift */,
 			);
 			path = Achievements;
 			sourceTree = "<group>";
@@ -486,6 +485,7 @@
 			children = (
 				175C834D25349F5A000FAD1E /* QViewCravingsView.swift */,
 				174B53502534FAF4009F254C /* QViewAchievementsView.swift */,
+				174B534A2534F41A009F254C /* QAchievementView.swift */,
 				1752B7E72527A8E000064384 /* QGuageInformationView.swift */,
 				174B53652535006B009F254C /* QHealthInfoView.swift */,
 				174B539425365A8D009F254C /* QViewPendingNotificationsView.swift */,

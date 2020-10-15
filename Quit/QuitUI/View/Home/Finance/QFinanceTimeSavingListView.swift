@@ -18,7 +18,7 @@ struct QFinanceTimeSavingListView: View {
                 LazyHStack(spacing: 20) {
                     ForEach(QFinance.allCases, id: \.self) {
                         QFinanceTimeSavingView(profile: profile, finance: $0)
-                            .frame(width: geo.size.width * 0.9)
+                            .frame(width: geo.size.width * 0.8)
                             .background(LinearGradient(gradient: Gradient(colors: [.orange, .yellow]), startPoint: .bottomLeading, endPoint: .topTrailing))
                             .cornerRadius(5)
                     }

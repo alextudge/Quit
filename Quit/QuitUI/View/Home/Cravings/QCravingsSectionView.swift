@@ -33,9 +33,9 @@ struct QCravingsSectionView: View {
                                     .cornerRadius(5)
                             }
                         }
-                        QCravingChartView()
+                        QCravingChartView(chartTitle: "Cravings")
                             .frame(width: geo.size.width * 0.8)
-                        QCravingChartView()
+                        QCravingChartView(chartTitle: "Triggers [Wrong data]")
                             .frame(width: geo.size.width * 0.8)
                     }
                 }

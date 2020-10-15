@@ -21,6 +21,7 @@ struct QEntryDecisionView: View {
                 QUnregisteredUserView()
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -22,6 +22,7 @@
 		17156BE322596B42005EEE69 /* QuitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17156BE222596B42005EEE69 /* QuitBaseViewController.swift */; };
 		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
 		171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
+		172020702538E53800C3459D /* QStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720206F2538E53800C3459D /* QStringExtensions.swift */; };
 		172A93EC237892A60069CE93 /* QuitAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A93EB237892A60069CE93 /* QuitAchievements.swift */; };
 		1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B38B25277FF700C469C1 /* QuitApp.swift */; };
 		1732B3922527802F00C469C1 /* QHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3912527802F00C469C1 /* QHomeView.swift */; };
@@ -196,6 +197,7 @@
 		17156BE222596B42005EEE69 /* QuitBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitBaseViewController.swift; sourceTree = "<group>"; };
 		171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveCarouselCell.swift; sourceTree = "<group>"; };
 		171EAFF121D40D200088C90C /* AdditionalUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalUserData.swift; sourceTree = "<group>"; };
+		1720206F2538E53800C3459D /* QStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QStringExtensions.swift; sourceTree = "<group>"; };
 		172A93EB237892A60069CE93 /* QuitAchievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitAchievements.swift; sourceTree = "<group>"; };
 		1732B38B25277FF700C469C1 /* QuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitApp.swift; sourceTree = "<group>"; };
 		1732B3912527802F00C469C1 /* QHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHomeView.swift; sourceTree = "<group>"; };
@@ -383,12 +385,21 @@
 			path = "Section Five";
 			sourceTree = "<group>";
 		};
+		1720206E2538E52900C3459D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1720206F2538E53800C3459D /* QStringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1732B38225277FE100C469C1 /* QuitUI */ = {
 			isa = PBXGroup;
 			children = (
 				1732B38B25277FF700C469C1 /* QuitApp.swift */,
 				1732B3B6252784FB00C469C1 /* View */,
 				1732B3AB252782D100C469C1 /* Model */,
+				1720206E2538E52900C3459D /* Extensions */,
 			);
 			path = QuitUI;
 			sourceTree = "<group>";
@@ -1031,6 +1042,7 @@
 				179FDFCE216406B3003131C5 /* HomeViewController.swift in Sources */,
 				17043210252FAB92007263B6 /* QButtonStyle.swift in Sources */,
 				179FDFEA21693389003131C5 /* SectionThreeCarouselCell.swift in Sources */,
+				172020702538E53800C3459D /* QStringExtensions.swift in Sources */,
 				1752F0AF21BF11AF0056642F /* AchievementsViewController.swift in Sources */,
 				175D41ED21D3E0A500FB7588 /* DateExtensions.swift in Sources */,
 				1739ECAE22C2A7E2005ED03E /* ViewControllerExtension.swift in Sources */,

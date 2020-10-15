@@ -11,13 +11,13 @@ import SwiftUI
 struct QSettingsView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var profile: Profile
     
     var body: some View {
         List {
             Button("Delete everything", action: {
-                managedObjectContext.delete(profile)
-                try? managedObjectContext.save()
+                deleteProfile()
             })
         }
         .navigationTitle("Settings")
@@ -28,6 +28,7 @@ private extension QSettingsView {
     func deleteProfile() {
         managedObjectContext.delete(profile)
         try? managedObjectContext.save()
+        presentationMode.wrappedValue.dismiss()
     }
 }
 

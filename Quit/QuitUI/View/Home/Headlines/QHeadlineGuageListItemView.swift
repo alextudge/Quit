@@ -22,8 +22,8 @@ struct QHeadlineGuageListItemView: View {
                     .font(.headline)
                 Spacer()
                 viewForGuage(guage, profile: profile)
-                    .padding()
-            }.padding()
+            }
+            .padding()
         }
     }
     

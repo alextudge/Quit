@@ -20,6 +20,7 @@
 		172986D8253E25CB002B17B1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172986D4253E25B7002B17B1 /* Constants.swift */; };
 		172986DC253E25FE002B17B1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172986DB253E25FE002B17B1 /* DateExtensions.swift */; };
 		172986E0253E2622002B17B1 /* QDoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172986DF253E2622002B17B1 /* QDoubleExtensions.swift */; };
+		172986EB253E37C7002B17B1 /* QVapeSpendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172986EA253E37C7002B17B1 /* QVapeSpendView.swift */; };
 		1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B38B25277FF700C469C1 /* QuitApp.swift */; };
 		1732B3922527802F00C469C1 /* QHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3912527802F00C469C1 /* QHomeView.swift */; };
 		1732B3AD252782FB00C469C1 /* QGuages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3AC252782FB00C469C1 /* QGuages.swift */; };
@@ -47,6 +48,8 @@
 		175C83542534D532000FAD1E /* QSavingGoalEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C83532534D532000FAD1E /* QSavingGoalEditView.swift */; };
 		1776546425365E7500461631 /* QAddTimeNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776546325365E7500461631 /* QAddTimeNotificationView.swift */; };
 		1776546A2536650900461631 /* QAddLocationNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177654692536650900461631 /* QAddLocationNotificationView.swift */; };
+		1778A7C9253E43890097E606 /* QAddVapeSpendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778A7C8253E43890097E606 /* QAddVapeSpendView.swift */; };
+		1778A7CD253E46CE0097E606 /* QViewVapeSpendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778A7CC253E46CE0097E606 /* QViewVapeSpendsView.swift */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
 		177F04242029104900CC7CA8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* Profile.swift */; };
@@ -125,6 +128,7 @@
 		172986D4253E25B7002B17B1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Quit/Utilities/Constants.swift; sourceTree = SOURCE_ROOT; };
 		172986DB253E25FE002B17B1 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		172986DF253E2622002B17B1 /* QDoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QDoubleExtensions.swift; sourceTree = "<group>"; };
+		172986EA253E37C7002B17B1 /* QVapeSpendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QVapeSpendView.swift; sourceTree = "<group>"; };
 		1732B38B25277FF700C469C1 /* QuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitApp.swift; sourceTree = "<group>"; };
 		1732B3912527802F00C469C1 /* QHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHomeView.swift; sourceTree = "<group>"; };
 		1732B3AC252782FB00C469C1 /* QGuages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QGuages.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 		175C83532534D532000FAD1E /* QSavingGoalEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSavingGoalEditView.swift; sourceTree = "<group>"; };
 		1776546325365E7500461631 /* QAddTimeNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddTimeNotificationView.swift; sourceTree = "<group>"; };
 		177654692536650900461631 /* QAddLocationNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddLocationNotificationView.swift; sourceTree = "<group>"; };
+		1778A7C8253E43890097E606 /* QAddVapeSpendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddVapeSpendView.swift; sourceTree = "<group>"; };
+		1778A7CC253E46CE0097E606 /* QViewVapeSpendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QViewVapeSpendsView.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		177F03EC2025220000CC7CA8 /* Quit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quit.xcdatamodel; sourceTree = "<group>"; };
 		177F03EE2025220900CC7CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -232,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				1720206F2538E53800C3459D /* QStringExtensions.swift */,
+				172986DF253E2622002B17B1 /* QDoubleExtensions.swift */,
+				172986DB253E25FE002B17B1 /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,12 +248,18 @@
 			isa = PBXGroup;
 			children = (
 				172986BF253E18EC002B17B1 /* QNotificationManager.swift */,
-				172986DF253E2622002B17B1 /* QDoubleExtensions.swift */,
-				172986DB253E25FE002B17B1 /* DateExtensions.swift */,
 				172986D4253E25B7002B17B1 /* Constants.swift */,
 				1788CBB52037853D00064A86 /* PersistenceManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		172986E9253E3761002B17B1 /* Vape */ = {
+			isa = PBXGroup;
+			children = (
+				172986EA253E37C7002B17B1 /* QVapeSpendView.swift */,
+			);
+			path = Vape;
 			sourceTree = "<group>";
 		};
 		1732B38225277FE100C469C1 /* QuitUI */ = {
@@ -296,6 +310,7 @@
 				17C09C2A253125B7007966B1 /* Finance */,
 				174B53432534F1E0009F254C /* Achievements */,
 				17C09C2825312593007966B1 /* Cravings */,
+				172986E9253E3761002B17B1 /* Vape */,
 				174B53562534FCB3009F254C /* Health */,
 				174B537F25363888009F254C /* Notifications */,
 			);
@@ -344,6 +359,7 @@
 				174B534A2534F41A009F254C /* QAchievementView.swift */,
 				174B53652535006B009F254C /* QHealthInfoView.swift */,
 				174B539425365A8D009F254C /* QViewPendingNotificationsView.swift */,
+				1778A7CC253E46CE0097E606 /* QViewVapeSpendsView.swift */,
 			);
 			path = "Information Views";
 			sourceTree = "<group>";
@@ -356,6 +372,7 @@
 				174B53862536393A009F254C /* QAddCustomNotificationView.swift */,
 				1776546325365E7500461631 /* QAddTimeNotificationView.swift */,
 				177654692536650900461631 /* QAddLocationNotificationView.swift */,
+				1778A7C8253E43890097E606 /* QAddVapeSpendView.swift */,
 			);
 			path = "Add Edit Views";
 			sourceTree = "<group>";
@@ -647,10 +664,12 @@
 				1788CBB62037853D00064A86 /* PersistenceManager.swift in Sources */,
 				1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */,
 				174B53512534FAF4009F254C /* QViewAchievementsView.swift in Sources */,
+				172986EB253E37C7002B17B1 /* QVapeSpendView.swift in Sources */,
 				174B539525365A8D009F254C /* QViewPendingNotificationsView.swift in Sources */,
 				175C83542534D532000FAD1E /* QSavingGoalEditView.swift in Sources */,
 				17C14F1125279CF5001564B0 /* QEntryDecisionView.swift in Sources */,
 				17440E07252A6164000E4703 /* QLineGraph.swift in Sources */,
+				1778A7CD253E46CE0097E606 /* QViewVapeSpendsView.swift in Sources */,
 				172986DC253E25FE002B17B1 /* DateExtensions.swift in Sources */,
 				174B53582534FCCA009F254C /* QHealthListView.swift in Sources */,
 				1732B3AD252782FB00C469C1 /* QGuages.swift in Sources */,
@@ -676,6 +695,7 @@
 				175C834E25349F5A000FAD1E /* QViewCravingsView.swift in Sources */,
 				174B53402534F1BE009F254C /* QAchievement.swift in Sources */,
 				177F04242029104900CC7CA8 /* Profile.swift in Sources */,
+				1778A7C9253E43890097E606 /* QAddVapeSpendView.swift in Sources */,
 				17440DD82527B1C6000E4703 /* QHealth.swift in Sources */,
 				17C14E7F25278D3B001564B0 /* QBatteryView.swift in Sources */,
 				17440DE32527D6B7000E4703 /* QClockView.swift in Sources */,

@@ -10,6 +10,7 @@
 // Add Quit pro
 // SwiftUI widget
 // Add vape section
+// Smoked chart
 
 import SwiftUI
 
@@ -38,6 +39,9 @@ struct QHomeView: View {
                 Section(header: Text("Cravings & Triggers")) {
                     QCravingsSectionView()
                         .frame(height: geo.size.height * 0.3)
+                }
+                Section(header: Text("Vape spend")) {
+                    QVapeSpendView(profile: profile)
                 }
                 Section(header: Text("Your Health")) {
                     QHealthListView(profile: profile)

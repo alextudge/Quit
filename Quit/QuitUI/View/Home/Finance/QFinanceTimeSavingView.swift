@@ -22,18 +22,10 @@ struct QFinanceTimeSavingView: View {
             Text(finance.title)
                 .font(.headline)
                 .foregroundColor(.white)
-            Text("\(stringFromCurrencyFormatter(data: costForFinance) ?? "£0")")
+            Text("\(costForFinance.currencyFormat)")
                 .foregroundColor(.white)
         }
         .padding()
-    }
-}
-
-private extension QFinanceTimeSavingView {
-    func stringFromCurrencyFormatter(data: Double) -> String? {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        return formatter.string(from: NSNumber(value: data))
     }
 }
 

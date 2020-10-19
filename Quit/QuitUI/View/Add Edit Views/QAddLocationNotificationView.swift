@@ -32,8 +32,6 @@ struct QAddLocationNotificationView: View {
                 }
                 TextField("Give your notification a title", text: $title)
                 TextField("Give your notification a message", text: $message)
-                Text("For this type of notification to work, you need to allow Quit always access to your location. This can be done in your phones settings. Quit does not use your location for any other purpose, and the monitoring is handled by Apple.")
-                    .foregroundColor(.orange)
                 Button("Save", action: {
                     if title.isEmpty || message.isEmpty {
                         showingAlert = true
@@ -42,6 +40,8 @@ struct QAddLocationNotificationView: View {
                     }
                 })
                 .buttonStyle(QButtonStyle())
+                Text("For this type of notification to work, you need to allow Quit always access to your location. This can be done in your phones settings. Quit does not use your location for any other purpose, and the monitoring is handled by Apple.")
+                    .font(.footnote)
             }
         }
         .alert(isPresented: $showingAlert) {

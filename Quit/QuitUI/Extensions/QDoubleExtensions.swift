@@ -13,4 +13,10 @@ extension Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
+    
+    var currencyFormat: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter.string(from: NSNumber(value: self)) ?? ""
+    }
 }

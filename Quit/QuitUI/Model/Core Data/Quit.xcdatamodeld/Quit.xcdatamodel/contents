@@ -18,9 +18,14 @@
         <attribute name="goalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="goalName" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="VapeSpend" representedClassName="VapeSpend" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Craving" positionX="99" positionY="9" width="128" height="90"/>
         <element name="Profile" positionX="-94.44708251953125" positionY="-79.95318603515625" width="128" height="148"/>
         <element name="SavingGoal" positionX="72" positionY="54" width="128" height="75"/>
+        <element name="VapeSpend" positionX="0" positionY="9" width="128" height="73"/>
     </elements>
 </model>

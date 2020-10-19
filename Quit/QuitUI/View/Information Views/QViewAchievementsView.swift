@@ -18,6 +18,7 @@ struct QViewAchievementsView: View {
                 QAchievementView(achievement: achievement, profile: profile)
             }
         }
+        .navigationTitle("Achievements")
     }
 }
 

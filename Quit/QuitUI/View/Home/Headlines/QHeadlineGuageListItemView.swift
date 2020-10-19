@@ -14,17 +14,15 @@ struct QHeadlineGuageListItemView: View {
     @ObservedObject var profile: Profile
     
     var body: some View {
-        NavigationLink(destination: QGuageInformationView(guage: guage)) {
-            VStack(alignment: .center) {
-                Text(guage.nameForHeadline)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
-                    .font(.headline)
-                Spacer()
-                viewForGuage(guage, profile: profile)
-            }
-            .padding()
+        VStack(alignment: .center) {
+            Text(guage.nameForHeadline)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+                .font(.headline)
+            Spacer()
+            viewForGuage(guage, profile: profile)
         }
+        .padding()
     }
     
     func viewForGuage(_ guage: QGuage, profile: Profile) -> AnyView {

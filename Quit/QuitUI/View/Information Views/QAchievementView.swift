@@ -16,14 +16,15 @@ struct QAchievementView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
+                Image(systemName: achievement.systemImage())
                 Text(achievement.titleForAchievement())
                     .multilineTextAlignment(.leading)
                     .font(.headline)
-                Image(systemName: achievement.systemImage())
             }
+            Spacer()
             Text(achievement.resultsText(profile: profile).resultstext)
                 .multilineTextAlignment(.leading)
-                .foregroundColor(achievement.resultsText(profile: profile).passed ? .green : .secondary)
+                .foregroundColor(achievement.resultsText(profile: profile).passed ? .primary : .secondary)
         }
         .padding()
     }

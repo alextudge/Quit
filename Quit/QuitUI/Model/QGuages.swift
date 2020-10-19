@@ -28,11 +28,11 @@ enum QGuage: CaseIterable {
     func progress(profile: Profile) -> Double {
         switch self {
         case .oneDay:
-            return Double(profile.minutesSmokeFree ?? 0) / 1440
+            return Double(profile.minutesSmokeFree) / 1440
         case .freeTime:
-            return Double(profile.minutesRegained ?? 0) / 100
+            return Double(profile.minutesRegained) / 100
         case .finance:
-            return Double(profile.savedSoFar ?? 0) / 100
+            return Double(profile.savedSoFar) / 100
         case .overallHealth:
             let secondsSoFar = profile.secondsSmokeFree ?? 0
             let healthStatsPassed = QHealth.allCases.filter { Int($0.secondsForHealthState()) < secondsSoFar }.count

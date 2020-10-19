@@ -12,11 +12,20 @@ struct QSetupProfileView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var quitDate = Date()
+    @State private var quitDate: Date
     @State private var numberSmoked = ""
     @State private var costOf20 = ""
     @State private var notificationsEnabled = false
     @State private var showingAlert = false
+    var profile: Profile?
+    
+    init(profile: Profile?) {
+        self.profile = profile
+        _quitDate = State(initialValue: profile?.quitDate ?? Date())
+        _numberSmoked = State(initialValue: profile?.smokedDaily?.stringValue ?? "")
+        _costOf20 = State(initialValue: profile?.costOf20?.stringValue ?? "")
+        _notificationsEnabled = State(initialValue: profile?.notificationsEnabled ?? false)
+    }
     
     var body: some View {
         Form {
@@ -49,7 +58,7 @@ struct QSetupProfileView: View {
 
 private extension QSetupProfileView {
     func save() {
-        let profile = Profile(context: managedObjectContext)
+        let profile = self.profile ?? Profile(context: managedObjectContext)
         profile.quitDate = quitDate
         profile.smokedDaily = NSNumber(value: Int(numberSmoked) ?? 0)
         profile.costOf20 = NSNumber(value: Double(costOf20) ?? 0.0)
@@ -65,6 +74,6 @@ private extension QSetupProfileView {
 
 struct QSetupProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        QSetupProfileView()
+        QSetupProfileView(profile: nil)
     }
 }

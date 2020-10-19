@@ -11,7 +11,7 @@ import SwiftUI
 struct QUnregisteredUserView: View {
     var body: some View {
         List {
-            NavigationLink(destination: QSetupProfileView()) {
+            NavigationLink(destination: QSetupProfileView(profile: nil)) {
                 Text("Setup")
             }
         }

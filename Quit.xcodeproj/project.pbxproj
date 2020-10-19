@@ -48,7 +48,6 @@
 		175C83542534D532000FAD1E /* QSavingGoalEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C83532534D532000FAD1E /* QSavingGoalEditView.swift */; };
 		1776546425365E7500461631 /* QAddTimeNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776546325365E7500461631 /* QAddTimeNotificationView.swift */; };
 		1776546A2536650900461631 /* QAddLocationNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177654692536650900461631 /* QAddLocationNotificationView.swift */; };
-		177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F03E42025220000CC7CA8 /* AppDelegate.swift */; };
 		177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177F03EE2025220900CC7CA8 /* Assets.xcassets */; };
 		177F04242029104900CC7CA8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F04232029104900CC7CA8 /* Profile.swift */; };
@@ -156,7 +155,6 @@
 		1776546325365E7500461631 /* QAddTimeNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddTimeNotificationView.swift; sourceTree = "<group>"; };
 		177654692536650900461631 /* QAddLocationNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAddLocationNotificationView.swift; sourceTree = "<group>"; };
 		177F03E12025220000CC7CA8 /* Quit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		177F03E42025220000CC7CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		177F03EC2025220000CC7CA8 /* Quit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quit.xcdatamodel; sourceTree = "<group>"; };
 		177F03EE2025220900CC7CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		177F03F32025220900CC7CA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -391,7 +389,6 @@
 			isa = PBXGroup;
 			children = (
 				1732B38225277FE100C469C1 /* QuitUI */,
-				177F03E42025220000CC7CA8 /* AppDelegate.swift */,
 				177F03EE2025220900CC7CA8 /* Assets.xcassets */,
 				1790143022A6F48200C7D734 /* Colours.xcassets */,
 				17F8FF94219A0CF10095CD6E /* Quit.entitlements */,
@@ -681,7 +678,6 @@
 				17C14F3225279F1D001564B0 /* QSetupProfileView.swift in Sources */,
 				177F03ED2025220000CC7CA8 /* Quit.xcdatamodeld in Sources */,
 				175C834E25349F5A000FAD1E /* QViewCravingsView.swift in Sources */,
-				177F03E52025220000CC7CA8 /* AppDelegate.swift in Sources */,
 				174B53402534F1BE009F254C /* QAchievement.swift in Sources */,
 				177F04242029104900CC7CA8 /* Profile.swift in Sources */,
 				17440DD82527B1C6000E4703 /* QHealth.swift in Sources */,

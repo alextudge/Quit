@@ -17,7 +17,7 @@ class AddCravingIntentHandler: NSObject, AddCravingIntentHandling {
             completion(AddCravingIntentResponse(code: .failure, userActivity: nil))
             return
         }
-        persistenceManager.addCraving(catagory: intent.trigger ?? "", smoked: smoked.boolValue)
+//        persistenceManager.addCraving(catagory: intent.trigger ?? "", smoked: smoked.boolValue)
         completion(AddCravingIntentResponse(code: .success, userActivity: nil))
     }
     

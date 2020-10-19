@@ -24,44 +24,6 @@ class PersistenceManager: NSObject {
     }
 }
 
-private extension PersistenceManager {
-    func getOrGenerateProfile() {
-        let profileRequest = NSFetchRequest<Profile>(entityName: Constants.CoreData.profile)
-        do {
-            if try context.fetch(profileRequest).first == nil {
-                generateProfile()
-            }
-        } catch {}
-    }
-    
-    func generateProfile() {
-        let createdProfile = Profile(context: context)
-        // MARK: This is for translating older users data into the newer core data format
-        if let oldProfile = userDefaults?.object(forKey: Constants.UserDefaults.quitData) as? [String: Any] {
-            if let smokedDaily = oldProfile[Constants.ProfileConstants.smokedDaily] as? Int16 {
-                createdProfile.smokedDaily = NSNumber(value: smokedDaily)
-            }
-            if let costOf20 = oldProfile[Constants.ProfileConstants.costOf20] as? Double {
-                createdProfile.costOf20 = NSNumber(value: costOf20)
-            }
-            if let quitDate = oldProfile[Constants.ProfileConstants.quitDate] as? Date {
-                createdProfile.quitDate = quitDate
-            }
-            if let vapeSpending = oldProfile[Constants.ProfileConstants.vapeSpending] as? Double {
-                createdProfile.vapeSpending = NSNumber(value: vapeSpending)
-            }
-            userDefaults?.removeObject(forKey: Constants.UserDefaults.quitData)
-        }
-        if let returnedData = userDefaults?.object(forKey: Constants.UserDefaults.additionalUserData) as? [String: Any] {
-            createdProfile.reasonsToSmoke = (returnedData[Constants.AdditionalUserDataConstants.reasonsToSmoke] as? [String]) as NSObject?
-            createdProfile.reasonsToQuit = (returnedData[Constants.AdditionalUserDataConstants.reasonsNotToSmoke] as? [String]) as NSObject?
-            userDefaults?.removeObject(forKey: Constants.UserDefaults.additionalUserData)
-        }
-        saveContext()
-    }
-}
-
-
 
 
 extension PersistenceManager {
@@ -95,56 +57,6 @@ extension PersistenceManager {
                 print("\(error), \(String(describing: error._userInfo))")
             }
         }
-    }
-}
-
-// MARK: Fetching objects from coreData
-extension PersistenceManager {
-    func getCravings() -> [Craving] {
-        let cravingFetch = NSFetchRequest<Craving>(entityName: Constants.CoreData.craving)
-        cravingFetch.predicate = NSPredicate(format: "(cravingDate >= %@)", thirtyDaysAgo())
-        cravingFetch.sortDescriptors = [NSSortDescriptor(key: "cravingDate", ascending: false)]
-        do {
-            return try context.fetch(cravingFetch)
-        } catch {
-            return []
-        }
-    }
-    
-    func getTriggers() -> [String] {
-        return Array(Set(getCravings().compactMap {
-            $0.cravingCatagory
-        })).sorted()
-    }
-    
-    func getGoals() -> [SavingGoal] {
-        let savingsFetch = NSFetchRequest<SavingGoal>(entityName: Constants.CoreData.savingGoal)
-        savingsFetch.sortDescriptors = [NSSortDescriptor(key: "goalAmount", ascending: true)]
-        do {
-            return (try context.fetch(savingsFetch))
-        } catch {
-            return []
-        }
-    }
-}
-
-// MARK: Add objects to core data
-extension PersistenceManager {
-    func addCraving(catagory: String, smoked: Bool) {
-        let craving = Craving(context: context)
-        craving.cravingCatagory = catagory.capitalized
-        craving.cravingDate = Date()
-        craving.cravingSmoked = smoked
-        saveContext()
-        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.cravingsChanged))
-    }
-    
-    func addSavingGoal(title: String, cost: Double) {
-        let saving = SavingGoal(context: context)
-        saving.goalName = title
-        saving.goalAmount = cost
-        saveContext()
-        NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.savingsChanged))
     }
 }
 

@@ -15,6 +15,7 @@ struct QSetupProfileView: View {
     @State private var quitDate = Date()
     @State private var numberSmoked = ""
     @State private var costOf20 = ""
+    @State private var notificationsEnabled = false
     @State private var showingAlert = false
     
     var body: some View {
@@ -24,6 +25,8 @@ struct QSetupProfileView: View {
                 .keyboardType(.numberPad)
             TextField("How much is a pack of 20?", text: $costOf20)
                 .keyboardType(.decimalPad)
+
+            Toggle("Send notifcations", isOn: $notificationsEnabled)
             Button("Save", action: {
                 if !numberSmoked.isNumber || !costOf20.isNumber {
                     showingAlert = true
@@ -38,6 +41,9 @@ struct QSetupProfileView: View {
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("🤕"), message: Text("Both text fields are required, and must contain numbers only."), dismissButton: .default(Text("Got it!")))
         }
+        .onChange(of: notificationsEnabled) { newValue in
+            QNotificationManager().requestNotificationPermissions()
+        }
     }
 }
 
@@ -47,6 +53,11 @@ private extension QSetupProfileView {
         profile.quitDate = quitDate
         profile.smokedDaily = NSNumber(value: Int(numberSmoked) ?? 0)
         profile.costOf20 = NSNumber(value: Double(costOf20) ?? 0.0)
+        profile.notificationsEnabled = notificationsEnabled
+        QNotificationManager().cancelAllNotifications()
+        if notificationsEnabled {
+            QNotificationManager().setupHealthNotifications(quitDate: quitDate)
+        }
         try? managedObjectContext.save()
         presentationMode.wrappedValue.dismiss()
     }

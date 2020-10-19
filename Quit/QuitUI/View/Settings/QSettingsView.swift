@@ -19,6 +19,9 @@ struct QSettingsView: View {
             Button("Delete everything", action: {
                 deleteProfile()
             })
+            NavigationLink(destination: QSetupProfileView()) {
+                Text("Edit profile")
+            }
         }
         .navigationTitle("Settings")
     }

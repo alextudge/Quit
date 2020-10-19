@@ -28,6 +28,11 @@ struct QEditQuitDateView: View {
                 },
                 set: {
                     profile.quitDate = $0
+                    QNotificationManager().cancelAllNotifications()
+                    if let quitDate = profile.quitDate,
+                       profile.notificationsEnabled {
+                        QNotificationManager().setupHealthNotifications(quitDate: quitDate)
+                    }
                     try? managedObjectContext.save()
                 }))
             }

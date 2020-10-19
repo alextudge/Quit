@@ -23,6 +23,7 @@
 		171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */; };
 		171EAFF221D40D200088C90C /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		172020702538E53800C3459D /* QStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720206F2538E53800C3459D /* QStringExtensions.swift */; };
+		172986C0253E18EC002B17B1 /* QNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172986BF253E18EC002B17B1 /* QNotificationManager.swift */; };
 		172A93EC237892A60069CE93 /* QuitAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A93EB237892A60069CE93 /* QuitAchievements.swift */; };
 		1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B38B25277FF700C469C1 /* QuitApp.swift */; };
 		1732B3922527802F00C469C1 /* QHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3912527802F00C469C1 /* QHomeView.swift */; };
@@ -85,7 +86,6 @@
 		179014A422A7042400C7D734 /* AddCravingIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 179014A322A7042400C7D734 /* AddCravingIntent.intentdefinition */; };
 		179014A522A7058000C7D734 /* AddCravingIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 179014A322A7042400C7D734 /* AddCravingIntent.intentdefinition */; };
 		179014A722A70C2900C7D734 /* AddCravingIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179014A622A70C2900C7D734 /* AddCravingIntentHandler.swift */; };
-		179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
 		179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177F03EB2025220000CC7CA8 /* Quit.xcdatamodeld */; };
 		179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EAFF121D40D200088C90C /* AdditionalUserData.swift */; };
 		179014AD22A70F5300C7D734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBCB2039B3E000064A86 /* Constants.swift */; };
@@ -198,6 +198,7 @@
 		171EAFED21D409A60088C90C /* SectionFiveCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFiveCarouselCell.swift; sourceTree = "<group>"; };
 		171EAFF121D40D200088C90C /* AdditionalUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalUserData.swift; sourceTree = "<group>"; };
 		1720206F2538E53800C3459D /* QStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QStringExtensions.swift; sourceTree = "<group>"; };
+		172986BF253E18EC002B17B1 /* QNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QNotificationManager.swift; sourceTree = "<group>"; };
 		172A93EB237892A60069CE93 /* QuitAchievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitAchievements.swift; sourceTree = "<group>"; };
 		1732B38B25277FF700C469C1 /* QuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitApp.swift; sourceTree = "<group>"; };
 		1732B3912527802F00C469C1 /* QHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHomeView.swift; sourceTree = "<group>"; };
@@ -393,11 +394,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		172986BE253E18D0002B17B1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1788CBB52037853D00064A86 /* PersistenceManager.swift */,
+				172986BF253E18EC002B17B1 /* QNotificationManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		1732B38225277FE100C469C1 /* QuitUI */ = {
 			isa = PBXGroup;
 			children = (
 				1732B38B25277FF700C469C1 /* QuitApp.swift */,
 				1732B3B6252784FB00C469C1 /* View */,
+				172986BE253E18D0002B17B1 /* Utilities */,
 				1732B3AB252782D100C469C1 /* Model */,
 				1720206E2538E52900C3459D /* Extensions */,
 			);
@@ -617,7 +628,6 @@
 		177F04222028A70600CC7CA8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1788CBB52037853D00064A86 /* PersistenceManager.swift */,
 				1788CBCB2039B3E000064A86 /* Constants.swift */,
 				175D41F621D3E36600FB7588 /* ChartFormatter.swift */,
 				17F3BA5523762EB800B01083 /* Protocols */,
@@ -1126,6 +1136,7 @@
 				1776546A2536650900461631 /* QAddLocationNotificationView.swift in Sources */,
 				172A93EC237892A60069CE93 /* QuitAchievements.swift in Sources */,
 				171EAFEF21D409A60088C90C /* SectionFiveCarouselCell.swift in Sources */,
+				172986C0253E18EC002B17B1 /* QNotificationManager.swift in Sources */,
 				17BA70902175143A00ACA5F6 /* SectionFourCarouselCell.swift in Sources */,
 				17043209252F8D24007263B6 /* QSettingsView.swift in Sources */,
 				179014A422A7042400C7D734 /* AddCravingIntent.intentdefinition in Sources */,
@@ -1145,7 +1156,6 @@
 				1790149922A703A500C7D734 /* IntentHandler.swift in Sources */,
 				179014A522A7058000C7D734 /* AddCravingIntent.intentdefinition in Sources */,
 				179014AB22A70F4600C7D734 /* AdditionalUserData.swift in Sources */,
-				179014A822A70D6200C7D734 /* PersistenceManager.swift in Sources */,
 				179014A922A70F2400C7D734 /* Quit.xcdatamodeld in Sources */,
 				179014AD22A70F5300C7D734 /* Constants.swift in Sources */,
 			);

@@ -24,8 +24,6 @@ class PersistenceManager: NSObject {
     }
 }
 
-
-
 extension PersistenceManager {
     func appLoadCounter() -> Int {
         if let appLoadCount = userDefaults?.integer(forKey: Constants.UserDefaults.appLoadCount) {

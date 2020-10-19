@@ -6,10 +6,10 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
-//Sync with iCloud
-//Add Quit pro
-//SwiftUI widget
-//Add vape section
+// Sync with iCloud
+// Add Quit pro
+// SwiftUI widget
+// Add vape section
 
 import SwiftUI
 

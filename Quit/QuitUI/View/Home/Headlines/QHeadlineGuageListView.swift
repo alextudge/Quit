@@ -15,12 +15,14 @@ struct QHeadlineGuageListView: View {
     var body: some View {
         GeometryReader { geo in
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 20) {
+                LazyHStack(spacing: 0) {
                     ForEach(QGuage.allCases, id: \.self) {
                         QHeadlineGuageListItemView(guage: $0, profile: profile)
                             .frame(width: geo.size.width * 0.6, height: geo.size.height)
-                            .background(LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .background(LinearGradient(gradient: Gradient(colors: [Color("clearSkyStart"), Color("clearSkyEnd")]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .cornerRadius(5)
+                            .padding([.top, .bottom, .leading])
+                            .shadow(radius: 4)
                     }
                 }
             }

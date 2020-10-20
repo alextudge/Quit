@@ -36,13 +36,13 @@ struct QVapeSpendView: View {
             }
             HStack {
                 Button("+", action: {
-                    showingDetail.toggle()
                     activeSheet = .add
+                    showingDetail.toggle()
                 })
                 .buttonStyle(QButtonStyle())
                 Button("View all", action: {
-                    showingDetail.toggle()
                     activeSheet = .all
+                    showingDetail.toggle()
                 })
                 .buttonStyle(QButtonStyle())
             }

@@ -19,7 +19,7 @@ struct QFinanceTimeSavingListView: View {
                     ForEach(QFinance.allCases, id: \.self) {
                         QFinanceTimeSavingView(profile: profile, finance: $0)
                             .frame(width: geo.size.width * 0.8, height: geo.size.height)
-                            .background(LinearGradient(gradient: Gradient(colors: [.orange, .yellow]), startPoint: .bottomLeading, endPoint: .topTrailing))
+                            .background(LinearGradient(gradient: Gradient(colors: [Color("nightDayStart"), Color("nightDayEnd")]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .cornerRadius(5)
                     }
                 }

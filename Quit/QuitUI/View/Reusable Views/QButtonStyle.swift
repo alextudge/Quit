@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct QButtonStyle: ButtonStyle {
+        
     func makeBody(configuration: Self.Configuration) -> some View {
         return configuration.label
             .padding()

@@ -13,12 +13,9 @@ struct QFinanceListView: View {
     @ObservedObject var profile: Profile
     
     var body: some View {
-        GeometryReader { geo in
-            VStack(spacing: 20) {
-                QFinanceTimeSavingListView(profile: profile)
-                    .frame(height: geo.size.height * 0.3)
-                QFinanceSavingGoalListView(profile: profile)
-            }
+        VStack(spacing: 20) {
+            QFinanceTimeSavingListView(profile: profile)
+            QFinanceSavingGoalListView(profile: profile)
         }
     }
 }

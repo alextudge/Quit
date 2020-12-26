@@ -15,7 +15,7 @@ struct QSetupProfileView: View {
     @State private var quitDate: Date
     @State private var numberSmoked = ""
     @State private var costOf20 = ""
-    @State private var notificationsEnabled = false
+    @State private var notificationsEnabled = true
     @State private var showingAlert = false
     var profile: Profile?
     
@@ -33,9 +33,10 @@ struct QSetupProfileView: View {
             TextField("How many do you smoke daily?", text: $numberSmoked)
                 .keyboardType(.numberPad)
             TextField("How much is a pack of 20?", text: $costOf20)
-                .keyboardType(.decimalPad)
-
+                .keyboardType(.numberPad)
             Toggle("Send notifcations", isOn: $notificationsEnabled)
+            Text("This includes health achievement and milestone notifications.")
+                .font(.caption)
             Button("Save", action: {
                 if !numberSmoked.isNumber || !costOf20.isNumber {
                     showingAlert = true
@@ -53,6 +54,7 @@ struct QSetupProfileView: View {
         .onChange(of: notificationsEnabled) { newValue in
             QNotificationManager().requestNotificationPermissions()
         }
+        .navigationBarTitle("👋 Set yourself up", displayMode: .large)
     }
 }
 

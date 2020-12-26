@@ -12,28 +12,20 @@ struct QAddVapeSpendView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
-    @Binding var showingDetail: Bool
     @State var title = ""
     @State var amount = ""
     
     var body: some View {
-        NavigationView {
-            Form {
-                TextField("What did you spend on?", text: $title)
-                TextField("How much did you spend?", text: $amount)
-                    .keyboardType(.numberPad)
-                Button("Save vape spend", action: {
-                    addVapeSpend()
-                })
-                .buttonStyle(QButtonStyle())
-            }
-            .navigationBarTitle("Add vape spend", displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
-                showingDetail = false
-            }) {
-                Text("Done").bold()
+        Form {
+            TextField("What did you spend on?", text: $title)
+            TextField("How much did you spend?", text: $amount)
+                .keyboardType(.numberPad)
+            Button("Save vape spend", action: {
+                addVapeSpend()
             })
+            .buttonStyle(QButtonStyle())
         }
+        .navigationBarTitle("Add vape spend")
     }
 }
 
@@ -49,6 +41,6 @@ private extension QAddVapeSpendView {
 
 struct QAddVapeSpendView_Previews: PreviewProvider {
     static var previews: some View {
-        QAddVapeSpendView(showingDetail: .constant(true))
+        QAddVapeSpendView()
     }
 }

@@ -13,17 +13,12 @@ struct QFinanceTimeSavingListView: View {
     @ObservedObject var profile: Profile
     
     var body: some View {
-        GeometryReader { geo in
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 20) {
-                    ForEach(QFinance.allCases, id: \.self) {
-                        QFinanceTimeSavingView(profile: profile, finance: $0)
-                            .frame(width: geo.size.width * 0.8, height: geo.size.height)
-                            .background(LinearGradient(gradient: Gradient(colors: [Color("nightDayStart"), Color("nightDayEnd")]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .cornerRadius(5)
-                    }
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack {
+                ForEach(QFinance.allCases, id: \.self) {
+                    QFinanceTimeSavingView(profile: profile, finance: $0)
                 }
-            }
+            }.padding()
         }
     }
 }

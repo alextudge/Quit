@@ -21,6 +21,7 @@ struct QHealthView: View {
                     .lineLimit(nil)
                     .multilineTextAlignment(.center)
                 QClockView(progress: Double(profile.secondsSmokeFree ?? 0) / healthStat.secondsForHealthState())
+                    .frame(minWidth: 100, minHeight: 100)
             }.padding()
         }
     }

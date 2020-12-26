@@ -12,34 +12,34 @@ struct QEditQuitDateView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var profile: Profile
-    @State private var showTimer = false
     @State private var countdownTimer = ""
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text(countdownTimer)
-                    .onReceive(timer) { _ in
-                        countdownTimer = Date().offsetFrom(date: profile.quitDate ?? Date())
-                    }
-                DatePicker("", selection: .init(get: { (
-                    profile.quitDate ?? Date())
-                },
-                set: {
-                    profile.quitDate = $0
-                    QNotificationManager().cancelAllNotifications()
-                    if let quitDate = profile.quitDate,
-                       profile.notificationsEnabled {
-                        QNotificationManager().setupHealthNotifications(quitDate: quitDate)
-                    }
-                    try? managedObjectContext.save()
-                }))
-            }
+        HStack {
+            Text(countdownTimer)
+                .onReceive(timer) { _ in
+                    countdownTimer = Date().offsetFrom(date: profile.quitDate ?? Date())
+                }
+                .foregroundColor(.white)
+            DatePicker("", selection: .init(get: { (
+                profile.quitDate ?? Date())
+            },
+            set: {
+                profile.quitDate = $0
+                QNotificationManager().cancelAllNotifications()
+                if let quitDate = profile.quitDate,
+                   profile.notificationsEnabled {
+                    QNotificationManager().setupHealthNotifications(quitDate: quitDate)
+                }
+                try? managedObjectContext.save()
+            })).accentColor(.white)
         }
         .padding()
-        .background(Color(UIColor.tertiarySystemBackground))
+        .background(Color("section1"))
         .cornerRadius(5)
+        .shadow(radius: 4)
+        .padding(.horizontal)
     }
 }
 

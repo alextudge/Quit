@@ -15,27 +15,19 @@ struct QViewVapeSpendsView: View {
         entity: VapeSpend.entity(),
         sortDescriptors: []
     ) var vapeSpends: FetchedResults<VapeSpend>
-    @Binding var showingDetail: Bool
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(vapeSpends, id: \.self) { spend in
-                    VStack(alignment: .leading) {
-                        Text("\(spend.title ?? "")")
-                        Text("\(spend.amount.currencyFormat)")
-                    }
+        List {
+            ForEach(vapeSpends, id: \.self) { spend in
+                VStack(alignment: .leading) {
+                    Text("\(spend.title ?? "")")
+                    Text("\(spend.amount.currencyFormat)")
                 }
-                .onDelete(perform: delete)
             }
-            .navigationBarTitle("View cravings", displayMode: .inline)
-            .navigationBarItems(leading: EditButton())
-            .navigationBarItems(trailing: Button(action: {
-                showingDetail = false
-            }) {
-                Text("Done").bold()
-            })
+            .onDelete(perform: delete)
         }
+        .navigationBarItems(trailing: EditButton())
+        .navigationTitle("Vape spending ")
     }
 }
 
@@ -50,6 +42,6 @@ private extension QViewVapeSpendsView {
 
 struct QViewVapeSpendsView_Previews: PreviewProvider {
     static var previews: some View {
-        QViewVapeSpendsView(showingDetail: .constant(true))
+        QViewVapeSpendsView()
     }
 }

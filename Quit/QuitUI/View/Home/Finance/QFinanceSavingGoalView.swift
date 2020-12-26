@@ -18,6 +18,8 @@ struct QFinanceSavingGoalView: View {
             VStack(alignment: .center) {
                 Text(goal.goalName ?? "")
                     .foregroundColor(.white)
+                    .lineLimit(nil)
+                    .multilineTextAlignment(.center)
                 QClockView(progress: profile.savedSoFar / goal.goalAmount)
             }
             .padding()

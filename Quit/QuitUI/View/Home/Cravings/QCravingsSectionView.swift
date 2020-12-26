@@ -11,33 +11,28 @@ import SwiftUI
 struct QCravingsSectionView: View {
         
     var body: some View {
-        GeometryReader { geo in
-            VStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 20) {
-                        VStack(spacing: 20) {
-                            NavigationLink(destination: QAddCravingView()) {
-                                Text("Add Craving")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .frame(width: geo.size.width * 0.3, height: (geo.size.height / 2) - 10)
-                                    .background(Color.green)
-                                    .cornerRadius(5)
-                            }
-                            NavigationLink(destination: QViewCravingsView()) {
-                                Text("View Cravings")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .frame(width: geo.size.width * 0.3, height: (geo.size.height / 2) - 10)
-                                    .background(Color.green)
-                                    .cornerRadius(5)
-                            }
-                        }
-                        QCravingChartView(chartTitle: "Cravings")
-                            .frame(width: geo.size.width * 0.8)
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: 20) {
+                VStack(alignment: .leading, spacing: 20) {
+                    NavigationLink(destination: QAddCravingView()) {
+                        Text("Add Craving")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color("section5"))
+                            .cornerRadius(5)
+                    }
+                    NavigationLink(destination: QViewCravingsView()) {
+                        Text("View Cravings")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color("section5"))
+                            .cornerRadius(5)
                     }
                 }
+                QCravingChartView(chartTitle: "Cravings")
             }
+            .padding(.horizontal)
+            .shadow(radius: 5)
         }
     }
 }

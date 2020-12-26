@@ -9,7 +9,6 @@
 // Sync with iCloud
 // Add Quit pro
 // SwiftUI widget
-// Add vape section
 // Smoked chart
 
 import SwiftUI
@@ -20,44 +19,37 @@ struct QHomeView: View {
     @ObservedObject var profile: Profile
     
     var body: some View {
-        GeometryReader { geo in
-            ScrollView(.vertical) {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Highlights")
+        List {
+            Section(header: QListHeaderView(sectionHeader: "Your Quit Date")) {
+                QEditQuitDateView(profile: profile)
+            }.listRowInsets(EdgeInsets(.zero))
+            Section(header: QListHeaderView(sectionHeader: "Your Finances")) {
+                QFinanceListView(profile: profile)
+            }.listRowInsets(EdgeInsets(.zero))
+            Section(header: QListHeaderView(sectionHeader: "Achievements")) {
+                QAchievementHomeView(profile: profile)
+            }.listRowInsets(EdgeInsets(.zero))
+            Section(header: QListHeaderView(sectionHeader: "Cravings & Triggers")) {
+                QCravingsSectionView()
+            }.listRowInsets(EdgeInsets(.zero))
+            Section(header: QListHeaderView(sectionHeader: "Vape spend")) {
+                QVapeSpendView(profile: profile)
+                    .padding(.horizontal)
+            }.listRowInsets(EdgeInsets(.zero))
+            Section(header: QListHeaderView(sectionHeader: "Your Health")) {
+                QHealthListView(profile: profile)
+            }.listRowInsets(EdgeInsets(.zero))
+            Section(header: QListHeaderView(sectionHeader: "Notifications")) {
+                NavigationLink(destination: QNotificationsHomeView()) {
+                    Text("Edit your notifications")
+                        .foregroundColor(.white)
                         .padding()
-                        .font(.headline)
-                    QHeadlineGuageListView(profile: profile)
-                        .frame(height: geo.size.height * 0.25)
-                        .edgesIgnoringSafeArea(.all)
-                    Section(header: Text("Your Quit Date")) {
-                        QEditQuitDateView(profile: profile)
-                    }
-                    Section(header: Text("Your Finances")) {
-                        QFinanceListView(profile: profile)
-                            .frame(height: geo.size.height * 0.3)
-                    }
-                    Section(header: Text("Achievements")) {
-                        QAchievementHomeView(profile: profile)
-                    }
-                    Section(header: Text("Cravings & Triggers")) {
-                        QCravingsSectionView()
-                            .frame(height: geo.size.height * 0.3)
-                    }
-                    Section(header: Text("Vape spend")) {
-                        QVapeSpendView(profile: profile)
-                    }
-                    Section(header: Text("Your Health")) {
-                        QHealthListView(profile: profile)
-                            .frame(height: geo.size.height * 0.3)
-                    }
-                    Section(header: Text("Notifications")) {
-                        NavigationLink(destination: QNotificationsHomeView()) {
-                            Text("Location Notification")
-                        }
-                    }
+                        .background(Color("section8"))
+                        .cornerRadius(5)
+                        .shadow(radius: 4)
+                        .padding(.horizontal)
                 }
-                .listStyle(SidebarListStyle())
-            }
+            }.listRowInsets(EdgeInsets(.zero))
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarItems(trailing:

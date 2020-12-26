@@ -11,7 +11,7 @@ import SwiftUI
 struct QVapeSpendView: View {
     
     private enum ActiveSheet {
-       case add, all
+        case add, all
     }
     
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -19,8 +19,6 @@ struct QVapeSpendView: View {
         entity: VapeSpend.entity(),
         sortDescriptors: []
     ) var vapeSpends: FetchedResults<VapeSpend>
-    @State private var showingDetail = false
-    @State private var activeSheet: ActiveSheet = .add
     @ObservedObject var profile: Profile
     private var totalVapeSpend: Double {
         vapeSpends.reduce(0, { $0 + $1.amount})
@@ -30,33 +28,31 @@ struct QVapeSpendView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            if savedByVaping > 0 {
-                Text("Compared to smoking, you've saved \(savedByVaping.currencyFormat)")
-            }
-            HStack {
-                Button("+", action: {
-                    activeSheet = .add
-                    showingDetail.toggle()
-                })
-                .buttonStyle(QButtonStyle())
-                Button("View all", action: {
-                    activeSheet = .all
-                    showingDetail.toggle()
-                })
-                .buttonStyle(QButtonStyle())
-            }
+        if savedByVaping > 0 {
+            Text("Compared to smoking, you've saved \(savedByVaping.currencyFormat)")
+                .foregroundColor(.white)
+                .multilineTextAlignment(.leading)
+                .padding()
+                .background(Color("section6"))
+                .cornerRadius(5)
+                .shadow(radius: 5)
         }
-        .padding()
-        .background(Color(.tertiarySystemBackground))
-        .cornerRadius(5)
-        .sheet(isPresented: $showingDetail) {
-            if activeSheet == .add {
-                QAddVapeSpendView(showingDetail: $showingDetail)
-            } else {
-                QViewVapeSpendsView(showingDetail: $showingDetail)
-            }
+        NavigationLink(destination:  QAddVapeSpendView()) {
+            Text("+ spending")
+                .foregroundColor(.white)
+                .padding()
+                .background(Color("section6"))
+                .cornerRadius(5)
         }
+        .padding(.vertical)
+        NavigationLink(destination:  QViewVapeSpendsView()) {
+            Text("View all")
+                .foregroundColor(.white)
+                .padding()
+                .background(Color("section6"))
+                .cornerRadius(5)
+        }
+        .padding(.vertical)
         .onAppear {
             translateOldModel()
         }

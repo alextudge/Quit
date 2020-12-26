@@ -22,14 +22,17 @@ struct QAchievementHomeView: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text("\(achievementsAchieved) achieved!")
                     .font(.headline)
+                    .foregroundColor(.white)
                 Text("Tap here to see them all.")
                     .font(.subheadline)
+                    .foregroundColor(.white)
             }
             .padding()
+            .background(Color("section4"))
+            .cornerRadius(5)
+            .shadow(radius: 4)
+            .padding(.horizontal)
         }
-        .frame(minWidth: 100, maxWidth: .infinity, minHeight: 44, alignment: .leading)
-        .background(Color(UIColor.tertiarySystemBackground))
-        .cornerRadius(5)
     }
 }
 

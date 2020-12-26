@@ -16,6 +16,7 @@ struct QAddLocationNotificationView: View {
     @State private var title = ""
     @State private var message = ""
     @State private var showingAlert = false
+    @State private var showingLocationAlert = false
     
     var body: some View {
         GeometryReader { geo in
@@ -47,11 +48,17 @@ struct QAddLocationNotificationView: View {
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("🤕"), message: Text("Both text fields are required."), dismissButton: .default(Text("Got it!")))
         }
+        .alert(isPresented: $showingLocationAlert) {
+            Alert(title: Text("🤕"), message: Text("We can't currently add location based alerts to mac devices."), dismissButton: .default(Text("Got it!")))
+        }
     }
 }
 
 private extension QAddLocationNotificationView {
     func save() {
+        #if targetEnvironment(macCatalyst)
+        showingLocationAlert.toggle()
+        #else
         let region = CLCircularRegion(center: centerCoordinate, radius: 20.0, identifier: "\(centerCoordinate.latitude).\(centerCoordinate.longitude)")
         region.notifyOnEntry = true
         region.notifyOnExit = false
@@ -65,6 +72,7 @@ private extension QAddLocationNotificationView {
                 presentationMode.wrappedValue.dismiss()
             }
         }
+        #endif
     }
 }
 

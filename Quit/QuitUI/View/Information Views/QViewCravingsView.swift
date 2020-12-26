@@ -29,7 +29,7 @@ struct QViewCravingsView: View {
             .onDelete(perform: delete)
         }
         .navigationBarItems(trailing: EditButton())
-        .navigationTitle("View cravings")
+        .navigationTitle("Cravings")
     }
 }
 

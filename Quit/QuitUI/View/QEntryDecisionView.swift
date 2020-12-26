@@ -18,7 +18,7 @@ struct QEntryDecisionView: View {
             if let profile = profiles.first {
                 QHomeView(profile: profile)
             } else {
-                QUnregisteredUserView()
+                QSetupProfileView(profile: nil)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

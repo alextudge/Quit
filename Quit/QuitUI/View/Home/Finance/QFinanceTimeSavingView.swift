@@ -26,6 +26,10 @@ struct QFinanceTimeSavingView: View {
                 .foregroundColor(.white)
         }
         .padding()
+        .background(Color("section2"))
+        .shadow(radius: 4)
+        .cornerRadius(5)
+        .padding(.vertical)
     }
 }
 

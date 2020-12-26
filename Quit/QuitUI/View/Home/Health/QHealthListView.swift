@@ -13,15 +13,14 @@ struct QHealthListView: View {
     @ObservedObject var profile: Profile
     
     var body: some View {
-        GeometryReader { geo in
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 20) {
-                    ForEach(QHealth.allCases, id: \.self) { healthStat in
-                        QHealthView(profile: profile, healthStat: healthStat)
-                            .frame(width: geo.size.width * 0.5, height: geo.size.height)
-                            .background(LinearGradient(gradient: Gradient(colors: [.red, .orange]), startPoint: .top, endPoint: .bottom))
-                            .cornerRadius(5)
-                    }
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: 0) {
+                ForEach(QHealth.allCases, id: \.self) { healthStat in
+                    QHealthView(profile: profile, healthStat: healthStat)
+                        .background(Color("section7"))
+                        .cornerRadius(5)
+                        .padding([.leading])
+                        .shadow(radius: 5)
                 }
             }
         }

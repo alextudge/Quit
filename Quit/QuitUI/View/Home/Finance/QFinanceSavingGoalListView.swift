@@ -21,30 +21,23 @@ struct QFinanceSavingGoalListView: View {
         GeometryReader { geo in
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
-                    if goals.count > 0 {
-                        Text("Your savings goals")
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(width: geo.size.width * 0.3, height: geo.size.height)
-                            .background(Color.pink)
-                            .cornerRadius(5)
-                    }
                     ForEach(goals) { goal in
                         QFinanceSavingGoalView(goal: goal, profile: profile)
-                            .frame(width: geo.size.width * 0.4)
-                            .background(LinearGradient(gradient: Gradient(colors: [.pink, .purple]), startPoint: .bottomLeading, endPoint: .topTrailing))
+                            .background(Color("section3"))
                             .cornerRadius(5)
+                            .shadow(radius: 5)
                     }
                     NavigationLink(destination: QSavingGoalEditView(savingGoal: nil)) {
                         Text("Add a saving goal")
                             .foregroundColor(.white)
                             .padding()
-                            .frame(width: geo.size.width * 0.3, height: geo.size.height)
-                            .background(Color.purple)
+                            .background(Color("section3"))
                             .cornerRadius(5)
                             .buttonStyle(QButtonStyle())
+                            .shadow(radius: 5)
                     }
                 }
+                .padding([.leading, .trailing])
             }
         }
     }

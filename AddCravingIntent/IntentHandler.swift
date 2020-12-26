@@ -16,5 +16,4 @@ class IntentHandler: INExtension {
         }
         return AddCravingIntentHandler()
     }
-    
 }

@@ -14,6 +14,8 @@
 		17119081253497DB008A271A /* QFinanceTimeSavingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17119080253497DB008A271A /* QFinanceTimeSavingListView.swift */; };
 		1711908725349858008A271A /* QFinanceSavingGoalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1711908625349858008A271A /* QFinanceSavingGoalListView.swift */; };
 		1716321B25975A22000A3CD4 /* QListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716321A25975A22000A3CD4 /* QListHeaderView.swift */; };
+		171632272597A6FE000A3CD4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171632262597A6FE000A3CD4 /* CloudKit.framework */; };
+		171632302597B06F000A3CD4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1716322F2597B06F000A3CD4 /* Launch Screen.storyboard */; };
 		172020702538E53800C3459D /* QStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720206F2538E53800C3459D /* QStringExtensions.swift */; };
 		172986C0253E18EC002B17B1 /* QNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172986BF253E18EC002B17B1 /* QNotificationManager.swift */; };
 		172986D1253E2517002B17B1 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788CBB52037853D00064A86 /* PersistenceManager.swift */; };
@@ -120,6 +122,8 @@
 		1714FC86219E06C000CFB203 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		1714FC88219E06C000CFB203 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		1716321A25975A22000A3CD4 /* QListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QListHeaderView.swift; sourceTree = "<group>"; };
+		171632262597A6FE000A3CD4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		1716322F2597B06F000A3CD4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1720206F2538E53800C3459D /* QStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QStringExtensions.swift; sourceTree = "<group>"; };
 		172986BF253E18EC002B17B1 /* QNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QNotificationManager.swift; sourceTree = "<group>"; };
 		172986D4253E25B7002B17B1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Quit/Utilities/Constants.swift; sourceTree = SOURCE_ROOT; };
@@ -188,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				175871DD22DA107F00DB9E75 /* StoreKit.framework in Frameworks */,
+				171632272597A6FE000A3CD4 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +268,7 @@
 				172986BE253E18D0002B17B1 /* Utilities */,
 				1732B3AB252782D100C469C1 /* Model */,
 				1720206E2538E52900C3459D /* Extensions */,
+				1716322F2597B06F000A3CD4 /* Launch Screen.storyboard */,
 			);
 			path = QuitUI;
 			sourceTree = "<group>";
@@ -471,6 +477,7 @@
 		F794A69D49B54B9AB70B83F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				171632262597A6FE000A3CD4 /* CloudKit.framework */,
 				175871DC22DA107F00DB9E75 /* StoreKit.framework */,
 				17F8FF82219A08E70095CD6E /* NotificationCenter.framework */,
 				1714FC86219E06C000CFB203 /* UserNotifications.framework */,
@@ -611,6 +618,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171632302597B06F000A3CD4 /* Launch Screen.storyboard in Resources */,
 				1790143122A6F48200C7D734 /* Colours.xcassets in Resources */,
 				177F03EF2025220900CC7CA8 /* Assets.xcassets in Resources */,
 			);
@@ -897,7 +905,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.3;
+				MARKETING_VERSION = 7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -927,7 +935,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.3;
+				MARKETING_VERSION = 7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

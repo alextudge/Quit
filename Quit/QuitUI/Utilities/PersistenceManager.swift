@@ -11,11 +11,16 @@ import CoreData
 class PersistenceManager: NSObject {
     
     private var context: NSManagedObjectContext!
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentCloudKitContainer = {
         generatePersistenceContainer()
     }()
     private let userDefaults = UserDefaults.init(suiteName: Constants.AppConfig.appGroupId)
     var interstitialAdCounter = 0
+    private let storeOptions: [AnyHashable: Any] = [
+      NSMigratePersistentStoresAutomaticallyOption: true,
+      NSInferMappingModelAutomaticallyOption: true,
+      NSPersistentStoreUbiquitousContentNameKey: "CloudStore"
+    ]
     
     override init() {
         super.init()
@@ -83,19 +88,17 @@ extension PersistenceManager {
 }
 
 private extension PersistenceManager {
-    func generatePersistenceContainer() -> NSPersistentContainer {
-        let container = NSPersistentContainer(name: Constants.AppConfig.appName)
+    func generatePersistenceContainer() -> NSPersistentCloudKitContainer {
+        let container = NSPersistentCloudKitContainer(name: Constants.AppConfig.appName)
+        migrateIfRequired(container.persistentStoreCoordinator)
         let storeUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.AppConfig.appGroupId)!.appendingPathComponent(Constants.CoreData.databaseId)
-        let description = NSPersistentStoreDescription()
-        description.shouldInferMappingModelAutomatically = true
-        description.shouldMigrateStoreAutomatically = true
-        description.url = storeUrl
-        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url:  FileManager.default.containerURL(forSecurityApplicationGroupIdentifier:  Constants.AppConfig.appGroupId)!.appendingPathComponent(Constants.CoreData.databaseId))]
+        container.persistentStoreDescriptions.first?.url = storeUrl
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 print("\(error), \(error.userInfo)")
             }
         })
+        container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }
     
@@ -147,5 +150,28 @@ private extension PersistenceManager {
             }
         }
         saveContext()
+    }
+    
+    func migrateIfRequired(_ psc: NSPersistentStoreCoordinator) {
+        let existingStoreUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.AppConfig.appGroupId)!.appendingPathComponent(Constants.CoreData.databaseId)
+        if FileManager.default.fileExists(atPath: existingStoreUrl.path) {
+            return
+        }
+        
+        do {
+            let store = try psc.addPersistentStore(
+                ofType: NSSQLiteStoreType,
+                configurationName: nil,
+                at: existingStoreUrl,
+                options: storeOptions)
+            let newStore = try psc.migratePersistentStore(
+                store,
+                to: existingStoreUrl,
+                options: [NSPersistentStoreRemoveUbiquitousMetadataOption: true],
+                withType: NSSQLiteStoreType)
+            try psc.remove(newStore)
+        } catch {
+            print("Error migrating store: \(error)")
+        }
     }
 }

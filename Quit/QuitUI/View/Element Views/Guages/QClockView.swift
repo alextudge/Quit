@@ -22,6 +22,7 @@ struct QClockView: View {
                 PieChartSlide(geo: geometry, startAngle: correctedProgress - 90, endAngle: 270, colour: .clear)
             }
         }
+        .frame(minWidth: 100, minHeight: 100)
     }
 }
 

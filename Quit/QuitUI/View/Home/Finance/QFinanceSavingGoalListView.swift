@@ -18,27 +18,25 @@ struct QFinanceSavingGoalListView: View {
     @ObservedObject var profile: Profile
     
     var body: some View {
-        GeometryReader { geo in
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 20) {
-                    ForEach(goals) { goal in
-                        QFinanceSavingGoalView(goal: goal, profile: profile)
-                            .background(Color("section3"))
-                            .cornerRadius(5)
-                            .shadow(radius: 5)
-                    }
-                    NavigationLink(destination: QSavingGoalEditView(savingGoal: nil)) {
-                        Text("Add a saving goal")
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color("section3"))
-                            .cornerRadius(5)
-                            .buttonStyle(QButtonStyle())
-                            .shadow(radius: 5)
-                    }
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
+                ForEach(goals) { goal in
+                    QFinanceSavingGoalView(goal: goal, profile: profile)
+                        .background(Color("section3"))
+                        .cornerRadius(5)
+                        .shadow(radius: 5)
                 }
-                .padding([.leading, .trailing])
+                NavigationLink(destination: QSavingGoalEditView(savingGoal: nil)) {
+                    Text("Add a saving goal")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color("section3"))
+                        .cornerRadius(5)
+                        .buttonStyle(QButtonStyle())
+                        .shadow(radius: 5)
+                }
             }
+            .padding([.leading, .trailing])
         }
     }
 }

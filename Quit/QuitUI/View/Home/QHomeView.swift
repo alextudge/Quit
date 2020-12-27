@@ -9,7 +9,7 @@
 // Add Quit pro
 // SwiftUI widget
 // Trigger doesnt work for exisiting ones
-// Savings chart is too small
+// Percentages arent rounded
 
 import SwiftUI
 

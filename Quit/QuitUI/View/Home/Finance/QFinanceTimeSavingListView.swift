@@ -18,7 +18,8 @@ struct QFinanceTimeSavingListView: View {
                 ForEach(QFinance.allCases, id: \.self) {
                     QFinanceTimeSavingView(profile: profile, finance: $0)
                 }
-            }.padding()
+            }
+            .padding([.leading, .trailing])
         }
     }
 }

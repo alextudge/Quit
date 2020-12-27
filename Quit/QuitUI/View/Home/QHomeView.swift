@@ -40,7 +40,10 @@ struct QHomeView: View {
                 QHealthListView(profile: profile)
             }.listRowInsets(EdgeInsets(.zero))
             Section(header: QListHeaderView(sectionHeader: "Notifications")) {
-                NavigationLink(destination: QNotificationsHomeView()) {
+                ZStack {
+                   NavigationLink(destination: QNotificationsHomeView()) {
+                       EmptyView()
+                   }.hidden()
                     Text("Edit your notifications")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.white)

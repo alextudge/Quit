@@ -18,7 +18,10 @@ struct QAchievementHomeView: View {
     }
     
     var body: some View {
-        NavigationLink(destination: QViewAchievementsView(profile: profile)) {
+        ZStack {
+            NavigationLink(destination: QViewAchievementsView(profile: profile)) {
+                EmptyView()
+            }.hidden()
             VStack(alignment: .leading, spacing: 5) {
                 Text("\(achievementsAchieved) achieved!")
                     .font(.headline)

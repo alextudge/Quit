@@ -13,6 +13,7 @@ struct QSettingsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var profile: Profile
+    private let purchaseHelper = QPurchaseHelper()
     
     var body: some View {
         List {
@@ -21,6 +22,14 @@ struct QSettingsView: View {
             })
             NavigationLink(destination: QSetupProfileView(profile: profile)) {
                 Text("Edit profile")
+            }
+            if !profile.isPro && purchaseHelper.canMakePayments {
+                NavigationLink(destination: QPurchaseProView()) {
+                    Text("Go pro")
+                }
+                Button("Restore purchases", action: {
+                    purchaseHelper.restorePurchases()
+                })
             }
         }
         .navigationTitle("Settings")

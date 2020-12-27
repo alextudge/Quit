@@ -25,6 +25,7 @@
 		1732B38C25277FF700C469C1 /* QuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B38B25277FF700C469C1 /* QuitApp.swift */; };
 		1732B3922527802F00C469C1 /* QHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3912527802F00C469C1 /* QHomeView.swift */; };
 		1732B3AD252782FB00C469C1 /* QGuages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B3AC252782FB00C469C1 /* QGuages.swift */; };
+		1741D6C825993A7100824416 /* QProFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1741D6C725993A7100824416 /* QProFeatures.swift */; };
 		17440DD82527B1C6000E4703 /* QHealth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DD72527B1C6000E4703 /* QHealth.swift */; };
 		17440DE32527D6B7000E4703 /* QClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DE22527D6B7000E4703 /* QClockView.swift */; };
 		17440DEA2527E4E7000E4703 /* QEditQuitDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17440DE92527E4E7000E4703 /* QEditQuitDateView.swift */; };
@@ -64,6 +65,8 @@
 		17F7C0CA25980E00006FB5CF /* Quit_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F7C0C925980E00006FB5CF /* Quit_Widget.swift */; };
 		17F7C0CC25980E02006FB5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F7C0CB25980E02006FB5CF /* Assets.xcassets */; };
 		17F7C0D025980E02006FB5CF /* Quit WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17F7C0C525980E00006FB5CF /* Quit WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17F7C0D8259929A6006FB5CF /* QPurchaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F7C0D7259929A6006FB5CF /* QPurchaseHelper.swift */; };
+		17F7C0DE25992C0A006FB5CF /* QPurchaseProView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F7C0DD25992C0A006FB5CF /* QPurchaseProView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +133,7 @@
 		1732B38B25277FF700C469C1 /* QuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitApp.swift; sourceTree = "<group>"; };
 		1732B3912527802F00C469C1 /* QHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHomeView.swift; sourceTree = "<group>"; };
 		1732B3AC252782FB00C469C1 /* QGuages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QGuages.swift; sourceTree = "<group>"; };
+		1741D6C725993A7100824416 /* QProFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QProFeatures.swift; sourceTree = "<group>"; };
 		17440DD72527B1C6000E4703 /* QHealth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHealth.swift; sourceTree = "<group>"; };
 		17440DE22527D6B7000E4703 /* QClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QClockView.swift; sourceTree = "<group>"; };
 		17440DE92527E4E7000E4703 /* QEditQuitDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEditQuitDateView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 		17F7C0CB25980E02006FB5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17F7C0CD25980E02006FB5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F7C0D125980E02006FB5CF /* Quit WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Quit WidgetExtension.entitlements"; sourceTree = "<group>"; };
+		17F7C0D7259929A6006FB5CF /* QPurchaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPurchaseHelper.swift; sourceTree = "<group>"; };
+		17F7C0DD25992C0A006FB5CF /* QPurchaseProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPurchaseProView.swift; sourceTree = "<group>"; };
 		17F8FF82219A08E70095CD6E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		17F8FF94219A0CF10095CD6E /* Quit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quit.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				17043208252F8D24007263B6 /* QSettingsView.swift */,
+				17F7C0DD25992C0A006FB5CF /* QPurchaseProView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -248,6 +255,7 @@
 				172986BF253E18EC002B17B1 /* QNotificationManager.swift */,
 				172986D4253E25B7002B17B1 /* Constants.swift */,
 				1788CBB52037853D00064A86 /* PersistenceManager.swift */,
+				17F7C0D7259929A6006FB5CF /* QPurchaseHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -281,6 +289,7 @@
 				17440DD72527B1C6000E4703 /* QHealth.swift */,
 				1711904625312EB0008A271A /* QFinance.swift */,
 				174B533F2534F1BE009F254C /* QAchievement.swift */,
+				1741D6C725993A7100824416 /* QProFeatures.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -653,9 +662,11 @@
 				1732B3AD252782FB00C469C1 /* QGuages.swift in Sources */,
 				1711904B2531337A008A271A /* QFinanceSavingGoalView.swift in Sources */,
 				174B534B2534F41A009F254C /* QAchievementView.swift in Sources */,
+				17F7C0DE25992C0A006FB5CF /* QPurchaseProView.swift in Sources */,
 				174B53622534FDB7009F254C /* QHealthView.swift in Sources */,
 				174B538B25363CBC009F254C /* QMapView.swift in Sources */,
 				17440DEA2527E4E7000E4703 /* QEditQuitDateView.swift in Sources */,
+				1741D6C825993A7100824416 /* QProFeatures.swift in Sources */,
 				1711904725312EB0008A271A /* QFinance.swift in Sources */,
 				174B537A253637FE009F254C /* QAchievementHomeView.swift in Sources */,
 				1711908725349858008A271A /* QFinanceSavingGoalListView.swift in Sources */,
@@ -663,6 +674,7 @@
 				174B53872536393A009F254C /* QAddCustomNotificationView.swift in Sources */,
 				17119081253497DB008A271A /* QFinanceTimeSavingListView.swift in Sources */,
 				17C09C2C253125D7007966B1 /* QFinanceTimeSavingView.swift in Sources */,
+				17F7C0D8259929A6006FB5CF /* QPurchaseHelper.swift in Sources */,
 				1776546425365E7500461631 /* QAddTimeNotificationView.swift in Sources */,
 				1732B3922527802F00C469C1 /* QHomeView.swift in Sources */,
 				17C14F3225279F1D001564B0 /* QSetupProfileView.swift in Sources */,

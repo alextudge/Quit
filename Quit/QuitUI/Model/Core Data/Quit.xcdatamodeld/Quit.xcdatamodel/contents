@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="20A5395g" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Craving" representedClassName="Craving" syncable="YES" codeGenerationType="class">
         <attribute name="cravingCatagory" optional="YES" attributeType="String"/>
         <attribute name="cravingDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -7,6 +7,8 @@
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
         <attribute name="costOf20" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="hasDismissedProUpsell" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isPro" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="notificationsEnabled" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="quitDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="reasonsToQuit" optional="YES" attributeType="Transformable"/>
@@ -24,7 +26,7 @@
     </entity>
     <elements>
         <element name="Craving" positionX="99" positionY="9" width="128" height="90"/>
-        <element name="Profile" positionX="-94.44708251953125" positionY="-79.95318603515625" width="128" height="148"/>
+        <element name="Profile" positionX="-94.44708251953125" positionY="-79.95318603515625" width="128" height="164"/>
         <element name="SavingGoal" positionX="72" positionY="54" width="128" height="75"/>
         <element name="VapeSpend" positionX="0" positionY="9" width="128" height="73"/>
     </elements>

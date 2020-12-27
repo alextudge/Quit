@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
-// Add Quit pro
+// Add Quit pro (todo - simulator error/isPro not being set)
 // SwiftUI widget
 
 import SwiftUI
@@ -18,6 +18,11 @@ struct QHomeView: View {
     
     var body: some View {
         List {
+            if !profile.isPro && !profile.hasDismissedProUpsell {
+                NavigationLink(destination: QPurchaseProView()) {
+                    Text("Go pro")
+                }
+            }
             Section(header: QListHeaderView(sectionHeader: "Your Quit Date")) {
                 QEditQuitDateView(profile: profile)
             }.listRowInsets(EdgeInsets(.zero))

@@ -42,6 +42,7 @@ struct QHomeView: View {
             Section(header: QListHeaderView(sectionHeader: "Notifications")) {
                 NavigationLink(destination: QNotificationsHomeView()) {
                     Text("Edit your notifications")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.white)
                         .padding()
                         .background(Color("section8"))
@@ -49,7 +50,8 @@ struct QHomeView: View {
                         .shadow(radius: 4)
                         .padding(.horizontal)
                 }
-            }.listRowInsets(EdgeInsets(.zero))
+            }
+            .listRowInsets(EdgeInsets(.zero))
         }
         .navigationBarTitle("Quit", displayMode: .automatic)
         .navigationBarItems(trailing:

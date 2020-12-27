@@ -27,6 +27,7 @@ struct QAchievementHomeView: View {
                     .font(.subheadline)
                     .foregroundColor(.white)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             .background(Color("section4"))
             .cornerRadius(5)

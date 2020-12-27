@@ -23,7 +23,9 @@ struct QViewCravingsView: View {
                 VStack(alignment: .leading) {
                     Text("\(standardisedDate(date: craving.cravingDate ?? Date()))")
                         .foregroundColor(craving.cravingSmoked ? .orange : .primary)
-                    Text("\(craving.cravingCatagory ?? "")")
+                        .font(.title2)
+                    Text("Trigger: \(craving.cravingCatagory ?? "")")
+                        .font(.caption)
                 }
             }
             .onDelete(perform: delete)

@@ -11,10 +11,23 @@ import SwiftUI
 struct QHealthInfoView: View {
     
     let healthState: QHealth
+    let profile: Profile
+    private var progress: Double {
+        let percentage = Double(profile.secondsSmokeFree ?? 0) / healthState.secondsForHealthState() * 100
+        return percentage > 100 ? 100 : percentage
+    }
     
     var body: some View {
-        VStack {
-            
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("\(progress.rounded(toPlaces: 2))%")
+                    .font(.headline)
+                Text(healthState.information())
+                    .lineLimit(nil)
+                    .multilineTextAlignment(.leading)
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
         }
         .navigationTitle(healthState.title)
     }
@@ -22,6 +35,6 @@ struct QHealthInfoView: View {
 
 struct QHealthInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        QHealthInfoView(healthState: .fertility)
+        QHealthInfoView(healthState: .fertility, profile: Profile())
     }
 }

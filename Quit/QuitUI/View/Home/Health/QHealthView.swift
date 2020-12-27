@@ -14,7 +14,7 @@ struct QHealthView: View {
     let healthStat: QHealth
     
     var body: some View {
-        NavigationLink(destination: QHealthInfoView(healthState: healthStat)) {
+        NavigationLink(destination: QHealthInfoView(healthState: healthStat, profile: profile)) {
             VStack {
                 Text(healthStat.title)
                     .foregroundColor(.white)

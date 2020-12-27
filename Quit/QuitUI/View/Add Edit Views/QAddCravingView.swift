@@ -46,7 +46,7 @@ struct QAddCravingView: View {
 private extension QAddCravingView {
     func saveCraving() {
         let craving = Craving(context: managedObjectContext)
-        craving.cravingCatagory = !newCategory.isEmpty ? newCategory : category
+        craving.cravingCatagory = newCategory.count > 1 ? newCategory : category
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         try? managedObjectContext.save()

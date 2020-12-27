@@ -19,13 +19,29 @@ class PersistenceManager: NSObject {
     private let storeOptions: [AnyHashable: Any] = [
       NSMigratePersistentStoresAutomaticallyOption: true,
       NSInferMappingModelAutomaticallyOption: true,
-      NSPersistentStoreUbiquitousContentNameKey: "CloudStore"
     ]
     
     override init() {
         super.init()
         context = persistentContainer.viewContext
         deleteOldCravings()
+    }
+    
+    func addCraving(catagory: String, smoked: Bool) {
+        let craving = Craving(context: context)
+        craving.cravingDate = Date()
+        craving.cravingCatagory = catagory
+        craving.cravingSmoked = smoked
+        do {
+            try? context.save()
+        }
+    }
+    
+    func deleteEverything() {
+        deleteAllObjects(Profile.self)
+        deleteAllObjects(Craving.self)
+        deleteAllObjects(SavingGoal.self)
+        deleteAllObjects(VapeSpend.self)
     }
 }
 
@@ -67,22 +83,6 @@ extension PersistenceManager {
 extension PersistenceManager {
     func deleteObject(_ object: NSManagedObject) {
         context.delete(object)
-        saveContext()
-    }
-    
-    func deleteAllData() {
-        for object in Constants.CoreData.coreDataObjects {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: object)
-            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            do {
-                try context.execute(batchDeleteRequest)
-                NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.cravingsChanged))
-                NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.savingsChanged))
-                NotificationCenter.default.post(Notification(name: Constants.InternalNotifs.quitDateChanged))
-            } catch {
-                print(error)
-            }
-        }
         saveContext()
     }
 }
@@ -167,11 +167,25 @@ private extension PersistenceManager {
             let newStore = try psc.migratePersistentStore(
                 store,
                 to: existingStoreUrl,
-                options: [NSPersistentStoreRemoveUbiquitousMetadataOption: true],
+                options: [:],
                 withType: NSSQLiteStoreType)
             try psc.remove(newStore)
         } catch {
             print("Error migrating store: \(error)")
         }
+    }
+    
+    func getObjects<T: NSManagedObject>(_ type: T.Type) -> [T]? {
+        let fetchRequest = NSFetchRequest<T>(entityName: NSStringFromClass(type))
+        do {
+            return try? self.context.fetch(fetchRequest)
+        }
+    }
+    
+    func deleteAllObjects<T: NSManagedObject>(_ type: T.Type) {
+        getObjects(type)?.forEach {
+            context.delete($0)
+        }
+        saveContext()
     }
 }

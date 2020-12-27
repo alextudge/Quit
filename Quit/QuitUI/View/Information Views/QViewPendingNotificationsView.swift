@@ -15,18 +15,26 @@ struct QViewPendingNotificationsView: View {
     private let center = UNUserNotificationCenter.current()
     
     var body: some View {
+        Text("You can cancel specific notifications using the edit button.")
+            .padding()
+            .foregroundColor(Color.secondary)
         List {
             ForEach(notifications, id: \.self) { notification in
-                VStack {
+                VStack(alignment: .leading) {
                     Text(notification.content.title)
+                        .font(.title2)
                     Text(notification.content.body)
+                        .font(.caption)
                     if let triggerDate = (notification.trigger as? UNCalendarNotificationTrigger)?.nextTriggerDate() {
-                        Text("\(triggerDate)")
+                        Text("Next due: \(triggerDate)")
+                            .font(.caption)
                     }
                 }
             }
+            .onDelete(perform: delete)
         }
         .navigationTitle("Upcoming notifications")
+        .navigationBarItems(trailing: EditButton())
         .onAppear {
             getAllPendingNotifications()
         }
@@ -40,6 +48,12 @@ private extension QViewPendingNotificationsView {
                 self.notifications.append($0)
             }
         })
+    }
+    
+    func delete(at offsets: IndexSet) {
+        offsets.forEach {
+            QNotificationManager().cancelNotification(with: notifications[$0].identifier)
+        }
     }
 }
 

@@ -34,6 +34,7 @@ struct QAddTimeNotificationView: View {
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("🤕"), message: Text("Both text fields are required."), dismissButton: .default(Text("Got it!")))
         }
+        .navigationTitle("Add a notifications")
     }
 }
 

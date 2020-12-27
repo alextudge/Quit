@@ -25,15 +25,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We only need this to be able to notify you when you're somewhere particularly triggering</string>
+	<string>We only need this to be able to notify you when you&apos;re somewhere particularly triggering</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We only need this to be able to notify you when you're somewhere particularly triggering</string>
+	<string>We only need this to be able to notify you when you&apos;re somewhere particularly triggering</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We only need this to be able to notify you when you're somewhere particularly triggering</string>
+	<string>We only need this to be able to notify you when you&apos;re somewhere particularly triggering</string>
 	<key>NSUserActivityTypes</key>
-	<array>
-		<string>AddCravingIntent</string>
-	</array>
+	<array/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

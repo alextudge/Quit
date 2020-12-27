@@ -29,8 +29,8 @@ struct QSettingsView: View {
 
 private extension QSettingsView {
     func deleteProfile() {
-        managedObjectContext.delete(profile)
-        try? managedObjectContext.save()
+        PersistenceManager().deleteEverything()
+        QNotificationManager().cancelAllAutomaticNotifications()
         presentationMode.wrappedValue.dismiss()
     }
 }

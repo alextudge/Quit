@@ -57,7 +57,7 @@ enum QHealth: CaseIterable {
         case .bronchialTubes:
             return "Bronchial tubes relaxing"
         case .oneWeekSuccess:
-            return "9 times more likely to quit after reaching one week"
+            return "One week"
         case .lungPerformance:
             return "30% improvement in lung performance"
         case .fertility:
@@ -72,21 +72,19 @@ enum QHealth: CaseIterable {
     func information() -> String {
         switch self {
         case .pulseNormal:
-            return "The heart rate drops and returns to normal"
+            return "Nicotine (found in cigarettes and most vape liquids) increases your heart rate and blood pressure.\n\nHigh blod pressure damages your arteries and your heart.\n\nWithin 20 minutes of your last cigarette, your heart rate and blood pressure return to normal levels."
         case .oxygenLevels:
-            return ""
+            return "Carbon monoxide, found in smoke, reduces the amount of oxygen that your blood can carry around your body.\n\nThe increase in oxygen in the body after quitting reduces tiredness and the likelihood of headaches."
         case .nicotineRemoval:
-            return ""
+            return "Nicotine is one of the most addictive chemicals around.\n\nIt can cause an increase in blood pressure, heart rate, flow of blood to the heart and a narrowing of the arteries. Nicotine also causes heart attacks by changing the structure of your arteries.\n\nIt stays in your body for six to eight hours after quitting. Whilst there are withdrawal symptoms, they are surprisingly weak given how addictive the substance is."
         case .monoxideRemoval:
-            return ""
-        case .nerveEndings:
-            return ""
-        case .tasteAndSmell:
-            return ""
+            return "Carbon monoxide is a poisonous gas. When a cigarette burns it gives off carbon monoxide.\n\nWhen you smoke, carbon monoxide is absorbed through the lungs into the blood stream."
+        case .nerveEndings, .tasteAndSmell:
+            return "Smoking damages nerve endings in your nose and mouth, which limits your sense of taste and smell.\n\nWithin 2 days the nerve endings begin to regrow and your sense of taste and smell improve"
         case .bronchialTubes:
-            return ""
+            return "Bronchial tubes are damaged and narrowed when you smoke, making it harder to breathe.\n\nSmoking narrows these tubes, and covers the small defensive hairs that line them with tar."
         case .oneWeekSuccess:
-            return ""
+            return "You're nine times more likely to quit for good once you've reached the one week mark.\n\nWithdrawal symptoms will also be milder, and all of the improvements you've seen so far will continue growing."
         case .lungPerformance:
             return ""
         case .fertility:

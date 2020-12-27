@@ -6,10 +6,10 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
-// Sync with iCloud
 // Add Quit pro
 // SwiftUI widget
-// Smoked chart
+// Trigger doesnt work for exisiting ones
+// Savings chart is too small
 
 import SwiftUI
 
@@ -51,7 +51,7 @@ struct QHomeView: View {
                 }
             }.listRowInsets(EdgeInsets(.zero))
         }
-        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarTitle("Quit", displayMode: .automatic)
         .navigationBarItems(trailing:
                                 NavigationLink(destination: QSettingsView(profile: profile)) {
                                     Label("Settings", systemImage: "slider.horizontal.3")

@@ -6,7 +6,6 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
-import Foundation
 import UserNotifications
 
 class QNotificationManager {
@@ -19,14 +18,19 @@ class QNotificationManager {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in }
     }
     
-    func cancelAllNotifications() {
+    func cancelAllAutomaticNotifications() {
         let center = UNUserNotificationCenter.current()
         center.removePendingNotificationRequests(withIdentifiers: NotificationType.allCases.compactMap { $0.rawValue })
     }
     
+    func cancelNotification(with identifier: String) {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+    
     func setupHealthNotifications(quitDate: Date) {
         QHealth.allCases.forEach {
-            let minutes = Int($0.secondsForHealthState())
+            let minutes = Int($0.secondsForHealthState()) / 60
             let triggerDate = Date(timeInterval: TimeInterval($0.secondsForHealthState()), since: quitDate)
             setTimeNotification(title: $0.title, message: "\(minutes) minutes smoke free!", date: triggerDate)
         }

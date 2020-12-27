@@ -34,7 +34,7 @@ struct QSetupProfileView: View {
                 .keyboardType(.numberPad)
             TextField("How much is a pack of 20?", text: $costOf20)
                 .keyboardType(.numberPad)
-            Toggle("Send notifcations", isOn: $notificationsEnabled)
+            Toggle("Send notifications", isOn: $notificationsEnabled)
             Text("This includes health achievement and milestone notifications.")
                 .font(.caption)
             Button("Save", action: {
@@ -65,7 +65,6 @@ private extension QSetupProfileView {
         profile.smokedDaily = NSNumber(value: Int(numberSmoked) ?? 0)
         profile.costOf20 = NSNumber(value: Double(costOf20) ?? 0.0)
         profile.notificationsEnabled = notificationsEnabled
-        QNotificationManager().cancelAllNotifications()
         if notificationsEnabled {
             QNotificationManager().setupHealthNotifications(quitDate: quitDate)
         }

@@ -19,6 +19,7 @@ struct QAddCustomNotificationView: View {
                 Text("Add a location based notification")
             }
         }
+        .navigationTitle("Custom notifications")
     }
 }
 

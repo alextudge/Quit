@@ -18,6 +18,7 @@ struct QNotificationsHomeView: View {
                 Text("View all upcoming notifications")
             }
         }
+        .navigationTitle("Notifications")
     }
 }
 

@@ -16,20 +16,20 @@ struct QAddCravingView: View {
         entity: Craving.entity(),
         sortDescriptors: []
     ) var cravings: FetchedResults<Craving>
+    @State private var smoked = false
+    @State private var category: String = ""
+    @State private var newCategory = ""
     private var categories: [String] {
         Array(Set(cravings.compactMap { $0.cravingCatagory }))
     }
-    @State private var smoked = false
-    @State private var category: String?
-    @State private var newCategory = ""
     
     var body: some View {
         Form {
             Toggle("Did you smoke", isOn: $smoked)
             if !categories.isEmpty {
                 Picker(selection: $category, label: Text("Existing trigger")) {
-                    ForEach(0..<categories.count) {
-                        Text(categories[$0])
+                    ForEach(categories, id: \.self) { category in
+                        Text(category)
                     }
                 }
             }
@@ -46,7 +46,7 @@ struct QAddCravingView: View {
 private extension QAddCravingView {
     func saveCraving() {
         let craving = Craving(context: managedObjectContext)
-        craving.cravingCatagory = newCategory.count > 1 ? newCategory : category
+        craving.cravingCatagory = !newCategory.isEmpty ? newCategory : category
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         try? managedObjectContext.save()

@@ -8,8 +8,6 @@
 
 // Add Quit pro
 // SwiftUI widget
-// Trigger doesnt work for exisiting ones
-// Percentages arent rounded
 
 import SwiftUI
 

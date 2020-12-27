@@ -20,7 +20,7 @@ struct QHealthInfoView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Text("\(progress.rounded(toPlaces: 2))%")
+                Text("\(String(format: "%.0f", progress))%")
                     .font(.headline)
                 Text(healthState.information())
                     .lineLimit(nil)

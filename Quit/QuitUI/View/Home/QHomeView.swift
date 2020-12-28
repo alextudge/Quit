@@ -11,6 +11,7 @@
 // Diary entries with cravings
 
 import SwiftUI
+import StoreKit
 
 struct QHomeView: View {
     

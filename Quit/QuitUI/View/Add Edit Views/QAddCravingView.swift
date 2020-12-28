@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct QAddCravingView: View {
     
@@ -49,6 +50,10 @@ struct QAddCravingView: View {
             }
             Button("Save craving", action: {
                 saveCraving()
+                if let daysSmokeFree = profile.daysSmokeFree,
+                   daysSmokeFree > 3 {
+                    SKStoreReviewController.requestReview()
+                }
             })
             .buttonStyle(QButtonStyle())
         }

@@ -29,31 +29,30 @@ struct QAddCravingView: View {
     var body: some View {
         Form {
             Toggle("Did you smoke", isOn: $smoked)
-            if !categories.isEmpty {
-                Picker(selection: $category, label: Text("Existing trigger")) {
-                    ForEach(categories, id: \.self) { category in
-                        Text(category)
+            Section(header: Text("Add a craving trigger"), footer: Text("New triggers will be preferred if added")) {
+                if !categories.isEmpty {
+                    Picker(selection: $category, label: Text("Existing trigger")) {
+                        ForEach(categories, id: \.self) { category in
+                            Text(category)
+                        }
+                    }
+                }
+                TextField("New trigger", text: $newCategory)
+            }
+            Section(header: Text("Diary")) {
+                if profile.isPro {
+                    TextEditor(text: $diaryEntry)
+                } else {
+                    NavigationLink(destination: QPurchaseProView(profile: profile)) {
+                        Text("Go pro to add diary entries")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
                 }
             }
-            TextField("New trigger", text: $newCategory)
-            if profile.isPro {
-                Section(header: Text("Diary")) {
-                    TextEditor(text: $diaryEntry)
-                }
-            } else {
-                NavigationLink(destination: QPurchaseProView(profile: profile)) {
-                   Text("Go pro to add diary entries")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-               }
-            }
             Button("Save craving", action: {
                 saveCraving()
-                if let daysSmokeFree = profile.daysSmokeFree,
-                   daysSmokeFree > 3 {
-                    SKStoreReviewController.requestReview()
-                }
+                requestAReview()
             })
             .buttonStyle(QButtonStyle())
         }
@@ -70,6 +69,15 @@ private extension QAddCravingView {
         craving.diaryEntry = diaryEntry.isEmpty ? nil : diaryEntry
         try? managedObjectContext.save()
         presentationMode.wrappedValue.dismiss()
+    }
+    
+    func requestAReview() {
+        if let daysSmokeFree = profile.daysSmokeFree,
+           daysSmokeFree > 3 {
+            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+            }
+        }
     }
 }
 

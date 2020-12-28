@@ -30,6 +30,7 @@ struct QVapeSpendView: View {
     var body: some View {
         if savedByVaping > 0 {
             Text("Compared to smoking, you've saved \(savedByVaping.currencyFormat)")
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .multilineTextAlignment(.leading)
                 .padding()

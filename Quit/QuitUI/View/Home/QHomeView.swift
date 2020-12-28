@@ -8,7 +8,7 @@
 
 // Custom achievements
 // SwiftUI widget
-// Diary entries with cravings
+// Fix the achievements card complete number
 
 import SwiftUI
 import StoreKit

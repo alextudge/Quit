@@ -6,8 +6,9 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
-// Add Quit pro (todo - simulator error/isPro not being set)
+// Custom achievements
 // SwiftUI widget
+// Diary entries with cravings
 
 import SwiftUI
 
@@ -18,14 +19,14 @@ struct QHomeView: View {
     
     var body: some View {
         List {
-            if !profile.isPro && !profile.hasDismissedProUpsell {
-                NavigationLink(destination: QPurchaseProView(profile: profile)) {
-                    Text("Go pro")
-                }
-            }
             Section(header: QListHeaderView(sectionHeader: "Your Quit Date")) {
                 QEditQuitDateView(profile: profile)
             }.listRowInsets(EdgeInsets(.zero))
+            if !profile.isPro && !profile.hasDismissedProUpsell {
+                Section(header: QListHeaderView(sectionHeader: "Quit pro")) {
+                    QGoProUpsellView(profile: profile)
+                }.listRowInsets(EdgeInsets(.zero))
+            }
             Section(header: QListHeaderView(sectionHeader: "Your Finances")) {
                 QFinanceListView(profile: profile)
             }.listRowInsets(EdgeInsets(.zero))
@@ -33,7 +34,7 @@ struct QHomeView: View {
                 QAchievementHomeView(profile: profile)
             }.listRowInsets(EdgeInsets(.zero))
             Section(header: QListHeaderView(sectionHeader: "Cravings & Triggers")) {
-                QCravingsSectionView()
+                QCravingsSectionView(profile: profile)
             }.listRowInsets(EdgeInsets(.zero))
             Section(header: QListHeaderView(sectionHeader: "Vape spend")) {
                 QVapeSpendView(profile: profile)

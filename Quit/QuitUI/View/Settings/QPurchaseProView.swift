@@ -11,6 +11,7 @@ import SwiftUI
 struct QPurchaseProView: View {
     
     @ObservedObject var profile: Profile
+    @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     private var purchaseHelper: QPurchaseHelper
     
@@ -47,6 +48,16 @@ struct QPurchaseProView: View {
                 presentationMode.wrappedValue.dismiss()
             }
         })
+        .onAppear {
+            didDismissUpsellCard()
+        }
+    }
+}
+
+private extension QPurchaseProView {
+    func didDismissUpsellCard() {
+        profile.hasDismissedProUpsell = true
+        try? managedObjectContext.save()
     }
 }
 

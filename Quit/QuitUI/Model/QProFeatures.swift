@@ -9,7 +9,7 @@
 import Foundation
 
 enum QProFeatures: CaseIterable, Identifiable {
-    case unlimitedGoals, customAchievements, unlimitedNotifications, extraSupport
+    case unlimitedGoals, customAchievements, diary
     
     var id: String {
         title
@@ -21,23 +21,19 @@ enum QProFeatures: CaseIterable, Identifiable {
             return "Unlimited savings goals"
         case .customAchievements:
             return "Create your own achievements"
-        case .unlimitedNotifications:
-            return "Unlimited custom notifications"
-        case .extraSupport:
-            return "Exclusive tips and messages"
+        case .diary:
+            return "Diary entries"
         }
     }
     
     var message: String {
         switch self {
         case .unlimitedGoals:
-            return "Add as many savings goals as you like. This is usually limited to two!"
+            return "Add as many savings goals as you like. This is usually limited to one!"
         case .customAchievements:
             return "Create your own achievements"
-        case .unlimitedNotifications:
-            return "Unlimited custom notifications"
-        case .extraSupport:
-            return "Exclusive tips and messaages"
+        case .diary:
+            return "Store diary entries with any cravings you record"
         }
     }
 }

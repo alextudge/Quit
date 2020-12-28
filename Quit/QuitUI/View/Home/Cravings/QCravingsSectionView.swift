@@ -9,12 +9,14 @@
 import SwiftUI
 
 struct QCravingsSectionView: View {
+    
+    @ObservedObject var profile: Profile
         
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 20) {
-                    NavigationLink(destination: QAddCravingView()) {
+                    NavigationLink(destination: QAddCravingView(profile: profile)) {
                         Text("Add Craving")
                             .foregroundColor(.white)
                             .padding()
@@ -39,6 +41,6 @@ struct QCravingsSectionView: View {
 
 struct QCravingsSectionView_Previews: PreviewProvider {
     static var previews: some View {
-        QCravingsSectionView()
+        QCravingsSectionView(profile: Profile())
     }
 }

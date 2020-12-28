@@ -16,6 +16,7 @@
 		1716321B25975A22000A3CD4 /* QListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716321A25975A22000A3CD4 /* QListHeaderView.swift */; };
 		171632272597A6FE000A3CD4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171632262597A6FE000A3CD4 /* CloudKit.framework */; };
 		171632302597B06F000A3CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1716322F2597B06F000A3CD4 /* LaunchScreen.storyboard */; };
+		171EE8CA259A67F200A84557 /* QGoProUpsellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171EE8C9259A67F200A84557 /* QGoProUpsellView.swift */; };
 		172020702538E53800C3459D /* QStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720206F2538E53800C3459D /* QStringExtensions.swift */; };
 		172986C0253E18EC002B17B1 /* QNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172986BF253E18EC002B17B1 /* QNotificationManager.swift */; };
 		172986D5253E25B7002B17B1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172986D4253E25B7002B17B1 /* Constants.swift */; };
@@ -124,6 +125,7 @@
 		1716321A25975A22000A3CD4 /* QListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QListHeaderView.swift; sourceTree = "<group>"; };
 		171632262597A6FE000A3CD4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		1716322F2597B06F000A3CD4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		171EE8C9259A67F200A84557 /* QGoProUpsellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QGoProUpsellView.swift; sourceTree = "<group>"; };
 		1720206F2538E53800C3459D /* QStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QStringExtensions.swift; sourceTree = "<group>"; };
 		172986BF253E18EC002B17B1 /* QNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QNotificationManager.swift; sourceTree = "<group>"; };
 		172986D4253E25B7002B17B1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Quit/Utilities/Constants.swift; sourceTree = SOURCE_ROOT; };
@@ -239,6 +241,14 @@
 			path = "Reusable Views";
 			sourceTree = "<group>";
 		};
+		171EE8C8259A67DD00A84557 /* Pro */ = {
+			isa = PBXGroup;
+			children = (
+				171EE8C9259A67F200A84557 /* QGoProUpsellView.swift */,
+			);
+			path = Pro;
+			sourceTree = "<group>";
+		};
 		1720206E2538E52900C3459D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +324,7 @@
 			children = (
 				1732B3912527802F00C469C1 /* QHomeView.swift */,
 				17440DE92527E4E7000E4703 /* QEditQuitDateView.swift */,
+				171EE8C8259A67DD00A84557 /* Pro */,
 				17C09C2A253125B7007966B1 /* Finance */,
 				174B53432534F1E0009F254C /* Achievements */,
 				17C09C2825312593007966B1 /* Cravings */,
@@ -645,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17C09C2325312544007966B1 /* QFinanceListView.swift in Sources */,
+				171EE8CA259A67F200A84557 /* QGoProUpsellView.swift in Sources */,
 				17440DFA2527EB5D000E4703 /* QCravingChartView.swift in Sources */,
 				17043210252FAB92007263B6 /* QButtonStyle.swift in Sources */,
 				172020702538E53800C3459D /* QStringExtensions.swift in Sources */,

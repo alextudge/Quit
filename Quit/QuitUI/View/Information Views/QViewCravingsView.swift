@@ -20,12 +20,14 @@ struct QViewCravingsView: View {
     var body: some View {
         List {
             ForEach(cravings, id: \.self) { craving in
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text("\(standardisedDate(date: craving.cravingDate ?? Date()))")
                         .foregroundColor(craving.cravingSmoked ? .orange : .primary)
                         .font(.title2)
                     Text("Trigger: \(craving.cravingCatagory ?? "")")
-                        .font(.caption)
+                    if let diary = craving.diaryEntry {
+                        Text("Diary: \(diary)")
+                    }
                 }
             }
             .onDelete(perform: delete)

@@ -16,9 +16,11 @@ struct QAddCravingView: View {
         entity: Craving.entity(),
         sortDescriptors: []
     ) var cravings: FetchedResults<Craving>
+    @ObservedObject var profile: Profile
     @State private var smoked = false
     @State private var category: String = ""
     @State private var newCategory = ""
+    @State private var diaryEntry = ""
     private var categories: [String] {
         Array(Set(cravings.compactMap { $0.cravingCatagory }))
     }
@@ -34,6 +36,17 @@ struct QAddCravingView: View {
                 }
             }
             TextField("New trigger", text: $newCategory)
+            if profile.isPro {
+                Section(header: Text("Diary")) {
+                    TextEditor(text: $diaryEntry)
+                }
+            } else {
+                NavigationLink(destination: QPurchaseProView(profile: profile)) {
+                   Text("Go pro to add diary entries")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+               }
+            }
             Button("Save craving", action: {
                 saveCraving()
             })
@@ -49,6 +62,7 @@ private extension QAddCravingView {
         craving.cravingCatagory = !newCategory.isEmpty ? newCategory : category
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
+        craving.diaryEntry = diaryEntry.isEmpty ? nil : diaryEntry
         try? managedObjectContext.save()
         presentationMode.wrappedValue.dismiss()
     }
@@ -56,6 +70,6 @@ private extension QAddCravingView {
 
 struct QAddCravingView_Previews: PreviewProvider {
     static var previews: some View {
-        QAddCravingView()
+        QAddCravingView(profile: Profile())
     }
 }

@@ -10,20 +10,12 @@ import SwiftUI
 
 struct QNotificationsHomeView: View {
     
-    private let center = UNUserNotificationCenter.current()
-    @State private var hasCustomNotifications = false
     @ObservedObject var profile: Profile
     
     var body: some View {
         List {
-            if profile.isPro {
-                NavigationLink(destination: QAddCustomNotificationView(profile: profile)) {
-                    Text("Add a custom notification")
-                }
-            } else {
-                NavigationLink(destination: QPurchaseProView(profile: profile)) {
-                    Text("Go pro to add custom notifications based on a time or a location.")
-                }
+            NavigationLink(destination: QAddCustomNotificationView(profile: profile)) {
+                Text("Add a custom notification")
             }
             NavigationLink(destination: QViewPendingNotificationsView()) {
                 Text("View all upcoming notifications")

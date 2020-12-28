@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Achievement" representedClassName="Achievement" syncable="YES" codeGenerationType="class">
-        <attribute name="failureText" attributeType="String"/>
-        <attribute name="name" attributeType="String"/>
-        <attribute name="successText" attributeType="String"/>
+        <attribute name="failureText" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="successText" optional="YES" attributeType="String"/>
         <attribute name="targetCigarettes" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Craving" representedClassName="Craving" syncable="YES" codeGenerationType="class">

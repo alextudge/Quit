@@ -12,7 +12,7 @@ struct QAchievementHomeView: View {
     
     @ObservedObject var profile: Profile
     private var achievementsAchieved: Int {
-        QAchievements.allCases.compactMap {
+        QAchievements.allCases.filter {
             $0.resultsText(profile: profile).passed
         }.count
     }

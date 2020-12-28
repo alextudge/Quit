@@ -8,10 +8,8 @@
 
 // Custom achievements
 // SwiftUI widget
-// Fix the achievements card complete number
 
 import SwiftUI
-import StoreKit
 
 struct QHomeView: View {
     

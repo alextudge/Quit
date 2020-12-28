@@ -17,6 +17,10 @@ struct QFinanceSavingGoalListView: View {
     ) var goals: FetchedResults<SavingGoal>
     @ObservedObject var profile: Profile
     
+    private var canAddMoreGoals: Bool {
+        goals.count <= 1 || profile.isPro
+    }
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
@@ -26,14 +30,26 @@ struct QFinanceSavingGoalListView: View {
                         .cornerRadius(5)
                         .shadow(radius: 5)
                 }
-                NavigationLink(destination: QSavingGoalEditView(savingGoal: nil)) {
-                    Text("Add a saving goal")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color("section3"))
-                        .cornerRadius(5)
-                        .buttonStyle(QButtonStyle())
-                        .shadow(radius: 5)
+                if canAddMoreGoals {
+                    NavigationLink(destination: QSavingGoalEditView(savingGoal: nil)) {
+                        Text("Add a saving goal")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color("section3"))
+                            .cornerRadius(5)
+                            .buttonStyle(QButtonStyle())
+                            .shadow(radius: 5)
+                    }
+                } else {
+                    NavigationLink(destination: QSavingGoalEditView(savingGoal: nil)) {
+                        Text("Go pro to add unlimited goals!")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color("section3"))
+                            .cornerRadius(5)
+                            .buttonStyle(QButtonStyle())
+                            .shadow(radius: 5)
+                    }
                 }
             }
             .padding([.leading, .trailing])

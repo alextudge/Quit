@@ -10,7 +10,14 @@ import SwiftUI
 
 struct QPurchaseProView: View {
     
-    @ObservedObject var purchaseHelper = QPurchaseHelper()
+    @ObservedObject var profile: Profile
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    private var purchaseHelper: QPurchaseHelper
+    
+    init(profile: Profile) {
+        self.profile = profile
+        self.purchaseHelper = QPurchaseHelper(profile: profile)
+    }
     
     var body: some View {
         List {
@@ -35,11 +42,16 @@ struct QPurchaseProView: View {
             .buttonStyle(QButtonStyle())
         }
         .navigationTitle("Go pro")
+        .onChange(of: profile.isPro, perform: { value in
+            if value {
+                presentationMode.wrappedValue.dismiss()
+            }
+        })
     }
 }
 
 struct QPurchaseProView_Previews: PreviewProvider {
     static var previews: some View {
-        QPurchaseProView()
+        QPurchaseProView(profile: Profile())
     }
 }

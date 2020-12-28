@@ -16,12 +16,13 @@ class QPurchaseHelper: NSObject, ObservableObject {
     private var productsRequest: SKProductsRequest?
     @Published var availableProducts = [SKProduct]()
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(entity: Profile.entity(), sortDescriptors: []) var profiles: FetchedResults<Profile>
+    @ObservedObject var profile: Profile
     var canMakePayments: Bool {
         SKPaymentQueue.canMakePayments()
     }
     
-    override init() {
+    init(profile: Profile) {
+        self.profile = profile
         super.init()
         SKPaymentQueue.default().add(self)
         requestProducts()
@@ -44,9 +45,6 @@ extension QPurchaseHelper: SKProductsRequestDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.availableProducts = response.products
             self?.productsRequest = nil
-            self?.availableProducts.forEach {
-                print($0)
-            }
         }
     }
     
@@ -111,7 +109,7 @@ private extension QPurchaseHelper {
     }
     
     func markProAsPurchased() {
-        profiles.first?.isPro = true
+        profile.isPro = true
         try? managedObjectContext.save()
     }
 }

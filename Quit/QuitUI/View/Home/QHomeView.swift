@@ -19,7 +19,7 @@ struct QHomeView: View {
     var body: some View {
         List {
             if !profile.isPro && !profile.hasDismissedProUpsell {
-                NavigationLink(destination: QPurchaseProView()) {
+                NavigationLink(destination: QPurchaseProView(profile: profile)) {
                     Text("Go pro")
                 }
             }

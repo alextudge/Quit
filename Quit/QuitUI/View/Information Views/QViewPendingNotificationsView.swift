@@ -44,15 +44,14 @@ struct QViewPendingNotificationsView: View {
 private extension QViewPendingNotificationsView {
     func getAllPendingNotifications() {
         center.getPendingNotificationRequests(completionHandler: { requests in
-            requests.forEach {
-                self.notifications.append($0)
-            }
+            notifications = requests
         })
     }
     
     func delete(at offsets: IndexSet) {
         offsets.forEach {
             QNotificationManager().cancelNotification(with: notifications[$0].identifier)
+            getAllPendingNotifications()
         }
     }
 }

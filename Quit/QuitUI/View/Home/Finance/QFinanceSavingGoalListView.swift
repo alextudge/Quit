@@ -18,7 +18,7 @@ struct QFinanceSavingGoalListView: View {
     @ObservedObject var profile: Profile
     
     private var canAddMoreGoals: Bool {
-        goals.count <= 1 || profile.isPro
+        goals.isEmpty || profile.isPro
     }
     
     var body: some View {
@@ -41,7 +41,7 @@ struct QFinanceSavingGoalListView: View {
                             .shadow(radius: 5)
                     }
                 } else {
-                    NavigationLink(destination: QSavingGoalEditView(savingGoal: nil)) {
+                    NavigationLink(destination: QPurchaseProView(profile: profile)) {
                         Text("Go pro to add unlimited goals!")
                             .foregroundColor(.white)
                             .padding()

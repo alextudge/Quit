@@ -44,7 +44,7 @@ struct QHomeView: View {
             }.listRowInsets(EdgeInsets(.zero))
             Section(header: QListHeaderView(sectionHeader: "Notifications")) {
                 ZStack {
-                   NavigationLink(destination: QNotificationsHomeView()) {
+                    NavigationLink(destination: QNotificationsHomeView(profile: profile)) {
                        EmptyView()
                    }.hidden()
                     Text("Edit your notifications")

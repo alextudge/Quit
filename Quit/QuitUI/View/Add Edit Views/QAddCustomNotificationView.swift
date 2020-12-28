@@ -10,6 +10,8 @@ import SwiftUI
 
 struct QAddCustomNotificationView: View {
     
+    @ObservedObject var profile: Profile
+    
     var body: some View {
         List {
             NavigationLink(destination: QAddTimeNotificationView()) {
@@ -25,6 +27,6 @@ struct QAddCustomNotificationView: View {
 
 struct QAddCustomNotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        QAddCustomNotificationView()
+        QAddCustomNotificationView(profile: Profile())
     }
 }

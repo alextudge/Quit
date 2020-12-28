@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Achievement" representedClassName="Achievement" syncable="YES" codeGenerationType="class"/>
+    <entity name="Achievement" representedClassName="Achievement" syncable="YES" codeGenerationType="class">
+        <attribute name="failureText" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="successText" attributeType="String"/>
+        <attribute name="targetCigarettes" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Craving" representedClassName="Craving" syncable="YES" codeGenerationType="class">
         <attribute name="cravingCatagory" optional="YES" attributeType="String"/>
         <attribute name="cravingDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -31,6 +36,6 @@
         <element name="Profile" positionX="-94.44708251953125" positionY="-79.95318603515625" width="128" height="164"/>
         <element name="SavingGoal" positionX="72" positionY="54" width="128" height="75"/>
         <element name="VapeSpend" positionX="0" positionY="9" width="128" height="73"/>
-        <element name="Achievement" positionX="0" positionY="9" width="128" height="29"/>
+        <element name="Achievement" positionX="0" positionY="9" width="128" height="89"/>
     </elements>
 </model>

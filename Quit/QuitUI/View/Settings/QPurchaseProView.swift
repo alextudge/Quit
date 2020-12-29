@@ -36,11 +36,18 @@ struct QPurchaseProView: View {
                 .shadow(radius: 4)
                 .cornerRadius(5)
             }
-            Button("Confirm purchase", action: {
-                purchaseHelper.buyProduct()
-            })
-            .disabled(purchaseHelper.availableProducts.isEmpty)
-            .buttonStyle(QButtonStyle())
+            if let product = purchaseHelper.availableProducts.first {
+                HStack {
+                    Button("Confirm purchase", action: {
+                        purchaseHelper.buyProduct()
+                    })
+                    .buttonStyle(QButtonStyle())
+                    Spacer()
+                    Text("\(product.price)")
+                }
+            } else {
+                Text("Loading available products...")
+            }
         }
         .navigationTitle("Go pro")
         .onChange(of: profile.isPro, perform: { value in

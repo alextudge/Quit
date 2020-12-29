@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
-// Custom achievements
+// Fix the sizings on a mac - charts are missing
 // SwiftUI widget
 
 import SwiftUI

@@ -14,8 +14,8 @@ struct QCravingsSectionView: View {
         
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 20) {
-                VStack(alignment: .leading, spacing: 20) {
+            LazyHStack(spacing: 10) {
+                VStack(alignment: .leading, spacing: 10) {
                     NavigationLink(destination: QAddCravingView(profile: profile)) {
                         Text("Add Craving")
                             .foregroundColor(.white)

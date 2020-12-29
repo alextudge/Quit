@@ -22,7 +22,7 @@ struct QAchievementHomeView: View {
             NavigationLink(destination: QViewAchievementsView(profile: profile)) {
                 EmptyView()
             }.hidden()
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text("\(achievementsAchieved) achieved!")
                     .font(.headline)
                     .foregroundColor(.white)

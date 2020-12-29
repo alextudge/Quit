@@ -23,7 +23,7 @@ struct QFinanceSavingGoalListView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20) {
+            HStack(spacing: 10) {
                 ForEach(goals) { goal in
                     QFinanceSavingGoalView(goal: goal, profile: profile)
                         .background(Color("section3"))

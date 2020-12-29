@@ -14,7 +14,13 @@ struct QHealthInfoView: View {
     let profile: Profile
     private var progress: Double {
         let percentage = Double(profile.secondsSmokeFree ?? 0) / healthState.secondsForHealthState() * 100
-        return percentage > 100 ? 100 : percentage
+        if percentage < 0 {
+            return 0
+        } else if percentage > 100 {
+            return 100
+        } else {
+            return percentage
+        }
     }
     
     var body: some View {

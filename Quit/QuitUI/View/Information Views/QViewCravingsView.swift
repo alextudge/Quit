@@ -42,7 +42,9 @@ private extension QViewCravingsView {
         offsets.forEach {
             managedObjectContext.delete(cravings[$0])
         }
-        try? managedObjectContext.save()
+        DispatchQueue.main.async {
+            try? managedObjectContext.save()
+        }
     }
     
     func standardisedDate(date: Date) -> String {

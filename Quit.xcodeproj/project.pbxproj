@@ -62,6 +62,7 @@
 		17C09C2C253125D7007966B1 /* QFinanceTimeSavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C09C2B253125D7007966B1 /* QFinanceTimeSavingView.swift */; };
 		17C14F1125279CF5001564B0 /* QEntryDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C14F1025279CF5001564B0 /* QEntryDecisionView.swift */; };
 		17C14F3225279F1D001564B0 /* QSetupProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C14F3125279F1D001564B0 /* QSetupProfileView.swift */; };
+		17DB4168259BBEC500462EC0 /* QCustomAchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4167259BBEC500462EC0 /* QCustomAchievementView.swift */; };
 		17F7C0C625980E00006FB5CF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F7C0A825980D8C006FB5CF /* WidgetKit.framework */; };
 		17F7C0C725980E00006FB5CF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F7C0AA25980D8C006FB5CF /* SwiftUI.framework */; };
 		17F7C0CA25980E00006FB5CF /* Quit_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F7C0C925980E00006FB5CF /* Quit_Widget.swift */; };
@@ -174,6 +175,7 @@
 		17C09C2B253125D7007966B1 /* QFinanceTimeSavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFinanceTimeSavingView.swift; sourceTree = "<group>"; };
 		17C14F1025279CF5001564B0 /* QEntryDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEntryDecisionView.swift; sourceTree = "<group>"; };
 		17C14F3125279F1D001564B0 /* QSetupProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSetupProfileView.swift; sourceTree = "<group>"; };
+		17DB4167259BBEC500462EC0 /* QCustomAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCustomAchievementView.swift; sourceTree = "<group>"; };
 		17F7C0A825980D8C006FB5CF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		17F7C0AA25980D8C006FB5CF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		17F7C0C525980E00006FB5CF /* Quit WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Quit WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,6 +379,7 @@
 				175C834D25349F5A000FAD1E /* QViewCravingsView.swift */,
 				174B53502534FAF4009F254C /* QViewAchievementsView.swift */,
 				174B534A2534F41A009F254C /* QAchievementView.swift */,
+				17DB4167259BBEC500462EC0 /* QCustomAchievementView.swift */,
 				174B53652535006B009F254C /* QHealthInfoView.swift */,
 				174B539425365A8D009F254C /* QViewPendingNotificationsView.swift */,
 				1778A7CC253E46CE0097E606 /* QViewVapeSpendsView.swift */,
@@ -670,6 +673,7 @@
 				172986EB253E37C7002B17B1 /* QVapeSpendView.swift in Sources */,
 				174B539525365A8D009F254C /* QViewPendingNotificationsView.swift in Sources */,
 				175C83542534D532000FAD1E /* QSavingGoalEditView.swift in Sources */,
+				17DB4168259BBEC500462EC0 /* QCustomAchievementView.swift in Sources */,
 				17C14F1125279CF5001564B0 /* QEntryDecisionView.swift in Sources */,
 				17440E07252A6164000E4703 /* QLineGraph.swift in Sources */,
 				1778A7CD253E46CE0097E606 /* QViewVapeSpendsView.swift in Sources */,

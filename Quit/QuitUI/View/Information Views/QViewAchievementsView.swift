@@ -22,13 +22,19 @@ struct QViewAchievementsView: View {
             if !achievements.isEmpty {
                 Section(header: Text("Custom achievements")) {
                     ForEach(achievements) { achievement in
-                        Text("\(achievement.name ?? "")")
+                        QCustomAchievementView(achievement: achievement, profile: profile)
                     }
+                    .onDelete(perform: delete)
                 }
             }
             if profile.isPro {
                 NavigationLink(destination: QAddCustomAchievementView()) {
-                    Text("Add a custom achievement")
+                    HStack {
+                        Text("Add a custom achievement")
+                    }
+                    .padding()
+                    .background(Color.green)
+                    .cornerRadius(5)
                 }
             } else {
                 NavigationLink(destination: QPurchaseProView(profile: profile)) {
@@ -37,6 +43,18 @@ struct QViewAchievementsView: View {
             }
         }
         .navigationTitle("Achievements")
+        .navigationBarItems(trailing: EditButton())
+    }
+}
+
+private extension QViewAchievementsView {
+    func delete(at offsets: IndexSet) {
+        offsets.forEach {
+            managedObjectContext.delete(achievements[$0])
+        }
+        DispatchQueue.main.async {
+            try? managedObjectContext.save()
+        }
     }
 }
 

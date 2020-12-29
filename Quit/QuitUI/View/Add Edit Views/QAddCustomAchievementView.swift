@@ -15,6 +15,7 @@ struct QAddCustomAchievementView: View {
     @State private var successText = ""
     @State private var failureText = ""
     @State private var numberOfCigarettes = ""
+    @State private var showingAlert = false
     
     var body: some View {
         Form {
@@ -31,11 +32,21 @@ struct QAddCustomAchievementView: View {
             .buttonStyle(QButtonStyle())
         }
         .navigationTitle("Add an achievement")
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("🤕"), message: Text("Please complete all fields in the right format."), dismissButton: .default(Text("Got it!")))
+        }
     }
 }
 
 private extension QAddCustomAchievementView {
     func saveAchievement() {
+        guard !name.isEmpty,
+              !successText.isEmpty,
+              !failureText.isEmpty,
+              numberOfCigarettes.isNumber else {
+            showingAlert = true
+            return
+        }
         let achievement = Achievement(context: managedObjectContext)
         achievement.name = name
         achievement.successText = successText

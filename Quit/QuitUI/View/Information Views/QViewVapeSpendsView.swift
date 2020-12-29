@@ -36,7 +36,9 @@ private extension QViewVapeSpendsView {
         offsets.forEach {
             managedObjectContext.delete(vapeSpends[$0])
         }
-        try? managedObjectContext.save()
+        DispatchQueue.main.async {
+            try? managedObjectContext.save()
+        }
     }
 }
 

@@ -6,8 +6,8 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
-// Fix the sizings on a mac - charts are missing
-// SwiftUI widget
+//Finish adding health stats
+//Reset quit date on didsmoke
 
 import SwiftUI
 

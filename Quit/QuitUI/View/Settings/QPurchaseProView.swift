@@ -43,7 +43,7 @@ struct QPurchaseProView: View {
                     })
                     .buttonStyle(QButtonStyle())
                     Spacer()
-                    Text("\(product.price)")
+                    Text("\(formatPrice(product.price) ?? "£0")")
                 }
             } else {
                 Text("Loading available products...")
@@ -65,6 +65,13 @@ private extension QPurchaseProView {
     func didDismissUpsellCard() {
         profile.hasDismissedProUpsell = true
         try? managedObjectContext.save()
+    }
+    
+    func formatPrice(_ double: NSDecimalNumber) -> String? {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .currency
+        return formatter.string(from: double as NSNumber)
     }
 }
 

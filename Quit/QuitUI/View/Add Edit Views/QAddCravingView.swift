@@ -22,6 +22,7 @@ struct QAddCravingView: View {
     @State private var category: String = ""
     @State private var newCategory = ""
     @State private var diaryEntry = ""
+    @State private var showingResetAlert = false
     private var categories: [String] {
         Array(Set(cravings.compactMap { $0.cravingCatagory }))
     }
@@ -57,6 +58,14 @@ struct QAddCravingView: View {
             .buttonStyle(QButtonStyle())
         }
         .navigationTitle("Add a craving")
+        .alert(isPresented: $showingResetAlert) {
+            Alert(title: Text("🤦‍♀️"), message: Text("Don't worry - it takes most people loads of attempts to get it right. Keep trying!\n\n We'll reset your quit date."), dismissButton: .default(Text("Got it!")))
+        }
+        .onChange(of: smoked, perform: { value in
+            if value {
+                showingResetAlert = true
+            }
+        })
     }
 }
 
@@ -67,6 +76,9 @@ private extension QAddCravingView {
         craving.cravingDate = Date()
         craving.cravingSmoked = smoked
         craving.diaryEntry = diaryEntry.isEmpty ? nil : diaryEntry
+        if smoked {
+            profile.quitDate = Date()
+        }
         try? managedObjectContext.save()
         presentationMode.wrappedValue.dismiss()
     }

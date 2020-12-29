@@ -12,7 +12,14 @@ struct QClockView: View {
     
     var progress: Double
     private var correctedProgress: Double {
-        (progress * 360) > 360 ? 360 : (progress * 360)
+        let calculatedProgress = progress * 360
+        if calculatedProgress > 360 {
+            return 360
+        } else if calculatedProgress < 0 {
+            return 0
+        } else {
+            return calculatedProgress
+        }
     }
     
     var body: some View {

@@ -7,7 +7,6 @@
 //
 
 //Finish adding health stats
-//Reset quit date on didsmoke
 
 import SwiftUI
 

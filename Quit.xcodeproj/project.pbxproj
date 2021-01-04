@@ -816,7 +816,7 @@
 				CODE_SIGN_ENTITLEMENTS = Quit/Quit.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -825,7 +825,7 @@
 				INFOPLIST_FILE = Quit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 7;
+				MARKETING_VERSION = 7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -843,7 +843,7 @@
 				CODE_SIGN_ENTITLEMENTS = Quit/Quit.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -852,7 +852,7 @@
 				INFOPLIST_FILE = Quit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 7;
+				MARKETING_VERSION = 7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alex.Quit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

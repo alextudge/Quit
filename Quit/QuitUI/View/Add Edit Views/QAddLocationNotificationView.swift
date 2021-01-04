@@ -51,6 +51,9 @@ struct QAddLocationNotificationView: View {
         .alert(isPresented: $showingLocationAlert) {
             Alert(title: Text("🤕"), message: Text("We can't currently add location based alerts to mac devices."), dismissButton: .default(Text("Got it!")))
         }
+        .onAppear {
+            QNotificationManager().requestNotificationPermissions()
+        }
         .navigationTitle("Add a notifications")
     }
 }

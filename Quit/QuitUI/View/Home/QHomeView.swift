@@ -6,8 +6,6 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
-//Finish adding health stats
-
 import SwiftUI
 
 struct QHomeView: View {

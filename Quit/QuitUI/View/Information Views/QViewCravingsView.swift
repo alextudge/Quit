@@ -24,7 +24,9 @@ struct QViewCravingsView: View {
                     Text("\(standardisedDate(date: craving.cravingDate ?? Date()))")
                         .foregroundColor(craving.cravingSmoked ? .orange : .primary)
                         .font(.title2)
-                    Text("Trigger: \(craving.cravingCatagory ?? "")")
+                    if craving.cravingCatagory?.isEmpty == false {
+                        Text("Trigger: \(craving.cravingCatagory ?? "")")
+                    }
                     if let diary = craving.diaryEntry {
                         Text("Diary: \(diary)")
                     }

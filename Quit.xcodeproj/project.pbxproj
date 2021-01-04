@@ -165,7 +165,6 @@
 		17DB4167259BBEC500462EC0 /* QCustomAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCustomAchievementView.swift; sourceTree = "<group>"; };
 		17F7C0A825980D8C006FB5CF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		17F7C0AA25980D8C006FB5CF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		17F7C0D125980E02006FB5CF /* Quit WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Quit WidgetExtension.entitlements"; sourceTree = "<group>"; };
 		17F7C0D7259929A6006FB5CF /* QPurchaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPurchaseHelper.swift; sourceTree = "<group>"; };
 		17F7C0DD25992C0A006FB5CF /* QPurchaseProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPurchaseProView.swift; sourceTree = "<group>"; };
 		17F8FF82219A08E70095CD6E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -378,7 +377,6 @@
 		177F03D82025220000CC7CA8 = {
 			isa = PBXGroup;
 			children = (
-				17F7C0D125980E02006FB5CF /* Quit WidgetExtension.entitlements */,
 				177F03E32025220000CC7CA8 /* Quit */,
 				170006872035D0DC0056F25C /* QuitTests */,
 				177F03E22025220000CC7CA8 /* Products */,
@@ -818,7 +816,7 @@
 				CODE_SIGN_ENTITLEMENTS = Quit/Quit.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -845,7 +843,7 @@
 				CODE_SIGN_ENTITLEMENTS = Quit/Quit.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = L8E3HCRWG9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

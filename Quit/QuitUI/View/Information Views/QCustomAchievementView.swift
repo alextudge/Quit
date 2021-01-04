@@ -31,10 +31,10 @@ struct QCustomAchievementView: View {
 
 private extension QCustomAchievementView {
     func achievementMessage(_ achievement: Achievement) -> String {
-        if achievement.targetCigarettes > Int64(profile.cigarettesAvoided) {
-            return achievement.successText ?? ""
-        } else {
+        if achievement.targetCigarettes >= Int64(profile.cigarettesAvoided) {
             return achievement.failureText ?? ""
+        } else {
+            return achievement.successText ?? ""
         }
     }
 }

@@ -39,11 +39,10 @@ struct QViewAchievementsView: View {
             } else {
                 NavigationLink(destination: QPurchaseProView(profile: profile)) {
                     Text("Go pro to add custom achievements!")
-                        .foregroundColor(.white)
                         .padding()
-                        .background(Color("section3"))
                         .cornerRadius(5)
-                        .buttonStyle(QButtonStyle())
+                        .foregroundColor(.white)
+                        .background(Color.green)
                         .shadow(radius: 5)
                 }
             }

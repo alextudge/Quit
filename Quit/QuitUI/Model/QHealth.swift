@@ -86,13 +86,13 @@ enum QHealth: CaseIterable {
         case .oneWeekSuccess:
             return "You're nine times more likely to quit for good once you've reached the one week mark.\n\nWithdrawal symptoms will also be milder, and all of the improvements you've seen so far will continue growing."
         case .lungPerformance:
-            return ""
+            return "At two weeks you should start to notice you're breathing easier. This is thanks to improved circulation and oxygenation.\n\nYour lung function increases as much as 30 percent about two weeks after quitting."
         case .fertility:
-            return ""
+            return "Quitting can improve fertility, with some of the effects of smoking being reversed within a year of quitting.\n\nWomen who quit smoking within three months of pregnancy reduce the risk of their baby being born prematurely, often to the same level as non-smokers."
         case .heartDisease:
-            return ""
+            return "The nicotine in smoke: reduces how much oxygen your heart gets, raises your blood pressure, speeds up your heart rate, makes blood clots more likely, which can lead to heart attacks or strokes, and harms the insides of your blood vessels, including those in your heart.\n\nAfter 1 year your risk of having a heart attack is half that of a smoker."
         case .lungCancer:
-            return ""
+            return "Smoking can cause cancer almost anywhere in the body.\n\nYour risk of lung cancer is about half that of a person who is still smoking after 10 to 15 years. Your risk of cancer of the bladder, esophagus, and kidney also decreases."
         }
     }
 }

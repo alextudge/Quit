@@ -11,6 +11,11 @@ import SwiftUI
 struct QCravingsSectionView: View {
     
     @ObservedObject var profile: Profile
+    @FetchRequest(
+        entity: Craving.entity(),
+        sortDescriptors: [],
+        predicate: NSPredicate(format: "cravingSmoked = %d", false)
+    ) var cravings: FetchedResults<Craving>
         
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -31,7 +36,15 @@ struct QCravingsSectionView: View {
                             .cornerRadius(5)
                     }
                 }
-                QCravingChartView(chartTitle: "Cravings")
+                if !cravings.isEmpty {
+                    QCravingChartView(chartTitle: "Cravings")
+                } else {
+                    Text("Your cravings chart will appear here.")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color("section5"))
+                        .cornerRadius(5)
+                }
             }
             .padding(.horizontal)
             .shadow(radius: 5)

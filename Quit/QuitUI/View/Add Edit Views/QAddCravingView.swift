@@ -19,7 +19,7 @@ struct QAddCravingView: View {
     ) var cravings: FetchedResults<Craving>
     @ObservedObject var profile: Profile
     @State private var smoked = false
-    @State private var category: String = ""
+    @State private var category: String?
     @State private var newCategory = ""
     @State private var diaryEntry = ""
     @State private var showingResetAlert = false

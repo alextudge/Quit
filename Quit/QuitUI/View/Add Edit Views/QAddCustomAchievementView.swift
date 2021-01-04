@@ -11,6 +11,7 @@ import SwiftUI
 struct QAddCustomAchievementView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var name = ""
     @State private var successText = ""
     @State private var failureText = ""
@@ -53,6 +54,7 @@ private extension QAddCustomAchievementView {
         achievement.failureText = failureText
         achievement.targetCigarettes = Int64(numberOfCigarettes) ?? 0
         try? managedObjectContext.save()
+        presentationMode.wrappedValue.dismiss()
     }
 }
 

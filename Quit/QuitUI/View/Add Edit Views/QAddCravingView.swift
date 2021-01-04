@@ -77,6 +77,10 @@ private extension QAddCravingView {
         craving.cravingSmoked = smoked
         craving.diaryEntry = diaryEntry.isEmpty ? nil : diaryEntry
         if smoked {
+            if let quitDate = profile.quitDate,
+               profile.notificationsEnabled {
+                QNotificationManager().setupHealthNotifications(quitDate: quitDate)
+            }
             profile.quitDate = Date()
         }
         try? managedObjectContext.save()

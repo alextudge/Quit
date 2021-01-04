@@ -6,6 +6,8 @@
 //  Copyright © 2020 Alex Tudge. All rights reserved.
 //
 
+//Add back reasons to smoke and quit
+
 import SwiftUI
 
 @main

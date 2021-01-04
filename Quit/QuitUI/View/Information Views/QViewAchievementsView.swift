@@ -29,20 +29,20 @@ struct QViewAchievementsView: View {
             }
             if profile.isPro {
                 NavigationLink(destination: QAddCustomAchievementView()) {
-                    HStack {
-                        Text("Add a custom achievement")
-                    }
-                    .padding()
-                    .background(Color.green)
-                    .cornerRadius(5)
+                    Text("Add a custom achievement")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.green)
+                        .cornerRadius(5)
+                        .shadow(radius: 5)
                 }
             } else {
                 NavigationLink(destination: QPurchaseProView(profile: profile)) {
                     Text("Go pro to add custom achievements!")
                         .padding()
-                        .cornerRadius(5)
                         .foregroundColor(.white)
                         .background(Color.green)
+                        .cornerRadius(5)
                         .shadow(radius: 5)
                 }
             }
